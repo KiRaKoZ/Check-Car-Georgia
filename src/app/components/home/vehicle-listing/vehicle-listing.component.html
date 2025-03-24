@@ -1,0 +1,54 @@
+<section>
+  <div class="flex flex-wrap gap-5 justify-between w-full max-w-[1400px] text-slate-950 max-md:max-w-full">
+    <h2 class="text-4xl font-bold leading-none">Explore All Vehicles</h2>
+    <a href="#" class="flex gap-2.5 justify-center items-center self-start mt-3.5 text-base font-medium leading-loose">
+      <span class="self-stretch my-auto">View All</span>
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/ee99a1bdba6554bf38ec27e45cd56195f972d7e6?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
+        class="object-contain shrink-0 self-stretch my-auto w-3.5 aspect-square"
+      />
+    </a>
+  </div>
+
+  <div class="flex z-10 gap-8 items-start self-start mt-12 ml-52 text-base font-medium leading-loose text-center text-slate-950 max-md:mt-10 max-md:ml-2.5">
+    <div class="flex flex-col w-[72px]">
+      <a href="#" class="self-start">New Cars</a>
+      <div class="flex mt-4 w-full bg-blue-600 min-h-0.5"></div>
+    </div>
+    <a href="#">Used Cars</a>
+    <a href="#">In Stock</a>
+  </div>
+
+  <section class="w-full">
+    <div class="relative max-w-full mx-auto">
+      <!-- Car Slider -->
+      <div class="flex gap-5 justify-center items-center relative">
+        <button (click)="prevSlide()" class="text-3xl p-2 bg-gray-300 rounded-full absolute left-0 z-20">
+          &#8592;
+        </button>
+
+        <div class="flex gap-5 overflow-hidden w-full">
+          <div class="flex transition-all duration-500" [ngStyle]="{'transform': 'translateX(-' + (currentIndex * 33.333) + '%)'}">
+            <div class="w-full flex-shrink-0" *ngFor="let car of cars">
+              <div class="flex max-w-[300px] sm:max-w-[calc(100%/3)] bg-gray-800 text-white rounded-2xl">
+                <img [src]="car.image" class="w-full h-[300px] object-cover rounded-t-2xl" />
+                <div class="p-5">
+                  <h3 class="text-lg font-medium mt-2">{{ car.name }}</h3>
+                  <p class="text-sm text-gray-400">{{ car.price }}</p>
+                  <p class="mt-3 text-sm">Mileage: {{ car.per }}</p>
+                  <p class="text-sm">Fuel: {{ car.fuel }} | Transmission: {{ car.transmission }}</p>
+                  <p class="text-lg mt-4 text-red-600 line-through">{{ car.year }}</p>
+                  <a href="#" class="mt-4 text-blue-500">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button (click)="nextSlide()" class="text-3xl p-2 bg-gray-300 rounded-full absolute right-0 z-20">
+          &#8594;
+        </button>
+      </div>
+    </div>
+  </section>
+</section>

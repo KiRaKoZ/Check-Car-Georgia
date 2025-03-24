@@ -1,0 +1,50 @@
+<section
+      class="flex flex-col items-start w-full text-base font-medium text-slate-950 max-md:mt-10"
+    >
+      <h2 *ngIf="isMainHeading" class="text-4xl font-bold leading-none">
+        Our Offices
+      </h2>
+
+      <h3 class="mt-12 text-lg leading-loose max-md:mt-10">
+        {{ location }}
+      </h3>
+
+      <address class="mt-8 leading-7 not-italic">
+        {{ address }}
+      </address>
+
+      <a
+        href="#"
+        class="flex gap-2.5 justify-center items-center mt-5 leading-loose"
+      >
+        <span class="self-stretch my-auto">See on Map</span>
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/a565f917292f2277547a400023218ffcc02826d3?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
+          class="object-contain shrink-0 self-stretch my-auto w-3.5 aspect-square"
+          alt="Map arrow"
+        />
+      </a>
+
+      <div class="flex gap-8 self-stretch mt-8 leading-7">
+        <div class="flex flex-1 gap-2.5 whitespace-nowrap">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/5ce5c22ae86e48aafa1bb622a49f231c58b9fc3a?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
+            class="object-contain shrink-0 self-start aspect-square w-[26px]"
+            alt="Email icon"
+          />
+          <a href="mailto:{{ email }}" class="basis-auto">
+            {{ email }}
+          </a>
+        </div>
+        <div class="flex flex-1 gap-2.5">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/b6e541f13f6abf3c426d064d0b0d4f46211b46b3?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
+            class="object-contain shrink-0 self-start aspect-square w-[26px]"
+            alt="Phone icon"
+          />
+          <a href="tel:{{ phone }}" class="basis-auto">
+            {{ phone }}
+          </a>
+        </div>
+      </div>
+    </section>

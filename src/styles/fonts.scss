@@ -1,0 +1,30 @@
+
+@font-face {
+    font-family: 'Noto Serif Georgian';
+    src: url('/fonts/geo-fonts/NotoSerifGeorgian-Regular.woff2') format('woff2'),
+        url('/fonts/geo-fonts/NotoSerifGeorgian-Regular.woff') format('woff'),
+        url('/fonts/geo-fonts/NotoSerifGeorgian-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DM Sans 9pt';
+    src: url('/fonts/eng-fonts/DMSans-9ptRegular.woff2') format('woff2'),
+        url('/fonts/eng-fonts/DMSans-9ptRegular.woff') format('woff'),
+        url('/fonts/eng-fonts/DMSans-9ptRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('/fonts/eng-fonts/BebasNeue-Regular.woff2') format('woff2'),
+        url('/fonts/eng-fonts/BebasNeue-Regular.woff') format('woff'),
+        url('/fonts/eng-fonts/BebasNeue-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

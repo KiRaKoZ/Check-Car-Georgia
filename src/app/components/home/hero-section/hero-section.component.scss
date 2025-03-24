@@ -1,0 +1,12 @@
+.hero-container {
+    transition: background-color 0.3s ease-out, opacity 1s ease-in;
+  }
+  
+  /* Apply fading effect only to the image */
+  .hero-image {
+    transition: opacity 2s ease-in-out;
+  }
+  
+  .fading {
+    opacity: 0 !important; /* Hide the image or element during the fade-out */
+  }
