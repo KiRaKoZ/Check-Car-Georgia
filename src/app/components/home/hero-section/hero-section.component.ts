@@ -62,6 +62,7 @@ export class HeroSectionComponent {
   onMoreInfo() {
     console.log('More info about:', this.cars[this.currentIndex]);
   }
+  
 
 
 }
