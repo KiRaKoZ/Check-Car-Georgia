@@ -1,8 +1,14 @@
 
 @use 'styles/fonts.scss' as *;
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+
+.fade-in {
+    @apply opacity-100 animate-fadeInUp;
+  }
+.hidden-fade {
+    @apply opacity-0;
+}
