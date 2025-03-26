@@ -18,9 +18,10 @@ export default {
 
         },
         fontFamily: {
-          BebasNeue: ["Bebas Neue"],
+          DMSans: ["DM Sans", "sans-serif"],
+          DMSans9pt: ["DM Sans 9pt"],
           NotoSansGeorgian: ["Noto Serif Georgian"],
-          DMSans: ["DM Sans 9pt"],
+          BebasNeue: ["Bebas Neue"],
         },
         
       },

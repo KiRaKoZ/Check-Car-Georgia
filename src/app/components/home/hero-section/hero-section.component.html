@@ -1,13 +1,12 @@
-<div class="overflow-hidden relative w-full h-[100vh] max-h-[1200px] hero-container" [ngClass]="{'fading': fading}">
+<div class="overflow-hidden relative w-full h-[100vh] max-h-[1000px] hero-container" [ngClass]="{'fading': fading}">
   <div class="absolute inset-0">
     <div class="size-full"></div>
     <img [src]="cars[currentIndex].image" alt="Car Image" class="absolute inset-0 w-full h-full object-cover hero-image m-auto" />
     <div class="absolute inset-0 opacity-20 bg-slate-950"></div>
   </div>
 
-
-  <div class="flex relative items-center px-16 mx-auto h-full max-w-[1920px]">
-    <div class="flex flex-col gap-10">
+  <div class="flex relative items-center  mx-auto h-full px-4">
+    <div class="flex flex-col gap-10 pl-[calc((100vw-1430px)/2)]">
       <p class="text-4xl text-white font-medium">
         {{ cars[currentIndex].price }} / {{ cars[currentIndex].per }}
         
@@ -15,10 +14,26 @@
       <h1 class="text-7xl font-bold text-white">
         {{ cars[currentIndex].name }}
       </h1>
-
+      <div class="absolute flex gap-8 items-center bottom-16 ">
+        <button class="w-16 h-10 border border-white rounded-3xl text-white" (click)="changeSlide(false)">❮</button>
+        <div class="flex gap-2">
+          <div 
+            *ngFor="let car of cars; let i = index" 
+            [class.opacity-50]="i !== currentIndex"
+            class="py-2 cursor-pointer"
+            (click)="goToSlide(i)">
+            <div
+            class="h-1 bg-white rounded transition-all duration-300 "
+            [class.w-3]="i !== currentIndex"
+            [class.w-6]="i === currentIndex">
+            </div>
+          </div>
+        </div>
+        <button class="w-16 h-10 border border-white rounded-3xl  text-white 4" (click)="changeSlide(true)">❯</button>
+      </div>
     </div>
 
-    <div class="absolute flex flex-col gap-12 p-14 rounded-2xl backdrop-blur-lg bg-white bg-opacity-10 right-16  w-[360px]">
+    <div class="absolute flex flex-col gap-12 p-14 rounded-2xl bg-white bg-opacity-10 right-8  max-w-[360px]" style="background: rgba(255, 255, 255, 0.1);">
       <div class="flex flex-col gap-3 text-white">
         <img [src]="'icons/gasoline-pump.svg'" alt="" class="w-[30px] h-[30px]">
         <span class="text-sm" >Fuel Type</span>
@@ -41,25 +56,6 @@
           More Info
           <img [src]="'icons/LinkArrow.svg'" alt="" class="w-[15px] h-[15px] ">
       </button>
-
-    </div>
-
-    <div class="absolute flex gap-8 items-center bottom-16 ">
-      <button class="w-16 h-10 border border-white rounded-3xl text-white" (click)="changeSlide(false)">❮</button>
-      <div class="flex gap-2">
-        <div 
-          *ngFor="let car of cars; let i = index" 
-          [class.opacity-50]="i !== currentIndex"
-          class="py-2 cursor-pointer"
-          (click)="goToSlide(i)">
-          <div
-          class="h-1 bg-white rounded transition-all duration-300 "
-          [class.w-3]="i !== currentIndex"
-          [class.w-6]="i === currentIndex">
-          </div>
-        </div>
-      </div>
-      <button class="w-16 h-10 border border-white rounded-3xl  text-white 4" (click)="changeSlide(true)">❯</button>
     </div>
   </div>
 </div>

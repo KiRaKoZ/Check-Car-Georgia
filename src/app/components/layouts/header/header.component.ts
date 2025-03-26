@@ -15,11 +15,11 @@ export class HeaderComponent implements OnInit {
   isDarkMode = false;
   isDropdownOpen = false;
   selectedLanguage = 'English';
-  selectedFlag = 'iamges/en.png';
+  selectedFlag = 'images/eng.png';
   translations: any = {};
 
   languages = [
-    { name: 'English', code: 'en', flag: 'images/eng.png', font: 'Bebas Neue' },
+    { name: 'English', code: 'en', flag: 'images/eng.png', font: 'DM Sans'},
     { name: 'ქართული', code: 'ge', flag: 'images/geo.png', font: 'Noto Serif Georgian' },
     { name: 'Русский', code: 'ru', flag: 'images/rus.png', font: 'DM Sans 9pt' }
   ];
