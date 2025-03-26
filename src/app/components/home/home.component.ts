@@ -5,6 +5,8 @@ import { LoanCalculatorComponent } from './loan-calculator/loan-calculator.compo
 import { VehicleListingComponent } from './vehicle-listing/vehicle-listing.component';
 import { WhyUsSectionComponent } from './why-us-section/why-us-section.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { SocialMediaComponent } from './social-media/social-media.component';
+import { ScrollFadeDirective } from './scroll-fade.directive';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +16,9 @@ import { GalleryComponent } from './gallery/gallery.component';
     LoanCalculatorComponent,
     VehicleListingComponent,
     WhyUsSectionComponent,
-    GalleryComponent
+    GalleryComponent,
+    SocialMediaComponent,
+    ScrollFadeDirective
 
   ],
   templateUrl: './home.component.html',
