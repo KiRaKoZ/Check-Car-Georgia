@@ -1,10 +1,9 @@
 {
-    "title": "Проверьте машину Грузия",
-    "home": "Главная",
-    "about": "О нас",
-    "contact": "Контакты",
-    "services": "Услуги",
-    "welcome_message": "Добро пожаловать в Check Car Georgia",
-    "learn_more": "Узнать больше"
+  "header":{
+    "home": "Home",
+    "gallery": "Gallery",
+    "aboutUs": "About Us",
+    "Contact": "Contact"
   }
+}
   

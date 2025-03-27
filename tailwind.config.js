@@ -32,9 +32,16 @@ export default {
           NotoSansGeorgian: ["Noto Serif Georgian"],
           BebasNeue: ["Bebas Neue"],
         },
-        
       },
     },
-    plugins: [],
+    plugins: [
+      function ({ addUtilities }) {
+        addUtilities({
+          '.font-case': {
+            'font-feature-settings': '"case" on',
+          },
+        })
+      },
+    ],
   };
   

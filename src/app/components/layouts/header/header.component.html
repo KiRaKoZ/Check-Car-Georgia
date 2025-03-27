@@ -1,75 +1,81 @@
 <header
-class="flex fixed top-0 flex-wrap gap-5 justify-center items-center w-full  max-md:max-w-full py-4 z-50"
+class="flex fixed top-0 flex-wrap gap-5 justify-center items-center w-full  py-4 z-50"
 [class]="isScrolled ? 'bg-primary bg-opacity-60 transition-all duration-300 text-white' : 'bg-transparent  text-white transition-all duration-300 absolute'"
 >
-<div class="flex w-full justify-between px-4">
-  <div class="flex gap-6 self-stretch items-center  ">
-    <h1 class="text-white font-BebasNeue text-[30px] font-bold leading-none tracking-[1.75px]">
-      checkcargeorgia
-    </h1>
-    <div class="flex gap-3 self-stretch  items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="18" viewBox="0 0 12 18" fill="none">
-        <path d="M9.33333 0.875H2.66667C1.4025 0.875 0.375 1.9025 0.375 3.16667V14.8333C0.375 16.0975 1.4025 17.125 2.66667 17.125H9.33333C10.5975 17.125 11.625 16.0975 11.625 14.8333V3.16667C11.625 1.9025 10.5975 0.875 9.33333 0.875ZM10.375 14.8333C10.375 15.4075 9.9075 15.875 9.33333 15.875H2.66667C2.0925 15.875 1.625 15.4075 1.625 14.8333V3.16667C1.625 2.5925 2.0925 2.125 2.66667 2.125H9.33333C9.9075 2.125 10.375 2.5925 10.375 3.16667V14.8333ZM7.45833 4C7.45833 4.345 7.17833 4.625 6.83333 4.625H5.16667C4.82167 4.625 4.54167 4.345 4.54167 4C4.54167 3.655 4.82167 3.375 5.16667 3.375H6.83333C7.17833 3.375 7.45833 3.655 7.45833 4Z" fill="currentColor">
-        </path>
-      </svg>
-      <a href="tel:+995 571 52 50 50"  class="">+995 571 52 50 50</a>
-    </div>
-  </div>  
-  <nav
-  class="flex flex-wrap gap-8 items-center self-stretch my-auto text-base font-medium leading-loose whitespace-nowrap max-md:max-w-full"
-  >
-    <div class="flex gap-2.5 items-center self-stretch my-auto">
-      <a href="#">Home</a>
-    
-    </div>
-    <div class="flex gap-2.5 items-center self-stretch my-auto">
-      <a href="#">Gallery</a>
-    
-    </div>
-    <div class="flex gap-2.5 items-center self-stretch my-auto w-[67px] bg-white rounded-full">
-      <img src="images/logo.png" alt="">
-    </div>
-    <div class="gap-2.5 self-stretch my-auto">
-      <a routerLink="">About Us</a>
-    </div>
-    
-    <div class="gap-2.5 self-stretch my-auto">
-      <a routerLink="Contact">Contact</a>
-    </div>
 
+<div class="flex w-full justify-between pl-4 pr-8">
+  <div class="flex gap-12 self-stretch items-center relative ">
+    <a href="#" class="h-[28px]">
+      <h1 class="text-white font-BebasNeue text-[35px] font-bold leading-none tracking-[1.75px] ">
+        checkcargeorgia
+      </h1>
+    </a>
+
+    
+  </div>  
+
+
+  <nav
+  class="flex flex-wrap gap-8 items-center text-[15px] font-medium leading-[26px] whitespace-nowrap flex-1 justify-center pl-[5rem]"
+  >
+  <div class="flex gap-6 items-center self-stretch w-full justify-center ">
+    <a href="#" class="font-case">{{translations.header?.home}}</a>
+    <a href="#" class="font-case">{{translations.header?.gallery}}</a>
+    <img src="images/logo.png" alt="" class="w-[67px] bg-white rounded-full">
+    <a routerLink="" class="font-case">{{translations.header?.aboutUs}}</a>
+    <a routerLink="Contact" class="font-case">{{translations.header?.Contact}}</a>
+  </div>
   </nav>
 
+
   <div
-  class="flex gap-7 items-center self-stretch text-base font-medium leading-loose"
->
- 
-    <div class="relative w-16 h-8 bg-gray-300 dark:bg-primary rounded-full p-1 cursor-pointer transition-all duration-500" 
+  class="flex gap-1 items-center self-stretch text-base font-medium leading-loose relative  "
+  >
+  
+
+  <div class="flex gap-2 items-center h-[18px] whitespace-nowrap pr-4 transition-all duration-300 ease-in-out hover:scale-105">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="18" viewBox="0 0 12 18" fill="none">
+      <path d="M9.33333 0.875H2.66667C1.4025 0.875 0.375 1.9025 0.375 3.16667V14.8333C0.375 16.0975 1.4025 17.125 2.66667 17.125H9.33333C10.5975 17.125 11.625 16.0975 11.625 14.8333V3.16667C11.625 1.9025 10.5975 0.875 9.33333 0.875ZM10.375 14.8333C10.375 15.4075 9.9075 15.875 9.33333 15.875H2.66667C2.0925 15.875 1.625 15.4075 1.625 14.8333V3.16667C1.625 2.5925 2.0925 2.125 2.66667 2.125H9.33333C9.9075 2.125 10.375 2.5925 10.375 3.16667V14.8333ZM7.45833 4C7.45833 4.345 7.17833 4.625 6.83333 4.625H5.16667C4.82167 4.625 4.54167 4.345 4.54167 4C4.54167 3.655 4.82167 3.375 5.16667 3.375H6.83333C7.17833 3.375 7.45833 3.655 7.45833 4Z" fill="currentColor">
+      </path>
+    </svg>
+    <a href="tel:+995 571 52 50 50"  class="text-[15px] font-medium leading-[26px]">+995 571 52 50 50</a>
+  </div>
+    <div class="relative w-10 h-10 bg-white dark:bg-primary rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-105 mr-2" 
       (click)="toggleTheme()">
-      <div class="absolute top-1 left-1 w-6 h-6 bg-white dark:bg-white rounded-full shadow-md transform transition-all duration-500"
-          [class.translate-x-8]="isDarkMode">
+      <div class="absolute  bg-white dark:bg-primary rounded-full shadow-md transform transition-all duration-700 ">
+          <img src="icons/day.svg" alt="" *ngIf="!isDarkMode" class="">
+          <img src="icons/dark.svg" alt="" *ngIf="isDarkMode">
       </div>
     </div>
 
-    <div class="relative inline-block">
-      <button class="flex items-center gap-2 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-white px-4 py-2 rounded-lg transition duration-300 hover:bg-gray-300 dark:hover:bg-gray-700"
-        (click)="toggleDropdown()">
+    <div class="relative inline-block border-l ps-2 transition-all duration-300 ease-in-out hover:scale-105">
+      <button class="flex items-center gap-1 text-gray-700 dark:text-white p-1 rounded-lg transition duration-300 hover:bg-gray-300 dark:hover:bg-gray-700 "
+        (mouseenter)="toggleDropdown()"
+        >
         <img [src]="selectedFlag" alt="Selected Language" class="w-6 h-6 rounded-full">
         <span>{{ translations.language }}</span>
-        <svg class="w-4 h-4 text-gray-500 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
         </svg>
       </button>
     
-      <div *ngIf="isDropdownOpen" class="absolute left-0 mt-2 w-40 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden">
+      <div *ngIf="isDropdownOpen"
+      class="absolute right-[-1rem] mt-3 w-40 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:scale-105"
+      (mouseleave)="toggleDropdown()"
+      >
         <button *ngFor="let lang of languages" 
-          class="flex items-center gap-2 px-4 py-2 w-full text-left text-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-200"
+          class="flex items-center gap-2 px-4 py-2 w-full text-left text-gray-700 dark:text-white hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-all duration-500 ease-in-out"
           (click)="changeLanguage(lang)">
-          <img [src]="lang.flag" alt="{{ lang.name }}" class="w-6 h-6 rounded-full">
-          <span>{{ lang.name }}</span>
-        </button>
+          <img [src]="lang.flag" alt="{{ lang.name }}" class="w-6 h-6 rounded-full ">
+          <span class="text-medeium font-normal">{{ lang.name }}</span>
+          </button>
+        
+        </div>
       </div>
+
+
     </div>
-</div>
+    
 
 </div>
 
