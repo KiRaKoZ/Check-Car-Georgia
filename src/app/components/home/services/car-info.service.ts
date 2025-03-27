@@ -8,7 +8,7 @@ export class CarService {
         transmission: 'Automatic',
         year: 2020,
         engine: '4.0',
-        image: 'images/Prado200.jpeg'
+        image: 'images/slider_car21.jpg'
       },
       {
         name: 'BMW X5 E70',
@@ -18,7 +18,8 @@ export class CarService {
         transmission: 'Automatic',
         year: 2012,
         engine: '3.0',
-        image: 'images/BMW_X5_E70.jpeg'
+        image: 'images/slider_car23.jpg'
+
       },
       {
         name: 'Toyota LC Prado',
@@ -28,7 +29,8 @@ export class CarService {
         transmission: 'Automatic',
         year: 2014,
         engine: '2.7',
-        image: 'images/LC_Prado.jpeg'
+        image: 'images/slider_car22.jpg'
+
       },
       // {
       //   name: 'BMW X5 F15',
