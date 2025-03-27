@@ -5,9 +5,10 @@ import { LoanCalculatorComponent } from './loan-calculator/loan-calculator.compo
 import { VehicleListingComponent } from './vehicle-listing/vehicle-listing.component';
 import { WhyUsSectionComponent } from './why-us-section/why-us-section.component';
 import { GalleryComponent } from './gallery/gallery.component';
-import { SocialMediaComponent } from './social-media/social-media.component';
 import { ScrollFadeDirective } from './scroll-fade.directive';
 import { TranslationService } from '../services/translation.service';
+import { VehicleTypesComponent } from './vehicle-types/vehicle-types.component';
+import { SocialSectionComponent } from './social-section/social-section.component';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +19,9 @@ import { TranslationService } from '../services/translation.service';
     VehicleListingComponent,
     WhyUsSectionComponent,
     GalleryComponent,
-    SocialMediaComponent,
-    ScrollFadeDirective
+    ScrollFadeDirective,
+    VehicleTypesComponent,
+    SocialSectionComponent
 
   ],
   templateUrl: './home.component.html',
