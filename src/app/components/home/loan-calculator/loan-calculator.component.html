@@ -1,37 +1,51 @@
-<section class="relative overflow-hidden max-w-[1800px] mx-auto bg-bg-2 rounded-lg h-[700px] flex items-center">
+<section class="relative overflow-hidden max-w-[1800px] mx-auto bg-bg-2 rounded-lg h-[700px] flex items-center max-xl:h-[500px] max-md:h-auto max-md:py-[3rem] ">
   <div class="flex w-full max-w-[1430px] m-auto">
     
     <!-- Left Content (Centered) -->
-    <div class="flex flex-col gap-8 justify-center max-w-[50%] w-full pl-[1rem] pr-[8rem]">
-      <div class="flex flex-col gap-6">
-        <h1 class="text-4xl font-bold leading-[45px]">Auto Loan Calculator</h1>
-        <p class="text-xl font-medium">
+    <div class="flex flex-col gap-8 justify-center max-w-[50%] w-full pl-[1rem] pr-[8rem] max-xl:pr-[3rem] max-md:max-w-none max-md:px-[1rem]">
+      <div class="flex flex-col gap-6 max-md:gap-[1rem]">
+        <h4 class="font-bold leading-[45px] whitespace-nowrap">Auto Loan Calculator</h4>
+        <h6 class="">
           Use this car payment calculator to estimate monthly payments on your next new or used auto loan.
-        </p>
+        </h6>
       </div>
 
-      <form action="" class="flex flex-col gap-8">
-        <div class="grid grid-cols-2 grid-rows-2 gap-8">
+      <form action="" class="flex flex-col gap-8 max-md:gap-4">
+        <div class="grid grid-cols-2 grid-rows-2 gap-8 max-md:grid-rows-none max-md:grid-cols-none " >
           <div class="form-group bg-white rounded-xl relative">
             <label for="" class="absolute top-2 left-4 text-[#818181] text-[13px] font-normal leading-normal">
               Price ($)
             </label>
             <input type="text" class="pt-[25px] px-[15px] pb-[5px] w-full rounded-xl" placeholder="10">
           </div>
-          <div class="bg-white p-4 rounded-xl">1</div>
-          <div class="bg-white p-4 rounded-xl">1</div>
-          <div class="bg-white p-4 rounded-xl">1</div>
+          <div class="form-group bg-white rounded-xl relative">
+            <label for="" class="absolute top-2 left-4 text-[#818181] text-[13px] font-normal leading-normal">
+              Interest Rate
+            </label>
+            <input type="text" class="pt-[25px] px-[15px] pb-[5px] w-full rounded-xl" placeholder="10">
+          </div>
+          <div class="form-group bg-white rounded-xl relative">
+            <label for="" class="absolute top-2 left-4 text-[#818181] text-[13px] font-normal leading-normal">
+              Loan Term (year)
+            </label>
+            <input type="text" class="pt-[25px] px-[15px] pb-[5px] w-full rounded-xl" placeholder="10">
+          </div>
+          <div class="form-group bg-white rounded-xl relative">
+            <label for="" class="absolute top-2 left-4 text-[#818181] text-[13px] font-normal leading-normal">
+              Down Payment
+            </label>
+            <input type="text" class="pt-[25px] px-[15px] pb-[5px] w-full rounded-xl" placeholder="10">
+          </div>
         </div>
         <button
-          class="w-full p-[20px_26px] flex justify-center items-center gap-2 rounded-xl border border-secondary bg-secondary text-white"
+          class="w-full p-[1rem] flex justify-center items-center gap-2 rounded-xl border border-secondary bg-secondary text-white"
         >
           Calculate
         </button>
       </form>
     </div>
 
-    <!-- Right Image (Full Height & Corner) -->
-    <div class="absolute right-0 top-0 h-full w-1/2">
+    <div class="absolute right-0 top-0 h-full w-1/2 max-md:hidden">
       <img src="images/calculator.avif" alt="Image" class="h-full w-full object-cover rounded-r-lg">
     </div>
   </div>

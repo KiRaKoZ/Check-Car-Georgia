@@ -1,7 +1,15 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+
 export class CarService {
     cars = [
       {
         name: 'Toyota LC 200',
+        description: 'Luxury SUV with a powerful engine and high-end interiors.',
+
         price: '$150',
         per: 'Day',
         fuel: 'Petrol',
@@ -12,26 +20,67 @@ export class CarService {
       },
       {
         name: 'BMW X5 E70',
+        description: 'Luxury SUV with a powerful engine and high-end interiors.',
         price: '₾175',
         per: 'Day',
         fuel: 'Petrol',
         transmission: 'Automatic',
         year: 2012,
         engine: '3.0',
-        image: 'images/slider_car23.jpg'
+        image: 'images/slider_car23.jpg',
+        
 
       },
       {
-        name: 'Toyota LC Prado',
-        price: '$110',
+        name: 'BMW X5 E70',
+        description: 'Luxury SUV with a powerful engine and high-end interiors.',
+        price: '₾175',
         per: 'Day',
         fuel: 'Petrol',
         transmission: 'Automatic',
-        year: 2014,
-        engine: '2.7',
-        image: 'images/slider_car22.jpg'
+        year: 2012,
+        engine: '3.0',
+        image: 'images/slider_car23.jpg',
+        
 
       },
+      {
+        name: 'BMW X5 E70',
+        description: 'Luxury SUV with a powerful engine and high-end interiors.',
+        price: '₾175',
+        per: 'Day',
+        fuel: 'Petrol',
+        transmission: 'Automatic',
+        year: 2012,
+        engine: '3.0',
+        image: 'images/slider_car23.jpg',
+        
+
+      },
+      {
+        name: 'BMW X5 E70',
+        description: 'Luxury SUV with a powerful engine and high-end interiors.',
+        price: '₾175',
+        per: 'Day',
+        fuel: 'Petrol',
+        transmission: 'Automatic',
+        year: 2012,
+        engine: '3.0',
+        image: 'images/slider_car23.jpg',
+        
+
+      },
+      // {
+      //   name: 'Toyota LC Prado',
+      //   price: '$110',
+      //   per: 'Day',
+      //   fuel: 'Petrol',
+      //   transmission: 'Automatic',
+      //   year: 2014,
+      //   engine: '2.7',
+      //   image: 'images/slider_car22.jpg'
+
+      // },
       // {
       //   name: 'BMW X5 F15',
       //   price: '₾255',

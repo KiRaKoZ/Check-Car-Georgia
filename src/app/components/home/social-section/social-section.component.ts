@@ -8,16 +8,18 @@ import { Component, Renderer2 } from '@angular/core';
   styleUrl: './social-section.component.scss'
 })
 export class SocialSectionComponent {
-  images = [
-    { src: 'icons/twitter-x.svg', alt: 'Image 1' },
-    { src: 'icons/facebook.svg', alt: 'Image 2' },
-    { src: 'icons/telegram.svg', alt: 'Image 3' },
-    { src: 'icons/threads.svg', alt: 'Image 4' },
-    { src: 'icons/tiktok.svg', alt: 'Image 5' },
-    { src: 'icons/viber.svg', alt: 'Image 6' },
-    { src: 'icons/whatsapp.svg', alt: 'Image 7' },
-    { src: 'icons/youtube.svg', alt: 'Image 8' },
-  ];
+ images = [
+  { src: 'icons/twitter-x.svg', alt: 'Twitter', link: 'https://twitter.com' },
+  { src: 'icons/facebook.svg', alt: 'Facebook', link: 'https://facebook.com' },
+  { src: 'icons/threads.svg', alt: 'Threads', link: 'https://www.threads.net' },
+  { src: 'icons/tiktok.svg', alt: 'TikTok', link: 'https://www.tiktok.com' },
+  { src: 'icons/viber.svg', alt: 'Viber', link: 'https://www.viber.com' },
+  { src: 'icons/whatsapp.svg', alt: 'WhatsApp', link: 'https://www.whatsapp.com' },
+  { src: 'icons/youtube.svg', alt: 'YouTube', link: 'https://www.youtube.com' },
+  { src: 'icons/instagram.svg', alt: 'Instagram', link: 'https://www.instagram.com' },
+  { src: 'icons/telegram.svg', alt: 'Telegram', link: 'https://telegram.org' },
+
+];
   
   rotatingImages: any[] = [];
 

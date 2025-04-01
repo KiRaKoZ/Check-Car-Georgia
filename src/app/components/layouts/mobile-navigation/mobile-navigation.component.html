@@ -1,0 +1,93 @@
+<div class="flex flex-col gap-3 justify-between h-full">
+    <div class="flex flex-col relative w-full  text-white overflow-hidden h-full  ">
+        <ul [ngClass]="{ 'translate-x-0': !isSubMenuOpen, '-translate-x-full': isSubMenuOpen }"
+            class="absolute top-0 left-0 w-full h-full transition-transform duration-300">
+            <li class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer items-center">
+                Home
+            </li>
+
+            <li 
+                class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer items-center"
+                (click)="toggleSubMenu()">
+                Pages
+                <img 
+                    src="icons/arrow-down.svg" 
+                    alt="" 
+                    class="transition-transform duration-300 w-[12px] h-[12px] rotate-[-90deg]">
+            </li>
+
+            <li class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer items-center">
+                about us
+            </li>
+            <li class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer items-center">
+                Contact Us
+            </li>
+            <li class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer items-center">
+                FAQ
+            </li>
+        </ul>
+    
+      
+        <ul [ngClass]="{ 'translate-x-0': isSubMenuOpen, 'translate-x-full': !isSubMenuOpen }"
+            class="absolute top-0 left-0 w-full h-full transition-transform duration-300">
+          <li 
+            class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer"
+            (click)="toggleSubMenu()">
+            <img src="icons/arrow-down.svg" alt="" class="w-[12px] h-[12px] rotate-[90deg]">
+            Back
+          </li>
+          <li class="p-4 px-5 cursor-pointer">Submenu 1</li>
+          <li class="p-4 px-5 cursor-pointer">Submenu 2</li>
+          <li class="p-4 px-5 cursor-pointer">Submenu 3</li>
+        </ul>
+
+    </div>
+
+
+    <div class="relative inline-block px-4">
+        <div class=" flex gap-3 w-full text-white rounded-lg justify-center ">
+            <button *ngFor="let lang of languages" (click)="changeLanguage(lang.code)" class="flex font-normal text-white text-sm focus:scale-105 transition-all duration-300 ease-in-ou" >
+                <div class="flex gap-2 items-center">
+                    <span class="w-[1px] h-4 bg-white"></span>
+                    <img [src]="lang.flag" alt="{{ lang.name }}" class="w-6 h-6 rounded-full">
+                    {{ lang.name }}
+                </div>
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="flex flex-col gap-10  text-base font-medium  relative mx-8 border-t-[0.5px] border-gray-500 pt-[1rem] mt-[1rem]">
+        <div class="flex w-full gap-1 justify-between items-center h-[18px] whitespace-nowrap transition-all duration-300 ease-in-out hover:scale-105">
+            <a href="tel:+995 571 52 50 50"  class="text-[15px] font-medium leading-[26px]">+995 571 52 50 50</a>
+            <img src="icons/smartphone.svg" alt="">
+        </div>
+   
+        <div class="flex gap-3 flex-wrap items-center">
+            <a
+            *ngFor="let image of images; let i = index"
+            [href]="image.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex bg-white opacity-90 rounded-full w-[2rem] h-[2rem] justify-center items-center p-1"
+          >
+            <img
+              [src]="image.src"
+              [alt]="image.alt"
+              class="icon cursor-pointer rounded-full"
+            />
+          </a>
+        </div>
+
+        <div class="flex flex-col gap-3">
+            <p class="text-white"> &copy; {{ currentYear }} checkcargeorgia.ge </p>
+            <p class="text-white"> All rights reserved.</p>
+          </div>
+    </div>
+       
+</div>
+
+
+  
+

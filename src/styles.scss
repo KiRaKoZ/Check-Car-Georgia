@@ -1,11 +1,49 @@
 
 @use 'styles/fonts.scss' as *;
+@use 'styles/global.scss' as *;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 
+
+
+  h1 {
+    @apply text-3xl; // Default mobile style
+  
+    @screen sm {
+      @apply text-5xl; // Bigger on small screens
+    }
+  
+    @screen lg {
+      @apply text-7xl; // Even bigger on large screens
+    }
+  }
+  h4 {
+    @apply text-xl; // Default mobile style
+  
+    @screen sm {
+      @apply text-2xl; // Bigger on small screens
+    }
+  
+    @screen lg {
+      @apply text-4xl; // Even bigger on large screens
+    }
+  }
+  h5 {
+    @apply text-base; // Default mobile style
+
+    @screen lg {
+      @apply text-lg; // Even bigger on large screens
+    }
+  
+    @screen lg {
+      @apply text-xl; // Even bigger on large screens
+    }
+  }
+
+  
 .fade-in {
     @apply opacity-100 animate-fadeInUp;
   }

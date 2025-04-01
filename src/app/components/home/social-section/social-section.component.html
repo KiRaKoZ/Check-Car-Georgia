@@ -24,20 +24,26 @@
                   CHECKCARGEORGIA
                 </text>
               </svg>
-  
-                <div class="absolute w-full h-full flex justify-center items-center top-0" >
-                  <img
+              <div class="absolute w-full h-full flex justify-center items-center top-0">
+                <a
                   *ngFor="let image of rotatingImages; let i = index"
-                  [src]="image.src"
-                  [alt]="image.alt"
-                  [style.width]="image.size"
-                  [style.height]="image.size"
-                  [style.animation]="image.isPaused ? 'none' : image.speed + ' linear infinite ' + image.animationName"
-                  class="absolute icon cursor-pointer"
-                  (mouseenter)="stopAnimation($event)"
-                  (mouseleave)="startAnimation($event)"
-                />
-                </div>
+                  [href]="image.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="absolute"
+                >
+                  <img
+                    [src]="image.src"
+                    [alt]="image.alt"
+                    [style.width]="image.size"
+                    [style.height]="image.size"
+                    [style.animation]="image.isPaused ? 'none' : image.speed + ' linear infinite ' + image.animationName"
+                    class="icon cursor-pointer"
+                    (mouseenter)="stopAnimation($event)"
+                    (mouseleave)="startAnimation($event)"
+                  />
+                </a>
+              </div>
                 
             </div>
           
