@@ -1,0 +1,45 @@
+{
+    "header":{
+      "home": "Home",
+      "gallery": "Gallery",
+      "aboutUs": "About Us",
+      "Contact": "Contact"
+    },
+    "vehicleTypes":{
+      "home": "Home"
+    },
+
+    "cars": [
+    {
+      "name": "Toyota LC 200",
+      "price": "$150",
+      "per": "Day",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "year": 2020,
+      "engine": "4.0",
+      "image": "images/slider_car21.jpg"
+    },
+    {
+      "name": "BMW X5 E70",
+      "price": "₾175",
+      "per": "Day",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "year": 2012,
+      "engine": "3.0",
+      "image": "images/slider_car23.jpg"
+    },
+    {
+      "name": "Toyota LC Prado",
+      "price": "$110",
+      "per": "Day",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "year": 2014,
+      "engine": "2.7",
+      "image": "images/slider_car22.jpg"
+    }
+  ]
+  
+}

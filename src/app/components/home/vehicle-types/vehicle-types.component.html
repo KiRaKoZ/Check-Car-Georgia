@@ -1,0 +1,28 @@
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+<div class="px-5 py-0 mx-auto my-0 max-w-[1390px] max-md:max-w-[991px] max-sm:max-w-screen-sm">
+  <h2 class="mb-20 text-4xl font-bold leading-10 text-center text-slate-950 max-md:mb-10 max-md:text-3xl max-sm:mb-8 max-sm:text-2xl">
+    Select a Body Style
+  </h2>
+  <div class="relative">
+    <div #slider class="overflow-hidden">
+      <div class="flex transition-transform duration-300 ease-in-out" [style.transform]="'translateX(' + translateX + 'px)'">
+        <div *ngFor="let style of bodyStyles" class="flex-shrink-0 w-[200px] mx-5">
+          <div class="flex flex-col items-center w-full transition-transform duration-300 ease-in-out hover:scale-105">
+            <img [src]="style.image" [alt]="style.altText" class="object-contain h-[150px] w-[200px] max-sm:w-full max-sm:h-auto" />
+            <div class="mt-2.5 text-lg leading-8 text-slate-950 max-sm:text-base">{{ style.name }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button (click)="slide('left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full shadow-md" aria-label="Previous body style">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button (click)="slide('right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full shadow-md" aria-label="Next body style">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="w-full min-h-screen bg-slate-950 max-w-[430px]">
+   
+    <div class="flex justify-between items-center p-5 h-[66px]">
+      <div class="text-4xl font-bold tracking-widest text-white">boxcars</div>
+      <div class="flex gap-5 items-center">
+        
+        <div class="text-base text-white">Menu</div>
+        <div class="relative h-[17px] w-[17px]">
+          <div
+            class="absolute top-2/4 h-0.5 bg-white -rotate-45 w-[22px]"
+          ></div>
+          <div
+            class="absolute top-2/4 h-0.5 bg-white rotate-45 w-[22px]"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <nav class="flex flex-col p-5">
+      <div
+        *ngFor="let item of menuItems"
+        class="flex justify-between items-center px-5 py-6 rounded-2xl h-[60px]"
+        (click)="toggleSubMenu(item)"
+        [@slideInOut]="item.isOpen ? 'in' : 'out'"
+      >
+        <div class="text-xl text-white">{{ item.name }}</div>
+        <div>
+          <svg
+            width="8"
+            height="8"
+            viewBox="0 0 8 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            [ngStyle]="{
+              transform: item.isOpen ? 'rotate(0deg)' : 'rotate(-90deg)',
+            }"
+          >
+            <path
+              d="M6.28013 4.00002C6.28013 4.1434 6.22539 4.28676 6.11613 4.39607L2.67628 7.83589C2.45746 8.0547 2.10269 8.0547 1.88396 7.83589C1.66523 7.61716 1.66523 7.26245 1.88396 7.04362L4.92773 4.00002L1.88406 0.956408C1.66533 0.73759 1.66533 0.382922 1.88406 0.16421C2.10279 -0.0547133 2.45757 -0.0547133 2.67638 0.16421L6.11624 3.60398C6.22551 3.71334 6.28013 3.8567 6.28013 4.00002Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+        <div *ngIf="item.isOpen" class="submenu">
+          <div *ngFor="let subItem of item.subItems" class="text-white py-2">
+            {{ subItem }}
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="px-7 py-6 m-5 text-base text-center text-white bg-blue-600 rounded-2xl"
+    >
+      Add Listing
+    </div>
+  </div>
+
+  <!-- <div class="relative w-full h-screen overflow-hidden">
+    <div [@slideAnimation]="currentState" class="absolute w-full h-full flex">
+      <div class="w-full h-full flex-shrink-0 bg-gray-100 flex items-center justify-center">
+        <button (click)="showPages()" class="text-blue-600 font-semibold">Pages</button>
+      </div>
+      <div class="w-full h-full flex-shrink-0 bg-white flex flex-col items-center justify-center">
+        <h2 class="text-2xl font-bold mb-4">Pages</h2>
+        <button (click)="goBack()" class="absolute top-4 left-4 text-blue-600 font-semibold flex items-center">
+          <svg class="w-4 h-4 mr-2 transform rotate-180" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+          Back
+        </button>
+      </div>
+    </div> -->

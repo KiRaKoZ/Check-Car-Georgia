@@ -1,0 +1,7 @@
+.dropdown-menu {
+    @apply opacity-0 scale-95 transition-all duration-300 transform;
+  
+    &.show {
+      @apply opacity-100 scale-100;
+    }
+  }

@@ -1,0 +1,21 @@
+<div class="relative ">
+    <!-- Trigger div (Hover or Click) -->
+    <div 
+      class="dropdown-trigger cursor-pointer p-4 bg-blue-500 text-white rounded"
+      (click)="toggleDropdown($event)" 
+      (mouseover)="showDropdown()"    
+      (mouseleave)="hideDropdown()"  
+    >
+      <ng-content></ng-content> <!-- Allow content inside the dropdown trigger to be passed -->
+    </div>
+  
+    <!-- Dropdown Menu -->
+    <div 
+      *ngIf="!isDropdownVisible" 
+      class="dropdown-menu absolute mt-2 w-48 bg-white text-black rounded shadow-lg transition-all duration-300 transform opacity-0 scale-95 hover:opacity-100 hover:scale-100"
+      (click)="dropdownClicked($event)"  
+    >
+      <ng-content select="[dropdown-item]"></ng-content> <!-- Allow dynamic content insertion for items -->
+    </div>
+  </div>
+  

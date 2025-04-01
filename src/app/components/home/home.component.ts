@@ -6,9 +6,12 @@ import { VehicleListingComponent } from './vehicle-listing/vehicle-listing.compo
 import { WhyUsSectionComponent } from './why-us-section/why-us-section.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ScrollFadeDirective } from './scroll-fade.directive';
-import { TranslationService } from '../services/translation.service';
 import { VehicleTypesComponent } from './vehicle-types/vehicle-types.component';
 import { SocialSectionComponent } from './social-section/social-section.component';
+import { VideoSectionComponent } from './video-section/video-section.component';
+import { BookingSectionComponent } from './booking-section/booking-section.component';
+import { FAQComponent } from './faq/faq.component';
+import { MobileNavigationComponent } from '../layouts/mobileNavigation/mobile-navigation/mobile-navigation.component';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +24,11 @@ import { SocialSectionComponent } from './social-section/social-section.componen
     GalleryComponent,
     ScrollFadeDirective,
     VehicleTypesComponent,
-    SocialSectionComponent
+    SocialSectionComponent,
+    VideoSectionComponent,
+    BookingSectionComponent,
+    FAQComponent,
+    MobileNavigationComponent
 
   ],
   templateUrl: './home.component.html',
