@@ -28,12 +28,9 @@ export class VehicleTypesComponent implements OnInit {
     { image: 'images/tr-car.png', altText: 'Sedan', name: 'Sedan' },
     { image: 'images/tr-car2.png', altText: 'Coupe', name: 'Coupe' },
     { image: 'images/tr-car3.png', altText: 'SUV', name: 'SUV' },
-    { image: 'images/tr-car4.png', altText: 'Truck', name: 'Truck' },
+    // { image: 'images/tr-car4.png', altText: 'Truck', name: 'Truck' },
     { image: 'images/tr-car6.png', altText: 'Hatchback', name: 'Hatchback' },
-    { image: 'images/tr-car7.png', altText: 'Minivan', name: 'Minivan' },
-    { image: 'images/tr-car7.png', altText: 'Minivan', name: 'Minivan' },
-    { image: 'images/tr-car7.png', altText: 'Minivan', name: 'Minivan' },
-    { image: 'images/tr-car7.png', altText: 'Minivan', name: 'Minivan' }
+    // { image: 'images/tr-car7.png', altText: 'Minivan', name: 'Minivan' }
   ];
 
   translateX = 0;
@@ -56,7 +53,7 @@ export class VehicleTypesComponent implements OnInit {
     } else if (width < 768) {
       this.visibleItems = 3;
     } else {
-      this.visibleItems = 6;
+      this.visibleItems = 4;
     }
     this.adjustTranslateX();
   }

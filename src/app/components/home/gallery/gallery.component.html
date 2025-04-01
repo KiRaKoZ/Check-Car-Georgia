@@ -9,117 +9,36 @@
       >
         <span class="self-stretch my-auto">View All</span>
         <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/8ea7cc63893cc3c27813ee1f4669a597aad74c84?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
+          src="icons/LinkArrow.svg"
           class="object-contain shrink-0 self-stretch my-auto w-3.5 aspect-square"
         />
       </a>
     </div>
 
-    <div
-      class="mt-12 w-full max-w-[1400px] max-md:mt-10 max-md:max-w-full"
-      [attr.space]="28"
-    >
-      <div class="flex gap-5 max-md:flex-col">
-        <div class="w-6/12 max-md:ml-0 max-md:w-full">
+    <div class="mt-12 w-full max-w-[1400px] max-md:mt-10 max-md:max-w-full">
+      <div class="grid grid-cols-2 gap-5 max-md:grid-cols-1">
+        <div *ngFor="let car of cars.slice(0, 2)" class="w-full">
           <div
-            class="flex relative flex-col items-start px-8 pt-72 pb-8 w-full text-base font-medium leading-7 whitespace-nowrap rounded-none min-h-[350px] text-slate-950 max-md:px-5 max-md:pt-24 max-md:mt-7 max-md:max-w-full"
+            class="flex overflow-hidden relative flex-col items-start  px-8 pt-72 pb-8 w-full text-base font-medium leading-7 rounded-3xl min-h-[20rem] text-slate-950 max-md:px-5 max-md:pt-24"
           >
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/7836fd25e7e12925d36ceb5a18148a7a31316b50?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
-              class="object-cover absolute inset-0 size-full"
-            />
-            <div
-              class="flex relative gap-2.5 justify-center items-center px-8 py-2 bg-white rounded-[60px] max-md:px-5"
-            >
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/b9240168fdd1494924e887f99809c2adae294b87?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
-                class="object-contain shrink-0 self-stretch my-auto aspect-square w-[26px]"
-              />
-              <span class="self-stretch my-auto">SUV</span>
-            </div>
-          </div>
-        </div>
-        <div class="ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-          <div
-            class="flex relative flex-col items-start px-8 pt-72 pb-8 w-full text-base font-medium leading-7 whitespace-nowrap rounded-none min-h-[350px] text-slate-950 max-md:px-5 max-md:pt-24 max-md:mt-7 max-md:max-w-full"
-          >
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/7836fd25e7e12925d36ceb5a18148a7a31316b50?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
-              class="object-cover absolute inset-0 size-full"
-            />
-            <div
-              class="flex relative gap-2.5 justify-center items-center px-8 py-2 bg-white rounded-[60px] max-md:px-5"
-            >
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/fd6c8f6ee017cd4e26a2253113623b80f09854f6?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
-                class="object-contain shrink-0 self-stretch my-auto aspect-square w-[26px]"
-              />
-              <span class="self-stretch my-auto">Sedan</span>
+            <img [src]="car.image" [alt]="car.altText" class="absolute inset-0 size-full rounded-3xl object-cover transition-transform duration-300 hover:scale-105" />
+            <div class="flex relative gap-2.5 justify-center items-center px-8 py-2 bg-white rounded-[60px] max-md:px-5">
+              <span class="self-stretch my-auto">{{ car.name }}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div
-      class="mt-8 w-full max-w-[1400px] max-md:max-w-full"
-      [attr.space]="28"
-    >
-      <div class="flex gap-5 max-md:flex-col">
-        <div class="w-[33%] max-md:ml-0 max-md:w-full">
+    
+    <div class="mt-8 w-full max-w-[1400px] max-md:max-w-full">
+      <div class="grid grid-cols-3 gap-5 max-md:grid-cols-1">
+        <div *ngFor="let car of cars.slice(2)" class="w-full">
           <div
-            class="flex relative flex-col items-start px-8 pt-72 pb-8 w-full text-base font-medium leading-7 whitespace-nowrap rounded-none min-h-[350px] text-slate-950 max-md:px-5 max-md:pt-24 max-md:mt-7 max-md:max-w-full"
+            class="flex relative overflow-hidden flex-col items-start px-8 pt-72 pb-8 w-full text-base font-medium leading-7 rounded-3xl min-h-[20rem] text-slate-950 max-md:px-5 max-md:pt-24"
           >
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/d6fc50ffa53f70aebc6338333b36eb5c8b133a3a?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
-              class="object-cover absolute inset-0 size-full"
-            />
-            <div
-              class="flex relative gap-2.5 justify-center items-center px-8 py-2 bg-white rounded-[60px] max-md:px-5"
-            >
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/4b6c04dd32083b0340dd55868b12ac7a9b67d32c?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
-                class="object-contain shrink-0 self-stretch my-auto aspect-square w-[26px]"
-              />
-              <span class="self-stretch my-auto">Hatchback</span>
-            </div>
-          </div>
-        </div>
-        <div class="ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-          <div
-            class="flex relative flex-col items-start px-8 pt-72 pb-8 w-full text-base font-medium leading-7 whitespace-nowrap rounded-none min-h-[350px] text-slate-950 max-md:px-5 max-md:pt-24 max-md:mt-7 max-md:max-w-full"
-          >
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/688819a3bf8493b6c618f774a4fcd20746f42470?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
-              class="object-cover absolute inset-0 size-full"
-            />
-            <div
-              class="flex relative gap-2.5 justify-center items-center px-8 py-2 bg-white rounded-[60px] max-md:px-5"
-            >
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/5eac20415a58babc2750473e7ecd7e5a4fe737d1?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
-                class="object-contain shrink-0 self-stretch my-auto aspect-square w-[26px]"
-              />
-              <span class="self-stretch my-auto">Hybrid</span>
-            </div>
-          </div>
-        </div>
-        <div class="ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-          <div
-            class="flex relative flex-col items-start px-8 pt-72 pb-8 w-full text-base font-medium leading-7 whitespace-nowrap rounded-none min-h-[350px] text-slate-950 max-md:px-5 max-md:pt-24 max-md:mt-7 max-md:max-w-full"
-          >
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/688819a3bf8493b6c618f774a4fcd20746f42470?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
-              class="object-cover absolute inset-0 size-full"
-            />
-            <div
-              class="flex relative gap-2.5 justify-center items-center px-8 py-2 bg-white rounded-[60px] max-md:px-5"
-            >
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/12781e2970bb1f9092792eea1acc7a6ddde9470c?placeholderIfAbsent=true&apiKey=f00c02c049754371a6df486ba807890f"
-                class="object-contain shrink-0 self-stretch my-auto aspect-square w-[26px]"
-              />
-              <span class="self-stretch my-auto">Coupe</span>
+            <img [src]="car.image" [alt]="car.altText" class="absolute inset-0 size-full rounded-3xl object-cover transition-transform duration-300 hover:scale-105" />
+            <div class="flex relative gap-2.5 justify-center items-center px-8 py-2 bg-white rounded-[60px] max-md:px-5">
+              <span class="self-stretch my-auto">{{ car.name }}</span>
             </div>
           </div>
         </div>

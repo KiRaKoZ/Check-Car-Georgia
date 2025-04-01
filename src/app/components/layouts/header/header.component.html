@@ -7,7 +7,7 @@ max-xl:bg-primary
 [class]="isScrolled ? 'bg-primary bg-opacity-60 transition-all duration-300 text-white' : 'bg-transparent  text-white transition-all duration-300 absolute'"
 >
 
-<div class="flex w-full justify-between pl-4 pr-8">
+<div class="flex w-full justify-between pl-4 pr-8 items-center">
   <div class="flex gap-12 self-stretch items-center relative ">
     <a href="#" class="h-[28px]">
       <h1 class="text-white font-BebasNeue text-[35px] font-bold leading-none tracking-[1.75px] ">
@@ -20,16 +20,17 @@ max-xl:bg-primary
 
 
   <nav
-  class="flex flex-wrap gap-8 items-center text-[15px] font-medium leading-[26px] whitespace-nowrap flex-1 justify-center pl-[5rem]
+  class="flex flex-wrap gap-8 items-center text-[15px] font-medium leading-[26px] whitespace-nowrap flex-1 justify-center pl-[10rem]
   max-xl:hidden"
   >
   <div class="flex gap-6 items-center self-stretch w-full justify-center relative">
     <a href="#" class="font-case">{{translations()?.header?.home}}</a>
     <!-- <a routerLink="gallery" class="font-case">{{translations()?.header?.gallery}}</a> -->
-    <a routerLink="gallery" class="font-case">pages</a>
+    <a routerLink="gallery" class="font-case">Pages</a>
     <img src="images/logo.png" alt="" class="w-[67px] bg-white rounded-full">
     <a routerLink="about us" class="font-case">{{translations()?.header?.aboutUs}}</a>
     <a routerLink="contact" class="font-case">{{translations()?.header?.Contact}}</a>
+    
     <!-- <a routerLink="service-page" class="font-case">service</a>
     <a routerLink="terms&conditions" class="font-case">conditions</a>
     <a routerLink="calculator" class="font-case">calculator</a>
@@ -39,51 +40,82 @@ max-xl:bg-primary
 
 
   <div
-  class="flex gap-4 items-center self-stretch text-base font-medium leading-loose relative  "
+  class="flex gap-4 items-center self-stretch text-base font-medium  relative  max-xl:hidden"
   >
-  
-
   <div class="flex gap-1 items-center h-[18px] whitespace-nowrap pr-4 transition-all duration-300 ease-in-out hover:scale-105">
     <a href="tel:+995 571 52 50 50"  class="text-[15px] font-medium leading-[26px]">+995 571 52 50 50</a>
     <img src="icons/smartphone.svg" alt="">
-    <!-- <app-dropdown>
-      <div class="dropdown-trigger">
-        Hover or Click Me
-      </div>
-    
-      <div dropdown-item (click)="onItemClick()">Item 1</div>
-      <div dropdown-item (click)="onItemClick()">Item 2</div>
-      <div dropdown-item (click)="onItemClick()">Item 3</div>
-    </app-dropdown> -->
   </div>
-    <div class="relative w-6 h-6 bg-white dark:bg-primary rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-105 mr-2" 
+  <div class="relative w-6 h-6 bg-white dark:bg-primary rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-105 mr-2" 
       (click)="toggleTheme()">
       <div class="absolute  bg-white dark:bg-primary rounded-full shadow-md transform transition-all duration-700 ">
           <img src="icons/day.svg" alt="" *ngIf="!isDarkMode" class="">
           <img src="icons/dark.svg" alt="" *ngIf="isDarkMode">
       </div>
-    </div>
-    <span class="w-[1px] h-8 bg-white"></span>
-    <div class="relative inline-block transition-all duration-300 ease-in-out hover:scale-105">
-      <button class="flex items-center gap-1 text-gray-700 dark:text-white p-1 rounded-lg transition duration-300 hover:bg-gray-300 dark:hover:bg-gray-700 "
-        (mouseenter)="toggleDropdown()"
-        >
-        <img [src]="selectedFlag" alt="Selected Language" class="w-6 h-6 rounded-full">
-        <!-- <span>{{ translations.language }}</span> -->
-       <img src="icons/arrow-down.svg" alt="">
-      </button>
-    
-      <div *ngIf="isDropdownOpen"
-      class="absolute right-[-1rem] mt-3 w-40 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:scale-105"
-      (mouseleave)="toggleDropdown()">
+  </div>
+  <span class="w-[1px] h-8 bg-white"></span>
+  <div class="relative inline-block transition-all duration-300 ease-in-out hover:scale-105">
+    <button class="flex items-center gap-1 text-gray-700 dark:text-white p-1 rounded-lg transition duration-300 hover:bg-gray-300 dark:hover:bg-gray-700 "
+      (mouseenter)="toggleDropdown()"
+      >
+      <img [src]="selectedFlag" alt="Selected Language" class="w-6 h-6 rounded-full">
+      <img src="icons/arrow-down.svg" alt="">
+    </button>
+  
+    <div *ngIf="isDropdownOpen"
+    class="absolute right-[-1rem] mt-3 w-40 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:scale-105"
+    (mouseleave)="toggleDropdown()">
 
-          <button *ngFor="let lang of languages"
-                  (click)="changeLanguage(lang.code)"
-                  class="flex items-center gap-2 px-4 py-2 w-full text-left font-normal text-gray-700 dark:text-white hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-all duration-500 ease-in-out">
-            <img [src]="lang.flag" alt="{{ lang.name }}" class="w-6 h-6 rounded-full">
-            {{ lang.name }}
+        <button *ngFor="let lang of languages"
+                (click)="changeLanguage(lang.code)"
+                class="flex items-center gap-2 px-4 py-2 w-full text-left font-normal text-gray-700 dark:text-white hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-all duration-500 ease-in-out">
+          <img [src]="lang.flag" alt="{{ lang.name }}" class="w-6 h-6 rounded-full">
+          {{ lang.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="relative hidden gap-2 max-xl:flex ">
+      <div class="relative w-8 h-8 bg-white dark:bg-primary rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-105 mr-2" 
+      (click)="toggleTheme()">
+        <div class="absolute  bg-white dark:bg-primary rounded-full shadow-md transform transition-all duration-700 ">
+            <img src="icons/day.svg" alt="" *ngIf="!isDarkMode" class="">
+            <img src="icons/dark.svg" alt="" *ngIf="isDarkMode">
+        </div>
+      </div>
+      <button (click)="toggleMenu()" class="flex gap-3 group items-center ">
+         <div class="flex flex-col gap-2 rotate-180">
+          <span class="w-[16px] h-[2px] bg-current transition-all duration-200 ease-in-out group-hover:w-[22px]"></span>
+          <span class="w-[22px] h-[2px] bg-current"></span>
+         </div>
+        Menu
+      </button>
+      
+    
+      <!-- Backdrop overlay -->
+      <div 
+        *ngIf="isOpen" 
+        class="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300"
+        (click)="toggleMenu()">
+      </div>
+    
+      <div 
+        [ngClass]="{'translate-x-0': isOpen, '-translate-x-full': !isOpen}" 
+        class="flex flex-col fixed top-0 left-0 h-full max-w-[400px] w-full px-5 p-10 bg-primary text-white transition-transform duration-300 ease-in-out shadow-xl gap-10">
+        <div class="flex justify-between items-center">
+          <a href="#" class="h-[28px]">
+            <h1 class="text-white font-BebasNeue text-[35px] font-bold leading-none tracking-[1.75px] ">
+              checkcargeorgia
+            </h1>
+          </a>
+          <button class="flex gap-2 items-center cursor-pointer" (click)="toggleMenu()">
+            <img src="icons/close.svg" alt=""  class="flex text-white ">
+            <span class="text-base">Menu</span>
           </button>
         </div>
+        <app-mobile-navigation class="flex-1"></app-mobile-navigation>
       </div>
     </div>
   

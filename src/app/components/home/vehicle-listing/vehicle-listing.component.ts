@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2 }
 import { CarService } from '../services/car-info.service';
 import { CommonModule } from '@angular/common';
 import { SliderService } from './slider.service';
+import { CarInfoService } from '../../services/car-info.service';
 
 @Component({
   selector: 'app-vehicle-listing',
@@ -11,17 +12,38 @@ import { SliderService } from './slider.service';
   providers: [CarService],
 })
 export class VehicleListingComponent implements OnInit, AfterViewInit {
-  slides: any[] = [];
+  cars: any[] = [];
   currentIndex = 0;
   autoSlideInterval: any;
   startX = 0;
+  screenWidth = window.innerWidth;
   isDragging = false;
   sliderContainer!: HTMLElement;
+  backgroundColors: string[] = ['#735043', '#373948', '#405FF2']; // Add your colors
+  randomBackgrounds: string[] = [];
+  randomBackgroundColor: string = this.getRandomColor();
 
-  constructor(private sliderService: SliderService, private el: ElementRef, private renderer: Renderer2) {
-    this.slides = this.sliderService.slides;
+
+
+  constructor(
+    private sliderService: CarService, 
+    private el: ElementRef, 
+    private renderer: Renderer2) {
+    this.cars = this.sliderService.cars;
+    this.generateRandomBackgrounds();
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenWidth = event.target.innerWidth;
+  }
+  
+  generateRandomBackgrounds() {
+    this.randomBackgrounds = this.cars.map(() => this.getRandomColor());
   }
 
+  getRandomColor(): string {
+    return this.backgroundColors[Math.floor(Math.random() * this.backgroundColors.length)];
+  }
   ngOnInit() {
     this.startAutoSlide();
   }
@@ -37,7 +59,7 @@ export class VehicleListingComponent implements OnInit, AfterViewInit {
     // Set the interval for auto-slide (3 seconds)
     this.autoSlideInterval = setInterval(() => {
       this.nextSlide();
-    }, 6800);
+    }, 1238000);
   }
 
   stopAutoSlide() {
@@ -48,11 +70,11 @@ export class VehicleListingComponent implements OnInit, AfterViewInit {
   }
 
   nextSlide() {
-    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+    this.currentIndex = (this.currentIndex + 1) % this.cars.length;
   }
 
   prevSlide() {
-    this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+    this.currentIndex = (this.currentIndex - 1 + this.cars.length) % this.cars.length;
   }
 
   onDragStart(event: MouseEvent | TouchEvent) {

@@ -1,18 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, inject, OnInit, Renderer2, Signal } from '@angular/core';
+import { Component, inject, OnInit, Renderer2, Signal } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
-import { RouterLink } from '@angular/router';
-import { MobileNavigationComponent } from '../mobile-navigation/mobile-navigation.component';
-// import { DropdownComponent } from '../../shared/ui/dropdown/dropdown.component';
 
 @Component({
-  selector: 'app-header',
-  imports: [CommonModule, RouterLink,MobileNavigationComponent],
+  selector: 'app-mobile-navigation',
   standalone: true,
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  imports: [CommonModule],
+  templateUrl: './mobile-navigation.component.html',
+  styleUrl: './mobile-navigation.component.scss'
 })
-export class HeaderComponent implements OnInit {
+export class MobileNavigationComponent implements OnInit{
   isScrolled = false;
   isDarkMode = false;
   isDropdownOpen = false;
@@ -23,26 +20,34 @@ export class HeaderComponent implements OnInit {
 
   private translationService = inject(TranslationService);
   translations: Signal<any> = this.translationService.translations;
-
-  isOpen = false;
-
-
+  isSubMenuOpen = false;
 
   languages = [
     { name: 'English', code: 'eng', flag: 'images/eng.png', font: 'DM Sans'},
     { name: 'ქართული', code: 'geo', flag: 'images/geo.png', font: 'Noto Serif Georgian' },
-    { name: 'Русский', code: 'rus', flag: 'images/rus.png', font: 'DM Sans 9pt' }
+    { name: 'Русский', code: 'rus', flag: 'images/rus.png', font: 'Noto Serif Georgian' }
+  ];
+
+  images = [
+    { src: 'icons/twitter-x.svg', alt: 'Twitter', link: 'https://twitter.com' },
+    { src: 'icons/facebook.svg', alt: 'Facebook', link: 'https://facebook.com' },
+    { src: 'icons/threads.svg', alt: 'Threads', link: 'https://www.threads.net' },
+    { src: 'icons/tiktok.svg', alt: 'TikTok', link: 'https://www.tiktok.com' },
+    { src: 'icons/viber.svg', alt: 'Viber', link: 'https://www.viber.com' },
+    { src: 'icons/whatsapp.svg', alt: 'WhatsApp', link: 'https://www.whatsapp.com' },
+    { src: 'icons/youtube.svg', alt: 'YouTube', link: 'https://www.youtube.com' },
+    { src: 'icons/instagram.svg', alt: 'Instagram', link: 'https://www.instagram.com' },
+    { src: 'icons/telegram.svg', alt: 'Telegram', link: 'https://telegram.org' },
+  
   ];
 
   constructor(
     private renderer: Renderer2,
   ) {}
-
-  @HostListener('window:scroll', ['$event'])
-
-  onWindowScroll() {
-    this.isScrolled = window.pageYOffset > 0;
+  toggleSubMenu() {
+    this.isSubMenuOpen = !this.isSubMenuOpen;
   }
+  currentYear: number = new Date().getFullYear();
   ngOnInit() {
     const storedLanguage = localStorage.getItem('selectedLanguage');
     if (storedLanguage) {
@@ -53,11 +58,7 @@ export class HeaderComponent implements OnInit {
       this.translationService.changeLanguage(selectedLang.code);
       document.body.style.fontFamily = this.selectedFont;
     }
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      this.isDarkMode = true;
-      this.renderer.addClass(document.documentElement, 'dark');
-    }
+    
   }
 
   changeLanguage(langCode: string) {
@@ -70,28 +71,10 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem('selectedLanguage', JSON.stringify(selectedLang));
       document.body.style.fontFamily = this.selectedFont;
     }
-    this.isDropdownOpen = !this.isDropdownOpen;
     
   }
   
-  toggleDropdown() {
-    this.isDropdownOpen = !this.isDropdownOpen;
-  }
-
-  toggleTheme() {
-    this.isDarkMode = !this.isDarkMode;
-    
-    if (this.isDarkMode) {
-      this.renderer.addClass(document.documentElement, 'dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      this.renderer.removeClass(document.documentElement, 'dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }
 
 
-  toggleMenu() {
-    this.isOpen = !this.isOpen;
-  }
+
 }

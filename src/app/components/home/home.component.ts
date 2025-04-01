@@ -11,7 +11,6 @@ import { SocialSectionComponent } from './social-section/social-section.componen
 import { VideoSectionComponent } from './video-section/video-section.component';
 import { BookingSectionComponent } from './booking-section/booking-section.component';
 import { FAQComponent } from './faq/faq.component';
-import { MobileNavigationComponent } from '../layouts/mobileNavigation/mobile-navigation/mobile-navigation.component';
 
 @Component({
   selector: 'app-home',
@@ -23,12 +22,11 @@ import { MobileNavigationComponent } from '../layouts/mobileNavigation/mobile-na
     WhyUsSectionComponent,
     GalleryComponent,
     ScrollFadeDirective,
-    VehicleTypesComponent,
+    // VehicleTypesComponent,
     SocialSectionComponent,
     VideoSectionComponent,
     BookingSectionComponent,
     FAQComponent,
-    MobileNavigationComponent
 
   ],
   templateUrl: './home.component.html',

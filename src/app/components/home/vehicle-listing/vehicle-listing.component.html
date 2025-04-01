@@ -1,17 +1,22 @@
-<div class="flex flex-col px-4 mt-32 gap-16 pl-[calc((100vw-1430px)/2)] relative overflow-hidden">
-    <div class="flex justify-between items-center max-w-[1430px]">
-        <h4 class="text-4xl text-primary font-bold">Explore All Vehicles</h4>
+<div class="flex flex-col px-4 mt-16 gap-16 pl-[calc((100vw-1430px)/2)] relative overflow-hidden
+max-xl:px-0  max-xl:gap-8 ">
+    <div class="flex justify-between items-center max-w-[1430px] max-xl:pr-[1rem]  
+    max-md:flex-col max-md:items-start max-md:gap-4">
+        <h4 class=" text-primary font-bold">Explore All Vehicles</h4>
         <a href="#" class="flex text-center gap-2 text-nowrap items-center">
             View All
             <img src="icons/LinkArrow.svg" alt="" class="w-[14px] h-[14px]">
         </a>
     </div>
 
-    <div class="flex border-b-[1px] max-w-[1430px]">
-        <span class="text-xl border-blue-600 border-b-[2px] py-2">All Cars</span>
+    <div class="flex border-b-[1px] max-w-[1430px] max-xl:mr-[1rem]">
+        <span class="text-xl border-blue-600 border-b-[2px] py-2 ">All Cars</span>
     </div>
 
-    <div class="flex gap-14 overflow-hidden cursor-grab relative slider-container " style="width: calc(1400px + ((100vw - 1400px) / 2)); max-width: calc(1400px + ((100vw - 1400px) / 2)) !important; padding-right: calc((100vw - 1400px) / 2);"
+    <div class="flex gap-5 overflow-hidden cursor-grab relative slider-container w-full
+    max-xl:gap-0 "
+     style="width: calc(1400px + ((100vw - 1400px) / 2)); max-width: calc(1400px + ((100vw - 1400px) / 2)) !important; padding-right: calc((100vw - 1400px) / 2);"
+     
          (mousedown)="onDragStart($event)" 
          (mousemove)="onDragMove($event)" 
          (mouseup)="onDragEnd($event)" 
@@ -20,29 +25,60 @@
          (touchmove)="onDragMove($event)" 
          (touchend)="onDragEnd($event)">
         
-        <div class="flex w-full max-h-[320px] min-h-[320px] max-w-[580px] min-w-[580px] transition-transform duration-500"
-             [style.transform]="'translateX(' + (-currentIndex * 635) + 'px)'"
-             *ngFor="let slide of slides; let i = index">
-            <img [src]="slide.image" alt="" class="max-w-[50%] rounded-l-[16px] object-cover">
-            <div class="flex flex-col p-10 bg-[#735043] max-w-[50%] rounded-r-[16px] justify-between">
-                <div class="flex flex-col gap-2">
-                    <span class="text-white text-[18px] font-medium leading-[32px]">{{ slide.title }}</span>
-                    <span class="overflow-hidden text-white text-[14px] font-normal leading-[24px] whitespace-nowrap text-ellipsis">{{ slide.description }}</span>
+         <div class="flex w-full max-h-[280px] min-h-[280px] max-w-[600px] min-w-[600px] transition-transform duration-500
+        max-xl:max-h-none max-xl:max-w-none max-xl:h-[500px]
+        max-xl:min-w-[100vw] max-xl:min-h-none max-xl:pr-[2rem]
+
+        max-md:flex-col max-md:pr-[3rem] max-md:h-[auto]
+         "
+         [style.transform]="screenWidth <= 1280 ? 'translateX(calc(' + (-currentIndex * 100) + 'vw))' : 'translateX(' + (-currentIndex * 620) + 'px)'"
+         *ngFor="let slide of cars; let i = index">
+         
+        <div class="w-[50%] rounded-l-[16px] flex items-center 
+        max-md:w-[100%]">
+        <img [src]="slide.image" alt="" class="object-cover w-full h-full rounded-l-[16px]
+            max-md:rounded-bl-none  max-md:rounded-t-[16px]">
+        </div>
+        <div class="flex flex-col py-6 px-8 w-[49%] rounded-r-[16px] justify-between
+        max-xl:py-20 
+        max-md:w-[100%] max-md:rounded-tr-none max-md:rounded-b-[16px] max-md:p-[2rem] max-md:gap-[2rem]"
+             [ngStyle]="{'background-color': randomBackgrounds[i]}">
+             
+            <div class="flex flex-col gap-1">
+                <span class="text-white text-[18px] font-medium leading-[32px]">{{ slide.name }}</span>
+                <span class="overflow-hidden text-white text-[14px] font-normal leading-[24px] whitespace-nowrap text-ellipsis">{{ slide.description }}</span>
+            </div>
+    
+            <div class="flex flex-col gap-4">
+                <div class="flex gap-3 text-white">
+                    <img [src]="'icons/gasoline-pump.svg'" alt="" class="w-[18px] h-[18px]">
+                    <span class="text-sm font-normal">{{ cars[i]?.fuel }}</span>
                 </div>
-                <div class="flex justify-between gap-3">
-                    <span class="text-white text-[20px] font-medium leading-[24px]">{{ slide.price }}</span>
-                    <a href="#" class="flex text-center gap-3 text-nowrap items-center text-white">
-                        View Details
-                        <img src="icons/LinkArrow.svg" alt="" class="w-[14px] h-[14px] invert">
-                    </a>
+                <div class="flex gap-3 text-white">
+                    <img [src]="'icons/engine.svg'" alt="" class="w-[18px] h-[18px] invert">
+                    <span class="text-sm font-normal">{{ cars[i]?.engine }}</span>
+                </div>
+                <div class="flex gap-3 text-white">
+                    <img [src]="'icons/gearbox.svg'" alt="" class="w-[18px] h-[18px]">
+                    <span class="text-sm font-normal">{{ cars[i]?.transmission }}</span>
                 </div>
             </div>
+    
+            <div class="flex justify-between gap-3">
+                <span class="text-white text-[20px] font-bold leading-[24px]">{{ slide.price }}</span>
+                <a href="#" class="flex text-center gap-3 text-nowrap items-center text-white">
+                    View Details
+                    <img src="icons/LinkArrow.svg" alt="" class="w-[14px] h-[14px] invert">
+                </a>
+            </div>
+    
         </div>
     </div>
+    </div>
 
-    <div class="flex gap-10 items-center w-full max-w-[260px]">
-        <button (click)="prevSlide()" class="w-16 h-10 border border-[#E1E1E1] rounded-3xl text-primary text-sm">❮</button>
-        <div class="flex gap-2">{{ currentIndex + 1 }} of {{ slides.length }}</div>
-        <button (click)="nextSlide()" class="w-16 h-10 border border-[#E1E1E1] rounded-3xl text-primary text-sm">❯</button>
+    <div class="flex gap-10 items-center w-full max-w-[260px] max-md:gap-[2rem]">
+        <button (click)="prevSlide()" class="w-8 h-8 border border-[#E1E1E1] rounded-3xl text-primary text-sm">❮</button>
+        <div class="flex gap-2 whitespace-nowrap">{{ currentIndex + 1 }} of {{ cars.length }}</div>
+        <button (click)="nextSlide()" class="w-8 h-8  border border-[#E1E1E1] rounded-3xl text-primary text-sm">❯</button>
     </div>
 </div>
