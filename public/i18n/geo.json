@@ -2,6 +2,7 @@
     "title": "გადატვირთვის მანქანა საქართველო",
     "home": "მთავარი",
     "about": "ჩვენს შესახებ",
+   
     "contact": "კონტაქტი",
     "services": "სერვისები",
     "welcome_message": "კეთილი იყოს თქვენი მობრძანება Check Car Georgia-ს!",
@@ -11,13 +12,23 @@
       "home": "მთავარი",
       "gallery": "გალერეა",
       "aboutUs": "ჩვენს შესახებ",
-      "Contact": "კონტაქტი"
+      "contact": "კონტაქტი",
+      "pages":"გვერდები",
+      "pagesList":{
+        "gallery": "გალერეა",
+        "faq": "FAQs",
+        "calculator":"კალკულატორი",
+        "service": "სერვისები",
+        "terms":"Terms & Conditions"
+        }
     },
 
-    "cars": [
+   "cars": [
     {
-      "name": "Toyota LC 200",
+      "name": "Toyota",
       "price": "$150",
+      "type": "SUV",
+
       "per": "Day",
       "fuel": "Petrol",
       "transmission": "Automatic",
@@ -36,7 +47,7 @@
       "image": "images/slider_car23.jpg"
     },
     {
-      "name": "Toyota LC Prado",
+      "name": "Toyota ",
       "price": "$110",
       "per": "Day",
       "fuel": "Petrol",

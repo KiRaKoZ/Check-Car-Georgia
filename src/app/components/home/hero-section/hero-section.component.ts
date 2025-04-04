@@ -1,68 +1,58 @@
-import { Component } from '@angular/core';
-import { CarService } from '../services/car-info.service';
+import { Component, inject, Signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-hero-section',
-  imports: [CommonModule],
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './hero-section.component.html',
   styleUrls: ['./hero-section.component.scss'],
-  providers: [CarService], 
 })
 export class HeroSectionComponent {
-  cars: { 
-    name: string; 
-    price: string; 
-    per: string; 
-    fuel: string; 
-    transmission: string; 
-    year: number; 
-    image: string; 
-  }[] = [];
-
+  cars: any[] = [];
   currentIndex = 0;
-  fading = false;
   autoplayInterval: any;
 
-  constructor(private carService: CarService) {
-    this.cars = this.carService.cars; 
-    this.startAutoplay(); 
+  private translationService = inject(TranslationService);
+  translations: Signal<any> = this.translationService.translations;
+  
+  private http = inject(HttpClient);
+
+  constructor() {
+    this.loadCars();
+    this.startAutoplay();
+  }
+
+  loadCars() {
+    this.http.get<any>('i18n/eng.json').subscribe((data) => {
+      this.cars = data.cars;
+    });
   }
 
   changeSlide(next: boolean) {
-    if (this.fading) return;
-    this.fading = true;
-    setTimeout(() => {
-      this.currentIndex = (this.currentIndex + (next ? 1 : -1) + this.cars.length) % this.cars.length;
-      this.fading = false;
-    }, 600);
-    this.stopAutoplay();
+    if (this.cars.length === 0) return;
+    this.currentIndex = (this.currentIndex + (next ? 1 : -1) + this.cars.length) % this.cars.length;
+    this.resetAutoplay();
+
   }
+
   goToSlide(index: number) {
-    if (this.fading) return;
-    this.fading = true;
-    setTimeout(() => {
-      this.currentIndex = index;
-      this.fading = false;
-    }, 600);
-    this.stopAutoplay();
+    this.currentIndex = index;
+    this.resetAutoplay();
   }
 
   startAutoplay() {
-    this.autoplayInterval = setInterval(() => this.changeSlide(true), 8000); 
+    this.autoplayInterval = setInterval(() => this.changeSlide(true), 8000);
   }
 
-  stopAutoplay() {
-    clearInterval(this.autoplayInterval); // Stop the autoplay interval\
-    this.autoplayInterval = setInterval(() => this.changeSlide(true), 8000); 
-
+  resetAutoplay() {
+    clearInterval(this.autoplayInterval);
+    this.startAutoplay();
   }
 
   onMoreInfo() {
     console.log('More info about:', this.cars[this.currentIndex]);
   }
-  
-
-
 }

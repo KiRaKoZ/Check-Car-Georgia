@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, inject, OnInit, Renderer2, Signal } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MobileNavigationComponent } from '../mobile-navigation/mobile-navigation.component';
 // import { DropdownComponent } from '../../shared/ui/dropdown/dropdown.component';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, RouterLink,MobileNavigationComponent],
+  imports: [CommonModule, RouterLink,RouterLinkActive,MobileNavigationComponent],
   standalone: true,
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
@@ -15,18 +15,13 @@ import { MobileNavigationComponent } from '../mobile-navigation/mobile-navigatio
 export class HeaderComponent implements OnInit {
   isScrolled = false;
   isDarkMode = false;
-  isDropdownOpen = false;
   selectedLanguage: string = 'English';
   selectedFlag: string = 'images/eng.png';
   selectedFont: string = 'DM Sans';
-
+  isOpen = false;
 
   private translationService = inject(TranslationService);
   translations: Signal<any> = this.translationService.translations;
-
-  isOpen = false;
-
-
 
   languages = [
     { name: 'English', code: 'eng', flag: 'images/eng.png', font: 'DM Sans'},
@@ -70,14 +65,9 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem('selectedLanguage', JSON.stringify(selectedLang));
       document.body.style.fontFamily = this.selectedFont;
     }
-    this.isDropdownOpen = !this.isDropdownOpen;
     
   }
   
-  toggleDropdown() {
-    this.isDropdownOpen = !this.isDropdownOpen;
-  }
-
   toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
     
@@ -89,7 +79,6 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem('theme', 'light');
     }
   }
-
 
   toggleMenu() {
     this.isOpen = !this.isOpen;

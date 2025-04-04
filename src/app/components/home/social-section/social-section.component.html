@@ -1,70 +1,49 @@
-<div class="relative overflow-hidden max-w-[1800px] mx-auto bg-bg-3 rounded-lg h-[700px] flex items-center">
-    <div class="flex w-full max-w-[1430px] m-auto">
-            <div class="flex flex-col gap-8 justify-center max-w-[50%] w-full pl-[1rem] pr-[8rem]]">
-              <h1 class="text-4xl font-bold leading-10 text-slate-950 max-sm:text-3xl max-sm:leading-10">
-                Our Social Networks
-              </h1>
-              <p class="text-base leading-7 text-slate-950">
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es
-              </p>
-              <div>
-                <button
-                  class="inline-flex gap-2.5 items-center px-7 py-5 mt-8 text-base font-medium leading-7 text-white bg-blue-600 rounded-xl border border-blue-600 border-solid cursor-pointer max-sm:justify-center max-sm:w-full"
-                  aria-label="Show All Brands"
-                >
-                  <span>Show All Brands</span>
-              
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="absolute flex items-center right-0 top-0 h-full w-1/2">
-              <svg width="100%" height="90%" viewBox="0 0 547 528" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-circles">
-                <text x="165" y="285.5" fill="#405FF2" font-family="Bebas Neue" font-size="35" font-weight="bold" letter-spacing="0.05em">
-                  CHECKCARGEORGIA
-                </text>
-              </svg>
-              <div class="absolute w-full h-full flex justify-center items-center top-0">
-                <a
-                  *ngFor="let image of rotatingImages; let i = index"
-                  [href]="image.link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="absolute"
-                >
-                  <img
-                    [src]="image.src"
-                    [alt]="image.alt"
-                    [style.width]="image.size"
-                    [style.height]="image.size"
-                    [style.animation]="image.isPaused ? 'none' : image.speed + ' linear infinite ' + image.animationName"
-                    class="icon cursor-pointer"
-                    (mouseenter)="stopAnimation($event)"
-                    (mouseleave)="startAnimation($event)"
-                  />
-                </a>
-              </div>
-                
-            </div>
-          
-          
-        
-           
-            <!-- <div class="absolute top-0 left-0 size-full"> -->
-              <!-- <ng-container *ngFor="let logo of brandLogos">
-                <div
-                  class="flex absolute justify-center items-center w-10 h-10 bg-white rounded-full"
-                  [@logoAnimation]="logo.animationState"
-                  [style.top]="logo.position.top"
-                  [style.left]="logo.position.left"
-                >
-                  <img [src]="logo.src" [alt]="logo.alt" class="w-6 h-6" />
-                </div>
-              </ng-container> -->
-              <!-- <div class="absolute w-10 h-10 bg-white rounded-full flex justify-center items-center" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                <span class="text-xs font-bold">BOXCARS</span>
-              </div> -->
-            <!-- </div> -->
-    
-   
+<div class="relative overflow-hidden max-w-[1800px] mx-auto bg-bg-3 rounded-lg min-h-[500px] flex flex-col lg:flex-row items-center max-lg:h-auto ">
+  <div class="flex w-full max-w-[1430px] py-12 m-auto max-md:flex-col max-md:gap-6">
+    <div class="flex flex-col gap-8 justify-center px-4 max-w-[50%] max-md:max-w-none" >
+      <h4 class="font-bold leading-10 text-primary">
+        Our Social Networks
+      </h4>
+      <p class="text-base leading-7 text-primary">
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es.
+      </p>
+      <div>
+        <button routerLink="contact" class="flex justify-center gap-4 px-6 py-4 mt-6 text-base font-medium text-white bg-blue-600 rounded-lg border border-blue-600 max-md:w-full">
+          Contact us
+          <img src="icons/LinkArrow.svg" alt="" class="invert">
+
+        </button>
+      </div>
+    </div>
+    <div class="relative w-[50%] flex justify-center md:absolute md:right-0 md:top-0 h-[400px] md:h-full max-md:w-full">
+      <svg width="100%" height="90%" viewBox="0 0 547 528" class="brand-circles ">
+        <text x="145" y="285.5" fill="#405FF2" font-size="25" font-weight="bold">
+          CHECKCARGEORGIA
+        </text>
+      </svg>
+      
+      <div class="absolute w-full h-full flex justify-center items-center top-0">
+        <a *ngFor="let image of rotatingImages; let i = index"
+           [href]="image.link"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="absolute">
+          <img
+            [src]="image.src"
+            [alt]="image.alt"
+            [style.width]="image.size"
+            [style.height]="image.size"
+            [style.animation]="image.isPaused ? 'none' : image.speed + ' linear infinite ' + image.animationName"
+            class="icon cursor-pointer"
+            (mouseenter)="stopAnimation($event)"
+            (mouseleave)="startAnimation($event)"
+          />
+        </a>
+      </div>
+    </div>
   </div>
+  
+
+  <!-- Rotating Icons -->
+  
+</div>

@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, Renderer2, Signal } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-mobile-navigation',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './mobile-navigation.component.html',
   styleUrl: './mobile-navigation.component.scss'
 })
@@ -44,10 +45,10 @@ export class MobileNavigationComponent implements OnInit{
   constructor(
     private renderer: Renderer2,
   ) {}
-  toggleSubMenu() {
-    this.isSubMenuOpen = !this.isSubMenuOpen;
-  }
+  
   currentYear: number = new Date().getFullYear();
+
+
   ngOnInit() {
     const storedLanguage = localStorage.getItem('selectedLanguage');
     if (storedLanguage) {
@@ -55,8 +56,14 @@ export class MobileNavigationComponent implements OnInit{
       this.selectedLanguage = selectedLang.name;
       this.selectedFlag = selectedLang.flag;
       this.selectedFont = selectedLang.font;
+
       this.translationService.changeLanguage(selectedLang.code);
       document.body.style.fontFamily = this.selectedFont;
+    }
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      this.isDarkMode = true;
+      this.renderer.addClass(document.documentElement, 'dark');
     }
     
   }
@@ -73,7 +80,9 @@ export class MobileNavigationComponent implements OnInit{
     }
     
   }
-  
+  toggleSubMenu() {
+    this.isSubMenuOpen = !this.isSubMenuOpen;
+  }
 
 
 

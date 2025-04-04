@@ -3,4 +3,12 @@
   <app-pages-header *ngIf="!isHomePage()"></app-pages-header>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
+  <button
+  (click)="scrollToTop()"
+  class="fixed bottom-6 right-6 bg-secondary text-white px-3 py-2 rounded-full shadow-lg transition-opacity duration-500"
+  [class.opacity-100]="isVisible"
+  [class.opacity-0]="!isVisible"
+>
+  ↑ 
+</button>
 </main>

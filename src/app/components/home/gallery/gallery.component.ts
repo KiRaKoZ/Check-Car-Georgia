@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject, Signal } from '@angular/core';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-gallery',
@@ -8,14 +10,19 @@ import { Component } from '@angular/core';
   styleUrl: './gallery.component.scss'
 })
 export class GalleryComponent {
+  cars: any[] = [];
+  
+  private translationService = inject(TranslationService);
+  translations: Signal<any> = this.translationService.translations;
 
-
-  cars =[
-    { image: 'images/slider_car11.jpg', altText: 'Sedan', name: 'Sedan' },
-    { image: 'images/slider_car1.jpg', altText: 'Coupe', name: 'Coupe' },
-    { image: 'images/slider_car3.jpg', altText: 'SUV', name: 'SUV' },
-    { image: 'images/slider_car9.jpg', altText: 'SUV', name: 'SUV' },
-    { image: 'images/slider_car10.jpg', altText: 'SUV', name: 'SUV' },
-
-  ];
+  constructor(
+    private http: HttpClient
+  ) {
+    this.loadCars();
+  }
+  loadCars() {
+    this.http.get<any>('i18n/eng.json').subscribe((data) => {
+      this.cars = data.cars;
+    });
+}
 }

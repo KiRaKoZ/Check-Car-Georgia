@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Renderer2 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-social-section',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './social-section.component.html',
   styleUrl: './social-section.component.scss'
 })
@@ -26,19 +27,25 @@ export class SocialSectionComponent {
   constructor(private renderer: Renderer2) {}
 
   ngOnInit() {
-    this.rotatingImages = this.generateRandomProperties();
+    this.updateOrbitProperties();
     this.injectKeyframes();
+    window.addEventListener('resize', () => {
+      this.updateOrbitProperties();
+    });
   }
 
+  updateOrbitProperties() {
+    this.rotatingImages = this.generateRandomProperties();
+  }
   generateRandomProperties() {
-    const numImages = this.images.length;
+    const isMobile = window.innerWidth < 768; // Detect mobile view
     return this.images.map((image, index) => ({
       ...image, 
-      size: [`40px`, `60px`, `80px`][Math.floor(Math.random() * 3)], // Random size
-      orbitRadius: index % 3 === 0 ? 150 : 250, // Two different circle orbits
-      speed: `${Math.floor( (20 - 5) + 5)}s`, // Random speed (5-10s)
-      initialRotation: (360 / numImages) * index, // Staggered start position
-      animationName: `orbit_${index}`, // Unique keyframe name
+      size: isMobile ? [`30px`, `50px`][Math.floor(Math.random() * 2)] : [`40px`, `50px`, `70px`][Math.floor(Math.random() * 3)], // Smaller size on mobile
+      orbitRadius: isMobile ? (index % 2 === 0 ? 150 : 150) : (index % 2 === 0 ? 150 : 150), // Smaller orbits on mobile
+      speed: `${Math.floor( (40 - 5) + 5)}s`,
+      initialRotation: (360 / this.images.length) * index,
+      animationName: `orbit_${index}`,
       isPaused: false
     }));
   }
