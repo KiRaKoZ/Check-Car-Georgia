@@ -1,47 +1,37 @@
 <section class="px-4 gap-16 pl-[calc((100vw-1430px)/2)] relative overflow-hidden">
-    <div
-      class="flex flex-wrap gap-5 justify-between w-full max-w-[1400px] text-slate-950 max-md:mt-10 max-md:max-w-full"
-    >
-      <h2 class="text-4xl font-bold leading-none">Gallery</h2>
-      <a
-        href="#"
-        class="flex gap-2.5 justify-center items-center self-start mt-3.5 text-base font-medium leading-loose"
-      >
-        <span class="self-stretch my-auto">View All</span>
-        <img
-          src="icons/LinkArrow.svg"
-          class="object-contain shrink-0 self-stretch my-auto w-3.5 aspect-square"
-        />
-      </a>
-    </div>
+  <div class="flex flex-wrap gap-5 justify-between w-full max-w-[1400px] text-slate-950 max-md:mt-10 max-md:max-w-full">
+    <h2 class="text-4xl font-bold leading-none">Gallery</h2>
+    <a href="#" class="flex gap-2.5 justify-center items-center self-start mt-3.5 text-base font-medium leading-loose">
+      <span class="self-stretch my-auto">View All</span>
+      <img src="icons/LinkArrow.svg" class="object-contain shrink-0 self-stretch my-auto w-3.5 aspect-square" />
+    </a>
+  </div>
 
-    <div class="mt-12 w-full max-w-[1400px] max-md:mt-10 max-md:max-w-full">
-      <div class="grid grid-cols-2 gap-5 max-md:grid-cols-1">
-        <div *ngFor="let car of cars.slice(0, 2)" class="w-full">
-          <div
-            class="flex overflow-hidden relative flex-col items-start  px-8 pt-72 pb-8 w-full text-base font-medium leading-7 rounded-3xl min-h-[20rem] text-slate-950 max-md:px-5 max-md:pt-24"
-          >
-            <img [src]="car.image" [alt]="car.altText" class="absolute inset-0 size-full rounded-3xl object-cover transition-transform duration-300 hover:scale-105" />
-            <div class="flex relative gap-2.5 justify-center items-center px-8 py-2 bg-white rounded-[60px] max-md:px-5">
-              <span class="self-stretch my-auto">{{ car.name }}</span>
-            </div>
+  <!-- First Row (Displaying First Two Cars) -->
+  <div class="mt-12 w-full max-w-[1400px] max-md:mt-10 max-md:max-w-full">
+    <div class="grid grid-cols-2 gap-5 max-md:grid-cols-1">
+      <div *ngFor="let car of cars.slice(0, 2); let i = index" class="w-full">
+        <div class="flex overflow-hidden relative flex-col items-start px-8 pt-72 pb-8 w-full rounded-3xl min-h-[20rem] max-md:px-5 max-md:pt-24">
+          <img [src]="car.image" [alt]="translations()?.cars?.type" class="absolute inset-0 size-full rounded-3xl object-cover transition-transform duration-500 hover:scale-110" />
+          <div class="flex relative gap-2.5 justify-center items-center px-8 py-2 bg-white rounded-[60px] max-md:px-5">
+            <span class="text-primary self-stretch my-auto">{{ translations()?.cars[i]?.type }}</span>
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="mt-8 w-full max-w-[1400px] max-md:max-w-full">
-      <div class="grid grid-cols-3 gap-5 max-md:grid-cols-1">
-        <div *ngFor="let car of cars.slice(2)" class="w-full">
-          <div
-            class="flex relative overflow-hidden flex-col items-start px-8 pt-72 pb-8 w-full text-base font-medium leading-7 rounded-3xl min-h-[20rem] text-slate-950 max-md:px-5 max-md:pt-24"
-          >
-            <img [src]="car.image" [alt]="car.altText" class="absolute inset-0 size-full rounded-3xl object-cover transition-transform duration-300 hover:scale-105" />
-            <div class="flex relative gap-2.5 justify-center items-center px-8 py-2 bg-white rounded-[60px] max-md:px-5">
-              <span class="self-stretch my-auto">{{ car.name }}</span>
-            </div>
+  </div>
+
+  <!-- Second Row (Displaying Remaining Cars) -->
+  <div class="mt-8 w-full max-w-[1400px] max-md:max-w-full">
+    <div class="grid grid-cols-3 gap-5 max-md:grid-cols-1">
+      <div *ngFor="let car of cars.slice(2); let i = index" class="w-full">
+        <div class="flex relative overflow-hidden flex-col items-start px-8 pt-72 pb-8 w-full rounded-3xl min-h-[20rem] max-md:px-5 max-md:pt-24">
+          <img [src]="car.image" [alt]="translations()?.cars?.type" class="absolute inset-0 size-full rounded-3xl object-cover transition-transform duration-500 hover:scale-110" />
+          <div class="flex relative gap-2.5 justify-center items-center px-8 py-2 bg-white rounded-[60px] max-md:px-5">
+            <span class="self-stretch my-auto">{{ translations()?.cars[i]?.type }}</span>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

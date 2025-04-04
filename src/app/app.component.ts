@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {RouterOutlet, RouterModule, Router } from '@angular/router';
+import { Component, HostListener,  } from '@angular/core';
+import {RouterOutlet, RouterModule, Router  } from '@angular/router';
 import { CommonModule, NgIf } from '@angular/common';
 import { HeaderComponent } from './components/layouts/header/header.component';
 import { FooterComponent } from './components/layouts/footer/footer.component';
@@ -20,15 +20,25 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent  {
+  isVisible = false; 
 
-  constructor(private router: Router) {}
+  
+  constructor(private router: Router,) {}
   title = 'Check-Car-Georgia';
 
   isHomePage(): boolean {
     return this.router.url === '/'; 
   }
-  
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    this.isVisible = window.scrollY > 300; 
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
 
 

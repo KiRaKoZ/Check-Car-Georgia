@@ -1,29 +1,38 @@
 <div class="flex flex-col gap-3 justify-between h-full">
-    <div class="flex flex-col relative w-full  text-white overflow-hidden h-full  ">
+    <div class="flex flex-col relative w-full  text-white overflow-hidden h-full py-[3rem] ">
         <ul [ngClass]="{ 'translate-x-0': !isSubMenuOpen, '-translate-x-full': isSubMenuOpen }"
-            class="absolute top-0 left-0 w-full h-full transition-transform duration-300">
-            <li class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer items-center">
-                Home
+            class="absolute top-0 left-0 w-full h-full transition-transform duration-300 overflow-auto">
+            <li class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer items-center font-case">
+                <a routerLink="#" class="font-case flex text-xl text-white ease-in-out transition-all duration-300 hover:text-secondary">
+                    {{ translations()?.header?.home}}
+                  </a>
             </li>
 
             <li 
-                class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer items-center"
+                class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer items-center font-case transition-all duration-300 hover:text-secondary"
                 (click)="toggleSubMenu()">
-                Pages
+                {{translations()?.header?.pages}}
                 <img 
                     src="icons/arrow-down.svg" 
                     alt="" 
-                    class="transition-transform duration-300 w-[12px] h-[12px] rotate-[-90deg]">
+                    class="w-[12px] h-[12px] rotate-[-90deg]">
             </li>
-
-            <li class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer items-center">
-                about us
+            <li class="p-4 px-5 cursor-pointer">
+                <a routerLink="contact" class="font-case flex text-xl text-white ease-in-out transition-all duration-300 hover:text-secondary">
+                  {{ translations()?.header?.aboutUs}}
+                </a>
             </li>
-            <li class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer items-center">
-                Contact Us
+              
+            <li class="p-4 px-5 cursor-pointer">
+                <a routerLink="contact" class="font-case flex text-xl text-white ease-in-out transition-all duration-300 hover:text-secondary">
+                  {{ translations()?.header?.contact}}
+                </a>
             </li>
-            <li class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer items-center">
-                FAQ
+           
+            <li class="p-4 px-5 cursor-pointer">
+                <a routerLink="faq" class="font-case flex text-xl text-white ease-in-out transition-all duration-300 hover:text-secondary">
+                  {{ translations()?.header?.pagesList?.faq }}
+                </a>
             </li>
         </ul>
     
@@ -31,20 +40,42 @@
         <ul [ngClass]="{ 'translate-x-0': isSubMenuOpen, 'translate-x-full': !isSubMenuOpen }"
             class="absolute top-0 left-0 w-full h-full transition-transform duration-300">
           <li 
-            class="flex w-full text-xl justify-between p-4 px-5 cursor-pointer"
+            class="flex w-full text-xl gap-4 p-4 px-5 cursor-pointer items-center bg-secondary rounded-xl opacity-80"
             (click)="toggleSubMenu()">
             <img src="icons/arrow-down.svg" alt="" class="w-[12px] h-[12px] rotate-[90deg]">
             Back
           </li>
-          <li class="p-4 px-5 cursor-pointer">Submenu 1</li>
-          <li class="p-4 px-5 cursor-pointer">Submenu 2</li>
-          <li class="p-4 px-5 cursor-pointer">Submenu 3</li>
+          <li class="p-4 px-5 cursor-pointer">
+            <a routerLink="gallery" class="font-case flex text-xl text-white ease-in-out transition-all duration-300 hover:text-secondary">
+              {{ translations()?.header?.pagesList?.gallery }}
+            </a>
+          </li>
+          
+          <li class="p-4 px-5 cursor-pointer">
+            <a routerLink="service-page" class="font-case flex text-xl text-white ease-in-out transition-all duration-300 hover:text-secondary">
+              {{ translations()?.header?.pagesList?.service }}
+            </a>
+          </li>
+          
+          <li class="p-4 px-5 cursor-pointer">
+            <a routerLink="calculator" class="font-case flex text-xl text-white ease-in-out transition-all duration-300 hover:text-secondary">
+              {{ translations()?.header?.pagesList?.calculator }}
+            </a>
+          </li>
+      
+          
+          <li class="p-4 px-5 cursor-pointer">
+            <a routerLink="terms&conditions" class="font-case flex text-xl text-white ease-in-out transition-all duration-300 hover:text-secondary">
+              {{ translations()?.header?.pagesList?.terms }}
+            </a>
+          </li>
+          
         </ul>
 
     </div>
 
 
-    <div class="relative inline-block px-4">
+    <div class="relative inline-block px-4 pt-4">
         <div class=" flex gap-3 w-full text-white rounded-lg justify-center ">
             <button *ngFor="let lang of languages" (click)="changeLanguage(lang.code)" class="flex font-normal text-white text-sm focus:scale-105 transition-all duration-300 ease-in-ou" >
                 <div class="flex gap-2 items-center">

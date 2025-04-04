@@ -1,20 +1,39 @@
-<div class="flex flex-col text-white rounded-none max-w-[1800px] m-auto">
-    <div class="flex flex-col w-full bg-blue-600 rounded-2xl max-md:max-w-full">
-      <div class="flex relative flex-col justify-center items-start px-20 py-28 w-full rounded-none min-h-[500px] max-md:px-5 max-md:py-24 max-md:max-w-full">
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ca850bd76cc51f8999826fd3c97833a02db028f8?apiKey=f00c02c049754371a6df486ba807890f&" alt="Background image of a car" class="object-cover absolute inset-0 size-full">
-        <div class="flex relative flex-col mb-0 max-w-full w-[604px] max-md:mb-2.5">
-          <h4 class="text-white font-bold capitalize leading-[55px] max-md:max-w-full">
+<div class="flex flex-col text-white rounded-none max-w-[1800px] m-auto overflow-hidden bg-gradient-to-r from-[#536FF3] via-[#405FF3] to-[#627CF4] h-[450px] max-lg:h-auto"  >
+    <div class="flex justify-between w-full max-w-[1430px] m-auto  ">
+      <div class=" flex w-full gap-6 justify-between px-[1rem] ">
+        
+        <div class="flex relative gap-10 flex-col max-w-[50%] py-[5rem] max-lg:max-w-[40%]  max-md:max-w-none">
+          <h4 class="text-white font-bold capitalize leading-[25px] ">
             Booking Service
           </h4>
-          <p class="mt-12 text-base leading-7 max-md:mt-10 max-md:max-w-full">
+          <p class="text-base leading-7 max-md:w-full">
             Download our app to save cars and create alerts, scan window
             stickers on our lot for more details, and even call dibs on a car
             by holding it for up to 7 days.
           </p>
-          <div class="flex gap-8 mt-12 max-w-full text-white w-[450px] max-md:mt-10">
-            <button>Book now</button>
-          </div>
+          <p class=" text-base leading-7  max-md:w-full">
+            Download our app to save cars and create alerts, scan window
+            stickers on our lot for more details, and even call dibs on a car
+            by holding it for up to 7 days.
+          </p>
+      
+          <button routerLink="service-page" class="hidden gap-3 justify-center  w-full  items-center p-4 text-primary bg-white rounded-xl max-md:flex ">
+             Book Now
+             <img src="icons/LinkArrow.svg" alt="" class="">
+           </button>
+        
         </div>
+        <div class="flex w-full justify-end relative max-md:hidden">
+          <img src="images/1.png" alt="" class=" h-full ">
+          <button routerLink="service-page" class="flex gap-3 justify-evenly top-[20rem] right-[8rem] w-[150px] absolute items-center p-4 text-white bg-secondary rounded-xl  ">
+            Book Now
+            <img src="icons/LinkArrow.svg" alt="" class="invert">
+          </button>
+         
+       
+        </div>
+       
       </div>
     </div>
+
   </div>
