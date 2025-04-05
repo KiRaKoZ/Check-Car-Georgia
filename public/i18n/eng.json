@@ -11,87 +11,108 @@
         "service": "Service",
         "terms":"Terms & Conditions"
       }
-    
-  
     },
 
-      "menu": "Menu",
-      "back":"Back",
-      "allRightsReserved":"All rights reserved",
+    "menu": "Menu",
+    "back":"Back",
+    "allRightsReserved":"All rights reserved",
+    "fuelType":"Fuel Type",
+    "transmission": "Transmission",
+    "year": "Year",
+    "engine": "Engine",
+    "moreInfo":"More Info",
 
+"cars": [
+  {
+    "name": "Toyota LC 200",
+    "info": "4.0 V6 5dr AWD Automatic SUV",
+    "type": "SUV",
+    "price": "$150",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2020,
+    "engine": "4.0",
+    "image": "images/slider_car15.jpg"
+  },
+  {
+    "name": "BMW X5 E70",
+    "type": "SUV",
+    "price": "₾175",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2012,
+    "engine": "3.0",
+    "image": "images/slider_car16.jpg"
+  },
+  {
+    "name": "Toyota LC Prado",
+    "type": "SUV",
+    "price": "$110",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2014,
+    "engine": "2.7",
+    "image": "images/slider_car.jpg"
+  },
+  {
+    "name": "BMW X5 F15",
+    "type": "SUV",
+    "price": "₾255",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2018,
+    "engine": "3.5",
+    "image": "images/slider_car.jpg"
+  },
+  {
+    "name": "BMW F10",
+    "type": "Sedan",
+    "price": "₾200",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2017,
+    "engine": "2.0",
+    "image": "images/slider_car.jpg"
+  },
+  {
+    "name": "Porsche Cayenne",
+    "type": "SUV",
+    "price": "₾300",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2014,
+    "engine": "3.6",
+    "image": "images/slider_car.jpg"
+  },
+  {
+    "name": "Toyota LC 300",
+    "type": "SUV",
+    "price": "$240",
+    "per": "Day",
+    "fuel": "Diesel",
+    "transmission": "Automatic",
+    "year": 2023,
+    "engine": "3.0",
+    "image": "images/slider_car.jpg"
+  },
+  {
+    "name": "Lexus LX 570",
+    "type": "SUV",
+    "price": "$270",
+    "per": "Day",
+    "fuel": "Diesel",
+    "transmission": "Automatic",
+    "year": 2024,
+    "engine": "4.0",
+    "image": "images/slider_car.jpg"
+  }
+]
 
-
-
-
-
-
-
-
-    "vehicleTypes":{
-      "home": "Home"
-    },
-
-    "cars": [
-    {
-      "name": "Toyota LC 200",
-      "type": "SUV",
-      "price": "$150",
-      "per": "Day",
-      "fuel": "Petrol",
-      "transmission": "Automatic",
-      "year": 2020,
-      "engine": "4.0",
-      "image": "images/slider_car21.jpg"
-    },
-    {
-      "name": "BMW X5 E70",
-      "type": "SUV",
-
-      "price": "₾175",
-      "per": "Day",
-      "fuel": "Petrol",
-      "transmission": "Automatic",
-      "year": 2012,
-      "engine": "3.0",
-      "image": "images/slider_car23.jpg"
-    },
-    {
-      "name": "Toyota LC Prado",
-      "price": "$110",
-      "type": "SUV",
-
-      "per": "Day",
-      "fuel": "Petrol",
-      "transmission": "Automatic",
-      "year": 2014,
-      "engine": "2.7",
-      "image": "images/slider_car22.jpg"
-    },
-    {
-      "name": "Toyota LC Prado",
-      "price": "$110",
-      "type": "SUV",
-
-      "per": "Day",
-      "fuel": "Petrol",
-      "transmission": "Automatic",
-      "year": 2014,
-      "engine": "2.7",
-      "image": "images/slider_car22.jpg"
-    },
-    {
-      "name": "Toyota LC Prado",
-      "price": "$110",
-      "type": "SUV",
-
-      "per": "Day",
-      "fuel": "Petrol",
-      "transmission": "Automatic",
-      "year": 2014,
-      "engine": "2.7",
-      "image": "images/slider_car22.jpg"
-    }
- 
-  ]
   
 }

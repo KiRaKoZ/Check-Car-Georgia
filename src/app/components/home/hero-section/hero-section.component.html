@@ -17,7 +17,7 @@
         <div class="flex relative items-center mx-auto h-full px-4">
           <div class="flex flex-col gap-10 pl-[calc((100vw-1430px)/2)] max-xl:pt-[15rem] max-xl:gap-4 max-sm:pt-0">
             <h4 class="text-white font-medium">
-              {{ translations()?.cars[idx]?.price }} / {{ car.per }}
+              {{ translations()?.cars[idx]?.price }} 
             </h4>
             <h1 class="font-bold text-white">
               {{ translations()?.cars[idx]?.name }}
@@ -29,74 +29,89 @@
 
           <!-- Car details section -->
           <div
-            class="absolute flex flex-col gap-12 p-14 rounded-2xl bg-white bg-opacity-10 right-8 max-w-[360px] bottom-[5rem]
-              max-xl:flex-row max-xl:max-w-none max-xl:right-auto max-xl:bottom-[10rem] max-xl:left-0 max-xl:ml-4 max-xl:p-3
-              max-xl:items-end max-sm:bottom-[5rem]"
+            class="absolute flex flex-col gap-12 p-14 rounded-2xl bg-white bg-opacity-10 right-8  bottom-[5rem]
+              max-xl:flex-row max-xl:max-w-none max-xl:right-auto max-xl:bottom-[10rem] max-xl:gap-8 max-xl:left-0 max-xl:ml-4 max-xl:p-3
+              max-xl:items-end max-sm:bottom-[5rem]
+              max-sm:gap-6 "
           >
             <!-- Fuel Type -->
-            <div class="flex flex-col gap-3 text-white max-xl:gap-2">
-              <img src="icons/gasoline-pump.svg" alt="Fuel Icon" class="w-[30px] h-[30px] max-xl:w-[20px] max-xl:h-[20px]" />
-              <span class="text-sm whitespace-nowrap">Fuel Type</span>
-              <span class="text-xl font-medium">{{ car.fuel }}</span>
+            <div class="flex flex-col gap-5 text-white ">
+              <img src="icons/gasoline-pump.svg" alt="Fuel Icon" class="w-[30px] h-[30px] max-xl:w-[25px] max-xl:h-[25px]"  />
+              <div class="flex flex-col gap-1">
+                <span class="text-base whitespace-nowrap max-sm:text-sm">{{ translations()?.fuelType}}</span>
+                <span class="text-xl font-medium font-case max-sm:text-base">{{ translations()?.cars[idx].fuel }}</span>
+              </div>
+            
             </div>
 
             <!-- Transmission -->
-            <div class="flex flex-col gap-3 text-white max-xl:gap-2">
-              <img src="icons/gearbox.svg" alt="Transmission Icon" class="w-[30px] h-[30px] max-xl:w-[20px] max-xl:h-[20px]" />
-              <span class="text-sm">Transmission</span>
-              <span class="text-xl font-medium">{{ car.transmission }}</span>
+            <div class="flex flex-col gap-5 text-white ">
+              <img src="icons/gearbox.svg" alt="Transmission Icon" class="w-[30px] h-[30px] max-xl:w-[25px] max-xl:h-[25px]" />
+              <div class="flex flex-col gap-1">
+                <span class="text-base max-sm:text-sm">{{ translations()?.transmission}}</span>
+                <span class="text-xl font-medium font-case max-sm:text-base">{{ translations()?.cars[idx].transmission}}</span>
+              </div>
             </div>
 
             <!-- Year -->
-            <div class="flex flex-col gap-3 text-white max-xl:gap-2">
-              <img src="icons/calendar.svg" alt="Year Icon" class="w-[30px] h-[30px] max-xl:w-[20px] max-xl:h-[20px]" />
-              <span class="text-sm">Year</span>
-              <span class="text-xl font-medium">{{ car.year }}</span>
+            <div class="flex flex-col gap-5 text-white ">
+              <img src="icons/calendar.svg" alt="Year Icon" class="w-[30px] h-[30px] max-xl:w-[25px] max-xl:h-[25px]" />
+              <div class="flex flex-col gap-1">
+                <span class="text-base max-sm:text-sm">{{ translations()?.year}}</span>
+                <span class="text-xl font-medium font-case max-sm:text-base">{{ translations()?.cars[idx].year}}</span>
+
+              </div>
             </div>
 
-            <!-- More Info Button -->
             <button
-              class="flex justify-center items-center gap-3 px-7 py-4 bg-white text-slate-950 rounded-xl max-xl:p-6 max-xl:h-8 max-sm:hidden"
+              class="flex justify-center items-center gap-3 px-7 py-4 group 
+              ease-in-out transition-all duration-300 border-white hover:scale-110 border-[1px] bg-white text-primary 
+               text-base whitespace-nowrap font-case rounded-xl max-xl:p-6 max-xl:h-8 max-sm:hidden max-md:text-xs"
               (click)="onMoreInfo()"
             >
-              More Info
-              <img src="icons/LinkArrow.svg" alt="Arrow Icon" class="w-[15px] h-[15px]" />
+            {{translations()?.moreInfo}}
+              <img src="icons/LinkArrow.svg" alt="Arrow Icon" class="w-[15px] h-[15px] " />
             </button>
           </div>
         </div>
         
       </div>
     </div>
-    <div class="pl-[calc((100vw-1430px)/2)] cursor-pointer absolute flex gap-8 items-center bottom-16 max-sm:bottom-[1rem]">
-      <button
-        class="w-16 h-10 border border-white rounded-3xl text-white max-sm:w-8 max-sm:h-8"
-        (click)="changeSlide(false)"
-      >
-        ❮
-      </button>
 
-      <div class="flex gap-2">
-        <div
-          *ngFor="let c of cars; let i = index"
-          [class.opacity-50]="i !== currentIndex"
-          class="py-2 cursor-pointer"
-          (click)="goToSlide(i)"
+
+    <div class="flex absolute pl-[calc((100vw-1430px)/2)] bottom-16 max-sm:bottom-[1.5rem]">
+      <div class="px-4 cursor-pointer flex gap-6 items-center max-sm:gap-3">
+        <button
+          class="w-16 h-10 border border-white rounded-3xl text-white hover:bg-white hover:scale-110 hover:text-primary ease-in-out transition-all duration-300  max-sm:w-8 max-sm:h-8"
+          (click)="changeSlide(false)"
         >
+          ❮
+        </button>
+  
+        <div class="flex gap-2">
           <div
-            class="h-1 bg-white rounded transition-all duration-300"
-            [class.w-3]="i !== currentIndex"
-            [class.w-6]="i === currentIndex"
-          ></div>
+            *ngFor="let c of cars; let i = index"
+            [class.opacity-50]="i !== currentIndex"
+            class="py-2 cursor-pointer "
+            (click)="goToSlide(i)"
+          >
+            <div
+              class="h-1 bg-white rounded ease-in-out transition-all duration-300"
+              [class.w-5]="i !== currentIndex"
+              [class.w-8]="i === currentIndex"
+            ></div>
+          </div>
         </div>
+  
+        <button
+          class="w-16 h-10 border border-white rounded-3xl text-white hover:bg-white hover:scale-110 hover:text-primary ease-in-out transition-all duration-300 max-sm:w-8 max-sm:h-8"
+          (click)="changeSlide(true)"
+        >
+          ❯
+        </button>
       </div>
-
-      <button
-        class="w-16 h-10 border border-white rounded-3xl text-white max-sm:w-8 max-sm:h-8"
-        (click)="changeSlide(true)"
-      >
-        ❯
-      </button>
     </div>
+    
   </div>
   
 </div>

@@ -31,16 +31,18 @@ export class HeroSectionComponent {
     });
   }
 
+  firstFiveCars = this.cars.slice(0, 5)
+
   changeSlide(next: boolean) {
     if (this.cars.length === 0) return;
     this.currentIndex = (this.currentIndex + (next ? 1 : -1) + this.cars.length) % this.cars.length;
     this.resetAutoplay();
-
   }
 
   goToSlide(index: number) {
     this.currentIndex = index;
     this.resetAutoplay();
+
   }
 
   startAutoplay() {
