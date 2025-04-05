@@ -1,14 +1,14 @@
 <div class="flex flex-col items-center rounded-none px-4">
     <div class="w-full max-w-[1400px] max-md:max-w-full">
-      <div class="flex gap-5 max-md:flex-col">
-        <div class="flex flex-col w-[55%] self-stretch my-auto max-md:hidden">
+      <div class="flex gap-5 max-md:flex-col max-lg:flex-row-reverse">
+        <div class="flex flex-col w-[55%] self-stretch my-auto max-md:hidden max-lg:my-0 ">
           <div class="grow max-md:mt-10 max-md:max-w-full">
-            <div class="flex gap-5 max-md:flex-col">
-              <div class="flex flex-col w-[50%] justify-end ">
-               <img src="images/rentCar.jpeg" alt="" class="object-contain w-full rounded-3xl">
+            <div class="flex gap-5 max-md:flex-col max-lg:h-full max-lg:justify-end">
+              <div class="flex flex-col w-[50%] justify-end max-lg:hidden">
+               <img src="images/rentCar.jpeg" alt="" class="object-contain w-full rounded-3xl  dark:border-2 dark:border-white ">
               </div>
-              <div class="flex flex-col rounded-3xl w-[50%] " (click)="toggleVideo()">
-                <video #videoPlayer class="w-full h-auto rounded-3xl" autoplay muted loop playsinline>  
+              <div class="flex flex-col rounded-3xl w-[50%] dark:border-2 dark:border-white max-lg:w-[80%] " (click)="toggleVideo()">
+                <video #videoPlayer class="w-full h-auto rounded-3xl max-xl:h-full max-xl:object-fill " autoplay muted loop playsinline>  
                   <source src="videos/ccgVideo.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -16,8 +16,8 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-col ml-5 w-[50%] justify-center max-md:ml-0 max-md:w-full">
-          <div class="flex flex-col gap-[2rem] self-stretch  w-full text-base font-medium  text-primary max-md:mt-10 max-md:max-w-full">
+        <div class="flex flex-col ml-5 w-[50%] justify-center max-md:ml-0 max-md:w-full max-lg:ml-0">
+          <div class="flex flex-col gap-[2rem] self-stretch  w-full text-base font-medium  text-primary dark:text-white max-md:mt-10 max-md:max-w-full">
             <h4 class="self-stretch font-bold leading-[55px] max-md:max-w-full">
               Get A Fair Price For Your Car
               Sell To Us Today
@@ -50,7 +50,8 @@
           </div>
         </div>
       </div>
+    <div class="flex self-stretch mt-14 w-full bg-neutral-200 min-h-[1px] max-md:mt-10 max-md:max-w-full"></div>
+
     </div>
    
-    <div class="flex self-stretch mt-14 w-full bg-neutral-200 min-h-[1px] max-md:mt-10 max-md:max-w-full"></div>
   </div>
