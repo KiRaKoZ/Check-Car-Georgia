@@ -27,38 +27,103 @@
 
     },
 
-   "cars": [
-    {
-      "name": "Toyota",
-      "price": "$150",
-      "type": "SUV",
+    "menu": "მენიუ",
+    "back": "უკან",
+    "allRightsReserved": "ყველა უფლება დაცულია",
+    "fuelType": "საწ.ტიპი",
+    "transmission": "გად.კოლოფი",
+    "year": "წელი",
+    "engine": "ძრავი",
+    "moreInfo":"მეტი ინფორმაცია",
 
-      "per": "Day",
-      "fuel": "Petrol",
-      "transmission": "Automatic",
+  "cars": [
+    {
+      "name": "Toyota LC 200",
+      "type": "SUV",
+      "price": "$150",
+      "per": "დღე",
+      "fuel": "ბენზინი",
+      "transmission": "ავტომატიკა",
       "year": 2020,
       "engine": "4.0",
       "image": "images/slider_car21.jpg"
     },
     {
       "name": "BMW X5 E70",
+      "type": "SUV",
       "price": "₾175",
-      "per": "Day",
-      "fuel": "Petrol",
-      "transmission": "Automatic",
+      "per": "დღე",
+      "fuel": "ბენზინი",
+      "transmission": "ავტომატიკა",
       "year": 2012,
       "engine": "3.0",
       "image": "images/slider_car23.jpg"
     },
     {
-      "name": "Toyota ",
+      "name": "Toyota LC Prado",
+      "type": "SUV",
       "price": "$110",
-      "per": "Day",
-      "fuel": "Petrol",
-      "transmission": "Automatic",
+      "per": "დღე",
+      "fuel": "ბენზინი",
+      "transmission": "ავტომატიკა",
       "year": 2014,
       "engine": "2.7",
       "image": "images/slider_car22.jpg"
+    },
+    {
+      "name": "BMW X5 F15",
+      "type": "SUV",
+      "price": "₾255",
+      "per": "დღე",
+      "fuel": "ბენზინი",
+      "transmission": "ავტომატიკა",
+      "year": 2018,
+      "engine": "3.5",
+      "image": "images/slider_car24.jpg"
+    },
+    {
+      "name": "BMW F10",
+      "type": "Sedan",
+      "price": "₾200",
+      "per": "დღე",
+      "fuel": "ბენზინი",
+      "transmission": "ავტომატიკა",
+      "year": 2017,
+      "engine": "2.0",
+      "image": "images/slider_car25.jpg"
+    },
+    {
+      "name": "Porsche Cayenne",
+      "type": "SUV",
+      "price": "₾300",
+      "per": "დღე",
+      "fuel": "ბენზინი",
+      "transmission": "ავტომატიკა",
+      "year": 2014,
+      "engine": "3.6",
+      "image": "images/slider_car26.jpg"
+    },
+    {
+      "name": "Toyota LC 300",
+      "type": "SUV",
+      "price": "$240",
+      "per": "დღე",
+      "fuel": "დიზელი",
+      "transmission": "ავტომატიკა",
+      "year": 2023,
+      "engine": "3.0",
+      "image": "images/slider_car27.jpg"
+    },
+    {
+      "name": "Lexus LX 570",
+      "type": "SUV",
+      "price": "$270",
+      "per": "დღე",
+      "fuel": "დიზელი",
+      "transmission": "ავტომატიკა",
+      "year": 2024,
+      "engine": "4.0",
+      "image": "images/slider_car28.jpg"
     }
   ]
 
