@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Renderer2, Signal } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
 import { MobileNavigationComponent } from '../mobile-navigation/mobile-navigation.component';
 
@@ -13,7 +13,7 @@ import { MobileNavigationComponent } from '../mobile-navigation/mobile-navigatio
 export class PagesHeaderComponent {
   isDarkMode = false;
   selectedLanguage: string = 'English';
-  selectedFlag: string = 'images/eng.png';
+  selectedFlag: string = 'images/eng.svg';
   selectedFont: string = 'DM Sans';
   isOpen = false;
 
@@ -22,12 +22,14 @@ export class PagesHeaderComponent {
 
   constructor(
     private renderer: Renderer2,
+    public router: Router
+
   ) {}
 
   languages = [
-    { name: 'English', code: 'eng', flag: 'images/eng.png', font: 'DM Sans'},
-    { name: 'ქართული', code: 'geo', flag: 'images/geo.png', font: 'Noto Serif Georgian' },
-    { name: 'Русский', code: 'rus', flag: 'images/rus.png', font: 'DM Sans 9pt' }
+    { name: 'English', code: 'eng', flag: 'images/eng.svg', font: 'DM Sans'},
+    { name: 'ქართული', code: 'geo', flag: 'images/geo.svg', font: 'Noto Serif Georgian' },
+    { name: 'Русский', code: 'rus', flag: 'images/rus.svg', font: 'DM Sans 9pt' }
   ];
 
 
@@ -46,6 +48,12 @@ export class PagesHeaderComponent {
       this.isDarkMode = true;
       this.renderer.addClass(document.documentElement, 'dark');
     }
+  }
+
+  isPageRouteActive(): boolean {
+    return this.router.url.includes('gallery') || 
+           this.router.url.includes('service-page') ||  
+           this.router.url.includes('calculator');
   }
 
   changeLanguage(langCode: string) {

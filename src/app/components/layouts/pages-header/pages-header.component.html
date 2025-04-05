@@ -1,43 +1,47 @@
 <header
-class="flex flex-wrap gap-5 text-white justify-center items-center w-full  py-4 z-50 h-[100px] bg-primary" >
+class="flex  flex-wrap gap-5 justify-center items-center w-full  py-4 z-50 h-[100px] max-md:h-[70px] max-sm:min-w-[340px]
+bg-primary text-white dark:text-primary dark:bg-white" >
 
-<div class="flex w-full justify-between pl-4 pr-8 gap-8 items-center">
-  <div class="flex gap-12 self-stretch items-center relative ">
-    <a href="#" class="h-[28px]">
-      <h1 class="text-white font-BebasNeue text-[35px] font-bold leading-none tracking-[1.75px] ">
+<div class="flex w-full justify-between pl-4 pr-8 items-center max-md:pr-4">
+  <div class="flex gap-12 items-center relative mt-[3px]">
+    <a href="#" class="flex items-center h-full ">
+      <span class="font-BebasNeue text-[30px] font-bold tracking-[1px] max-md:text-[25px] max-xl:dark:text-primary"  >
         checkcargeorgia
-      </h1>
+      </span>
     </a>
   </div>  
 
   <nav
-  class="flex flex-wrap gap-8 items-center text-[15px] font-medium leading-[26px] whitespace-nowrap flex-1 justify-center pr-[1rem] relative
+  class="flex flex-wrap gap-8 items-center text-[15px] font-medium leading-[26px] whitespace-nowrap flex-1 justify-center pl-[5rem] relative
   max-xl:hidden">
 
-  <div class="flex gap-6 items-center self-stretch w-full justify-end relative">
-    <a routerLink="" class="text-white font-case cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out">{{translations()?.header?.home}}</a>
-    <div appDropdown class="flex gap-2 relative group cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out">
-      <button class=" text-white font-case rounded">{{translations()?.header?.pages}}</button>
-      <img src="icons/arrow-down.svg" alt="">
+  <div class="flex gap-6 items-center self-stretch w-full justify-end relative mr-8">
+    <a routerLink="/"  class="font-case cursor-pointer transition-all duration-300 ease-in-out " >{{translations()?.header?.home}}</a>
 
+    <div appDropdown class="flex gap-2 relative group cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out">
+      
+      <a  [ngClass]="{ 'underline': isPageRouteActive() }" class="flex  gap-2 font-case cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out "  >{{translations()?.header?.pages}}
+      <img src="icons/arrow-down.svg" alt="" >
+      </a>
       <div
         class="absolute left-[-1rem] top-7 max-h-0  overflow-hidden transition-all duration-300 ease-in-out 
         group-hover:max-h-[300px] open:max-h-[300px] group-hover:p-1"
       >
-      <div class="mt-3 bg-white h-auto shadow-lg py-[1rem] px-[2rem] rounded-xl">
-        <div class="flex flex-col gap-4 items-start">
-          <a routerLink="gallery" class="flex text-sm text-primary ease-in-out transition-all duration-300 hover:text-secondary hover:scale-105">{{translations()?.header?.pagesList?.gallery}}</a>
-          <a routerLink="service-page" class="flex text-sm text-primary ease-in-out transition-all duration-300 hover:text-secondary hover:scale-105">{{translations()?.header?.pagesList?.service}}</a>
-          <a routerLink="calculator" class="flex text-sm text-primary ease-in-out transition-all duration-300 hover:text-secondary hover:scale-105">{{translations()?.header?.pagesList?.calculator}}</a>
-          <a routerLink="faq" class="flex text-sm text-primary ease-in-out transition-all duration-300 hover:text-secondary hover:scale-105">{{translations()?.header?.pagesList?.faq}}</a>
-          <a routerLink="terms&conditions" class="flex text-sm text-primary ease-in-out transition-all duration-300 hover:text-secondary hover:scale-105">{{translations()?.header?.pagesList?.terms}}</a>
+      <div class="mt-3 bg-white dark:bg-primary h-auto shadow-lg py-[1rem] px-[2rem] rounded-xl">
+        <div class="flex flex-col gap-4 items-start text-primary dark:text-white">
+          <a routerLink="gallery" routerLinkActive="secondary text-secondary" class="flex text-sm ease-in-out transition-all duration-300  hover:underline hover:scale-105" >{{translations()?.header?.pagesList?.gallery}}</a>
+          <a routerLink="service-page" routerLinkActive="secondary text-secondary font-bold" class="flex text-sm  ease-in-out transition-all duration-300  hover:underline hover:scale-105">{{translations()?.header?.pagesList?.service}}</a>
+          <a routerLink="calculator" routerLinkActive="secondary text-secondary font-bold" class="flex text-sm  ease-in-out transition-all duration-300  hover:underline hover:scale-105" >{{translations()?.header?.pagesList?.calculator}}</a>
+         
         </div>
       </div>
       </div>
     </div>
-   
-    <a routerLink="about us" routerLinkActive="white underline font-bold" class="text-white font-case cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out">{{translations()?.header?.aboutUs}}</a>
-    <a routerLink="contact"  class="åtext-whitefont-case cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out">{{translations()?.header?.contact}}</a>
+    <a routerLink="about us" routerLinkActive="secondary underline font-bold" class="font-case cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out hover:underline"  >{{translations()?.header?.aboutUs}}</a>
+    <a routerLink="contact" routerLinkActive="secondary underline font-bold" class="font-case cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out  hover:underline"   >{{translations()?.header?.contact}}</a>
+    <a routerLink="faq" routerLinkActive="secondary underline font-bold" class="font-case flex text-sm ease-in-out transition-all duration-300  hover:underline hover:scale-105" >{{translations()?.header?.pagesList?.faq}}</a>
+    <a routerLink="terms&conditions" routerLinkActive="secondary underline font-bold" class="font-case flex text-sm  ease-in-out transition-all duration-300  hover:underline hover:scale-105" >{{translations()?.header?.pagesList?.terms}}</a>
+
 
   </div>
   </nav>
@@ -47,31 +51,30 @@ class="flex flex-wrap gap-5 text-white justify-center items-center w-full  py-4 
   <div
   class="flex gap-3 items-center self-stretch text-base font-medium  relative  max-xl:hidden"
   >
-
   <div class="relative w-6 h-6 bg-white dark:bg-primary rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-125 mr-2" 
       (click)="toggleTheme()">
-      <div class="absolute  bg-white dark:bg-primary rounded-full shadow-md transform transition-all duration-700 ">
+      <div class="absolute  bg-white dark:bg-primary rounded-full shadow-md transform transition-all duration-700 " >
           <img src="icons/day.svg" alt="" *ngIf="!isDarkMode" class="">
           <img src="icons/dark.svg" alt="" *ngIf="isDarkMode">
       </div>
   </div>
-  <span class="w-[1px] h-8 bg-white"></span>
+  <span class="w-[1px] h-8 bg-white "  ></span>
 
 
   <div appDropdown class="flex gap-2 relative group cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out">
-    <button class="flex items-center gap-1 text-gray-700 dark:text-white p-1 rounded-lg transition duration-300 hover:bg-gray-300 dark:hover:bg-gray-700 ">
-    <img [src]="selectedFlag" alt="Selected Language" class="w-6 h-6 rounded-full">
-    <img src="icons/arrow-down.svg" alt="">
+    <button class="flex items-center gap-1 text-gray-700 dark:text-white p-1 transition rounded-lg  duration-300 hover:bg-gray-300 dark:hover:bg-gray-700 ">
+    <img [src]="selectedFlag" alt="Selected Language" class="w-6 h-6 ">
+    <img src="icons/arrow-down.svg" alt="" >
   </button>
 
     <div
-      class="absolute right-[-1rem] top-7 max-h-0  overflow-hidden transition-all duration-300 ease-in-out 
+      class="absolute right-[-1rem] top-7 max-h-0  overflow-hidden transition-all duration-300 rounded-lg  ease-in-out 
       group-hover:max-h-[300px] open:max-h-[300px] group-hover:p-1">
       <div class="mt-3 w-40 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:scale-105">
         <button *ngFor="let lang of languages"
                 (click)="changeLanguage(lang.code)"
-                class="flex items-center gap-2 px-4 py-2 w-full text-left font-normal text-gray-700 dark:text-white hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-all duration-500 ease-in-out">
-          <img [src]="lang.flag" alt="{{ lang.name }}" class="w-6 h-6 rounded-full">
+                class="flex items-center gap-2 px-4 py-2 w-full text-left font-normal rounded-lg  text-gray-700 dark:text-white hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-all duration-500 ease-in-out">
+          <img [src]="lang.flag" alt="{{ lang.name }}" class="w-6 h-6 ">
           {{ lang.name }}
         </button>
       </div>
@@ -80,20 +83,21 @@ class="flex flex-wrap gap-5 text-white justify-center items-center w-full  py-4 
   </div>
 
 
-    <div class="relative hidden gap-2 max-xl:flex ">
-      <div class="relative w-8 h-8 bg-white dark:bg-primary rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-125 mr-2" 
+    <div class="relative hidden gap-2 items-center max-xl:flex ">
+      <div class="relative w-5 h-5 bg-white dark:bg-primary rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-125 mr-2" 
       (click)="toggleTheme()">
         <div class="absolute  bg-white dark:bg-primary rounded-full shadow-md transform transition-all duration-700 ">
             <img src="icons/day.svg" alt="" *ngIf="!isDarkMode" class="">
             <img src="icons/dark.svg" alt="" *ngIf="isDarkMode">
         </div>
       </div>
-      <button (click)="toggleMenu()" class="flex gap-3 group items-center hover:scale-105 transition-all duration-300 ease-in-out ">
+      <button (click)="toggleMenu()" class="flex gap-3 group items-center hover:scale-105 transition-all duration-300 ease-in-out font-case ">
          <div class="flex flex-col gap-2 rotate-180">
           <span class="w-[16px] h-[2px] bg-current transition-all duration-200 ease-in-out group-hover:w-[22px]"></span>
           <span class="w-[22px] h-[2px] bg-current"></span>
          </div>
-        Menu
+
+         {{translations()?.menu}}
       </button>
       
     
@@ -105,21 +109,21 @@ class="flex flex-wrap gap-5 text-white justify-center items-center w-full  py-4 
       </div>
     
       <div 
-        [ngClass]="{'translate-x-0': isOpen, '-translate-x-full': !isOpen}" 
-        class="flex flex-col fixed top-0 left-0 h-full max-w-[400px] w-full px-5 p-10 bg-primary text-white transition-transform duration-300 ease-in-out shadow-xl gap-10">
-        <div class="flex justify-between items-center">
-          <a href="#" class="h-[28px]">
-            <h1 class="text-white font-BebasNeue text-[35px] font-bold leading-none tracking-[1.75px] ">
-              checkcargeorgia
-            </h1>
-          </a>
-          <button class="flex gap-2 items-center cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out" (click)="toggleMenu()">
-            <img src="icons/close.svg" alt=""  class="flex text-white ">
-            <span class="text-base ">Menu</span>
-          </button>
-        </div>
-        <app-mobile-navigation class="flex-1"></app-mobile-navigation>
+      [ngClass]="{'translate-x-0': isOpen, '-translate-x-full': !isOpen}" 
+      class="flex flex-col fixed top-0 left-0 h-full max-w-[400px] min-w-[340px] w-full px-5 p-10  backdrop-blur-lg  dark:bg-primary/70 text-white  bg-primary/30 transition-transform duration-300 ease-in-out shadow-xl gap-10">
+      <div class="flex justify-between items-center ">
+        <a href="#" class="flex items-center h-full mt-[2px]">
+          <h1 class=" font-BebasNeue text-[35px] font-bold leading-none tracking-[1px] max-md:text-[25px] ">
+            checkcargeorgia
+          </h1>
+        </a>
+        <button class="flex gap-2 items-center cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out group" (click)="toggleMenu()">
+          <img src="icons/close.svg" alt=""  class="flex text-white  group-hover:rotate-90 transition-all duration-300 ease-in-out ">
+          <span class="text-base font-case">{{translations()?.menu}}</span>
+        </button>
       </div>
+      <app-mobile-navigation class="flex-1"></app-mobile-navigation>
+    </div>
     </div>
   
 
