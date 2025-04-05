@@ -1,33 +1,41 @@
 {
-    "header":{
-      "home": "Home",
-      "pages":"Pages",
-      "aboutUs": "About Us",
-      "contact": "Contact",
-      "pagesList":{
-        "gallery": "Gallery",
-        "faq": "FAQs",
-        "calculator":"Calculator",
-        "service": "Service",
-        "terms":"Terms & Conditions"
-      }
-    },
 
-    "menu": "Menu",
-    "back":"Back",
-    "allRightsReserved":"All rights reserved",
-    "fuelType":"Fuel Type",
-    "transmission": "Transmission",
-    "year": "Year",
-    "engine": "Engine",
-    "moreInfo":"More Info",
+  "menu": "Menu",
+  "back":"Back",
+  "allRightsReserved":"All rights reserved",
+  "fuelType":"Fuel Type",
+  "transmission": "Transmission",
+  "year": "Year",
+  "engine": "Engine",
+  "moreInfo":"More Info",
+  "allCars":"All Cars",
+  "viewAll":"View All",
+
+  "header":{
+    "home": "Home",
+    "pages":"Pages",
+    "aboutUs": "About Us",
+    "contact": "Contact",
+    "pagesList":{
+      "gallery": "Gallery",
+      "faq": "FAQs",
+      "calculator":"Calculator",
+      "service": "Service",
+      "terms":"Terms & Conditions"
+    }
+  },
+
+  "sectionTitles": {
+    "vehicleListTitle":"Explore All Vehicles"
+  } ,
+
 
 "cars": [
   {
     "name": "Toyota LC 200",
     "info": "4.0 V6 5dr AWD Automatic SUV",
     "type": "SUV",
-    "price": "$150",
+    "price": "$ 150",
     "per": "Day",
     "fuel": "Petrol",
     "transmission": "Automatic",
@@ -37,8 +45,10 @@
   },
   {
     "name": "BMW X5 E70",
+    "info": "4.0 V6 5dr AWD Automatic SUV",
+
     "type": "SUV",
-    "price": "₾175",
+    "price": "₾ 175",
     "per": "Day",
     "fuel": "Petrol",
     "transmission": "Automatic",
@@ -48,8 +58,10 @@
   },
   {
     "name": "Toyota LC Prado",
+    "info": "4.0 V6 5dr AWD Automatic SUV 4.0 V6 5dr AWD Automatic SUV",
+
     "type": "SUV",
-    "price": "$110",
+    "price": "$ 110",
     "per": "Day",
     "fuel": "Petrol",
     "transmission": "Automatic",
@@ -60,7 +72,7 @@
   {
     "name": "BMW X5 F15",
     "type": "SUV",
-    "price": "₾255",
+    "price": "₾ 255",
     "per": "Day",
     "fuel": "Petrol",
     "transmission": "Automatic",
@@ -71,7 +83,7 @@
   {
     "name": "BMW F10",
     "type": "Sedan",
-    "price": "₾200",
+    "price": "₾ 200",
     "per": "Day",
     "fuel": "Petrol",
     "transmission": "Automatic",
@@ -82,7 +94,7 @@
   {
     "name": "Porsche Cayenne",
     "type": "SUV",
-    "price": "₾300",
+    "price": "₾ 300",
     "per": "Day",
     "fuel": "Petrol",
     "transmission": "Automatic",
@@ -93,7 +105,7 @@
   {
     "name": "Toyota LC 300",
     "type": "SUV",
-    "price": "$240",
+    "price": "$ 240",
     "per": "Day",
     "fuel": "Diesel",
     "transmission": "Automatic",
@@ -104,7 +116,7 @@
   {
     "name": "Lexus LX 570",
     "type": "SUV",
-    "price": "$270",
+    "price": "$ 270",
     "per": "Day",
     "fuel": "Diesel",
     "transmission": "Automatic",

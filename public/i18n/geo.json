@@ -1,40 +1,32 @@
 {
-    "title": "გადატვირთვის მანქანა საქართველო",
+  "menu": "მენიუ",
+  "back": "უკან",
+  "allRightsReserved": "ყველა უფლება დაცულია",
+  "fuelType": "საწ.ტიპი",
+  "transmission": "გად.კოლოფი",
+  "year": "წელი",
+  "engine": "ძრავი",
+  "moreInfo": "დეტალები",
+  "allCars": "ხელმისაწვდომია",
+  "viewAll": "ყველას ნახვა",
+
+  "header": {
     "home": "მთავარი",
-    "about": "ჩვენს შესახებ",
-   
+    "pages": "გვერდები",
+    "aboutUs": "ჩვენ შესახებ",
     "contact": "კონტაქტი",
-    "services": "სერვისები",
-    "welcome_message": "კეთილი იყოს თქვენი მობრძანება Check Car Georgia-ს!",
-    "learn_more": "მეცადინეობა",
-
-    "header":{
-      "home": "მთავარი",
+    "pagesList": {
       "gallery": "გალერეა",
-      "aboutUs": "ჩვენს შესახებ",
-      "contact": "კონტაქტი",
-      "pages":"გვერდები",
-      "pagesList":{
-        "gallery": "გალერეა",
-        "faq": "დახმარება",
-        "calculator":"კალკულატორი",
-        "service": "სერვისები",
-        "terms":"წესები და პირობები"
-        },
-      "menu": "მენიუ",
-      "back":"უკან"
-      
+      "faq": "ხშირად დასმული კითხვები",
+      "calculator": "კალკულატორი",
+      "service": "სერვისი",
+      "terms": "წესები და პირობები"
+    }
+  },
 
-    },
-
-    "menu": "მენიუ",
-    "back": "უკან",
-    "allRightsReserved": "ყველა უფლება დაცულია",
-    "fuelType": "საწ.ტიპი",
-    "transmission": "გად.კოლოფი",
-    "year": "წელი",
-    "engine": "ძრავი",
-    "moreInfo":"მეტი ინფორმაცია",
+  "sectionTitles": {
+    "vehicleListTitle": "ავტომობილები"
+  },
 
   "cars": [
     {
