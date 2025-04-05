@@ -18,7 +18,7 @@ export class VehicleListingComponent {
   autoSlideInterval: any;
   screenWidth = window.innerWidth;
 
-  backgroundColors = ['#735043', '#373948', '#405FF2'];
+  backgroundColors = ['#735043', '#373948'];
   randomBackgrounds: string[] = [];
 
   
@@ -54,7 +54,7 @@ export class VehicleListingComponent {
 
   startAutoSlide() {
     this.stopAutoSlide();
-    this.autoSlideInterval = setInterval(() => this.nextSlide(), 5800);
+    this.autoSlideInterval = setInterval(() => this.nextSlide(), 125800);
   }
 
   stopAutoSlide() {

@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
   languages = [
     { name: 'English', code: 'eng', flag: 'images/eng.svg', font: 'DM Sans'},
     { name: 'ქართული', code: 'geo', flag: 'images/geo.svg', font: 'Noto Serif Georgian' },
-    { name: 'Русский', code: 'rus', flag: 'images/rus.svg', font: 'DM Sans 9pt' }
+    { name: 'Русский', code: 'rus', flag: 'images/rus.svg', font: 'DM Sans' }
   ];
 
   constructor(

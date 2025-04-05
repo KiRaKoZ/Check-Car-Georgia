@@ -1,9 +1,124 @@
 {
-  "header":{
-    "home": "Home",
-    "gallery": "Gallery",
-    "aboutUs": "About Us",
-    "Contact": "Contact"
-  }
+  "menu": "Меню",
+  "back": "Назад",
+  "allRightsReserved": "Все права защищены",
+  "fuelType": "Тип топлива",
+  "transmission": "Трансмиссия",
+  "year": "Год",
+  "engine": "Двигатель",
+  "moreInfo": "Подробнее",
+  "allCars": "Все автомобили",
+  "viewAll": "Посмотреть все",
+
+  "header": {
+    "home": "Главная",
+    "pages": "Страницы",
+    "aboutUs": "О нас",
+    "contact": "Контакты",
+    "pagesList": {
+      "gallery": "Галерея",
+      "faq": "Частые вопросы",
+      "calculator": "Калькулятор",
+      "service": "Сервис",
+      "terms": "Условия и положения"
+    }
+  },
+
+  "sectionTitles": {
+    "vehicleListTitle": "Просмотр всех автомобилей"
+  },
+
+  "cars": [
+    {
+      "name": "Toyota LC 200",
+      "info": "4.0 V6 5дв. Полный привод, Автомат, Внедорожник",
+      "type": "Внедорожник",
+      "price": "$ 150",
+      "per": "День",
+      "fuel": "Бензин",
+      "transmission": "Автомат",
+      "year": 2020,
+      "engine": "4.0",
+      "image": "images/slider_car15.jpg"
+    },
+    {
+      "name": "BMW X5 E70",
+      "info": "4.0 V6 5дв. Полный привод, Автомат, Внедорожник",
+      "type": "Внедорожник",
+      "price": "₾ 175",
+      "per": "День",
+      "fuel": "Бензин",
+      "transmission": "Автомат",
+      "year": 2012,
+      "engine": "3.0",
+      "image": "images/slider_car16.jpg"
+    },
+    {
+      "name": "Toyota LC Prado",
+      "info": "4.0 V6 5дв. Полный привод, Автомат, Внедорожник 4.0 V6 5дв. Полный привод, Автомат, Внедорожник",
+      "type": "Внедорожник",
+      "price": "$ 110",
+      "per": "День",
+      "fuel": "Бензин",
+      "transmission": "Автомат",
+      "year": 2014,
+      "engine": "2.7",
+      "image": "images/slider_car.jpg"
+    },
+    {
+      "name": "BMW X5 F15",
+      "type": "Внедорожник",
+      "price": "₾ 255",
+      "per": "День",
+      "fuel": "Бензин",
+      "transmission": "Автомат",
+      "year": 2018,
+      "engine": "3.5",
+      "image": "images/slider_car.jpg"
+    },
+    {
+      "name": "BMW F10",
+      "type": "Седан",
+      "price": "₾ 200",
+      "per": "День",
+      "fuel": "Бензин",
+      "transmission": "Автомат",
+      "year": 2017,
+      "engine": "2.0",
+      "image": "images/slider_car.jpg"
+    },
+    {
+      "name": "Porsche Cayenne",
+      "type": "Внедорожник",
+      "price": "₾ 300",
+      "per": "День",
+      "fuel": "Бензин",
+      "transmission": "Автомат",
+      "year": 2014,
+      "engine": "3.6",
+      "image": "images/slider_car.jpg"
+    },
+    {
+      "name": "Toyota LC 300",
+      "type": "Внедорожник",
+      "price": "$ 240",
+      "per": "День",
+      "fuel": "Дизель",
+      "transmission": "Автомат",
+      "year": 2023,
+      "engine": "3.0",
+      "image": "images/slider_car.jpg"
+    },
+    {
+      "name": "Lexus LX 570",
+      "type": "Внедорожник",
+      "price": "$ 270",
+      "per": "День",
+      "fuel": "Дизель",
+      "transmission": "Автомат",
+      "year": 2024,
+      "engine": "4.0",
+      "image": "images/slider_car.jpg"
+    }
+  ]
 }
-  
