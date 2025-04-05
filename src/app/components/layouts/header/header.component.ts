@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   isScrolled = false;
   isDarkMode = false;
   selectedLanguage: string = 'English';
-  selectedFlag: string = 'images/eng.png';
+  selectedFlag: string = 'images/eng.svg';
   selectedFont: string = 'DM Sans';
   isOpen = false;
 
@@ -24,9 +24,9 @@ export class HeaderComponent implements OnInit {
   translations: Signal<any> = this.translationService.translations;
 
   languages = [
-    { name: 'English', code: 'eng', flag: 'images/eng.png', font: 'DM Sans'},
-    { name: 'ქართული', code: 'geo', flag: 'images/geo.png', font: 'Noto Serif Georgian' },
-    { name: 'Русский', code: 'rus', flag: 'images/rus.png', font: 'DM Sans 9pt' }
+    { name: 'English', code: 'eng', flag: 'images/eng.svg', font: 'DM Sans'},
+    { name: 'ქართული', code: 'geo', flag: 'images/geo.svg', font: 'Noto Serif Georgian' },
+    { name: 'Русский', code: 'rus', flag: 'images/rus.svg', font: 'DM Sans 9pt' }
   ];
 
   constructor(

@@ -16,11 +16,15 @@
       "pages":"გვერდები",
       "pagesList":{
         "gallery": "გალერეა",
-        "faq": "FAQs",
+        "faq": "დახმარება",
         "calculator":"კალკულატორი",
         "service": "სერვისები",
-        "terms":"Terms & Conditions"
-        }
+        "terms":"წესები და პირობები"
+        },
+      "menu": "მენიუ",
+      "back":"უკან"
+      
+
     },
 
    "cars": [

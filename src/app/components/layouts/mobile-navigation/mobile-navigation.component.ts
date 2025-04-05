@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, Renderer2, Signal } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-mobile-navigation',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './mobile-navigation.component.html',
   styleUrl: './mobile-navigation.component.scss'
 })
@@ -15,7 +15,7 @@ export class MobileNavigationComponent implements OnInit{
   isDarkMode = false;
   isDropdownOpen = false;
   selectedLanguage: string = 'English';
-  selectedFlag: string = 'images/eng.png';
+  selectedFlag: string = 'images/eng.svg';
   selectedFont: string = 'DM Sans';
 
 
@@ -24,9 +24,9 @@ export class MobileNavigationComponent implements OnInit{
   isSubMenuOpen = false;
 
   languages = [
-    { name: 'English', code: 'eng', flag: 'images/eng.png', font: 'DM Sans'},
-    { name: 'ქართული', code: 'geo', flag: 'images/geo.png', font: 'Noto Serif Georgian' },
-    { name: 'Русский', code: 'rus', flag: 'images/rus.png', font: 'Noto Serif Georgian' }
+    { name: 'English', code: 'eng', flag: 'images/eng.svg', font: 'DM Sans'},
+    { name: 'ქართული', code: 'geo', flag: 'images/geo.svg', font: 'Noto Serif Georgian' },
+    { name: 'Русский', code: 'rus', flag: 'images/rus.svg', font: 'Noto Serif Georgian' }
   ];
 
   images = [
@@ -44,6 +44,7 @@ export class MobileNavigationComponent implements OnInit{
 
   constructor(
     private renderer: Renderer2,
+    public router: Router
   ) {}
   
   currentYear: number = new Date().getFullYear();
@@ -66,6 +67,12 @@ export class MobileNavigationComponent implements OnInit{
       this.renderer.addClass(document.documentElement, 'dark');
     }
     
+  }
+
+  isPageRouteActive(): boolean {
+    return this.router.url.includes('gallery') || 
+           this.router.url.includes('service-page') ||  
+           this.router.url.includes('calculator');
   }
 
   changeLanguage(langCode: string) {
