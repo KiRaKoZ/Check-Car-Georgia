@@ -1,0 +1,83 @@
+{
+    "header":{
+      "home": "Home",
+      "pages":"Pages",
+      "pagesList":{
+        "gallery": "Gallery",
+        "faq": "FAQs",
+        "calculator":"Calculator",
+        "service": "Service",
+        "terms":"Terms & Conditions"
+
+        },
+      "aboutUs": "About Us",
+      "contact": "Contact"
+    },
+    "vehicleTypes":{
+      "home": "Home"
+    },
+
+    "cars": [
+    {
+      "name": "Toyota LC 200",
+      "type": "SUV",
+      "price": "$150",
+      "per": "Day",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "year": 2020,
+      "engine": "4.0",
+      "image": "images/slider_car21.jpg"
+    },
+    {
+      "name": "BMW X5 E70",
+      "type": "SUV",
+
+      "price": "₾175",
+      "per": "Day",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "year": 2012,
+      "engine": "3.0",
+      "image": "images/slider_car23.jpg"
+    },
+    {
+      "name": "Toyota LC Prado",
+      "price": "$110",
+      "type": "SUV",
+
+      "per": "Day",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "year": 2014,
+      "engine": "2.7",
+      "image": "images/slider_car22.jpg"
+    },
+    {
+      "name": "Toyota LC Prado",
+      "price": "$110",
+      "type": "SUV",
+
+      "per": "Day",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "year": 2014,
+      "engine": "2.7",
+      "image": "images/slider_car22.jpg"
+    },
+    {
+      "name": "Toyota LC Prado",
+      "price": "$110",
+      "type": "SUV",
+
+      "per": "Day",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "year": 2014,
+      "engine": "2.7",
+      "image": "images/slider_car22.jpg"
+    }
+ 
+  ]
+  
+}

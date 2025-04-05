@@ -1,0 +1,62 @@
+{
+    "title": "გადატვირთვის მანქანა საქართველო",
+    "home": "მთავარი",
+    "about": "ჩვენს შესახებ",
+   
+    "contact": "კონტაქტი",
+    "services": "სერვისები",
+    "welcome_message": "კეთილი იყოს თქვენი მობრძანება Check Car Georgia-ს!",
+    "learn_more": "მეცადინეობა",
+
+    "header":{
+      "home": "მთავარი",
+      "gallery": "გალერეა",
+      "aboutUs": "ჩვენს შესახებ",
+      "contact": "კონტაქტი",
+      "pages":"გვერდები",
+      "pagesList":{
+        "gallery": "გალერეა",
+        "faq": "FAQs",
+        "calculator":"კალკულატორი",
+        "service": "სერვისები",
+        "terms":"Terms & Conditions"
+        }
+    },
+
+   "cars": [
+    {
+      "name": "Toyota",
+      "price": "$150",
+      "type": "SUV",
+
+      "per": "Day",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "year": 2020,
+      "engine": "4.0",
+      "image": "images/slider_car21.jpg"
+    },
+    {
+      "name": "BMW X5 E70",
+      "price": "₾175",
+      "per": "Day",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "year": 2012,
+      "engine": "3.0",
+      "image": "images/slider_car23.jpg"
+    },
+    {
+      "name": "Toyota ",
+      "price": "$110",
+      "per": "Day",
+      "fuel": "Petrol",
+      "transmission": "Automatic",
+      "year": 2014,
+      "engine": "2.7",
+      "image": "images/slider_car22.jpg"
+    }
+  ]
+
+  }
+  
