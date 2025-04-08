@@ -1,14 +1,15 @@
 <main class="flex-grow w-full">
-  <app-header  *ngIf="isHomePage()"></app-header>
-  <app-pages-header *ngIf="!isHomePage()"></app-pages-header>
+  <app-header *ngIf="isHome"></app-header>
+  <app-pages-header *ngIf="!isHome"></app-pages-header>
+  <app-breadcrumb *ngIf="!isHome"></app-breadcrumb>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
   <button
-  (click)="scrollToTop()"
-  class="fixed bottom-6 right-6 bg-secondary text-white px-[10px] py-[5px] rounded-full shadow-lg transition-opacity duration-500"
-  [class.opacity-100]="isVisible"
-  [class.opacity-0]="!isVisible"
->
-  ↑ 
-</button>
+    (click)="scrollToTop()"
+    class="fixed bottom-6 right-6 bg-secondary text-white px-[10px] py-[5px] rounded-full shadow-lg transition-opacity duration-500"
+    [class.opacity-100]="isVisible"
+    [class.opacity-0]="!isVisible"
+  >
+    ↑
+  </button>
 </main>

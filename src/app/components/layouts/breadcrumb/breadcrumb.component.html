@@ -1,0 +1,17 @@
+<nav class="text-sm text-gray-500 p-4 flex items-center gap-1">
+    <ng-container *ngFor="let crumb of breadcrumb; let i = index; let last = last">
+      <ng-container *ngIf="!last">
+        <a
+          [routerLink]="getLink(i)"
+          class="text-blue-600 hover:underline capitalize"
+        >
+          {{ crumb }}
+        </a>
+        <span class="mx-1">/</span>
+      </ng-container>
+      <ng-container *ngIf="last">
+        <span class="capitalize">{{ crumb }}</span>
+      </ng-container>
+    </ng-container>
+  </nav>
+  
