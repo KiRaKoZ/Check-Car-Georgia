@@ -47,7 +47,7 @@
         <ul [ngClass]="{ 'translate-x-0': isSubMenuOpen, 'translate-x-full': !isSubMenuOpen }"
             class="absolute top-0 left-0 w-full h-full transition-transform duration-300 overflow-auto">
           <li 
-            class="flex w-full mb-5 text-xl gap-4 p-4 px-5 cursor-pointer items-center bg-secondary rounded-xl opacity-80"
+            class="flex w-full mb-5 font-case text-xl gap-4 p-4 px-5 cursor-pointer items-center bg-secondary rounded-xl opacity-80"
             (click)="toggleSubMenu()">
             <img src="icons/arrow-down.svg" alt="" class="w-[12px] h-[12px] rotate-[90deg]">
             {{ translations()?.back }}

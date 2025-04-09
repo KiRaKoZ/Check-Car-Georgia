@@ -1,8 +1,19 @@
 <main class="flex-grow w-full">
   <app-header *ngIf="isHome"></app-header>
   <app-pages-header *ngIf="!isHome"></app-pages-header>
-  <app-breadcrumb *ngIf="!isHome"></app-breadcrumb>
-  <router-outlet></router-outlet>
+  <ng-container *ngIf="isHome; else containerWrapper">
+    <router-outlet></router-outlet>
+  </ng-container>
+
+  <ng-template #containerWrapper>
+    <div class="w-full h-[auto] bg-primary">
+      <div class=" w-full bg-white rounded-[5rem] max-md:rounded-[2rem] max-sm:rounded-[1rem] px-4">
+        <app-breadcrumb *ngIf="!isHome"></app-breadcrumb>
+        <router-outlet></router-outlet>
+      </div>
+     
+    </div>
+  </ng-template>
   <app-footer></app-footer>
   <button
     (click)="scrollToTop()"

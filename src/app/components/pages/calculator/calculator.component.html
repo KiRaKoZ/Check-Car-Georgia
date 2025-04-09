@@ -1,1 +1,52 @@
-<p>calculator works!</p>
+<div class="p-0 mx-auto my-0 w-full max-w-[1400px]">
+    <div class="flex bg-white rounded-2xl border border-solid border-neutral-200 min-h-[534px] max-md:flex-col">
+      <div class="flex-1 p-16 max-md:p-8 max-sm:p-5">
+        <div class="max-w-[686px]">
+          <h1 class="mb-8 text-4xl font-bold leading-10 text-slate-950 max-sm:text-3xl max-sm:leading-9">Auto Loan Calculator</h1>
+          <p class="mb-16 text-base leading-7 text-slate-950 max-sm:text-sm max-sm:leading-6">Use our loan calculator to calculate payments over the life of your loan. Enter your information to see how much your monthly payments could be. You can adjust length of loan, down payment and interest rate to see how those changes raise or lower your payments.</p>
+        </div>
+        <form [formGroup]="loanForm" (ngSubmit)="calculateLoan()" class="max-w-[686px]">
+          <div class="flex gap-7 mb-8 max-md:flex-col max-md:gap-4">
+            <div class="flex-1 px-4 py-2.5 bg-white rounded-xl border border-solid border-neutral-200 h-[60px] max-sm:h-[50px]">
+              <label for="vehiclePrice" class="mb-1 text-sm text-zinc-500">Vehicle Price ($)</label>
+              <input type="number" id="vehiclePrice" formControlName="vehiclePrice" class="w-full text-base text-slate-950 bg-transparent border-none focus:outline-none" aria-label="Vehicle Price in dollars">
+            </div>
+            <div class="flex-1 px-4 py-2.5 bg-white rounded-xl border border-solid border-neutral-200 h-[60px] max-sm:h-[50px]">
+              <label for="interestRate" class="mb-1 text-sm text-zinc-500">Interest Rate</label>
+              <input type="number" id="interestRate" formControlName="interestRate" class="w-full text-base text-slate-950 bg-transparent border-none focus:outline-none" aria-label="Interest Rate">
+            </div>
+          </div>
+          <div class="flex gap-7 mb-8 max-md:flex-col max-md:gap-4">
+            <div class="flex-1 px-4 py-2.5 bg-white rounded-xl border border-solid border-neutral-200 h-[60px] max-sm:h-[50px]">
+              <label for="loanPeriod" class="mb-1 text-sm text-zinc-500">Period (months)</label>
+              <input type="number" id="loanPeriod" formControlName="loanPeriod" class="w-full text-base text-slate-950 bg-transparent border-none focus:outline-none" aria-label="Loan Period in months">
+            </div>
+            <div class="flex-1 px-4 py-2.5 bg-white rounded-xl border border-solid border-neutral-200 h-[60px] max-sm:h-[50px]">
+              <label for="downPayment" class="mb-1 text-sm text-zinc-500">Down Payment</label>
+              <input type="number" id="downPayment" formControlName="downPayment" class="w-full text-base text-slate-950 bg-transparent border-none focus:outline-none" aria-label="Down Payment amount">
+            </div>
+          </div>
+          <button type="submit" class="flex gap-2.5 justify-center items-center mt-8 text-base text-white bg-blue-600 rounded-xl cursor-pointer h-[54px] w-full" [disabled]="!loanForm.valid">
+            <span>Calculate</span>
+            <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon" aria-hidden="true">
+              <path d="M14.1111 0H5.55558C5.34062 0 5.16668 0.173943 5.16668 0.388901C5.16668 0.603859 5.34062 0.777802 5.55558 0.777802H13.1723L0.613941 13.3362C0.46202 13.4881 0.46202 13.7342 0.613941 13.8861C0.689884 13.962 0.789415 14 0.88891 14C0.988405 14 1.0879 13.962 1.16388 13.8861L13.7222 1.3277V8.94447C13.7222 9.15943 13.8962 9.33337 14.1111 9.33337C14.3261 9.33337 14.5 9.15943 14.5 8.94447V0.388901C14.5 0.173943 14.3261 0 14.1111 0Z" fill="white"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+      <div class="px-12 py-36 bg-indigo-50 rounded-none w-[448px] max-md:p-8 max-md:w-full max-md:rounded-none max-sm:p-5">
+        <div class="mb-16 max-sm:mb-8">
+          <h2 class="mb-1 text-xl text-slate-950">Monthly Payment</h2>
+          <p class="text-lg text-blue-600">{{ calculation.monthlyPayment | currency:'USD':'symbol':'1.2-2' }}</p>
+        </div>
+        <div class="mb-16 max-sm:mb-8">
+          <h2 class="mb-1 text-xl text-slate-950">Total Interest</h2>
+          <p class="text-lg text-blue-600">{{ calculation.totalInterest | currency:'USD':'symbol':'1.2-2' }}</p>
+        </div>
+        <div class="mb-16 max-sm:mb-8">
+          <h2 class="mb-1 text-xl text-slate-950">Total Payments</h2>
+          <p class="text-lg text-blue-600">{{ calculation.totalPayments | currency:'USD':'symbol':'1.2-2' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
