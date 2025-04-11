@@ -41,7 +41,8 @@
     "transmission": "Automatic",
     "year": 2020,
     "engine": "4.0",
-    "image": "images/slider_car15.jpg"
+    "image": "images/slider_car15.jpg",
+    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
   },
   {
     "name": "BMW X5 E70",
@@ -54,7 +55,9 @@
     "transmission": "Automatic",
     "year": 2012,
     "engine": "3.0",
-    "image": "images/slider_car16.jpg"
+    "image": "images/slider_car16.jpg",
+    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+
   },
   {
     "name": "Toyota LC Prado",
@@ -67,7 +70,9 @@
     "transmission": "Automatic",
     "year": 2014,
     "engine": "2.7",
-    "image": "images/slider_car.jpg"
+    "image": "images/slider_car.jpg",
+    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+
   },
   {
     "name": "BMW X5 F15",
@@ -78,7 +83,9 @@
     "transmission": "Automatic",
     "year": 2018,
     "engine": "3.5",
-    "image": "images/slider_car.jpg"
+    "image": "images/slider_car.jpg",
+    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+
   },
   {
     "name": "BMW F10",
@@ -89,7 +96,9 @@
     "transmission": "Automatic",
     "year": 2017,
     "engine": "2.0",
-    "image": "images/slider_car.jpg"
+    "image": "images/slider_car.jpg",
+    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+
   },
   {
     "name": "Porsche Cayenne",
@@ -100,7 +109,9 @@
     "transmission": "Automatic",
     "year": 2014,
     "engine": "3.6",
-    "image": "images/slider_car.jpg"
+    "image": "images/slider_car.jpg",
+    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+
   },
   {
     "name": "Toyota LC 300",
@@ -111,7 +122,9 @@
     "transmission": "Automatic",
     "year": 2023,
     "engine": "3.0",
-    "image": "images/slider_car.jpg"
+    "image": "images/slider_car.jpg",
+    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+
   },
   {
     "name": "Lexus LX 570",
@@ -122,7 +135,9 @@
     "transmission": "Automatic",
     "year": 2024,
     "engine": "4.0",
-    "image": "images/slider_car.jpg"
+    "image": "images/slider_car.jpg",
+    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+
   }
 ]
 

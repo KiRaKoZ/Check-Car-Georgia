@@ -1,93 +1,153 @@
-<div class="flex flex-col w-full gap-8">
+<div class="flex flex-col w-full gap-12  text-primary dark:text-white">
         <div class="flex max-w-[1430px] m-auto w-full">
             <h4 class="font-bold">Contact Us</h4>
 
         </div>
 
-        <div class="max-w-[1800px] m-auto w-full">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2599.084193068943!2d44.78973886927771!3d41.780173802678924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40446d843db390d3%3A0x551efd11fdb7763c!2sCheck%20Car%20Georgia!5e0!3m2!1sen!2sus!4v1744202930027!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="max-w-[1800px] m-auto w-full ">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2599.084193068943!2d44.78973886927771!3d41.780173802678924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40446d843db390d3%3A0x551efd11fdb7763c!2sCheck%20Car%20Georgia!5e0!3m2!1sen!2sus!4v1744202930027!5m2!1sen!2sus" width="100%" height="450" style="border:0; border-radius: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         
-      <div class="flex w-full max-w-[1430px] m-auto">
-            <div class="flex flex-col gap-8">
-                <div class="flex flex-col gap4">
-                    <h4 class="font-bold">Get In Touch</h4>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      <div class="flex w-full mb-32 gap-6 max-w-[1430px] m-auto justify-between max-lg:flex-col max-md:mb-6">
+            <div class="flex flex-col h-full gap-12 w-[50%] max-lg:w-full">
+                <div class="flex flex-col gap-4 ">
+                    <h4 class="font-bold ">Get In Touch</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.Lorem ipsum dolor sit, amet consectetur adipisicing elit.Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                 </div>
-                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="flex flex-col items-center p-5 w-full">
-                    <div class="w-full  max-sm:w-full">
-                      <div class="flex gap-7 max-sm:flex-col">
-                        <div class="flex-1">
-                          <label for="firstName" class="sr-only">First Name</label>
-                          <div class="relative w-full bg-white rounded-xl border border-neutral-200 h-[60px]">
-                            <div class="absolute top-2.5 left-[15px]">
-                              <div class="text-sm text-zinc-500">First Name</div>
-                              <input formControlName="firstName" id="firstName" type="text" class="text-base w-full text-primary bg-transparent border-none focus:outline-none" aria-label="First Name">
-                            </div>
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="flex flex-col items-center w-full">
+                  <div class="w-full max-sm:w-full">
+                    <div class="flex gap-7 max-sm:flex-col">
+                      <!-- First Name -->
+                      <div class="flex-1">
+                        <label for="firstName" class="sr-only">First Name</label>
+                        <div class="relative w-full  dark:bg-primary rounded-xl border h-[60px]"
+                          [ngClass]="{
+                            'border-red-500': isInvalid('firstName'),
+                            'border-zinc-300': !isInvalid('firstName')
+                          }">
+                          <div class="absolute top-[-0.6rem] left-[15px] w-full h-full">
+                            <div class="text-sm w-max flex items-center bg-white dark:bg-[#1B2236] rounded-xl pl-1 pr-2"
+                              [ngClass]="{
+                                'text-red-500': isInvalid('firstName'),
+                                'text-zinc-500 dark:text-white': !isInvalid('firstName')
+                              }">First Name*</div>
+                            <input formControlName="firstName" id="firstName" type="text"
+                              class="text-base w-[90%] h-[70%] dark:text-white bg-transparent pl-1 border-none rounded-md focus:outline-none"
+                              aria-label="First Name">
                           </div>
-                          <div *ngIf="isInvalid('firstName')" class="text-red-500 text-sm mt-1">First Name is required.</div>
                         </div>
-                        <div class="flex-1">
-                          <label for="lastName" class="sr-only">Last Name</label>
-                          <div class="relative w-full bg-white rounded-xl border border-neutral-200 h-[60px]">
-                            <div class="absolute top-2.5 left-[15px]">
-                              <div class="text-sm text-zinc-500">Last Name</div>
-                              <input formControlName="lastName" id="lastName" type="text" class="mt-1 text-base text-slate-950 bg-transparent border-none focus:outline-none" aria-label="Last Name">
-                            </div>
-                          </div>
-                          <div *ngIf="isInvalid('lastName')" class="text-red-500 text-sm mt-1">Last Name is required.</div>
-                        </div>
+                        <div *ngIf="isInvalid('firstName')" class="text-red-500 text-sm mt-1 ml-1">First Name is required.</div>
                       </div>
-                  
-                      <div class="flex gap-7 mt-8 max-sm:flex-col">
-                        <div class="flex-1">
-                          <label for="email" class="sr-only">Email</label>
-                          <div class="relative w-full bg-white rounded-xl border border-neutral-200 h-[60px]">
-                            <div class="absolute top-2.5 left-[15px]">
-                              <div class="text-sm text-zinc-500">Email</div>
-                              <input formControlName="email" id="email" type="email" class="mt-1 text-base text-slate-950 bg-transparent border-none focus:outline-none" aria-label="Email">
-                            </div>
-                          </div>
-                          <div *ngIf="isInvalid('email')" class="text-red-500 text-sm mt-1">
-                            <span *ngIf="contactForm.get('email')?.errors?.['required']">Email is required.</span>
-                            <span *ngIf="contactForm.get('email')?.errors?.['email']">Enter a valid email address.</span>
-                          </div>
-                        </div>
-                        <div class="flex-1">
-                          <label for="phone" class="sr-only">Phone</label>
-                          <div class="relative w-full bg-white rounded-xl border border-neutral-200 h-[60px]">
-                            <div class="absolute top-2.5 left-[15px]">
-                              <div class="text-sm text-zinc-500">Phone</div>
-                              <input formControlName="phone" id="phone" type="tel" class="mt-1 text-base text-slate-950 bg-transparent border-none focus:outline-none" aria-label="Phone">
-                            </div>
-                          </div>
-                          <div *ngIf="isInvalid('phone')" class="text-red-500 text-sm mt-1">Phone is required.</div>
-                        </div>
-                      </div>
-                  
-                      <div class="mt-8">
-                        <label for="comment" class="sr-only">Comment</label>
-                        <div class="relative w-full bg-white rounded-xl border border-neutral-200 h-[220px]">
-                          <div class="absolute top-5 left-5">
-                            <div class="text-sm text-zinc-500">Comment</div>
-                            <textarea formControlName="comment" id="comment" class="mt-2.5 text-base text-slate-950 bg-transparent border-none focus:outline-none w-full h-[180px] resize-none" aria-label="Comment"></textarea>
+                
+                      <!-- Last Name -->
+                      <div class="flex-1">
+                        <label for="lastName" class="sr-only">Last Name</label>
+                        <div class="relative w-full  dark:bg-primary rounded-xl border h-[60px]"
+                          [ngClass]="{
+                            'border-red-500': isInvalid('lastName'),
+                            'border-zinc-300': !isInvalid('lastName')
+                          }">
+                          <div class="absolute top-[-0.6rem] left-[15px] w-full h-full">
+                            <div class="text-sm w-max bg-white dark:bg-[#1B2236] rounded-xl pl-1 pr-2"
+                              [ngClass]="{
+                                'text-red-500': isInvalid('lastName'),
+                                'text-zinc-500 dark:text-white ': !isInvalid('lastName')
+                              }">Last Name</div>
+                            <input formControlName="lastName" id="lastName" type="text"
+                              class="text-base w-[90%] h-[70%] dark:text-white bg-transparent pl-1 border-none rounded-md focus:outline-none"
+                              aria-label="Last Name">
                           </div>
                         </div>
-                        <div *ngIf="isInvalid('comment')" class="text-red-500 text-sm mt-1">Comment is required.</div>
-                      </div>
-                  
-                      <div class="mt-8">
-                        <button type="submit" class="flex gap-2.5 items-center px-7 py-5 text-base font-medium text-white bg-blue-600 rounded-xl border border-blue-600">
-                          <span>Send Message</span>
-                         <img src="icons/LinkArrow.svg" class="invert" alt="">
-                        </button>
+                        <div *ngIf="isInvalid('lastName')" class="text-red-500 text-sm mt-1 ml-1">Last Name is required.</div>
                       </div>
                     </div>
-                  </form>
+                
+                    <div class="flex gap-7 mt-8 max-sm:flex-col">
+                      <!-- Email -->
+                      <div class="flex-1">
+                        <label for="email" class="sr-only">Email</label>
+                        <div class="relative w-full  dark:bg-primary rounded-xl border h-[60px]"
+                          [ngClass]="{
+                            'border-red-500': isInvalid('email'),
+                            'border-zinc-300': !isInvalid('email')
+                          }">
+                          <div class="absolute top-[-0.6rem] left-[15px] w-full h-full">
+                            <div class="text-sm w-max bg-white dark:bg-[#1B2236] rounded-xl pl-1 pr-2"
+                              [ngClass]="{
+                                'text-red-500': isInvalid('email'),
+                                'text-zinc-500 dark:text-white ]': !isInvalid('email')
+                              }">Email</div>
+                            <input formControlName="email" id="email" type="email"
+                              class="text-base w-[90%] h-[70%] dark:text-white bg-transparent pl-1 border-none rounded-md focus:outline-none"
+                              aria-label="Email">
+                          </div>
+                        </div>
+                        <div *ngIf="isInvalid('email')" class="text-red-500 text-sm mt-1 ml-1">
+                          <span *ngIf="contactForm.get('email')?.errors?.['required']">Email is required.</span>
+                          <span *ngIf="contactForm.get('email')?.errors?.['email']">Enter a valid email address.</span>
+                        </div>
+                      </div>
+                
+                      <!-- Phone -->
+                      <div class="flex-1">
+                        <label for="phone" class="sr-only">Phone</label>
+                        <div class="relative w-full  dark:bg-primary rounded-xl border h-[60px]"
+                          [ngClass]="{
+                            'border-red-500': isInvalid('phone'),
+                            'border-zinc-300': !isInvalid('phone')
+                          }">
+                          <div class="absolute top-[-0.6rem] left-[15px] w-full h-full">
+                            <div class="text-sm w-max bg-white dark:bg-[#1B2236] rounded-xl pl-1 pr-2"
+                              [ngClass]="{
+                                'text-red-500': isInvalid('phone'),
+                                'text-zinc-500 dark:text-white ': !isInvalid('phone')
+                              }">Phone</div>
+                            <input formControlName="phone" id="phone" type="tel"
+                              class="text-base w-[90%] h-[70%] dark:text-white bg-transparent pl-1 border-none rounded-md focus:outline-none"
+                              aria-label="Phone">
+                          </div>
+                        </div>
+                        <div *ngIf="isInvalid('phone')" class="text-red-500 text-sm mt-1 ml-1">Phone is required.</div>
+                      </div>
+                    </div>
+                
+                    <!-- Comment -->
+                    <div class="mt-8">
+                      <label for="comment" class="sr-only">Comment</label>
+                      <div class="relative w-full  dark:bg-primary rounded-xl border h-[220px]"
+                        [ngClass]="{
+                          'border-red-500': isInvalid('comment'),
+                          'border-zinc-300': !isInvalid('comment')
+                        }">
+                        <div class="absolute top-5 left-5 w-[95%] h-full">
+                          <div class="text-sm w-max bg-white dark:bg-[#1B2236] rounded-xl pl-1 pr-2"
+                            [ngClass]="{
+                              'text-red-500': isInvalid('comment'),
+                              'text-zinc-500 dark:text-white': !isInvalid('comment')
+                            }">Comment</div>
+                          <textarea formControlName="comment" id="comment"
+                            class="mt-2.5 text-base text-primary dark:text-white bg-transparent border-none focus:outline-none w-full h-[70%] resize-none"
+                            aria-label="Comment"></textarea>
+                        </div>
+                      </div>
+                      <div *ngIf="isInvalid('comment')" class="text-red-500 text-sm mt-1 ml-1">Comment is required.</div>
+                    </div>
+                
+                    <!-- Submit Button -->
+                    <div class="mt-8">
+                      <button type="submit"
+                        class="flex gap-2.5 items-center px-7 py-5 text-base font-medium text-white bg-blue-600 rounded-xl border border-blue-600">
+                        <span>Send Message</span>
+                        <img src="icons/LinkArrow.svg" class="invert" alt="">
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                
                   
                   <!-- Error Modal -->
                   <div *ngIf="showErrorModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-                    <div class="bg-white p-6 rounded-xl max-w-sm w-full shadow-xl text-center">
+                    <div class="bg-white dark:bg-primary p-6 rounded-xl max-w-sm w-full shadow-xl text-center">
                       <h2 class="text-lg font-semibold text-red-600">Form Incomplete</h2>
                       <p class="text-sm text-gray-600 mt-2">Please fill in all fields before submitting.</p>
                       <button (click)="closeErrorModal()" class="mt-4 bg-red-500 text-white px-6 py-2 rounded-lg">Close</button>
@@ -95,8 +155,8 @@
                   </div>
                   
                   <!-- Success Modal -->
-                  <div *ngIf="showSuccessModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-                    <div class="bg-white p-6 rounded-xl max-w-sm w-full shadow-xl text-center">
+                  <div *ngIf="showSuccessModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+                    <div class="bg-white dark:bg-primary p-6 rounded-xl max-w-sm w-full shadow-xl text-center">
                       <h2 class="text-lg font-semibold text-green-600">Message Sent!</h2>
                       <p class="text-sm text-gray-600 mt-2">Thank you for reaching out! We'll get back to you soon.</p>
                       <button (click)="closeSuccessModal()" class="mt-4 bg-green-500 text-white px-6 py-2 rounded-lg">Close</button>
@@ -104,66 +164,48 @@
                   </div>
                   
             </div>
-            <div class="p-10 bg-white rounded-2xl border border-solid border-neutral-200 w-[567px] max-md:p-8 max-md:w-full max-md:max-w-[567px] max-sm:p-5 max-sm:rounded-xl">
-              <div class="mb-10 max-sm:mb-8">
-                <h2 class="mb-3.5 text-xl font-medium leading-8 text-slate-950">Contact details</h2>
-                <p class="text-base leading-7 text-slate-950">Etiam pharetra egestas interdum blandit viverra morbi consequat mi non bibendum egestas quam egestas nulla.</p>
+            <div class="flex flex-col gap-10 p-10 h-full bg-white dark:bg-primary dark:text-white rounded-2xl border border-solid border-neutral-200 w-[40%] max-lg:w-full max-lg:p-4">
+              <div class="flex flex-col gap-4">
+                <h2 class=" text-xl font-medium leading-8 ">Contact details</h2>
+                <p class="text-base leading-7 ">Etiam pharetra egestas interdum blandit viverra morbi consequatnulla.</p>
               </div>
               <div class="flex flex-col gap-8">
-                <div class="flex gap-9 items-start max-md:gap-5 max-sm:flex-col max-sm:gap-2.5">
-                  <div>
-                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.9999 4.0625C8.67871 4.0625 5.14575 7.64734 5.14575 12.1068C5.14575 14.3555 6.04517 16.8458 7.5169 18.7689C8.99243 20.697 10.9454 21.9375 12.9999 21.9375C15.0545 21.9375 17.0074 20.697 18.483 18.7689C19.9547 16.8458 20.8541 14.3555 20.8541 12.1068C20.8541 7.64734 17.3211 4.0625 12.9999 4.0625ZM3.52075 12.1068C3.52075 6.78329 7.74819 2.4375 12.9999 2.4375C18.2516 2.4375 22.4791 6.78329 22.4791 12.1068C22.4791 14.7496 21.4384 17.5809 19.7735 19.7564C18.1123 21.9271 15.7319 23.5625 12.9999 23.5625C10.268 23.5625 7.8876 21.9271 6.22642 19.7564C4.56143 17.5809 3.52075 14.7496 3.52075 12.1068Z" fill="#050B20"/>
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.479 11.375C9.479 9.4305 11.0554 7.85417 12.9998 7.85417C14.9443 7.85417 16.5207 9.4305 16.5207 11.375C16.5207 13.3195 14.9443 14.8958 12.9998 14.8958C11.0554 14.8958 9.479 13.3195 9.479 11.375ZM12.9998 9.47917C11.9528 9.47917 11.104 10.328 11.104 11.375C11.104 12.422 11.9528 13.2708 12.9998 13.2708C14.0469 13.2708 14.8957 12.422 14.8957 11.375C14.8957 10.328 14.0469 9.47917 12.9998 9.47917Z" fill="#E1E1E1"/>
-                    </svg>
-                  </div>
-                  <div class="flex flex-col text-base leading-7 text-slate-950 max-sm:ml-9">
+                <div class="flex gap-5 items-start ">
+                  <img src="icons/contact-location.svg" class="dark:invert mt-2" alt="">
+                  <div class="flex flex-col text-base leading-7 ">
                     <span>Address</span>
-                    <address class="not-italic">329 Queensberry Street, North Melbourne VIC3051, Australia.</address>
+                    <a href="https://www.google.com/maps?ll=41.780347,44.791755&z=16&t=m&hl=en&gl=US&mapclient=embed&cid=6133617996238124604"
+                    target="_blank" rel="noopener noreferrer">
+                   <address class="italic hover:underline">feikrebis street, Tbilisi 0162, Georgia</address>
+                 </a>
                   </div>
                 </div>
-                <div class="flex gap-9 items-start max-md:gap-5 max-sm:flex-col max-sm:gap-2.5">
-                  <div>
-                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7584 14.5869C12.0336 14.5869 11.3111 14.3474 10.7065 13.8686L5.84779 9.95128C5.49787 9.66962 5.44371 9.1572 5.72429 8.80837C6.00704 8.46062 6.51837 8.40537 6.86721 8.68595L11.7216 12.5989C12.3316 13.0821 13.1906 13.0821 13.8049 12.5946L18.6106 8.68812C18.9594 8.4032 19.4707 8.45737 19.7546 8.8062C20.0373 9.15395 19.9842 9.66528 19.6365 9.94912L14.8221 13.8621C14.2133 14.3453 13.4853 14.5869 12.7584 14.5869Z" fill="#E1E1E1"/>
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M18.0472 21.6667C18.0493 21.6645 18.058 21.6667 18.0645 21.6667C19.3006 21.6667 20.3969 21.2247 21.2376 20.3851C22.2137 19.4133 22.7499 18.0169 22.7499 16.4537V9.01333C22.7499 5.98758 20.7718 3.79166 18.0472 3.79166H7.411C4.68642 3.79166 2.70825 5.98758 2.70825 9.01333V16.4537C2.70825 18.0169 3.24558 19.4133 4.22058 20.3851C5.06125 21.2247 6.15867 21.6667 7.39367 21.6667H18.0472ZM7.39042 23.2917C5.71883 23.2917 4.226 22.685 3.07334 21.5367C1.78959 20.2562 1.08325 18.4513 1.08325 16.4537V9.01333C1.08325 5.11008 3.8035 2.16666 7.411 2.16666H18.0472C21.6547 2.16666 24.3749 5.11008 24.3749 9.01333V16.4537C24.3749 18.4513 23.6686 20.2562 22.3848 21.5367C21.2333 22.6839 19.7393 23.2917 18.0645 23.2917H7.39042Z" fill="#050B20"/>
-                    </svg>
-                  </div>
-                  <div class="flex flex-col text-base leading-7 text-slate-950 max-sm:ml-9">
+                <div class="flex gap-5 items-start ">
+                <img src="icons/contact-email.svg" class="dark:invert mt-2" alt="">
+                  <div class="flex flex-col text-base leading-7 ">
                     <span>Email</span>
+                    <a href="mailto:checkcargeorgia@gmail.com" class="hover:underline">checkcargeorgia&#64;gmail.com</a>
+
                   </div>
                 </div>
-                <div class="flex gap-9 items-start max-md:gap-5 max-sm:flex-col max-sm:gap-2.5">
-                  <div>
-                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path d="M23.5126 10.9886C23.1042 10.9886 22.7532 10.682 22.7066 10.2671C22.2949 6.60979 19.4533 3.77145 15.796 3.3652C15.3507 3.31537 15.029 2.91454 15.0788 2.4682C15.1276 2.02295 15.5273 1.69037 15.9758 1.75103C20.3926 2.2407 23.8246 5.66837 24.3207 10.0851C24.3717 10.5315 24.0499 10.9333 23.6047 10.9832C23.5743 10.9864 23.5429 10.9886 23.5126 10.9886Z" fill="#E1E1E1"/>
-                      <path d="M19.676 11.0003C19.2947 11.0003 18.9556 10.7316 18.8798 10.3438C18.5678 8.74044 17.3317 7.50436 15.7305 7.19344C15.2896 7.10786 15.0025 6.68211 15.0881 6.24119C15.1737 5.80027 15.6103 5.51319 16.0403 5.59877C18.2948 6.03644 20.0357 7.77628 20.4744 10.0318C20.56 10.4738 20.2729 10.8995 19.8331 10.9851C19.78 10.9949 19.728 11.0003 19.676 11.0003Z" fill="#E1E1E1"/>
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M8.10554 17.8102C13.2113 22.9171 16.6108 24.2561 18.758 24.2561C19.8175 24.2561 20.5737 23.93 21.0774 23.5681C21.1002 23.5551 23.4315 22.1295 23.8399 19.9715C24.0328 18.9586 23.7511 17.9565 23.0274 17.0725C20.0461 13.4531 18.5273 13.7911 16.8503 14.6068C15.82 15.1116 15.0064 15.5038 12.7087 13.2082C10.4122 10.9108 10.8084 10.0971 11.3099 9.06703C12.1267 7.39003 12.4628 5.87083 8.84221 2.88733C7.96038 2.16692 6.96479 1.88525 5.95296 2.07483C3.82638 2.47242 2.39421 4.76583 2.39421 4.76583C1.25454 6.36592 0.481047 10.1868 8.10554 17.8102ZM6.28446 3.66517C6.37979 3.65 6.47404 3.64133 6.56721 3.64133C6.99188 3.64133 7.40138 3.80708 7.80979 4.14292C10.7294 6.54789 10.36 7.30624 9.84864 8.35598C9.08055 9.93439 8.67863 11.4749 11.5593 14.3576C14.4431 17.2404 15.9847 16.8385 17.5609 16.0682L17.5635 16.0669C18.612 15.5573 19.37 15.1889 21.7718 18.1049C22.1824 18.6054 22.3395 19.1059 22.2507 19.6335C22.0459 20.8468 20.6354 21.9334 20.2086 22.1977C18.68 23.2876 14.9999 22.4068 9.25388 16.6619C3.51004 10.917 2.62821 7.23692 3.75704 5.64983C3.98238 5.28258 5.07329 3.86992 6.28446 3.66517Z" fill="#050B20"/>
-                    </svg>
-                  </div>
-                  <div class="flex flex-col text-base leading-7 text-slate-950 max-sm:ml-9">
+                <div class="flex gap-5 items-start">
+                  <img src="icons/contact-phone.svg" alt="" class="dark:invert mt-2">
+                  <div class="flex flex-col text-base leading-7 ">
                     <span>Phone</span>
-                    <a href="tel:+76956039967" class="text-slate-950 hover:underline">+76 956 039 967</a>
+                    <a href="tel:+76956039967" class="hover:underline">+76 956 039 967</a>
                   </div>
                 </div>
-                <div class="mt-2.5">
-                  <h3 class="mb-5 text-base font-medium leading-7 text-slate-950">Follow us</h3>
-                  <div class="flex gap-9 max-sm:gap-6">
+                <div class="flex flex-col gap-3 mt-2.5">
+                  <h3 class=" text-base font-medium leading-7 ">Follow us</h3>
+                  <div class="flex gap-4 max-sm:gap-6">
                     <a href="#" class="flex justify-center items-center w-10 h-10 rounded-full bg-slate-50" aria-label="Facebook">
-                      <i class="ti ti-brand-facebook text-sm text-slate-950"></i>
+                     <img src="icons/facebook.svg" alt="" class="w-6">
                     </a>
-                    <a href="#" class="flex justify-center items-center w-10 h-10 rounded-full bg-slate-50" aria-label="Twitter">
-                      <i class="ti ti-brand-twitter text-sm text-slate-950"></i>
-                    </a>
-                    <a href="#" class="flex justify-center items-center w-10 h-10 rounded-full bg-slate-50" aria-label="Instagram">
-                      <i class="ti ti-brand-instagram text-sm text-slate-950"></i>
-                    </a>
-                    <a href="#" class="flex justify-center items-center w-10 h-10 rounded-full bg-slate-50" aria-label="LinkedIn">
-                      <i class="ti ti-brand-linkedin text-sm text-slate-950"></i>
-                    </a>
+                 
                   </div>
                 </div>
               </div>
             </div>
+        
       </div>
 </div>

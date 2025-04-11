@@ -66,13 +66,17 @@ export class SocialSectionComponent {
     this.renderer.appendChild(styleSheet, this.renderer.createText(keyframes));
     document.head.appendChild(styleSheet);
   }
-
+isTouchDevice(): boolean {
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
   stopAnimation(event: MouseEvent) {
+    if (this.isTouchDevice()) return; // Don't pause on touch devices
     const target = event.target as HTMLElement;
     this.renderer.setStyle(target, 'animation-play-state', 'paused');
   }
-
+  
   startAnimation(event: MouseEvent) {
+    if (this.isTouchDevice()) return; // Don't resume manually on touch devices
     const target = event.target as HTMLElement;
     this.renderer.setStyle(target, 'animation-play-state', 'running');
   }
