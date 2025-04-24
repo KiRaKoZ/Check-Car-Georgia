@@ -14,11 +14,17 @@ interface FaqItem {
   animations: [
     trigger('slideInOut', [
       transition(':enter', [
-        style({ height: 0, opacity: 0 }),
-        animate('300ms ease-out', style({ height: '*', opacity: 1 }))
+        style({ height: 0, opacity: 0, transform: 'translateY(-10px)' }),
+        animate(
+          '400ms cubic-bezier(0.25, 0.8, 0.25, 1)',
+          style({ height: '*', opacity: 1, transform: 'translateY(0)' })
+        )
       ]),
       transition(':leave', [
-        animate('300ms ease-in', style({ height: 0, opacity: 0 }))
+        animate(
+          '300ms ease-in',
+          style({ height: 0, opacity: 0, transform: 'translateY(-10px)' })
+        )
       ])
     ])
   ]
@@ -53,6 +59,10 @@ export class FAQComponent {
     ];
   
     toggleFaq(index: number): void {
-      this.faqItems[index].isOpen = !this.faqItems[index].isOpen;
+      this.faqItems = this.faqItems.map((item, i) => ({
+        ...item,
+        isOpen: i === index ? !item.isOpen : false
+      }));
     }
+    
   }

@@ -22,7 +22,7 @@ import { FAQComponent } from './faq/faq.component';
     WhyUsSectionComponent,
     GalleryComponent,
     ScrollFadeDirective,
-    // VehicleTypesComponent,
+    VehicleTypesComponent,
     SocialSectionComponent,
     VideoSectionComponent,
     BookingSectionComponent,

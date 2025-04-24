@@ -16,7 +16,7 @@ export const routes: Routes = [
     { path: 'terms&conditions', component:  TermsConditionsComponent},
     { path: 'gallery', component:  GalleryComponent},
     { path: 'faq', component:  FAQComponent},
-    { path: 'about us', component:  AboutUsComponent},
+    { path: 'about-us', component:  AboutUsComponent, },
     { path: 'calculator', component:  CalculatorComponent},
     { path: '**', component: NotFoundComponent }
 ];

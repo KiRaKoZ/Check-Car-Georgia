@@ -14,7 +14,7 @@
   "header":{
     "home": "Home",
     "pages":"Pages",
-    "aboutUs": "About Us",
+    "about": "About",
     "contact": "Contact",
     "pagesList":{
       "gallery": "Gallery",

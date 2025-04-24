@@ -25,14 +25,14 @@
                             'border-red-500': isInvalid('firstName'),
                             'border-zinc-300': !isInvalid('firstName')
                           }">
-                          <div class="absolute top-[-0.6rem] left-[15px] w-full h-full">
+                          <div class="absolute top-[-0.6rem] left-[15px] w-full h-full ">
                             <div class="text-sm w-max flex items-center bg-white dark:bg-[#1B2236] rounded-xl pl-1 pr-2"
                               [ngClass]="{
                                 'text-red-500': isInvalid('firstName'),
                                 'text-zinc-500 dark:text-white': !isInvalid('firstName')
                               }">First Name*</div>
                             <input formControlName="firstName" id="firstName" type="text"
-                              class="text-base w-[90%] h-[70%] dark:text-white bg-transparent pl-1 border-none rounded-md focus:outline-none"
+                              class="text-base w-[90%] h-[70%] dark:text-white bg-transparent pl-1 border-none rounded-md focus:outline-none "
                               aria-label="First Name">
                           </div>
                         </div>
