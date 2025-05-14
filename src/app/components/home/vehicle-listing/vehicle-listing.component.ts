@@ -54,7 +54,7 @@ export class VehicleListingComponent {
 
   startAutoSlide() {
     this.stopAutoSlide();
-    this.autoSlideInterval = setInterval(() => this.nextSlide(), 125800);
+    this.autoSlideInterval = setInterval(() => this.nextSlide(), 5000);
   }
 
   stopAutoSlide() {

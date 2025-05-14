@@ -1,0 +1,29 @@
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .slider-track {
+    display: flex;
+    animation: scroll 50s linear infinite;
+  }
+  
+  .slider-track a {
+    flex-shrink: 0;
+  }
+
+  
+  @media (max-width: 480px) {
+    .slider-track {
+      animation: scroll 10s linear infinite;
+    }
+  }

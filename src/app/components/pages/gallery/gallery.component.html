@@ -28,7 +28,7 @@
 >
   <img
     *ngFor="let image of getVisibleImages(car)"
-    class="h-auto w-full rounded-lg"
+    class="h-auto  w-full rounded-lg object-contain"
     [src]="image"
     [alt]="car.name"
   />

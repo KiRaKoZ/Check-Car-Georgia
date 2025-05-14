@@ -41,8 +41,11 @@
     "transmission": "Automatic",
     "year": 2020,
     "engine": "4.0",
-    "image": "images/slider_car15.jpg",
-    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+    "image": "images/testimages/prado2020-1.jpeg",
+    "images":["images/testimages/prado2020-1.jpeg","images/testimages/prado2020-2.jpeg",
+    "images/testimages/prado2020-3.jpeg","images/testimages/prado2020-4.jpeg","images/testimages/prado2020-5.jpeg",
+    "images/testimages/prado2020-6.jpeg","images/testimages/prado2020-7.jpeg","images/testimages/prado2020-8.jpeg","images/testimages/prado2020-9.jpeg",
+    "images/testimages/prado2020-10.jpeg","images/testimages/prado2020-11.jpeg","images/testimages/prado2020-12.jpeg"]
   },
   {
     "name": "BMW X5 E70",
@@ -55,8 +58,8 @@
     "transmission": "Automatic",
     "year": 2012,
     "engine": "3.0",
-    "image": "images/slider_car16.jpg",
-    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+    "image": "images/testimages/BMW2012-4.jpeg",
+    "images":["images/testimages/BMW2012-1.jpeg", "images/testimages/BMW2012-2.jpeg","images/testimages/BMW2012-3.jpeg","images/testimages/BMW2012-4.jpeg"]
 
   },
   {
@@ -70,21 +73,22 @@
     "transmission": "Automatic",
     "year": 2014,
     "engine": "2.7",
-    "image": "images/slider_car.jpg",
-    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+    "image": "images/testimages/toyota2014-1.jpeg",
+    "images":["images/testimages/toyota2014-2.jpeg","images/testimages/toyota2014-1.jpeg"]
 
   },
-  {
-    "name": "BMW X5 F15",
+   {
+    "name": "Lexus LX 570",
     "type": "SUV",
-    "price": "₾ 255",
+    "price": "$ 270",
     "per": "Day",
-    "fuel": "Petrol",
+    "fuel": "Diesel",
     "transmission": "Automatic",
-    "year": 2018,
-    "engine": "3.5",
-    "image": "images/slider_car.jpg",
-    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+    "year": 2024,
+    "engine": "4.0",
+    "image": "images/testimages/LexusLX1.jpeg",
+    "images": ["images/testimages/LexusLX1.jpeg","images/testimages/LexusLX2.jpeg"]
+
 
   },
   {
@@ -96,10 +100,24 @@
     "transmission": "Automatic",
     "year": 2017,
     "engine": "2.0",
-    "image": "images/slider_car.jpg",
-    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+    "image": "images/testimages/BMWf10-1.jpeg",
+    "images":["images/testimages/BMWf10-1.jpeg","images/testimages/BMWf10-2.jpeg", "images/testimages/BMWf10-4.jpeg"]
 
   },
+  {
+    "name": "BMW X5 F15",
+    "type": "SUV",
+    "price": "₾ 255",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2018,
+    "engine": "3.5",
+    "image": "",
+    "images":[""]
+
+  },
+  
   {
     "name": "Porsche Cayenne",
     "type": "SUV",
@@ -109,8 +127,8 @@
     "transmission": "Automatic",
     "year": 2014,
     "engine": "3.6",
-    "image": "images/slider_car.jpg",
-    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+    "image": "",
+    "images":[]
 
   },
   {
@@ -122,23 +140,11 @@
     "transmission": "Automatic",
     "year": 2023,
     "engine": "3.0",
-    "image": "images/slider_car.jpg",
-    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
-
-  },
-  {
-    "name": "Lexus LX 570",
-    "type": "SUV",
-    "price": "$ 270",
-    "per": "Day",
-    "fuel": "Diesel",
-    "transmission": "Automatic",
-    "year": 2024,
-    "engine": "4.0",
-    "image": "images/slider_car.jpg",
-    "images":["images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg", "images/slider_car15.jpg"]
+    "image": "",
+    "images":[]
 
   }
+ 
 ]
 
   

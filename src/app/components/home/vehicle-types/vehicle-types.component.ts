@@ -1,34 +1,32 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { RouterModule } from '@angular/router';
+
 interface BodyStyle {
   image: string;
   altText: string;
   name: string;
 }
+
 @Component({
   selector: 'app-vehicle-types',
-  imports: [CommonModule],
-  standalone: true, 
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './vehicle-types.component.html',
   styleUrl: './vehicle-types.component.scss',
-  animations: [
-    trigger('slideAnimation', [
-      transition('* => *', [
-        style({ transform: '{{startTransform}}' }),
-        animate('300ms ease-in-out', style({ transform: '{{endTransform}}' }))
-      ])
-    ])
-  ]
 })
-export class VehicleTypesComponent  {
-
+export class VehicleTypesComponent {
   bodyStyles: BodyStyle[] = [
-    { image: 'images/tr-car.png', altText: 'Sedan', name: 'Sedan' },
-    { image: 'images/tr-car2.png', altText: 'Coupe', name: 'Coupe' },
-    { image: 'images/tr-car3.png', altText: 'SUV', name: 'SUV' },
-    { image: 'images/tr-car6.png', altText: 'Hatchback', name: 'Hatchback' },
-    { image: 'images/tr-car7.png', altText: 'Minivan', name: 'Minivan' }
+    { image: 'images/tr-sedan.png', altText: 'Sedan', name: 'Sedan' },
+    { image: 'images/tr-coupe.png', altText: 'Coupe', name: 'Coupe' },
+    { image: 'images/tr-suv.png', altText: 'SUV', name: 'SUV' },
+    { image: 'images/tr-hatchback.png', altText: 'Hatchback', name: 'Hatchback' },
   ];
 
+  duplicatedStyles: BodyStyle[] = [];
+
+  constructor() {
+    // Duplicate the styles for infinite loop illusion
+    this.duplicatedStyles = [...this.bodyStyles, ...this.bodyStyles,  ...this.bodyStyles,  ...this.bodyStyles, ...this.bodyStyles];
+  }
 }
