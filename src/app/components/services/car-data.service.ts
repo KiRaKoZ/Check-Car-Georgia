@@ -33,10 +33,24 @@ export class CarDataService {
 
   private getApiBaseUrl(): string {
     if (typeof window === 'undefined') return '';
-    const { hostname, port, origin } = window.location;
+
+    const { hostname, port, origin, protocol } = window.location;
+
     if ((hostname === 'localhost' || hostname === '127.0.0.1') && port === '4200') {
       return 'http://localhost:4100';
     }
+
+    if (hostname === 'admin.checkcargeorgia.ge') {
+      return origin;
+    }
+
+    const isLiveCheckCarHost = hostname === 'checkcargeorgia.ge'
+      || hostname.endsWith('.checkcargeorgia.ge');
+
+    if (isLiveCheckCarHost) {
+      return `${protocol}//admin.checkcargeorgia.ge`;
+    }
+
     return origin;
   }
 
