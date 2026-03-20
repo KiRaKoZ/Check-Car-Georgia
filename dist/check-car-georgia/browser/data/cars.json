@@ -1,0 +1,247 @@
+[
+  {
+    "id": 1,
+    "slug": "toyota-lc-200-2020",
+    "name": "Toyota LC 200",
+    "shortInfo": "4.0 V6 5dr AWD Automatic SUV",
+    "description": "Reliable full-size SUV for city driving, airport transfers, family trips, and premium rental service.",
+    "type": "SUV",
+    "price": "$150",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2020,
+    "engine": "4.0",
+    "seats": 7,
+    "doors": 5,
+    "location": "Tbilisi",
+    "featured": true,
+    "image": "images/testimages/prado2020-1.jpeg",
+    "images": [
+      "images/testimages/prado2020-1.jpeg",
+      "images/testimages/prado2020-2.jpeg",
+      "images/testimages/prado2020-3.jpeg",
+      "images/testimages/prado2020-4.jpeg",
+      "images/testimages/prado2020-5.jpeg",
+      "images/testimages/prado2020-6.jpeg",
+      "images/testimages/prado2020-7.jpeg",
+      "images/testimages/prado2020-8.jpeg",
+      "images/testimages/prado2020-9.jpeg",
+      "images/testimages/prado2020-10.jpeg",
+      "images/testimages/prado2020-11.jpeg",
+      "images/testimages/prado2020-12.jpeg"
+    ],
+    "features": [
+      "Full-size SUV",
+      "Comfortable interior",
+      "Automatic transmission",
+      "Ideal for long trips"
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "bmw-x5-e70-2012",
+    "name": "BMW X5 E70",
+    "shortInfo": "3.0 AWD Automatic SUV",
+    "description": "Balanced premium SUV for comfortable daily driving and short-term rental needs.",
+    "type": "SUV",
+    "price": "₾175",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2012,
+    "engine": "3.0",
+    "seats": 5,
+    "doors": 5,
+    "location": "Tbilisi",
+    "featured": true,
+    "image": "images/testimages/BMW2012-4.jpeg",
+    "images": [
+      "images/testimages/BMW2012-1.jpeg",
+      "images/testimages/BMW2012-2.jpeg",
+      "images/testimages/BMW2012-3.jpeg",
+      "images/testimages/BMW2012-4.jpeg"
+    ],
+    "features": [
+      "Premium SUV",
+      "AWD",
+      "Comfort ride",
+      "Business trips"
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "toyota-lc-prado-2014",
+    "name": "Toyota LC Prado",
+    "shortInfo": "2.7 Automatic SUV",
+    "description": "Practical SUV suitable for mixed city and regional driving with dependable performance.",
+    "type": "SUV",
+    "price": "$110",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2014,
+    "engine": "2.7",
+    "seats": 7,
+    "doors": 5,
+    "location": "Tbilisi",
+    "featured": true,
+    "image": "images/testimages/toyota2014-1.jpeg",
+    "images": [
+      "images/testimages/toyota2014-1.jpeg",
+      "images/testimages/toyota2014-2.jpeg"
+    ],
+    "features": [
+      "Reliable SUV",
+      "Family friendly",
+      "Automatic",
+      "Suitable for travel"
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "lexus-lx-570-2024",
+    "name": "Lexus LX 570",
+    "shortInfo": "4.0 Automatic SUV",
+    "description": "Luxury SUV with a commanding presence and premium comfort for top-tier bookings.",
+    "type": "SUV",
+    "price": "$270",
+    "per": "Day",
+    "fuel": "Diesel",
+    "transmission": "Automatic",
+    "year": 2024,
+    "engine": "4.0",
+    "seats": 7,
+    "doors": 5,
+    "location": "Tbilisi",
+    "featured": false,
+    "image": "images/testimages/LexusLX1.jpeg",
+    "images": [
+      "images/testimages/LexusLX1.jpeg",
+      "images/testimages/LexusLX2.jpeg"
+    ],
+    "features": [
+      "Luxury class",
+      "Premium cabin",
+      "SUV",
+      "High-end rental"
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "bmw-f10-2017",
+    "name": "BMW F10",
+    "shortInfo": "2.0 Automatic Sedan",
+    "description": "Comfortable executive sedan suitable for city commutes and professional use.",
+    "type": "Sedan",
+    "price": "₾200",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2017,
+    "engine": "2.0",
+    "seats": 5,
+    "doors": 4,
+    "location": "Tbilisi",
+    "featured": false,
+    "image": "images/testimages/BMWf10-1.jpeg",
+    "images": [
+      "images/testimages/BMWf10-1.jpeg",
+      "images/testimages/BMWf10-2.jpeg",
+      "images/testimages/BMWf10-4.jpeg"
+    ],
+    "features": [
+      "Executive sedan",
+      "Automatic",
+      "Comfort seats",
+      "City use"
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "bmw-x5-f15-2018",
+    "name": "BMW X5 F15",
+    "shortInfo": "3.5 Automatic SUV",
+    "description": "Modern premium SUV for comfortable rental and stylish transportation.",
+    "type": "SUV",
+    "price": "₾255",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2018,
+    "engine": "3.5",
+    "seats": 5,
+    "doors": 5,
+    "location": "Tbilisi",
+    "featured": false,
+    "image": "images/slider_car16.jpg",
+    "images": [
+      "images/slider_car16.jpg",
+      "images/slider_car15.jpg"
+    ],
+    "features": [
+      "Premium SUV",
+      "Comfortable drive",
+      "Automatic",
+      "Business class"
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "porsche-cayenne-2014",
+    "name": "Porsche Cayenne",
+    "shortInfo": "3.6 Automatic SUV",
+    "description": "Sporty SUV with premium design for clients looking for style and performance.",
+    "type": "SUV",
+    "price": "₾300",
+    "per": "Day",
+    "fuel": "Petrol",
+    "transmission": "Automatic",
+    "year": 2014,
+    "engine": "3.6",
+    "seats": 5,
+    "doors": 5,
+    "location": "Tbilisi",
+    "featured": false,
+    "image": "images/slider_car14.jpg",
+    "images": [
+      "images/slider_car14.jpg",
+      "images/slider_car13.jpg"
+    ],
+    "features": [
+      "Sport SUV",
+      "Premium class",
+      "Automatic",
+      "Strong presence"
+    ]
+  },
+  {
+    "id": 8,
+    "slug": "toyota-lc-300-2023",
+    "name": "Toyota LC 300",
+    "shortInfo": "3.0 Automatic SUV",
+    "description": "New-generation Land Cruiser for premium bookings and reliable long-distance use.",
+    "type": "SUV",
+    "price": "$240",
+    "per": "Day",
+    "fuel": "Diesel",
+    "transmission": "Automatic",
+    "year": 2023,
+    "engine": "3.0",
+    "seats": 7,
+    "doors": 5,
+    "location": "Tbilisi",
+    "featured": false,
+    "image": "images/slider_car15.jpg",
+    "images": [
+      "images/slider_car15.jpg",
+      "images/slider_car16.jpg"
+    ],
+    "features": [
+      "New generation",
+      "Diesel",
+      "Premium SUV",
+      "Road trip ready"
+    ]
+  }
+]
