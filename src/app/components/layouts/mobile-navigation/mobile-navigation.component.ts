@@ -70,7 +70,7 @@ export class MobileNavigationComponent implements OnInit{
   }
 
   isPageRouteActive(): boolean {
-    return this.router.url.includes('gallery') || 
+    return this.router.url.includes('cars') || 
            this.router.url.includes('service-page') ||  
            this.router.url.includes('calculator');
   }

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Check Car Georgia Admin</title>
+  <link rel="stylesheet" href="/admin/styles.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-logo">BOXCARS</div>
+      <div>
+        <div class="brand">Check Car Georgia</div>
+        <div class="sub">ადმინ პანელი</div>
+      </div>
+      <p class="hint">აქედან შეგიძლია მანქანების დამატება, რედაქტირება, ხელმიუწვდომლად მონიშვნა, ფოტოებისა და ვიდეოს ატვირთვა.</p>
+      <a class="api-link" href="/api/admin/cars">API / Cars JSON</a>
+      <div class="deploy-box">
+        <strong>თუ აქამდე გქონდა გახსნილი და იგივეს გაჩვენებს</strong>
+        <p>გააჩერე ძველი პროცესი და გაუშვი თავიდან. აუცილებლად ერთსა და იმავე <code>DATA_DIR</code>-ზე გაუშვი, თორემ სხვადასხვა ბაზას წაიკითხავს.</p>
+        <p><code>CTRL + C</code> → შემდეგ ისევ გაუშვი <code>DATA_DIR=./storage ADMIN_USER=admin ADMIN_PASS=1234 npm start</code></p>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div class="topbar-search">
+          <span>⌕</span>
+          <input type="text" placeholder="Search Cars eg. Audi Q7" disabled />
+        </div>
+        <div>
+          <h1>მანქანების მართვა</h1>
+          <p>ბრენდი და მოდელი ერთ ველად ივსება. აღწერა რჩება 3 ენაზე.</p>
+        </div>
+        <div class="top-actions"><button id="themeToggleBtn" type="button" class="secondary">Day mode</button><button id="resetBtn" class="secondary">ახალი მანქანა</button></div>
+      </header>
+
+      <section class="panel form-panel">
+        <div class="panel-title">მანქანის ფორმა</div>
+        <form id="carForm">
+          <input type="hidden" id="carId" />
+          <input type="hidden" id="existingImages" />
+          <input type="hidden" id="existingVideo" />
+
+          <div class="grid two top-grid">
+            <label><span>Slug (ლინკისთვის)</span><input id="slug" required placeholder="bmw-x5-2020" /></label>
+            <div class="stacked-checks">
+              <label class="checkbox-row top-fix"><input id="featured" type="checkbox" /> <span>გამოვაჩინო მთავარი გვერდის სექციაში</span></label>
+              <label class="checkbox-row top-fix"><input id="available" type="checkbox" checked /> <span>ხელმისაწვდომია</span></label>
+            </div>
+          </div>
+
+          <div class="grid two">
+            <label><span>ბრენდი</span><input id="brand" required /></label>
+            <label><span>სახელი / მოდელი</span><input id="name" required /></label>
+          </div>
+
+          <div class="panel-subtitle">აღწერა</div>
+          <div class="grid three">
+            <label><span>აღწერა (ქართული)</span><textarea id="description_geo" rows="4"></textarea></label>
+            <label><span>აღწერა (English)</span><textarea id="description_eng" rows="4"></textarea></label>
+            <label><span>აღწერა (Русский)</span><textarea id="description_rus" rows="4"></textarea></label>
+          </div>
+
+          <div class="grid four">
+            <label><span>ტიპი</span>
+              <select id="typeKey">
+                <option value="sedan">სედანი</option>
+                <option value="cabriolet">კაბრიოლეტი</option>
+                <option value="hatchback">ჰეტჩბექი</option>
+                <option value="coupe">კუპე</option>
+                <option value="suv">SUV</option>
+              </select>
+            </label>
+            <label><span>ფასი დღეში</span><input id="priceValue" type="number" min="0" required /></label>
+            <label><span>ვალუტა</span>
+              <select id="currency">
+                <option value="GEL">ლარი (₾)</option>
+                <option value="USD">დოლარი ($)</option>
+              </select>
+            </label>
+            <label><span>წელი</span><input id="year" type="number" min="1900" max="2100" /></label>
+          </div>
+
+          <div class="grid four">
+            <label><span>ტრანსმისია</span>
+              <select id="transmissionKey">
+                <option value="automatic">ავტომატური</option>
+                <option value="manual">მექანიკური</option>
+              </select>
+            </label>
+            <label><span>საწვავი</span>
+              <select id="fuelKey">
+                <option value="electric">ელექტრო</option>
+                <option value="diesel">დიზელი</option>
+                <option value="hybrid">ჰიბრიდი</option>
+                <option value="petrol">ბენზინი</option>
+              </select>
+            </label>
+            <label><span>ძრავი</span><input id="engine" placeholder="2.0 Turbo / 75 kWh" /></label>
+            <label><span>წვა / 100კმ</span><input id="consumption" placeholder="8L / 100km" /></label>
+            <label><span>ადგილები</span><input id="seats" type="number" min="1" value="5" /></label>
+          </div>
+
+          <div class="grid two">
+            <label><span>კარები</span><input id="doors" type="number" min="1" value="4" /></label>
+            <label><span>მახასიათებლები (მძიმეებით გამოყავი)</span><input id="features" placeholder="კომფორტი, კამერა, Bluetooth" /></label>
+          </div>
+
+          <label><span>ფოტოების ატვირთვა</span><input id="images" type="file" multiple accept="image/*" /></label>
+          <div id="existingPreview" class="preview-grid"></div>
+
+          <label><span>ვიდეოს ატვირთვა (ხმით)</span><input id="video" type="file" accept="video/*" /></label>
+          <div id="videoPreview" class="video-preview empty">ვიდეო ჯერ არ არის ატვირთული.</div>
+
+          <div class="actions">
+            <button type="submit" class="primary">შენახვა</button>
+            <button type="button" id="cancelEditBtn" class="secondary">გაუქმება</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title with-status">
+          <span>დამატებული მანქანები</span>
+          <span id="status" class="status">მზად არის</span>
+        </div>
+        <div id="carsList" class="cards"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/admin/app.js"></script>
+</body>
+</html>

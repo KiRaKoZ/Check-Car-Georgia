@@ -1,81 +1,91 @@
-import { Component, ElementRef, Renderer2, HostListener, inject, Signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, HostListener, OnDestroy, OnInit, inject, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
+import { CarDataService } from '../../services/car-data.service';
+import { Car } from '../../../models/car.model';
 
 @Component({
   selector: 'app-vehicle-listing',
   standalone: true,
   templateUrl: './vehicle-listing.component.html',
   styleUrl: './vehicle-listing.component.scss',
-  imports: [CommonModule]
+  imports: [CommonModule, RouterLink],
 })
-export class VehicleListingComponent {
-  cars: any[] = [];
+export class VehicleListingComponent implements OnInit, OnDestroy {
+  cars: Car[] = [];
   currentIndex = 0;
-  isDragging = false;
-  startX = 0;
-  autoSlideInterval: any;
+  autoSlideInterval?: ReturnType<typeof setInterval>;
   screenWidth = window.innerWidth;
-
   backgroundColors = ['#735043', '#373948'];
   randomBackgrounds: string[] = [];
+  dragStartX = 0;
+  dragOffsetX = 0;
+  isDragging = false;
 
-  
   private translationService = inject(TranslationService);
+  private carDataService = inject(CarDataService);
   translations: Signal<any> = this.translationService.translations;
-  
-  constructor(
-    private http: HttpClient
-  ) {
-    this.loadCars();
-  }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.screenWidth = event.target.innerWidth;
+  onResize(event: Event): void {
+    this.screenWidth = (event.target as Window).innerWidth;
   }
 
-  loadCars() {
-    this.http.get<any>('i18n/eng.json').subscribe((data) => {
-      this.cars = data.cars;
-      this.generateRandomBackgrounds();
-      this.startAutoSlide();
+  ngOnInit(): void {
+    this.carDataService.getCars().subscribe((cars) => {
+      this.cars = cars;
+      this.randomBackgrounds = this.cars.map((_, index) => this.backgroundColors[index % this.backgroundColors.length]);
+      this.restartAutoSlide();
     });
   }
 
-  generateRandomBackgrounds() {
-    this.randomBackgrounds = this.cars.map(() => this.getRandomColor());
+  ngOnDestroy(): void {
+    if (this.autoSlideInterval) clearInterval(this.autoSlideInterval);
   }
 
-  getRandomColor(): string {
-    return this.backgroundColors[Math.floor(Math.random() * this.backgroundColors.length)];
-  }
-
-  startAutoSlide() {
-    this.stopAutoSlide();
-    this.autoSlideInterval = setInterval(() => this.nextSlide(), 5000);
-  }
-
-  stopAutoSlide() {
-    if (this.autoSlideInterval) {
-      clearInterval(this.autoSlideInterval);
-      this.autoSlideInterval = null;
+  restartAutoSlide(): void {
+    if (this.autoSlideInterval) clearInterval(this.autoSlideInterval);
+    if (this.cars.length > 1 && !this.isDragging) {
+      this.autoSlideInterval = setInterval(() => this.nextSlide(), 7000);
     }
   }
 
-  nextSlide() {
+  nextSlide(): void {
+    if (!this.cars.length) return;
     this.currentIndex = (this.currentIndex + 1) % this.cars.length;
-    this.startAutoSlide();
-
-
   }
 
-  prevSlide() {
+  prevSlide(): void {
+    if (!this.cars.length) return;
     this.currentIndex = (this.currentIndex - 1 + this.cars.length) % this.cars.length;
-    this.startAutoSlide();
-
   }
 
+  startDrag(clientX: number): void {
+    this.isDragging = true;
+    this.dragStartX = clientX;
+    this.dragOffsetX = 0;
+    if (this.autoSlideInterval) clearInterval(this.autoSlideInterval);
+  }
 
+  moveDrag(clientX: number): void {
+    if (!this.isDragging) return;
+    this.dragOffsetX = clientX - this.dragStartX;
+  }
+
+  endDrag(): void {
+    if (!this.isDragging) return;
+    const slideWidth = this.screenWidth <= 1280 ? this.screenWidth : 620;
+    const movedSlides = Math.round(this.dragOffsetX / slideWidth);
+    const maxIndex = Math.max(this.cars.length - 1, 0);
+    this.currentIndex = Math.min(maxIndex, Math.max(0, this.currentIndex - movedSlides));
+    this.dragOffsetX = 0;
+    this.isDragging = false;
+    this.restartAutoSlide();
+  }
+
+  getTrackTransform(): string {
+    const slideWidth = this.screenWidth <= 1280 ? this.screenWidth : 620;
+    return `translateX(${(-this.currentIndex * slideWidth) + this.dragOffsetX}px)`;
+  }
 }

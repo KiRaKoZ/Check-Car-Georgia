@@ -5,6 +5,7 @@ import { FAQComponent } from '../../home/faq/faq.component';
 
 @Component({
   selector: 'app-about-us',
+  standalone: true,
   imports: [CommonModule, WhyUsSectionComponent,FAQComponent],
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.scss'

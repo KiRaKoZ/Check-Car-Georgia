@@ -1,0 +1,480 @@
+[
+  {
+    "id": 1,
+    "slug": "toyota-lc-200-2020",
+    "brand": "Toyota",
+    "name": "LC 200",
+    "description": {
+      "geo": "Reliable full-size SUV for city driving, airport transfers, family trips, and premium rental service.",
+      "eng": "Reliable full-size SUV for city driving, airport transfers, family trips, and premium rental service.",
+      "rus": "Reliable full-size SUV for city driving, airport transfers, family trips, and premium rental service."
+    },
+    "typeKey": "suv",
+    "priceValue": 150,
+    "currency": "USD",
+    "year": 2020,
+    "transmissionKey": "automatic",
+    "fuelKey": "petrol",
+    "engine": "4.0",
+    "consumption": "",
+    "seats": 7,
+    "doors": 5,
+    "location": "",
+    "available": true,
+    "featured": true,
+    "images": [
+      "images/testimages/prado2020-1.jpeg",
+      "images/testimages/prado2020-2.jpeg",
+      "images/testimages/prado2020-3.jpeg",
+      "images/testimages/prado2020-4.jpeg",
+      "images/testimages/prado2020-5.jpeg",
+      "images/testimages/prado2020-6.jpeg",
+      "images/testimages/prado2020-7.jpeg",
+      "images/testimages/prado2020-8.jpeg",
+      "images/testimages/prado2020-9.jpeg",
+      "images/testimages/prado2020-10.jpeg",
+      "images/testimages/prado2020-11.jpeg",
+      "images/testimages/prado2020-12.jpeg"
+    ],
+    "image": "images/testimages/prado2020-1.jpeg",
+    "features": [
+      {
+        "geo": "Full-size SUV",
+        "eng": "Full-size SUV",
+        "rus": "Full-size SUV"
+      },
+      {
+        "geo": "Comfortable interior",
+        "eng": "Comfortable interior",
+        "rus": "Comfortable interior"
+      },
+      {
+        "geo": "Automatic transmission",
+        "eng": "Automatic transmission",
+        "rus": "Automatic transmission"
+      },
+      {
+        "geo": "Ideal for long trips",
+        "eng": "Ideal for long trips",
+        "rus": "Ideal for long trips"
+      }
+    ],
+    "video": "/uploads/941619fd7829a0d8db5c44c3f973310e"
+  },
+  {
+    "id": 2,
+    "slug": "bmw-x5-e70-2012",
+    "brand": {
+      "geo": "BMW",
+      "eng": "BMW",
+      "rus": "BMW"
+    },
+    "name": {
+      "geo": "X5 E70",
+      "eng": "X5 E70",
+      "rus": "X5 E70"
+    },
+    "description": {
+      "geo": "Balanced premium SUV for comfortable daily driving and short-term rental needs.",
+      "eng": "Balanced premium SUV for comfortable daily driving and short-term rental needs.",
+      "rus": "Balanced premium SUV for comfortable daily driving and short-term rental needs."
+    },
+    "typeKey": "suv",
+    "priceValue": 175,
+    "currency": "GEL",
+    "year": 2012,
+    "transmissionKey": "automatic",
+    "fuelKey": "petrol",
+    "engine": "3.0",
+    "seats": 5,
+    "doors": 5,
+    "location": "",
+    "available": true,
+    "featured": true,
+    "images": [
+      "images/testimages/BMW2012-1.jpeg",
+      "images/testimages/BMW2012-2.jpeg",
+      "images/testimages/BMW2012-3.jpeg",
+      "images/testimages/BMW2012-4.jpeg"
+    ],
+    "image": "images/testimages/BMW2012-4.jpeg",
+    "features": [
+      {
+        "geo": "Premium SUV",
+        "eng": "Premium SUV",
+        "rus": "Premium SUV"
+      },
+      {
+        "geo": "AWD",
+        "eng": "AWD",
+        "rus": "AWD"
+      },
+      {
+        "geo": "Comfort ride",
+        "eng": "Comfort ride",
+        "rus": "Comfort ride"
+      },
+      {
+        "geo": "Business trips",
+        "eng": "Business trips",
+        "rus": "Business trips"
+      }
+    ],
+    "video": ""
+  },
+  {
+    "id": 3,
+    "slug": "toyota-lc-prado-2014",
+    "brand": {
+      "geo": "Toyota",
+      "eng": "Toyota",
+      "rus": "Toyota"
+    },
+    "name": {
+      "geo": "LC Prado",
+      "eng": "LC Prado",
+      "rus": "LC Prado"
+    },
+    "description": {
+      "geo": "Practical SUV suitable for mixed city and regional driving with dependable performance.",
+      "eng": "Practical SUV suitable for mixed city and regional driving with dependable performance.",
+      "rus": "Practical SUV suitable for mixed city and regional driving with dependable performance."
+    },
+    "typeKey": "suv",
+    "priceValue": 110,
+    "currency": "USD",
+    "year": 2014,
+    "transmissionKey": "automatic",
+    "fuelKey": "petrol",
+    "engine": "2.7",
+    "seats": 7,
+    "doors": 5,
+    "location": "",
+    "available": true,
+    "featured": true,
+    "images": [
+      "images/testimages/toyota2014-1.jpeg",
+      "images/testimages/toyota2014-2.jpeg"
+    ],
+    "image": "images/testimages/toyota2014-1.jpeg",
+    "features": [
+      {
+        "geo": "Reliable SUV",
+        "eng": "Reliable SUV",
+        "rus": "Reliable SUV"
+      },
+      {
+        "geo": "Family friendly",
+        "eng": "Family friendly",
+        "rus": "Family friendly"
+      },
+      {
+        "geo": "Automatic",
+        "eng": "Automatic",
+        "rus": "Automatic"
+      },
+      {
+        "geo": "Suitable for travel",
+        "eng": "Suitable for travel",
+        "rus": "Suitable for travel"
+      }
+    ],
+    "video": ""
+  },
+  {
+    "id": 4,
+    "slug": "lexus-lx-570-2024",
+    "brand": {
+      "geo": "Lexus",
+      "eng": "Lexus",
+      "rus": "Lexus"
+    },
+    "name": {
+      "geo": "LX 570",
+      "eng": "LX 570",
+      "rus": "LX 570"
+    },
+    "description": {
+      "geo": "Luxury SUV with a commanding presence and premium comfort for top-tier bookings.",
+      "eng": "Luxury SUV with a commanding presence and premium comfort for top-tier bookings.",
+      "rus": "Luxury SUV with a commanding presence and premium comfort for top-tier bookings."
+    },
+    "typeKey": "suv",
+    "priceValue": 270,
+    "currency": "USD",
+    "year": 2024,
+    "transmissionKey": "automatic",
+    "fuelKey": "diesel",
+    "engine": "4.0",
+    "seats": 7,
+    "doors": 5,
+    "location": "",
+    "available": true,
+    "featured": false,
+    "images": [
+      "images/testimages/LexusLX1.jpeg",
+      "images/testimages/LexusLX2.jpeg"
+    ],
+    "image": "images/testimages/LexusLX1.jpeg",
+    "features": [
+      {
+        "geo": "Luxury class",
+        "eng": "Luxury class",
+        "rus": "Luxury class"
+      },
+      {
+        "geo": "Premium cabin",
+        "eng": "Premium cabin",
+        "rus": "Premium cabin"
+      },
+      {
+        "geo": "SUV",
+        "eng": "SUV",
+        "rus": "SUV"
+      },
+      {
+        "geo": "High-end rental",
+        "eng": "High-end rental",
+        "rus": "High-end rental"
+      }
+    ],
+    "video": ""
+  },
+  {
+    "id": 5,
+    "slug": "bmw-f10-2017",
+    "brand": {
+      "geo": "BMW",
+      "eng": "BMW",
+      "rus": "BMW"
+    },
+    "name": {
+      "geo": "F10",
+      "eng": "F10",
+      "rus": "F10"
+    },
+    "description": {
+      "geo": "Comfortable executive sedan suitable for city commutes and professional use.",
+      "eng": "Comfortable executive sedan suitable for city commutes and professional use.",
+      "rus": "Comfortable executive sedan suitable for city commutes and professional use."
+    },
+    "typeKey": "sedan",
+    "priceValue": 200,
+    "currency": "GEL",
+    "year": 2017,
+    "transmissionKey": "automatic",
+    "fuelKey": "petrol",
+    "engine": "2.0",
+    "seats": 5,
+    "doors": 4,
+    "location": "",
+    "available": true,
+    "featured": false,
+    "images": [
+      "images/testimages/BMWf10-1.jpeg",
+      "images/testimages/BMWf10-2.jpeg",
+      "images/testimages/BMWf10-4.jpeg"
+    ],
+    "image": "images/testimages/BMWf10-1.jpeg",
+    "features": [
+      {
+        "geo": "Executive sedan",
+        "eng": "Executive sedan",
+        "rus": "Executive sedan"
+      },
+      {
+        "geo": "Automatic",
+        "eng": "Automatic",
+        "rus": "Automatic"
+      },
+      {
+        "geo": "Comfort seats",
+        "eng": "Comfort seats",
+        "rus": "Comfort seats"
+      },
+      {
+        "geo": "City use",
+        "eng": "City use",
+        "rus": "City use"
+      }
+    ],
+    "video": ""
+  },
+  {
+    "id": 6,
+    "slug": "bmw-x5-f15-2018",
+    "brand": {
+      "geo": "BMW",
+      "eng": "BMW",
+      "rus": "BMW"
+    },
+    "name": {
+      "geo": "X5 F15",
+      "eng": "X5 F15",
+      "rus": "X5 F15"
+    },
+    "description": {
+      "geo": "Modern premium SUV for comfortable rental and stylish transportation.",
+      "eng": "Modern premium SUV for comfortable rental and stylish transportation.",
+      "rus": "Modern premium SUV for comfortable rental and stylish transportation."
+    },
+    "typeKey": "suv",
+    "priceValue": 255,
+    "currency": "GEL",
+    "year": 2018,
+    "transmissionKey": "automatic",
+    "fuelKey": "petrol",
+    "engine": "3.5",
+    "seats": 5,
+    "doors": 5,
+    "location": "",
+    "available": true,
+    "featured": false,
+    "images": [
+      "images/slider_car16.jpg",
+      "images/slider_car15.jpg"
+    ],
+    "image": "images/slider_car16.jpg",
+    "features": [
+      {
+        "geo": "Premium SUV",
+        "eng": "Premium SUV",
+        "rus": "Premium SUV"
+      },
+      {
+        "geo": "Comfortable drive",
+        "eng": "Comfortable drive",
+        "rus": "Comfortable drive"
+      },
+      {
+        "geo": "Automatic",
+        "eng": "Automatic",
+        "rus": "Automatic"
+      },
+      {
+        "geo": "Business class",
+        "eng": "Business class",
+        "rus": "Business class"
+      }
+    ],
+    "video": ""
+  },
+  {
+    "id": 7,
+    "slug": "porsche-cayenne-2014",
+    "brand": {
+      "geo": "Porsche",
+      "eng": "Porsche",
+      "rus": "Porsche"
+    },
+    "name": {
+      "geo": "Cayenne",
+      "eng": "Cayenne",
+      "rus": "Cayenne"
+    },
+    "description": {
+      "geo": "Sporty SUV with premium design for clients looking for style and performance.",
+      "eng": "Sporty SUV with premium design for clients looking for style and performance.",
+      "rus": "Sporty SUV with premium design for clients looking for style and performance."
+    },
+    "typeKey": "suv",
+    "priceValue": 300,
+    "currency": "GEL",
+    "year": 2014,
+    "transmissionKey": "automatic",
+    "fuelKey": "petrol",
+    "engine": "3.6",
+    "seats": 5,
+    "doors": 5,
+    "location": "",
+    "available": true,
+    "featured": false,
+    "images": [
+      "images/slider_car14.jpg",
+      "images/slider_car13.jpg"
+    ],
+    "image": "images/slider_car14.jpg",
+    "features": [
+      {
+        "geo": "Sport SUV",
+        "eng": "Sport SUV",
+        "rus": "Sport SUV"
+      },
+      {
+        "geo": "Premium class",
+        "eng": "Premium class",
+        "rus": "Premium class"
+      },
+      {
+        "geo": "Automatic",
+        "eng": "Automatic",
+        "rus": "Automatic"
+      },
+      {
+        "geo": "Strong presence",
+        "eng": "Strong presence",
+        "rus": "Strong presence"
+      }
+    ],
+    "video": ""
+  },
+  {
+    "id": 8,
+    "slug": "toyota-lc-300-2023",
+    "brand": {
+      "geo": "Toyota",
+      "eng": "Toyota",
+      "rus": "Toyota"
+    },
+    "name": {
+      "geo": "LC 300",
+      "eng": "LC 300",
+      "rus": "LC 300"
+    },
+    "description": {
+      "geo": "New-generation Land Cruiser for premium bookings and reliable long-distance use.",
+      "eng": "New-generation Land Cruiser for premium bookings and reliable long-distance use.",
+      "rus": "New-generation Land Cruiser for premium bookings and reliable long-distance use."
+    },
+    "typeKey": "suv",
+    "priceValue": 240,
+    "currency": "USD",
+    "year": 2023,
+    "transmissionKey": "automatic",
+    "fuelKey": "diesel",
+    "engine": "3.0",
+    "seats": 7,
+    "doors": 5,
+    "location": "",
+    "available": true,
+    "featured": false,
+    "images": [
+      "images/slider_car15.jpg",
+      "images/slider_car16.jpg"
+    ],
+    "image": "images/slider_car15.jpg",
+    "features": [
+      {
+        "geo": "New generation",
+        "eng": "New generation",
+        "rus": "New generation"
+      },
+      {
+        "geo": "Diesel",
+        "eng": "Diesel",
+        "rus": "Diesel"
+      },
+      {
+        "geo": "Premium SUV",
+        "eng": "Premium SUV",
+        "rus": "Premium SUV"
+      },
+      {
+        "geo": "Road trip ready",
+        "eng": "Road trip ready",
+        "rus": "Road trip ready"
+      }
+    ],
+    "video": ""
+  }
+]

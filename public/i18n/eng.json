@@ -1,151 +1,107 @@
 {
-
   "menu": "Menu",
-  "back":"Back",
-  "allRightsReserved":"All rights reserved",
-  "fuelType":"Fuel Type",
+  "back": "Back",
+  "allRightsReserved": "All rights reserved",
+  "fuelType": "Fuel Type",
   "transmission": "Transmission",
   "year": "Year",
   "engine": "Engine",
-  "moreInfo":"More Info",
-  "allCars":"All Cars",
-  "viewAll":"View All",
-
-  "header":{
+  "moreInfo": "More info",
+  "allCars": "All Cars",
+  "viewAll": "View all",
+  "header": {
     "home": "Home",
-    "pages":"Pages",
-    "about": "About",
+    "pages": "Pages",
+    "about": "About Us",
     "contact": "Contact",
-    "pagesList":{
-      "gallery": "Gallery",
-      "faq": "FAQs",
-      "calculator":"Calculator",
-      "service": "Service",
-      "terms":"Terms & Conditions"
+    "pagesList": {
+      "gallery": "Cars",
+      "faq": "FAQ",
+      "calculator": "Calculator",
+      "service": "Booking",
+      "terms": "Terms & Conditions"
     }
   },
-
   "sectionTitles": {
-    "vehicleListTitle":"Explore All Vehicles"
-  } ,
-
-
-"cars": [
-  {
-    "name": "Toyota LC 200",
-    "info": "4.0 V6 5dr AWD Automatic SUV",
-    "type": "SUV",
-    "price": "$ 150",
-    "per": "Day",
-    "fuel": "Petrol",
-    "transmission": "Automatic",
-    "year": 2020,
-    "engine": "4.0",
-    "image": "images/testimages/prado2020-1.jpeg",
-    "images":["images/testimages/prado2020-1.jpeg","images/testimages/prado2020-2.jpeg",
-    "images/testimages/prado2020-3.jpeg","images/testimages/prado2020-4.jpeg","images/testimages/prado2020-5.jpeg",
-    "images/testimages/prado2020-6.jpeg","images/testimages/prado2020-7.jpeg","images/testimages/prado2020-8.jpeg","images/testimages/prado2020-9.jpeg",
-    "images/testimages/prado2020-10.jpeg","images/testimages/prado2020-11.jpeg","images/testimages/prado2020-12.jpeg"]
+    "vehicleListTitle": "Explore All Vehicles"
   },
-  {
-    "name": "BMW X5 E70",
-    "info": "4.0 V6 5dr AWD Automatic SUV",
-
-    "type": "SUV",
-    "price": "₾ 175",
-    "per": "Day",
-    "fuel": "Petrol",
-    "transmission": "Automatic",
-    "year": 2012,
-    "engine": "3.0",
-    "image": "images/testimages/BMW2012-4.jpeg",
-    "images":["images/testimages/BMW2012-1.jpeg", "images/testimages/BMW2012-2.jpeg","images/testimages/BMW2012-3.jpeg","images/testimages/BMW2012-4.jpeg"]
-
+  "booking": {
+    "title": "Book your car",
+    "subtitle": "Choose a vehicle, set dates, and send the request by email.",
+    "name": "First name",
+    "lastName": "Last name",
+    "email": "Email (optional)",
+    "phone": "Mobile",
+    "car": "Choose a car",
+    "search": "Search car, model, or year",
+    "pickup": "Pick-up date",
+    "return": "Return date",
+    "days": "Days",
+    "total": "Estimated total",
+    "submit": "Send booking request",
+    "disclaimer": "The request opens your email with all booking details ready to send.",
+    "bookNow": "Book now",
+    "emailBooking": "Email booking"
   },
-  {
-    "name": "Toyota LC Prado",
-    "info": "4.0 V6 5dr AWD Automatic SUV 4.0 V6 5dr AWD Automatic SUV",
-
-    "type": "SUV",
-    "price": "$ 110",
-    "per": "Day",
-    "fuel": "Petrol",
-    "transmission": "Automatic",
-    "year": 2014,
-    "engine": "2.7",
-    "image": "images/testimages/toyota2014-1.jpeg",
-    "images":["images/testimages/toyota2014-2.jpeg","images/testimages/toyota2014-1.jpeg"]
-
+  "calculator": {
+    "title": "Rental price calculator",
+    "subtitle": "Select a car and dates to instantly calculate the total rental price.",
+    "pricePerDay": "Price per day",
+    "rentalDays": "Rental days",
+    "result": "Total price",
+    "cta": "Open booking page"
   },
-   {
-    "name": "Lexus LX 570",
-    "type": "SUV",
-    "price": "$ 270",
-    "per": "Day",
-    "fuel": "Diesel",
-    "transmission": "Automatic",
-    "year": 2024,
-    "engine": "4.0",
-    "image": "images/testimages/LexusLX1.jpeg",
-    "images": ["images/testimages/LexusLX1.jpeg","images/testimages/LexusLX2.jpeg"]
-
-
+  "faq": {
+    "title": "Frequently Asked Questions"
   },
-  {
-    "name": "BMW F10",
-    "type": "Sedan",
-    "price": "₾ 200",
-    "per": "Day",
-    "fuel": "Petrol",
-    "transmission": "Automatic",
-    "year": 2017,
-    "engine": "2.0",
-    "image": "images/testimages/BMWf10-1.jpeg",
-    "images":["images/testimages/BMWf10-1.jpeg","images/testimages/BMWf10-2.jpeg", "images/testimages/BMWf10-4.jpeg"]
-
+  "social": {
+    "title": "Our Social Networks",
+    "text": "Follow Check Car Georgia on social media and contact us quickly through your preferred channel.",
+    "cta": "Contact us"
   },
-  {
-    "name": "BMW X5 F15",
-    "type": "SUV",
-    "price": "₾ 255",
-    "per": "Day",
-    "fuel": "Petrol",
-    "transmission": "Automatic",
-    "year": 2018,
-    "engine": "3.5",
-    "image": "",
-    "images":[""]
-
+  "gallery": {
+    "eyebrow": "Cars",
+    "title": "All available cars",
+    "text": "Browse the fleet, filter quickly, and open any vehicle for full details and booking."
   },
-  
-  {
-    "name": "Porsche Cayenne",
-    "type": "SUV",
-    "price": "₾ 300",
-    "per": "Day",
-    "fuel": "Petrol",
-    "transmission": "Automatic",
-    "year": 2014,
-    "engine": "3.6",
-    "image": "",
-    "images":[]
-
+  "detail": {
+    "eyebrow": "Car details",
+    "back": "Back to cars",
+    "price": "Price",
+    "fuel": "Fuel",
+    "transmission": "Transmission",
+    "year": "Year",
+    "engine": "Engine",
+    "seats": "Seats",
+    "doors": "Doors",
+    "features": "Features",
+    "booking": "Booking",
+    "bookingText": "Choose email booking or go straight to the booking page with this car preselected.",
+    "call": "Call now",
+    "email": "Email booking",
+    "book": "Book now",
+    "notFound": "Car not found",
+    "notFoundText": "This detail page could not find the requested vehicle.",
+    "allCars": "Go to all cars"
   },
-  {
-    "name": "Toyota LC 300",
-    "type": "SUV",
-    "price": "$ 240",
-    "per": "Day",
-    "fuel": "Diesel",
-    "transmission": "Automatic",
-    "year": 2023,
-    "engine": "3.0",
-    "image": "",
-    "images":[]
-
+  "footer": {
+    "description": "Premium and comfortable car rental service in Tbilisi. Fast booking, direct contact, and flexible pick-up options.",
+    "company": "Company",
+    "quickLinks": "Quick Links",
+    "vehicleTypes": "Vehicle Types",
+    "brands": "Our Brands",
+    "connect": "Connect With Us",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "gallery": "Cars",
+    "terms": "Terms & Conditions",
+    "faqs": "FAQs",
+    "booking": "Booking",
+    "calculator": "Calculator",
+    "service": "Service",
+    "help": "Help Center",
+    "how": "How It Works",
+    "copyright": "All rights reserved.",
+    "privacy": "Privacy Notice"
   }
- 
-]
-
-  
 }

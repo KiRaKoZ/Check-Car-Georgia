@@ -6,6 +6,7 @@ interface BodyStyle {
   image: string;
   altText: string;
   name: string;
+  value: string;
 }
 
 @Component({
@@ -17,16 +18,16 @@ interface BodyStyle {
 })
 export class VehicleTypesComponent {
   bodyStyles: BodyStyle[] = [
-    { image: 'images/tr-sedan.png', altText: 'Sedan', name: 'Sedan' },
-    { image: 'images/tr-coupe.png', altText: 'Coupe', name: 'Coupe' },
-    { image: 'images/tr-suv.png', altText: 'SUV', name: 'SUV' },
-    { image: 'images/tr-hatchback.png', altText: 'Hatchback', name: 'Hatchback' },
+    { image: 'images/tr-sedan.png', altText: 'Sedan', name: 'Sedan', value: 'sedan' },
+    { image: 'images/tr-coupe.png', altText: 'Coupe', name: 'Coupe', value: 'coupe' },
+    { image: 'images/tr-suv.png', altText: 'SUV', name: 'SUV', value: 'suv' },
+    { image: 'images/tr-hatchback.png', altText: 'Hatchback', name: 'Hatchback', value: 'hatchback' },
+    { image: 'images/tr-coupe.png', altText: 'Cabriolet', name: 'Cabriolet', value: 'cabriolet' },
   ];
 
   duplicatedStyles: BodyStyle[] = [];
 
   constructor() {
-    // Duplicate the styles for infinite loop illusion
-    this.duplicatedStyles = [...this.bodyStyles, ...this.bodyStyles,  ...this.bodyStyles,  ...this.bodyStyles, ...this.bodyStyles];
+    this.duplicatedStyles = [...this.bodyStyles, ...this.bodyStyles, ...this.bodyStyles, ...this.bodyStyles, ...this.bodyStyles];
   }
 }

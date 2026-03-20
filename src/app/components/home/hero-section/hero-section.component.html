@@ -29,10 +29,10 @@ onselectstart="return false"
           <div class="flex flex-col gap-5 pl-[calc((100vw-1430px)/2)] max-xl:pt-[15rem] max-xl:gap-4 max-sm:pt-0">
             <span class="text-white text-2xl font-medium "    
           >
-              {{ translations()?.cars[idx]?.price }} 
+              {{ car.price }} 
             </span>
             <h1 class="font-bold text-white"   >
-              {{ translations()?.cars[idx]?.name }} 
+              {{ car.fullName || car.name }} 
             </h1>
           </div>
 
@@ -45,7 +45,7 @@ onselectstart="return false"
               <img src="icons/gasoline-pump.svg" alt="Fuel Icon" class="w-[30px] h-[30px] max-xl:w-[25px] max-xl:h-[25px]" />
               <div class="flex flex-col gap-1">
                 <span class="text-base whitespace-nowrap max-sm:text-sm">{{ translations()?.fuelType}}</span>
-                <span class="text-xl font-medium font-case max-sm:text-base">{{ translations()?.cars[idx].fuel }}</span>
+                <span class="text-xl font-medium font-case max-sm:text-base">{{ car.fuel }}</span>
               </div>
             </div>
 
@@ -53,7 +53,7 @@ onselectstart="return false"
               <img src="icons/gearbox.svg" alt="Transmission Icon" class="w-[30px] h-[30px] max-xl:w-[25px] max-xl:h-[25px]" />
               <div class="flex flex-col gap-1">
                 <span class="text-base max-sm:text-sm">{{ translations()?.transmission}}</span>
-                <span class="text-xl font-medium font-case max-sm:text-base">{{ translations()?.cars[idx].transmission}}</span>
+                <span class="text-xl font-medium font-case max-sm:text-base">{{ car.transmission }}</span>
               </div>
             </div>
 
@@ -61,7 +61,7 @@ onselectstart="return false"
               <img src="icons/calendar.svg" alt="Year Icon" class="w-[30px] h-[30px] max-xl:w-[25px] max-xl:h-[25px]" />
               <div class="flex flex-col gap-1">
                 <span class="text-base max-sm:text-sm">{{ translations()?.year}}</span>
-                <span class="text-xl font-medium font-case max-sm:text-base">{{ translations()?.cars[idx].year}}</span>
+                <span class="text-xl font-medium font-case max-sm:text-base">{{ car.year }}</span>
               </div>
             </div>
 

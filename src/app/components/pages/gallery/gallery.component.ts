@@ -1,64 +1,101 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-import { Signal } from '@angular/core';
-import { TranslationService } from '../../services/translation.service';
 import { CommonModule } from '@angular/common';
-
-interface Car {
-  name: string;
-  info: string; // translation key
-  type: string;
-  price: string;
-  per: string;
-  fuel: string;
-  transmission: string;
-  year: number;
-  engine: string;
-  images: string[];
-}
+import { Component, OnInit, Signal, inject } from '@angular/core';
+import { RouterLink, ActivatedRoute, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Title, Meta } from '@angular/platform-browser';
+import { CarDataService } from '../../services/car-data.service';
+import { Car } from '../../../models/car.model';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
-  selector: 'app-gallery',
+  selector: 'app-gallery-legacy',
+  standalone: true,
   templateUrl: './gallery.component.html',
-  imports: [CommonModule]
+  styleUrl: './gallery.component.scss',
+  imports: [CommonModule, RouterLink, FormsModule],
 })
 export class GalleryComponent implements OnInit {
-  private http = inject(HttpClient);
+  private carDataService = inject(CarDataService);
   private translationService = inject(TranslationService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
   translations: Signal<any> = this.translationService.translations;
-
   cars: Car[] = [];
   filteredCars: Car[] = [];
   currentPage = 1;
-  carsPerPage = 3; // Set this to 3 for showing 3 cars per page
-  carNames: string[] = [];
+  carsPerPage = 6;
+  selectedType = 'all';
+  selectedAvailability = 'all';
+  selectedCurrency = 'all';
+  search = '';
+  minPrice = 0;
+  maxPrice = 0;
+  selectedMaxPrice = 0;
+  typeOptions = [
+    { value: 'all', label: 'All' },
+    { value: 'sedan', label: 'Sedan' },
+    { value: 'coupe', label: 'Coupe' },
+    { value: 'cabriolet', label: 'Cabriolet' },
+    { value: 'hatchback', label: 'Hatchback' },
+    { value: 'suv', label: 'SUV' },
+  ];
 
-  ngOnInit() {
-    this.loadCars();
+  constructor(private title: Title, private meta: Meta) {
+    this.title.setTitle('Cars for rent | Check Car Georgia');
+    this.meta.updateTag({ name: 'description', content: 'Browse available rental cars in Tbilisi, filter by type, and book directly with Check Car Georgia.' });
   }
 
-  loadCars() {
-    this.http.get<{ cars: Car[] }>('i18n/eng.json').subscribe((res) => {
-      this.cars = res.cars;
-      this.filteredCars = res.cars;
-      this.carNames = [...new Set(res.cars.map((car) => car.name))];
+  ngOnInit(): void {
+    this.route.queryParamMap.subscribe((params) => {
+      this.selectedType = params.get('type') || 'all';
+      this.selectedAvailability = params.get('status') || 'all';
+      this.search = params.get('search') || '';
+      this.selectedCurrency = params.get('currency') || 'all';
+      const price = Number(params.get('maxPrice') || '0');
+      if (price > 0) this.selectedMaxPrice = price;
+      this.applyFilters(false);
+    });
+
+    this.carDataService.getCars().subscribe((cars) => {
+      this.cars = cars;
+      this.maxPrice = Math.max(...cars.map((car) => car.priceValue), 0);
+      this.selectedMaxPrice = this.maxPrice;
+      this.typeOptions = [
+        { value: 'all', label: this.translationService.language() === 'geo' ? 'ყველა' : this.translationService.language() === 'rus' ? 'Все' : 'All' },
+        ...Array.from(new Set(cars.map((car) => car.typeKey))).map((typeKey) => ({ value: typeKey, label: cars.find((car) => car.typeKey === typeKey)?.type || typeKey }))
+      ];
+      this.applyFilters(false);
     });
   }
 
-  filterByName(name: string) {
-    this.filteredCars = this.cars.filter((car) => car.name === name);
-    this.currentPage = 1; // Reset to first page when filtering by name
-  }
-
-  showAll() {
-    this.filteredCars = this.cars;
-    this.currentPage = 1; // Reset to first page when showing all cars
-  }
-
-  getVisibleImages(car: Car): string[] {
-    // In the "single car" view, show all images
-    return this.filteredCars.length === 1 ? car.images : car.images.slice(0, 3);
+  applyFilters(updateUrl: boolean = true): void {
+    const q = this.search.trim().toLowerCase();
+    this.filteredCars = this.cars.filter((car) => {
+      const matchesType = this.selectedType === 'all' || car.typeKey === this.selectedType;
+      const matchesSearch = !q || `${car.fullName} ${car.shortInfo} ${car.year}`.toLowerCase().includes(q);
+      const matchesPrice = car.priceValue >= this.minPrice && car.priceValue <= (this.selectedMaxPrice || this.maxPrice || Infinity);
+      const matchesCurrency = this.selectedCurrency === 'all' || car.currency === this.selectedCurrency;
+      const matchesAvailability = this.selectedAvailability === 'all'
+        || (this.selectedAvailability === 'available' && car.available)
+        || (this.selectedAvailability === 'unavailable' && !car.available);
+      return matchesType && matchesSearch && matchesPrice && matchesAvailability && matchesCurrency;
+    });
+    this.currentPage = Math.min(this.currentPage, this.totalPages || 1);
+    if (this.currentPage < 1) this.currentPage = 1;
+    if (updateUrl) {
+      this.router.navigate([], {
+        replaceUrl: true,
+        relativeTo: this.route,
+        queryParams: {
+          type: this.selectedType !== 'all' ? this.selectedType : null,
+          status: this.selectedAvailability !== 'all' ? this.selectedAvailability : null,
+          search: this.search || null,
+          maxPrice: this.selectedMaxPrice && this.selectedMaxPrice !== this.maxPrice ? this.selectedMaxPrice : null,
+          currency: this.selectedCurrency !== 'all' ? this.selectedCurrency : null,
+        },
+        queryParamsHandling: 'merge',
+      });
+    }
   }
 
   get paginatedCars(): Car[] {
@@ -70,19 +107,7 @@ export class GalleryComponent implements OnInit {
     return Math.ceil(this.filteredCars.length / this.carsPerPage);
   }
 
-  goToPage(page: number) {
-    this.currentPage = page;
-  }
-
-  nextPage() {
-    if (this.currentPage < this.totalPages) {
-      this.currentPage++;
-    }
-  }
-
-  prevPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-    }
-  }
+  goToPage(page: number): void { this.currentPage = page; }
+  nextPage(): void { if (this.currentPage < this.totalPages) this.currentPage++; }
+  prevPage(): void { if (this.currentPage > 1) this.currentPage--; }
 }
