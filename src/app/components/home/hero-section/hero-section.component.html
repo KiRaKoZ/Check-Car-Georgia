@@ -25,14 +25,15 @@ onselectstart="return false"
         />
         <div class="absolute inset-0 opacity-20 bg-primary"></div>
 
-        <div class="flex relative items-center mx-auto h-full px-4">
-          <div class="flex flex-col gap-5 pl-[calc((100vw-1430px)/2)] max-xl:pt-[15rem] max-xl:gap-4 max-sm:pt-0">
-            <span class="text-white text-2xl font-medium "    
+        <div class="flex relative items-center mx-auto h-full px-4 " >
+          <div (click)="onMoreInfo()"  class="flex flex-col gap-5 pl-[calc((100vw-1430px)/2)] max-xl:pt-[15rem] max-xl:gap-4 max-sm:pt-0">
+            <span class="text-white text-2xl font-medium "
           >
-              {{ car.price }} 
+              {{ car.price }}
             </span>
-            <h1 class="font-bold text-white"   >
-              {{ car.fullName || car.name }} 
+            <h1 class="font-bold text-white text-center"  >
+              {{ car.fullName || car.name }}
+              <span class="material-symbols-outlined text-xl text-white sm:hidden ">arrow_outward</span>
             </h1>
           </div>
 
@@ -42,7 +43,7 @@ onselectstart="return false"
               max-xl:items-end max-sm:bottom-[5rem]
               max-sm:gap-6 ">
             <div class="flex flex-col gap-5 text-white">
-              <img src="icons/gasoline-pump.svg" alt="Fuel Icon" class="w-[30px] h-[30px] max-xl:w-[25px] max-xl:h-[25px]" />
+              <span  alt="Fuel Icon" class="material-symbols-outlined text-3xl ">local_gas_station</span>
               <div class="flex flex-col gap-1">
                 <span class="text-base whitespace-nowrap max-sm:text-sm">{{ translations()?.fuelType}}</span>
                 <span class="text-xl font-medium font-case max-sm:text-base">{{ car.fuel }}</span>
@@ -50,7 +51,7 @@ onselectstart="return false"
             </div>
 
             <div class="flex flex-col gap-5 text-white">
-              <img src="icons/gearbox.svg" alt="Transmission Icon" class="w-[30px] h-[30px] max-xl:w-[25px] max-xl:h-[25px]" />
+            <span  alt="Transmission" class="material-symbols-outlined text-3xl ">auto_transmission</span>
               <div class="flex flex-col gap-1">
                 <span class="text-base max-sm:text-sm">{{ translations()?.transmission}}</span>
                 <span class="text-xl font-medium font-case max-sm:text-base">{{ car.transmission }}</span>
@@ -58,7 +59,7 @@ onselectstart="return false"
             </div>
 
             <div class="flex flex-col gap-5 text-white">
-              <img src="icons/calendar.svg" alt="Year Icon" class="w-[30px] h-[30px] max-xl:w-[25px] max-xl:h-[25px]" />
+            <span  alt="Car Year" class="material-symbols-outlined text-3xl ">date_range</span>
               <div class="flex flex-col gap-1">
                 <span class="text-base max-sm:text-sm">{{ translations()?.year}}</span>
                 <span class="text-xl font-medium font-case max-sm:text-base">{{ car.year }}</span>
@@ -66,16 +67,17 @@ onselectstart="return false"
             </div>
 
             <button
-              class="flex justify-center items-center gap-3 px-7 py-4 group 
-              ease-in-out transition-all duration-300 border-white hover:scale-110 border-[1px] bg-white text-primary 
-              text-base whitespace-nowrap font-case rounded-xl max-xl:p-6 max-xl:h-8 max-sm:hidden max-md:text-xs"
+              class="flex justify-center items-center gap-3 px-7 py-4 group
+              ease-in-out transition-all duration-300 border-white hover:scale-110 border-[1px] bg-white text-primary
+              text-base whitespace-nowrap font-case rounded-xl max-xl:p-6 max-xl:h-8 max-sm:hidden "
               (click)="onMoreInfo()">
               {{translations()?.moreInfo}}
-              <img src="icons/LinkArrow.svg" alt="Arrow Icon" class="w-[15px] h-[15px]" />
+              <span  alt="Fuel Icon" alt="Arrow Icon" class="material-symbols-outlined text-xl ">arrow_outward</span>
+
             </button>
           </div>
         </div>
-        
+
       </div>
     </div>
 
@@ -86,7 +88,7 @@ onselectstart="return false"
           (click)="changeSlide(false)">
           ❮
         </button>
-  
+
         <div class="flex gap-2">
           <div
             *ngFor="let c of cars; let i = index"

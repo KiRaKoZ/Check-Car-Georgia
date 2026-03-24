@@ -150,7 +150,7 @@ function mapFuel(key) {
 }
 
 function mapTransmission(key) {
-  return { automatic: 'ავტომატური', manual: 'მექანიკური' }[key] || key;
+  return { automatic: 'ავტომატიკა', manual: 'მექანიკა' }[key] || key;
 }
 
 function renderCars() {

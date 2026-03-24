@@ -8,7 +8,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './mobile-navigation.component.html',
-  styleUrl: './mobile-navigation.component.scss'
+  styleUrl: './mobile-navigation.component.scss',
 })
 export class MobileNavigationComponent implements OnInit {
   @Output() closeMenu = new EventEmitter<void>();
@@ -26,24 +26,50 @@ export class MobileNavigationComponent implements OnInit {
   languages = [
     { name: 'English', code: 'eng', flag: 'images/eng.svg', font: 'DM Sans' },
     { name: 'ქართული', code: 'geo', flag: 'images/geo.svg', font: 'DM Sans' },
-    { name: 'Русский', code: 'rus', flag: 'images/rus.svg', font: 'DM Sans' }
+    { name: 'Русский', code: 'rus', flag: 'images/rus.svg', font: 'DM Sans' },
   ];
 
   images = [
-    { src: 'icons/twitter-x.svg', alt: 'Twitter', link: 'https://twitter.com' },
-    { src: 'icons/facebook.svg', alt: 'Facebook', link: 'https://facebook.com' },
-    { src: 'icons/threads.svg', alt: 'Threads', link: 'https://www.threads.net' },
-    { src: 'icons/tiktok.svg', alt: 'TikTok', link: 'https://www.tiktok.com' },
-    { src: 'icons/viber.svg', alt: 'Viber', link: 'https://www.viber.com' },
-    { src: 'icons/whatsapp.svg', alt: 'WhatsApp', link: 'https://www.whatsapp.com' },
-    { src: 'icons/youtube.svg', alt: 'YouTube', link: 'https://www.youtube.com' },
-    { src: 'icons/instagram.svg', alt: 'Instagram', link: 'https://www.instagram.com' },
-    { src: 'icons/telegram.svg', alt: 'Telegram', link: 'https://telegram.org' },
+    {
+      src: 'icons/facebook.svg',
+      alt: 'Facebook',
+      link: 'https://www.facebook.com/checkcar.georgia.2025/',
+    },
+    {
+      src: 'icons/threads.svg',
+      alt: 'Threads',
+      link: 'http://threads.com/@check_car_georgia',
+    },
+    {
+      src: 'icons/whatsapp.svg',
+      alt: 'WhatsApp',
+      link: 'https://wa.me/995571525055',
+    },
+    {
+      src: 'icons/tiktok.svg',
+      alt: 'TikTok',
+      link: 'https://www.tiktok.com/@checkcargeorgia',
+    },
+    {
+      src: 'icons/viber.svg',
+      alt: 'Viber',
+      link: 'viber://chat?number=%2B995571525055',
+    },
+    {
+      src: 'icons/youtube.svg',
+      alt: 'YouTube',
+      link: 'https://www.youtube.com/@CheckCarGeorgia',
+    },
+    {
+      src: 'icons/telegram.svg',
+      alt: 'Telegram',
+      link: 'https://t.me/+F5In7dVI8g5hMmYy',
+    },
   ];
 
   constructor(
     private renderer: Renderer2,
-    public router: Router
+    public router: Router,
   ) {}
 
   currentYear: number = new Date().getFullYear();
@@ -66,14 +92,16 @@ export class MobileNavigationComponent implements OnInit {
   }
 
   isPageRouteActive(): boolean {
-    return this.router.url.includes('cars')
-      || this.router.url.includes('service-page')
-      || this.router.url.includes('booking-page')
-      || this.router.url.includes('calculator');
+    return (
+      this.router.url.includes('cars') ||
+      this.router.url.includes('service-page') ||
+      this.router.url.includes('booking-page') ||
+      this.router.url.includes('calculator')
+    );
   }
 
   changeLanguage(langCode: string) {
-    const selectedLang = this.languages.find(lang => lang.code === langCode);
+    const selectedLang = this.languages.find((lang) => lang.code === langCode);
     if (selectedLang) {
       this.translationService.changeLanguage(selectedLang.code);
       this.selectedLanguage = selectedLang.name;

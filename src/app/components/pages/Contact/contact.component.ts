@@ -6,12 +6,9 @@ import emailjs from 'emailjs-com';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
   contactForm: FormGroup;
@@ -24,7 +21,7 @@ export class ContactComponent {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
-      comment: ['', Validators.required]
+      comment: ['', Validators.required],
     });
   }
 
@@ -48,10 +45,16 @@ export class ContactComponent {
       lastName: this.contactForm.value.lastName,
       email: this.contactForm.value.email,
       phone: this.contactForm.value.phone,
-      comment: this.contactForm.value.comment
+      comment: this.contactForm.value.comment,
     };
 
-    emailjs.send('service_yfpihl9', 'template_i3t2kzh', formData, 'mpnnoDB3G-LpH2b5s')
+    emailjs
+      .send(
+        'service_yfpihl9',
+        'template_i3t2kzh',
+        formData,
+        'mpnnoDB3G-LpH2b5s',
+      )
       .then((response) => {
         console.log('SUCCESS!', response);
         this.showSuccessModal = true;
@@ -72,4 +75,43 @@ export class ContactComponent {
   closeSuccessModal(): void {
     this.showSuccessModal = false;
   }
+
+
+  images = [
+    {
+      src: 'icons/facebook.svg',
+      alt: 'Facebook',
+      link: 'https://www.facebook.com/checkcar.georgia.2025/',
+    },
+    {
+      src: 'icons/threads.svg',
+      alt: 'Threads',
+      link: 'http://threads.com/@check_car_georgia',
+    },
+    {
+      src: 'icons/whatsapp.svg',
+      alt: 'WhatsApp',
+      link: 'https://wa.me/995571525055',
+    },
+    {
+      src: 'icons/tiktok.svg',
+      alt: 'TikTok',
+      link: 'https://www.tiktok.com/@checkcargeorgia',
+    },
+    {
+      src: 'icons/viber.svg',
+      alt: 'Viber',
+      link: 'viber://chat?number=%2B995571525055',
+    },
+    {
+      src: 'icons/youtube.svg',
+      alt: 'YouTube',
+      link: 'https://www.youtube.com/@CheckCarGeorgia',
+    },
+    {
+      src: 'icons/telegram.svg',
+      alt: 'Telegram',
+      link: 'https://t.me/+F5In7dVI8g5hMmYy',
+    },
+  ];
 }

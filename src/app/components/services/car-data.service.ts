@@ -205,8 +205,8 @@ export class CarDataService {
 
   private localizeTransmission(key: string, lang: string): string {
     const map: Record<string, Record<string, string>> = {
-      automatic: { geo: 'ავტომატური', eng: 'Automatic', rus: 'Автомат' },
-      manual: { geo: 'მექანიკური', eng: 'Manual', rus: 'Механика' },
+      automatic: { geo: 'ავტომატიკა', eng: 'Automatic', rus: 'Автомат' },
+      manual: { geo: 'მექანიკა', eng: 'Manual', rus: 'Механика' },
     };
     return map[key]?.[lang] || map[key]?.['eng'] || key;
   }

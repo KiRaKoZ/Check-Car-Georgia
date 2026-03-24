@@ -1,16 +1,27 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, inject, OnInit, Renderer2, Signal } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  inject,
+  OnInit,
+  Renderer2,
+  Signal,
+} from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MobileNavigationComponent } from '../mobile-navigation/mobile-navigation.component';
-// import { DropdownComponent } from '../../shared/ui/dropdown/dropdown.component';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, RouterLink,RouterLinkActive,MobileNavigationComponent],
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterLinkActive,
+    MobileNavigationComponent,
+  ],
   standalone: true,
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
   isScrolled = false;
@@ -24,20 +35,18 @@ export class HeaderComponent implements OnInit {
   translations: Signal<any> = this.translationService.translations;
 
   languages = [
-    { name: 'English', code: 'eng', flag: 'images/eng.svg', font: 'DM Sans'},
+    { name: 'English', code: 'eng', flag: 'images/eng.svg', font: 'DM Sans' },
     { name: 'ქართული', code: 'geo', flag: 'images/geo.svg', font: 'DM Sans' },
-    { name: 'Русский', code: 'rus', flag: 'images/rus.svg', font: 'DM Sans' }
+    { name: 'Русский', code: 'rus', flag: 'images/rus.svg', font: 'DM Sans' },
   ];
 
-  constructor(
-    private renderer: Renderer2,
-  ) {}
+  constructor(private renderer: Renderer2) {}
 
-  @HostListener('window:scroll', ['$event'])
-
+  @HostListener('window:scroll')
   onWindowScroll() {
     this.isScrolled = window.pageYOffset > 0;
   }
+
   ngOnInit() {
     const storedLanguage = localStorage.getItem('selectedLanguage');
     if (storedLanguage) {
@@ -48,6 +57,7 @@ export class HeaderComponent implements OnInit {
       this.translationService.changeLanguage(selectedLang.code);
       document.body.style.fontFamily = this.selectedFont;
     }
+
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
       this.isDarkMode = true;
@@ -56,7 +66,8 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLanguage(langCode: string) {
-    const selectedLang = this.languages.find(lang => lang.code === langCode);
+    const selectedLang = this.languages.find((lang) => lang.code === langCode);
+
     if (selectedLang) {
       this.translationService.changeLanguage(selectedLang.code);
       this.selectedLanguage = selectedLang.name;
@@ -65,12 +76,11 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem('selectedLanguage', JSON.stringify(selectedLang));
       document.body.style.fontFamily = this.selectedFont;
     }
-    
   }
-  
+
   toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
-    
+
     if (this.isDarkMode) {
       this.renderer.addClass(document.documentElement, 'dark');
       localStorage.setItem('theme', 'dark');

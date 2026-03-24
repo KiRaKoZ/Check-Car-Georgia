@@ -10,6 +10,7 @@ interface DisplayCard {
   label: string;
   typeKey: string;
   available: boolean;
+  icon: string;
 }
 
 @Component({
@@ -21,15 +22,26 @@ interface DisplayCard {
 export class CarsComponent {
   cars: Car[] = [];
   displayCards: DisplayCard[] = [];
+
   private translationService = inject(TranslationService);
   private carDataService = inject(CarDataService);
+
   translations: Signal<any> = this.translationService.translations;
+
   private preferredTypes = [
-    { key: 'suv', label: 'SUV' },
-    { key: 'sedan', label: 'Sedan' },
-    { key: 'hatchback', label: 'Hatchback' },
-    { key: 'cabriolet', label: 'Cabriolet' },
-    { key: 'coupe', label: 'Coupe' },
+    { key: 'suv', label: 'SUV', icon: 'icons/jeep.svg' },
+    { key: 'sedan', label: 'Sedan', icon: 'icons/sedan.svg' },
+    {
+      key: 'hatchback',
+      label: 'Hatchback',
+      icon: 'icons/hatchback.svg',
+    },
+    {
+      key: 'cabriolet',
+      label: 'Cabriolet',
+      icon: 'icons/convertible.svg',
+    },
+    { key: 'coupe', label: 'Coupe', icon: 'icons/coupe.svg' },
   ];
 
   constructor() {
@@ -41,14 +53,22 @@ export class CarsComponent {
 
   private buildCards(): void {
     const source = this.cars;
-    this.displayCards = this.preferredTypes.map((type, index) => {
-      const matched = source.find((car) => car.typeKey === type.key) || source[index] || source[0];
-      return {
-        image: matched?.image || 'images/rentCar.jpeg',
-        label: type.label,
-        typeKey: type.key,
-        available: matched?.available !== false,
-      };
-    }).filter((card) => !!card.image);
+
+    this.displayCards = this.preferredTypes
+      .map((type, index) => {
+        const matched =
+          source.find((car) => car.typeKey === type.key) ||
+          source[index] ||
+          source[0];
+
+        return {
+          image: matched?.image || 'images/rentCar.jpeg',
+          label: type.label,
+          typeKey: type.key,
+          available: matched?.available !== false,
+          icon: type.icon,
+        };
+      })
+      .filter((card) => !!card.image);
   }
 }

@@ -9,7 +9,6 @@ export const routes: Routes = [
   { path: 'terms&conditions', redirectTo: 'terms-and-conditions', pathMatch: 'full' },
   { path: 'cars', loadComponent: () => import('./components/pages/cars/cars.component').then(m => m.CarsPageComponent) },
   { path: 'cars/:slug', loadComponent: () => import('./components/pages/car-detail/car-detail.component').then(m => m.CarDetailComponent) },
-  { path: 'gallery', redirectTo: 'cars', pathMatch: 'full' },
   { path: 'faq', loadComponent: () => import('./components/home/faq/faq.component').then(m => m.FAQComponent) },
   { path: 'about-us', loadComponent: () => import('./components/pages/about-us/about-us.component').then(m => m.AboutUsComponent) },
   { path: 'calculator', loadComponent: () => import('./components/pages/calculator/calculator.component').then(m => m.CalculatorComponent) },

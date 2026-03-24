@@ -8,7 +8,7 @@
                <img src="images/rentCar.jpeg" alt="" class="object-contain w-full rounded-3xl  dark:border-2 dark:border-white ">
               </div>
               <div class="flex flex-col rounded-3xl w-[50%] dark:border-2 dark:border-white max-lg:w-[80%] " (click)="toggleVideo()">
-                <video #videoPlayer class="w-full h-auto rounded-3xl max-xl:h-full max-xl:object-fill " autoplay muted loop playsinline>  
+                <video #videoPlayer class="w-full h-auto rounded-3xl max-xl:h-full max-xl:object-fill " autoplay muted loop playsinline>
                   <source src="videos/ccgVideo.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -33,19 +33,14 @@
               <li class="gap-2.5 self-stretch  max-md:max-w-full">
                 You get 24/7 roadside assistance
               </li>
-           
+
             </ul>
             <button
               class="flex gap-2.5 justify-center items-center p-4 text-white bg-blue-600 rounded-xl border border-blue-600 border-solid max-md:px-5 max-md:mt-10"
               aria-label="Get Started"
             >
               <span class="self-stretch my-auto">About Us</span>
-              <img
-                loading="lazy"
-                src="icons/LinkArrow.svg"
-                alt=""
-                class="object-contain shrink-0 self-stretch my-auto w-3.5 aspect-square invert"
-              />
+             <span class="material-symbols-outlined">arrow_outward</span>
             </button>
           </div>
         </div>
@@ -53,5 +48,5 @@
     <div class="flex self-stretch mt-14 w-full bg-neutral-200 min-h-[1px] max-md:mt-10 max-md:max-w-full"></div>
 
     </div>
-   
+
   </div>

@@ -1,31 +1,39 @@
-<div class="booking-wrap flex flex-col text-white rounded-none max-w-[1800px] m-auto overflow-hidden bg-gradient-to-r from-[#536FF3] via-[#405FF3] to-[#627CF4] dark:from-[#293553] dark:via-[#1f2f7e] dark:to-[#00051f] h-[450px] max-lg:h-auto">
+<div
+  class="booking-wrap flex flex-col text-white rounded-none max-w-[1800px] m-auto overflow-hidden bg-gradient-to-r from-[#536FF3] via-[#405FF3] to-[#627CF4] dark:from-[#293553] dark:via-[#1f2f7e] dark:to-[#00051f] h-[450px] max-lg:h-auto"
+>
   <div class="flex justify-between w-full max-w-[1430px] m-auto">
     <div class="flex w-full gap-6 justify-between px-[1rem] max-md:flex-col">
-      <div class="flex relative gap-10 flex-col max-w-[50%] py-[5rem] max-lg:max-w-[40%] max-md:max-w-none">
-        <h4 class="text-white font-bold capitalize leading-[25px]">{{ translations()?.booking?.title }}</h4>
-        <p class="text-base leading-7 max-md:w-full">{{ translations()?.booking?.subtitle }}</p>
-        <p class="text-base leading-7 max-md:w-full">Book any future period, choose the exact vehicle, and send the request with one click.</p>
-        <a routerLink="/booking-page" class="inline-flex gap-3 justify-center w-fit items-center px-6 py-4 text-primary bg-white rounded-xl hover:scale-[1.02] transition">
+      <div
+        class="flex relative gap-10 flex-col max-w-[50%] py-[5rem] max-lg:max-w-[40%] max-md:max-w-none"
+      >
+        <h4 class="text-white font-bold capitalize leading-[25px]">
+          {{ translations()?.booking?.title }}
+        </h4>
+        <p class="text-base leading-7 max-md:w-full">
+          {{ translations()?.booking?.subtitle }}
+        </p>
+        <p class="text-base leading-7 max-md:w-full">
+          Book any future period, choose the exact vehicle, and send the request
+          with one click.
+        </p>
+        <a
+          routerLink="/booking-page"
+          class="inline-flex gap-3 justify-center w-fit items-center px-6 py-4 text-primary bg-white rounded-xl hover:scale-[1.02] transition md:hidden"
+        >
           {{ translations()?.booking?.bookNow }}
-          <img src="icons/LinkArrow.svg" alt="" />
+          <span class="material-symbols-outlაined">arrow_outward</span>
         </a>
       </div>
 
       <div class="booking-side max-md:order-first max-md:mt-20">
-        <div class="booking-menu">
-          <div class="booking-menu-title">Booking</div>
-          <div class="menu-items">
-            <span>აირჩიე მანქანა</span>
-            <span>დაადასტურე თარიღი</span>
-            <span>გაგზავნე მოთხოვნა</span>
-            <span>დაელოდე პასუხს</span>
-          </div>
-        </div>
         <div class="booking-visual max-md:hidden">
-          <img src="images/1.png" alt="booking" class="h-full" loading="lazy">
-          <a routerLink="/booking-page" class="flex gap-3 justify-evenly top-[20rem] right-[8rem] w-[170px] absolute items-center p-4 text-white bg-secondary rounded-xl">
+          <img src="images/1.png" alt="booking" class="h-full" loading="lazy" />
+          <a
+            routerLink="/booking-page"
+            class="flex gap-3 justify-evenly top-[20rem] right-[7.5rem] w-[160px] absolute items-center p-4 text-white bg-secondary rounded-xl hover:scale-[1.02] transition"
+          >
             {{ translations()?.booking?.bookNow }}
-            <img src="icons/LinkArrow.svg" alt="" class="invert">
+            <span class="material-symbols-outlined">arrow_outward</span>
           </a>
         </div>
       </div>

@@ -31,7 +31,6 @@
   padding: 10px 12px; border-left: 2px solid rgba(255,255,255,.45); background: rgba(255,255,255,.08); border-radius: 0 14px 14px 0;
   font-size: 14px;
 }
-.booking-visual { display: flex; width: 100%; justify-content: flex-end; position: relative; }
 @media (max-width: 768px) {
   .booking-side { flex-direction: column; }
   .booking-menu { max-width: none; width: 100%; }

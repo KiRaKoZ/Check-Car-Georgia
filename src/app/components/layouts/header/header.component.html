@@ -1,6 +1,6 @@
 <header
 class="flex fixed top-0 flex-wrap gap-5 justify-center items-center w-full  py-4 z-50 h-[100px] max-md:h-[70px] max-sm:min-w-[340px]
-max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary" 
+max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
 [class]="isScrolled ? 'bg-primary text-white dark:bg-white  bg-opacity-60 transition-all duration-300 ' : 'bg-transparent  text-white transition-all duration-300 absolute'">
 
 <div class="flex w-full justify-between pl-4 pr-8 items-center max-md:pr-4">
@@ -11,7 +11,7 @@ max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
       </span>
     </a>
 
-  </div>  
+  </div>
   <img src="images/logo.png" alt="" class="w-[60px] bg-white hidden rounded-full ease-in-out transition-all duration-300  max-xl:flex max-md:w-[40px]" [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '" >
 
   <nav
@@ -22,16 +22,16 @@ max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
     <a routerLink="/" routerLinkActive="secondary underline font-bold" class="font-case cursor-pointer transition-all duration-300 ease-in-out "  [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '" >{{translations()?.header?.home}}</a>
 
     <div appDropdown class="flex gap-2 relative group cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out">
-      <a routerLink="/" class="flex  gap-2 font-case cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out " [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '" >{{translations()?.header?.pages}}
-      <img src="icons/arrow-down.svg" alt="" >
+      <a routerLink="/" class="flex items-center gap-1 font-case cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out " [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '" >{{translations()?.header?.pages}}
+      <span class="material-symbols-outlined text-xl">keyboard_arrow_down</span>
       </a>
       <div
-        class="absolute left-[-1rem] top-7 max-h-0  overflow-hidden transition-all duration-300 ease-in-out 
+        class="absolute left-[-1rem] top-7 max-h-0  overflow-hidden transition-all duration-300 ease-in-out
         group-hover:max-h-[300px] open:max-h-[300px] group-hover:p-1"
       >
       <div class="mt-3 bg-white dark:bg-primary h-auto shadow-lg py-[1rem] px-[2rem] rounded-xl">
         <div class="flex flex-col gap-4 items-start text-primary dark:text-white">
-          <a routerLink="/cars" class="flex text-sm ease-in-out transition-all duration-300  hover:text-secondary hover:scale-105" >{{translations()?.header?.pagesList?.gallery}}</a>
+          <a routerLink="/cars" class="flex text-sm ease-in-out transition-all duration-300  hover:text-secondary hover:scale-105" >{{translations()?.header?.pagesList?.cars}}</a>
           <a routerLink="/booking-page" class="flex text-sm  ease-in-out transition-all duration-300  hover:text-secondary hover:scale-105">{{translations()?.header?.pagesList?.service}}</a>
           <a routerLink="/calculator" class="flex text-sm  ease-in-out transition-all duration-300  hover:text-secondary hover:scale-105" >{{translations()?.header?.pagesList?.calculator}}</a>
           <a routerLink="/faq" class="flex text-sm ease-in-out transition-all duration-300  hover:text-secondary hover:scale-105" >{{translations()?.header?.pagesList?.faq}}</a>
@@ -40,7 +40,7 @@ max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
       </div>
       </div>
     </div>
-   
+
     <img src="images/logo.png" alt="" class="w-[60px] bg-white rounded-full ease-in-out transition-all duration-300" [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '" >
     <a routerLink="/about-us" class="font-case cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out hover:underline"  [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '" >{{translations()?.header?.about}}</a>
     <a routerLink="/contact" class="font-case cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out  hover:underline"  [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '" >{{translations()?.header?.contact}}</a>
@@ -53,12 +53,16 @@ max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
   <div
   class="flex gap-3 items-center self-stretch text-base font-medium  relative  max-xl:hidden"
   >
-  <div class="flex gap-1 items-center h-[18px] whitespace-nowrap pr-1 transition-all duration-300 ease-in-out hover:scale-105 hover:underline">
-    <a href="tel:+995 571 52 50 50"  class="flex gap-2 text-[12px] font-medium leading-[26px] " [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '">+995 571 52 50 50
-    <img src="icons/smartphone.svg" alt="" >
+  <div class="flex gap-1 items-center h-[18px] whitespace-nowrap pr-1 transition-all duration-300 ease-in-out hover:scale-105  ">
+    <a href="tel:+995 571 52 50 50"  class="flex gap-2 text-[12px] items-center font-medium leading-[26px] " [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '">  <span class="material-symbols-outlined text-lg" >
+        mobile
+      </span><span class="hover:underline">+995 571 52 50 50</span>
+
     </a>
+
+
   </div>
-  <div class="relative w-6 h-6 bg-white dark:bg-primary rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-125 mr-2" 
+  <div class="relative w-6 h-6 bg-white dark:bg-primary rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-125 mr-2"
       (click)="toggleTheme()">
       <div class="absolute  bg-white dark:bg-primary rounded-full shadow-md transform transition-all duration-700 " >
           <img src="icons/day.svg" alt="" *ngIf="!isDarkMode" class="">
@@ -75,7 +79,7 @@ max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
   </button>
 
     <div
-      class="absolute right-[-1rem] top-7 max-h-0  overflow-hidden transition-all duration-300 rounded-lg  ease-in-out 
+      class="absolute right-[-1rem] top-7 max-h-0  overflow-hidden transition-all duration-300 rounded-lg  ease-in-out
       group-hover:max-h-[300px] open:max-h-[300px] group-hover:p-1">
       <div class="mt-3 w-40 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:scale-105">
         <button *ngFor="let lang of languages"
@@ -91,7 +95,7 @@ max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
 
 
     <div class="relative hidden gap-2 items-center max-xl:flex ">
-      <div class="relative w-5 h-5 bg-white dark:bg-primary rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-125 mr-2" 
+      <div class="relative w-5 h-5 bg-white dark:bg-primary rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-125 mr-2"
       (click)="toggleTheme()">
         <div class="absolute  bg-white dark:bg-primary rounded-full shadow-md transform transition-all duration-700 ">
             <img src="icons/day.svg" alt="" *ngIf="!isDarkMode" class="">
@@ -104,19 +108,19 @@ max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
           <span class="w-[22px] h-[2px] bg-current"></span>
          </div>
 
-         {{translations()?.menu}}
+         <!-- {{translations()?.menu}} -->
       </button>
-      
-    
+
+
       <!-- Backdrop overlay -->
-      <div 
-      *ngIf="isOpen" 
+      <div
+      *ngIf="isOpen"
       class="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 "
       (click)="toggleMenu()">
     </div>
-  
-    <div 
-      [ngClass]="{'translate-x-0': isOpen, '-translate-x-full': !isOpen}" 
+
+    <div
+      [ngClass]="{'translate-x-0': isOpen, '-translate-x-full': !isOpen}"
       class="flex flex-col fixed top-0 left-0 h-full max-w-[400px] min-w-[340px] w-full px-5 p-10  backdrop-blur-lg  dark:bg-primary/70 text-white  bg-primary/30 transition-transform duration-300 ease-in-out shadow-xl gap-10">
       <div class="flex justify-between items-center ">
         <a href="#" class="flex items-center h-full mt-[2px]">
@@ -125,17 +129,17 @@ max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
           </h1>
         </a>
         <button class="flex gap-2 items-center cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out group" (click)="toggleMenu()">
-          <img src="icons/close.svg" alt=""  class="flex text-white  group-hover:rotate-90 transition-all duration-300 ease-in-out ">
+          <span alt=""  class="material-symbols-outlined flex text-white  group-hover:rotate-90 transition-all duration-300 ease-in-out ">close</span>
           <span class="text-base font-case">{{translations()?.menu}}</span>
         </button>
       </div>
       <app-mobile-navigation class="flex-1" (closeMenu)="isOpen = false"></app-mobile-navigation>
     </div>
   </div>
-  
+
 
 </div>
 
 
 
-</header>
+

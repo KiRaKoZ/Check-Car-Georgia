@@ -1,13 +1,68 @@
-<div class="relative overflow-hidden max-w-[1800px] mx-auto bg-bg-3 dark:bg-[#141a3e] rounded-lg min-h-[500px] flex flex-col lg:flex-row items-center max-lg:h-auto">
-  <div class="flex w-full max-w-[1430px] py-12 m-auto max-md:flex-col max-md:gap-6">
-    <div class="flex flex-col gap-8 justify-center px-4 max-w-[50%] max-md:max-w-none text-primary dark:text-white">
+<div
+  class="relative overflow-hidden max-w-[1800px] mx-auto bg-bg-3 dark:bg-[#141a3e] rounded-lg min-h-[500px] flex flex-col lg:flex-row items-center max-lg:h-auto"
+>
+  <div
+    class="flex w-full max-w-[1430px] py-12 m-auto max-md:flex-col max-md:gap-6"
+  >
+    <div
+      class="flex flex-col gap-8 justify-center px-4 max-w-[50%] max-md:max-w-none text-primary dark:text-white"
+    >
       <h4 class="font-bold leading-10">{{ translations()?.social?.title }}</h4>
       <p class="text-base leading-7">{{ translations()?.social?.text }}</p>
-      <div><button routerLink="/contact" class="flex justify-center gap-4 px-6 py-4 mt-6 text-base font-medium text-white bg-blue-600 rounded-lg border border-blue-600 max-md:w-full">{{ translations()?.social?.cta }}<img src="icons/LinkArrow.svg" alt="" class="invert"></button></div>
+      <div>
+        <button
+          routerLink="/contact"
+          class="flex justify-center gap-4 px-6 py-4 mt-6 text-base font-medium text-white bg-blue-600 rounded-lg border border-blue-600 max-md:w-full"
+        >
+          {{ translations()?.social?.cta
+          }}
+          <span class="material-symbols-outlined">arrow_outward</span>
+        </button>
+      </div>
     </div>
-    <div class="relative w-[50%] flex justify-center md:absolute md:right-0 md:top-0 h-[400px] md:h-full max-md:w-full overflow-hidden">
-      <svg width="100%" height="90%" viewBox="0 0 547 528" class="brand-circles"><text x="145" y="285.5" fill="#405FF2" font-size="25" font-weight="bold">CHECKCARGEORGIA</text></svg>
-      <div class="absolute w-full h-full flex justify-center items-center top-0"><a *ngFor="let image of rotatingImages" [href]="image.link" target="_blank" rel="noopener noreferrer" class="absolute"><img [src]="image.src" [alt]="image.alt" [style.width]="image.size" [style.height]="image.size" [style.animation]="image.isPaused ? 'none' : image.speed + ' linear infinite ' + image.animationName" class="icon cursor-pointer" (mouseenter)="stopAnimation($event)" (mouseleave)="startAnimation($event)" /></a></div>
+    <div
+      class="relative w-[50%] flex justify-center md:absolute md:right-0 md:top-0 h-[400px] md:h-full max-md:w-full overflow-hidden"
+    >
+      <svg
+        width="100%"
+        height="90%"
+        viewBox="0 0 547 528"
+        class="brand-circles"
+      >
+        <text
+          x="145"
+          y="285.5"
+          fill="#405FF2"
+          font-size="25"
+          font-weight="bold"
+        >
+          CHECKCARGEORGIA
+        </text>
+      </svg>
+      <div
+        class="absolute w-full h-full flex justify-center items-center top-0"
+      >
+        <a
+          *ngFor="let image of rotatingImages"
+          [href]="image.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="absolute"
+          ><img
+            [src]="image.src"
+            [alt]="image.alt"
+            [style.width]="image.size"
+            [style.height]="image.size"
+            [style.animation]="
+              image.isPaused
+                ? 'none'
+                : image.speed + ' linear infinite ' + image.animationName
+            "
+            class="icon cursor-pointer"
+            (mouseenter)="stopAnimation($event)"
+            (mouseleave)="startAnimation($event)"
+        /></a>
+      </div>
     </div>
   </div>
 </div>

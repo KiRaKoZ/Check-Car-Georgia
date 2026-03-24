@@ -15,7 +15,7 @@
     "about": "About Us",
     "contact": "Contact",
     "pagesList": {
-      "gallery": "Cars",
+      "cars": "Cars",
       "faq": "FAQ",
       "calculator": "Calculator",
       "service": "Booking",
@@ -24,6 +24,27 @@
   },
   "sectionTitles": {
     "vehicleListTitle": "Explore All Vehicles"
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Us?",
+    "items": {
+      "fastBooking": {
+        "title": "Fast Booking",
+        "text": "Quick booking process with fast confirmation and easy communication."
+      },
+      "premiumCars": {
+        "title": "Premium Cars",
+        "text": "Well-maintained premium vehicles for a comfortable and reliable drive."
+      },
+      "insuredVehicles": {
+        "title": "Insured Vehicles",
+        "text": "All cars are insured to give you more confidence and peace of mind."
+      },
+      "airportTransfer": {
+        "title": "Airport Transfer",
+        "text": "Convenient airport pickup and drop-off service at agreed times and locations."
+      }
+    }
   },
   "booking": {
     "title": "Book your car",
@@ -59,7 +80,7 @@
     "text": "Follow Check Car Georgia on social media and contact us quickly through your preferred channel.",
     "cta": "Contact us"
   },
-  "gallery": {
+  "cars": {
     "eyebrow": "Cars",
     "title": "All available cars",
     "text": "Browse the fleet, filter quickly, and open any vehicle for full details and booking."
@@ -93,7 +114,7 @@
     "connect": "Connect With Us",
     "about": "About Us",
     "contact": "Contact Us",
-    "gallery": "Cars",
+    "cars": "Cars",
     "terms": "Terms & Conditions",
     "faqs": "FAQs",
     "booking": "Booking",

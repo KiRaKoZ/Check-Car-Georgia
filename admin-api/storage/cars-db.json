@@ -498,7 +498,7 @@
     "seats": 5,
     "doors": 4,
     "location": "",
-    "available": true,
+    "available": false,
     "featured": true,
     "images": [
       "/uploads/488c9f2b1685e42f4a41524dfea5e62d",
