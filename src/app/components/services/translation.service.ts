@@ -1,4 +1,4 @@
-import { Injectable, WritableSignal, signal } from '@angular/core';
+import { Injectable, WritableSignal, effect, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
@@ -7,6 +7,14 @@ export class TranslationService {
   translations: WritableSignal<any> = signal({});
 
   constructor(private http: HttpClient) {
+    effect(() => {
+      const lang = this.language();
+      if (typeof document === 'undefined') return;
+      document.documentElement.setAttribute('lang', lang === 'geo' ? 'ka' : lang);
+      document.body.classList.remove('lang-geo', 'lang-eng', 'lang-rus');
+      document.body.classList.add(`lang-${lang}`);
+    });
+
     this.loadTranslations(this.language());
   }
 

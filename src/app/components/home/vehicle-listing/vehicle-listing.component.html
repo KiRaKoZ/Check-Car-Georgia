@@ -1,7 +1,14 @@
 <div class="flex flex-col px-4 mt-24 gap-8 pl-[calc((100vw-1430px)/2)] relative overflow-hidden max-xl:px-0 max-xl:gap-8 max-sm:mt-12 max-sm:gap-4">
-  <div class="flex justify-between items-center max-w-[1430px] max-xl:pr-[1rem] text-primary dark:text-white max-md:flex-col max-md:items-start max-md:gap-4">
-    <h4 class="font-case font-bold">{{ translations()?.sectionTitles?.vehicleListTitle }}</h4>
-    <a routerLink="/cars" class="flex text-center gap-2 text-nowrap items-center">
+  <div class="flex justify-between items-start max-w-[1430px] max-xl:pr-[1rem] text-primary dark:text-white max-md:flex-col max-md:items-start max-md:gap-4">
+    <div>
+      <h4 class="font-case font-bold">{{ translations()?.sectionTitles?.vehicleListTitle }}</h4>
+      <div class="home-filter-tabs mt-5">
+        <button type="button" (click)="setFilter('all')" [class.active]="activeFilter === 'all'">ყველა</button>
+        <button type="button" (click)="setFilter('available')" [class.active]="activeFilter === 'available'">ხელმისაწვდომია</button>
+        <button type="button" (click)="setFilter('unavailable')" [class.active]="activeFilter === 'unavailable'">ხელმიუწვდომელია</button>
+      </div>
+    </div>
+    <a routerLink="/cars" [queryParams]="{ status: activeFilter !== 'all' ? activeFilter : null }" class="flex text-center gap-2 text-nowrap items-center">
       {{ translations()?.viewAll }}
       <img src="icons/LinkArrow.svg" alt="" class="w-[14px] h-[14px] dark:invert" />
     </a>
@@ -9,7 +16,7 @@
 
   <div class="flex gap-5 overflow-hidden text-white relative slider-container w-full max-xl:gap-0" style="width: calc(1400px + ((100vw - 1400px) / 2)); max-width: calc(1400px + ((100vw - 1400px) / 2)) !important; padding-right: calc((100vw - 1400px) / 2);" (touchstart)="startDrag($event.touches[0].clientX)" (touchmove)="moveDrag($event.touches[0].clientX)" (touchend)="endDrag()" (mousedown)="startDrag($event.clientX)" (mousemove)="moveDrag($event.clientX)" (mouseleave)="endDrag()" (mouseup)="endDrag()">
     <div class="flex gap-5 max-xl:gap-0 transition-transform duration-300" [style.transform]="getTrackTransform()">
-      <div class="flex w-full h-[280px] max-w-[600px] min-w-[600px] max-xl:max-w-none max-xl:h-[450px] max-xl:min-w-[100vw] max-xl:pr-[2rem] max-lg:h-[300px] max-md:flex-col max-md:h-[650px] max-sm:h-[500px]" *ngFor="let car of cars; let i = index">
+      <div class="flex w-full h-[280px] max-w-[600px] min-w-[600px] max-xl:max-w-none max-xl:h-[450px] max-xl:min-w-[100vw] max-xl:pr-[2rem] max-lg:h-[300px] max-md:flex-col max-md:h-[650px] max-sm:h-[500px]" *ngFor="let car of filteredCars; let i = index">
         <div class="w-[50%] rounded-l-[16px] flex items-center max-md:w-[100%] max-md:h-[70%] max-sm:h-[70%] relative">
           <img [src]="car.image" [alt]="car.name" draggable="false" class="object-cover w-full h-full rounded-l-[16px] max-md:rounded-[16px]" [class.dimmed-car]="!car.available">
           <span *ngIf="!car.available" class="unavailable-badge">ხელმიუწვდომელია</span>
@@ -50,7 +57,7 @@
 
   <div class="flex gap-6 items-center w-full max-w-[260px] ml-1 mb-1 max-md:gap-[2rem] text-primary dark:text-white">
     <button (click)="prevSlide(); restartAutoSlide()" class="w-8 h-8 border border-[#E1E1E1] rounded-3xl text-sm ease-in-out transition-all duration-300 hover:bg-white dark:hover:text-primary hover:scale-110">❮</button>
-    <div class="flex gap-2 whitespace-nowrap">{{ currentIndex + 1 }} - {{ cars.length }}</div>
+    <div class="flex gap-2 whitespace-nowrap">{{ filteredCars.length ? currentIndex + 1 : 0 }} - {{ filteredCars.length }}</div>
     <button (click)="nextSlide(); restartAutoSlide()" class="w-8 h-8 border border-[#E1E1E1] rounded-3xl text-sm ease-in-out transition-all duration-300 hover:bg-white dark:hover:text-primary hover:scale-110">❯</button>
   </div>
 </div>

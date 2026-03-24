@@ -2,11 +2,6 @@
   <div class="flex flex-wrap gap-5 justify-between w-full max-w-[1400px] text-primary dark:text-white max-md:max-w-full">
     <div>
       <h2 class="text-4xl font-bold leading-none">Vehicle Details</h2>
-      <div class="home-filter-tabs mt-6">
-        <button type="button" (click)="setFilter('all')" [class.active]="activeFilter === 'all'">ყველა</button>
-        <button type="button" (click)="setFilter('available')" [class.active]="activeFilter === 'available'">ხელმისაწვდომია</button>
-        <button type="button" (click)="setFilter('unavailable')" [class.active]="activeFilter === 'unavailable'">ხელმიუწვდომელია</button>
-      </div>
     </div>
     <a routerLink="/cars" class="flex gap-2.5 justify-center items-center self-start mt-3.5 text-base font-medium leading-loose">
       <span class="self-stretch my-auto">{{ translations()?.viewAll }}</span>
@@ -16,7 +11,7 @@
 
   <div class="mt-12 w-full max-w-[1400px] max-md:mt-10 max-md:max-w-full">
     <div class="grid grid-cols-6 gap-5 max-md:grid-cols-1 max-md:gap-x-0">
-      <a *ngFor="let card of displayCards; let i = index" [routerLink]="['/cars']" [queryParams]="{ type: card.typeKey, status: activeFilter !== 'all' ? activeFilter : null }" class="w-full" [ngClass]="i < 2 ? 'col-span-3' : 'col-span-2'">
+      <a *ngFor="let card of displayCards; let i = index" [routerLink]="['/cars']" [queryParams]="{ type: card.typeKey }" class="w-full" [ngClass]="i < 2 ? 'col-span-3' : 'col-span-2'">
         <div class="car-tile flex relative overflow-hidden flex-col items-start px-8 pb-8 w-full rounded-3xl h-[20rem] max-md:px-5 min-h-[200px] max-sm:max-h-[200px]" [class.is-unavailable]="!card.available">
           <img [src]="card.image" [alt]="card.label" class="absolute inset-0 size-full rounded-3xl object-cover transition-transform duration-500 hover:scale-110" [class.dimmed]="!card.available" />
           <div class="flex absolute bottom-5 gap-2.5 justify-center items-center px-8 py-2 bg-white rounded-[60px] max-md:px-5 text-primary">

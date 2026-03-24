@@ -28,8 +28,6 @@ export default {
         },
         fontFamily: {
           DMSans: ["DM Sans", "sans-serif"],
-          DMSans9pt: ["DM Sans 9pt"],
-          NotoSansGeorgian: ["Noto Serif Georgian"],
           BebasNeue: ["Bebas Neue"],
         },
       },

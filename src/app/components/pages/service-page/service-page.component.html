@@ -11,13 +11,21 @@
         <input [(ngModel)]="formData.lastName" [placeholder]="translations()?.booking?.lastName" class="rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900">
         <input [(ngModel)]="formData.email" [placeholder]="translations()?.booking?.email" class="rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900">
         <input [(ngModel)]="formData.phone" [placeholder]="translations()?.booking?.phone" class="rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900">
-        <input [(ngModel)]="search" (input)="filterCars()" [placeholder]="translations()?.booking?.search" class="rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900 md:col-span-2">
       </div>
 
       <div class="mt-6 flex items-center justify-between gap-3">
         <h2 class="text-lg font-semibold">აირჩიე ავტომობილი</h2>
-        <span class="text-sm opacity-60">ვერტიკალური სია</span>
+        <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-primary transition hover:border-secondary hover:text-secondary dark:border-slate-700 dark:bg-slate-900" (click)="toggleSearch()" aria-label="toggle search">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
       </div>
+
+      <div class="overflow-hidden transition-all duration-300" [style.maxHeight]="searchOpen ? '90px' : '0px'">
+        <input [(ngModel)]="search" (input)="filterCars()" [placeholder]="translations()?.booking?.search" class="mt-4 w-full rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900">
+      </div>
+
       <div class="mt-4 max-h-[460px] space-y-3 overflow-y-auto pr-1">
         <button type="button" *ngFor="let car of filteredCars" (click)="selectCar(car.slug)" class="car-option w-full" [class.car-option-active]="formData.carSlug === car.slug" [class.car-option-unavailable]="!car.available">
           <div class="relative overflow-hidden rounded-xl min-w-[120px] w-[120px]">

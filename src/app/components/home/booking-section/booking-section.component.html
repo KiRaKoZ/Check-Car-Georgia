@@ -1,48 +1,32 @@
 <div class="booking-wrap flex flex-col text-white rounded-none max-w-[1800px] m-auto overflow-hidden bg-gradient-to-r from-[#536FF3] via-[#405FF3] to-[#627CF4] dark:from-[#293553] dark:via-[#1f2f7e] dark:to-[#00051f] h-[450px] max-lg:h-auto">
   <div class="flex justify-between w-full max-w-[1430px] m-auto">
     <div class="flex w-full gap-6 justify-between px-[1rem] max-md:flex-col">
-      <div class="booking-toolbar absolute right-6 top-6 z-10 max-md:right-4 max-md:top-4">
-        <button type="button" (click)="toggleSearch()" class="search-trigger" aria-label="search">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.35-4.35m1.85-5.15a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
-          </svg>
-        </button>
-        <div class="search-shell" [class.open]="searchOpen">
-          <input [(ngModel)]="bookingSearch" type="text" [placeholder]="translations()?.booking?.search" class="search-input" />
-        </div>
-      </div>
-
       <div class="flex relative gap-10 flex-col max-w-[50%] py-[5rem] max-lg:max-w-[40%] max-md:max-w-none">
         <h4 class="text-white font-bold capitalize leading-[25px]">{{ translations()?.booking?.title }}</h4>
         <p class="text-base leading-7 max-md:w-full">{{ translations()?.booking?.subtitle }}</p>
         <p class="text-base leading-7 max-md:w-full">Book any future period, choose the exact vehicle, and send the request with one click.</p>
-        <button type="button" routerLink="/service-page" class="hidden gap-3 justify-center w-full items-center p-4 text-primary bg-white rounded-xl max-md:flex">
+        <a routerLink="/booking-page" class="inline-flex gap-3 justify-center w-fit items-center px-6 py-4 text-primary bg-white rounded-xl hover:scale-[1.02] transition">
           {{ translations()?.booking?.bookNow }}
           <img src="icons/LinkArrow.svg" alt="" />
-        </button>
+        </a>
       </div>
 
       <div class="booking-side max-md:order-first max-md:mt-20">
         <div class="booking-menu">
           <div class="booking-menu-title">Booking</div>
-          <button type="button" class="booking-menu-search" (click)="toggleSearch()">
-            <span class="menu-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.35-4.35m1.85-5.15a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
-              </svg>
-            </span>
-            <span>Search</span>
-          </button>
           <div class="menu-items">
-            <span *ngFor="let item of bookingMenu">{{ item }}</span>
+            <span>აირჩიე მანქანა</span>
+            <span>დაადასტურე თარიღი</span>
+            <span>გაგზავნე მოთხოვნა</span>
+            <span>დაელოდე პასუხს</span>
           </div>
         </div>
         <div class="booking-visual max-md:hidden">
           <img src="images/1.png" alt="booking" class="h-full" loading="lazy">
-          <button type="button" routerLink="/service-page" class="flex gap-3 justify-evenly top-[20rem] right-[8rem] w-[170px] absolute items-center p-4 text-white bg-secondary rounded-xl">
+          <a routerLink="/booking-page" class="flex gap-3 justify-evenly top-[20rem] right-[8rem] w-[170px] absolute items-center p-4 text-white bg-secondary rounded-xl">
             {{ translations()?.booking?.bookNow }}
             <img src="icons/LinkArrow.svg" alt="" class="invert">
-          </button>
+          </a>
         </div>
       </div>
     </div>

@@ -6,7 +6,6 @@ const cancelEditBtn = document.getElementById('cancelEditBtn');
 const existingPreview = document.getElementById('existingPreview');
 const existingImagesInput = document.getElementById('existingImages');
 const videoPreview = document.getElementById('videoPreview');
-const themeToggleBtn = document.getElementById('themeToggleBtn');
 
 const fields = {
   carId: document.getElementById('carId'),
@@ -29,6 +28,7 @@ const fields = {
   features: document.getElementById('features'),
   featured: document.getElementById('featured'),
   available: document.getElementById('available'),
+  availabilitySelect: document.getElementById('availabilitySelect'),
   images: document.getElementById('images'),
   video: document.getElementById('video'),
   existingVideo: document.getElementById('existingVideo'),
@@ -114,6 +114,7 @@ function resetForm() {
   fields.transmissionKey.value = 'automatic';
   fields.fuelKey.value = 'petrol';
   fields.available.checked = true;
+  if (fields.availabilitySelect) fields.availabilitySelect.value = 'true';
   existingImages = [];
   renderExistingPreview();
   renderVideoPreview('');
@@ -210,6 +211,7 @@ function startEdit(id) {
   fields.features.value = Array.isArray(car.features) ? car.features.map((item) => localized(item, 'geo')).join(', ') : '';
   fields.featured.checked = !!car.featured;
   fields.available.checked = car.available !== false;
+  if (fields.availabilitySelect) fields.availabilitySelect.value = String(car.available !== false);
   existingImages = Array.isArray(car.images) ? [...car.images] : [];
   renderExistingPreview();
   renderVideoPreview(car.video || '');
@@ -242,11 +244,13 @@ form.addEventListener('submit', async (event) => {
   const formData = new FormData();
   const id = fields.carId.value;
   Object.entries(fields).forEach(([key, input]) => {
-    if (['carId', 'featured', 'available', 'images', 'video', 'existingVideo'].includes(key)) return;
+    if (['carId', 'featured', 'available', 'availabilitySelect', 'images', 'video', 'existingVideo'].includes(key)) return;
     formData.append(key, input.value.trim());
   });
+  const availableValue = fields.availabilitySelect ? fields.availabilitySelect.value === 'true' : fields.available.checked;
+  fields.available.checked = availableValue;
   formData.append('featured', String(fields.featured.checked));
-  formData.append('available', String(fields.available.checked));
+  formData.append('available', String(availableValue));
   formData.append('existingVideo', fields.existingVideo.value || '');
   existingImages.forEach((item) => formData.append('existingImages', item));
   Array.from(fields.images.files || []).forEach((file) => formData.append('images', file));
@@ -274,12 +278,3 @@ cancelEditBtn.addEventListener('click', resetForm);
 renderVideoPreview('');
 loadCars();
 
-const savedTheme = localStorage.getItem('admin-theme') || 'dark';
-document.body.classList.toggle('light-mode', savedTheme === 'light');
-themeToggleBtn?.addEventListener('click', () => {
-  const nextIsLight = !document.body.classList.contains('light-mode');
-  document.body.classList.toggle('light-mode', nextIsLight);
-  localStorage.setItem('admin-theme', nextIsLight ? 'light' : 'dark');
-  themeToggleBtn.textContent = nextIsLight ? 'Dark mode' : 'Day mode';
-});
-if (themeToggleBtn) themeToggleBtn.textContent = document.body.classList.contains('light-mode') ? 'Dark mode' : 'Day mode';

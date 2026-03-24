@@ -21,7 +21,6 @@ interface DisplayCard {
 export class CarsComponent {
   cars: Car[] = [];
   displayCards: DisplayCard[] = [];
-  activeFilter: 'all' | 'available' | 'unavailable' = 'all';
   private translationService = inject(TranslationService);
   private carDataService = inject(CarDataService);
   translations: Signal<any> = this.translationService.translations;
@@ -40,14 +39,8 @@ export class CarsComponent {
     });
   }
 
-  setFilter(filter: 'all' | 'available' | 'unavailable'): void {
-    this.activeFilter = filter;
-    this.buildCards();
-  }
-
   private buildCards(): void {
-    const scopedCars = this.cars.filter((car) => this.activeFilter === 'all' || (this.activeFilter === 'available' ? car.available : !car.available));
-    const source = scopedCars.length ? scopedCars : this.cars;
+    const source = this.cars;
     this.displayCards = this.preferredTypes.map((type, index) => {
       const matched = source.find((car) => car.typeKey === type.key) || source[index] || source[0];
       return {

@@ -6,7 +6,14 @@
 @tailwind utilities;
 
 body{
-  overflow-x: hidden
+  overflow-x: hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+
+body.lang-geo,
+body.lang-eng,
+body.lang-rus {
+  font-family: 'DM Sans', sans-serif;
 }
 
 

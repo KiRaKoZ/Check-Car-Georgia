@@ -21,6 +21,7 @@ export class ServicePageComponent {
   cars: Car[] = [];
   filteredCars: Car[] = [];
   search = '';
+  searchOpen = false;
   formData = { firstName: '', lastName: '', email: '', phone: '', carSlug: '', pickupDate: '', returnDate: '' };
 
   constructor() {
@@ -31,6 +32,14 @@ export class ServicePageComponent {
       const requested = preselected && cars.some(car => car.slug === preselected) ? preselected : '';
       this.formData.carSlug = requested || cars.find(car => car.available)?.slug || cars[0]?.slug || '';
     });
+  }
+
+  toggleSearch(): void {
+    this.searchOpen = !this.searchOpen;
+    if (!this.searchOpen) {
+      this.search = '';
+      this.filterCars();
+    }
   }
 
   filterCars(): void {

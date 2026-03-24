@@ -31,7 +31,7 @@ bg-primary text-white " >
       <div class="mt-3 bg-white dark:bg-primary h-auto shadow-lg py-[1rem] px-[2rem] rounded-xl">
         <div class="flex flex-col gap-4 items-start text-primary dark:text-white">
           <a routerLink="/cars" routerLinkActive="secondary text-secondary" class="flex text-sm ease-in-out transition-all duration-300  hover:underline hover:scale-105" >{{translations()?.header?.pagesList?.gallery}}</a>
-          <a routerLink="/service-page" routerLinkActive="secondary text-secondary font-bold" class="flex text-sm  ease-in-out transition-all duration-300  hover:underline hover:scale-105">{{translations()?.header?.pagesList?.service}}</a>
+          <a routerLink="/booking-page" routerLinkActive="secondary text-secondary font-bold" class="flex text-sm  ease-in-out transition-all duration-300  hover:underline hover:scale-105">{{translations()?.header?.pagesList?.service}}</a>
           <a routerLink="/calculator" routerLinkActive="secondary text-secondary font-bold" class="flex text-sm  ease-in-out transition-all duration-300  hover:underline hover:scale-105" >{{translations()?.header?.pagesList?.calculator}}</a>
          
         </div>
@@ -123,7 +123,7 @@ bg-primary text-white " >
           <span class="text-base font-case">{{translations()?.menu}}</span>
         </button>
       </div>
-      <app-mobile-navigation class="flex-1"></app-mobile-navigation>
+      <app-mobile-navigation class="flex-1" (closeMenu)="isOpen = false"></app-mobile-navigation>
     </div>
     </div>
   

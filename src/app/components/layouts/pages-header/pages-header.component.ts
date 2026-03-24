@@ -28,8 +28,8 @@ export class PagesHeaderComponent {
 
   languages = [
     { name: 'English', code: 'eng', flag: 'images/eng.svg', font: 'DM Sans'},
-    { name: 'ქართული', code: 'geo', flag: 'images/geo.svg', font: 'Noto Serif Georgian' },
-    { name: 'Русский', code: 'rus', flag: 'images/rus.svg', font: 'DM Sans 9pt' }
+    { name: 'ქართული', code: 'geo', flag: 'images/geo.svg', font: 'DM Sans' },
+    { name: 'Русский', code: 'rus', flag: 'images/rus.svg', font: 'DM Sans' }
   ];
 
 
@@ -52,7 +52,7 @@ export class PagesHeaderComponent {
 
   isPageRouteActive(): boolean {
     return this.router.url.includes('cars') || 
-           this.router.url.includes('service-page') ||  
+           this.router.url.includes('service-page') || this.router.url.includes('booking-page') ||  
            this.router.url.includes('calculator');
   }
 

@@ -14,6 +14,7 @@ import { Car } from '../../../models/car.model';
 })
 export class VehicleListingComponent implements OnInit, OnDestroy {
   cars: Car[] = [];
+  filteredCars: Car[] = [];
   currentIndex = 0;
   autoSlideInterval?: ReturnType<typeof setInterval>;
   screenWidth = window.innerWidth;
@@ -22,6 +23,7 @@ export class VehicleListingComponent implements OnInit, OnDestroy {
   dragStartX = 0;
   dragOffsetX = 0;
   isDragging = false;
+  activeFilter: 'all' | 'available' | 'unavailable' = 'all';
 
   private translationService = inject(TranslationService);
   private carDataService = inject(CarDataService);
@@ -35,8 +37,7 @@ export class VehicleListingComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.carDataService.getCars().subscribe((cars) => {
       this.cars = cars;
-      this.randomBackgrounds = this.cars.map((_, index) => this.backgroundColors[index % this.backgroundColors.length]);
-      this.restartAutoSlide();
+      this.applyFilter();
     });
   }
 
@@ -44,21 +45,33 @@ export class VehicleListingComponent implements OnInit, OnDestroy {
     if (this.autoSlideInterval) clearInterval(this.autoSlideInterval);
   }
 
+  setFilter(filter: 'all' | 'available' | 'unavailable'): void {
+    this.activeFilter = filter;
+    this.currentIndex = 0;
+    this.applyFilter();
+  }
+
+  applyFilter(): void {
+    this.filteredCars = this.cars.filter((car) => this.activeFilter === 'all' || (this.activeFilter === 'available' ? car.available : !car.available));
+    this.randomBackgrounds = this.filteredCars.map((_, index) => this.backgroundColors[index % this.backgroundColors.length]);
+    this.restartAutoSlide();
+  }
+
   restartAutoSlide(): void {
     if (this.autoSlideInterval) clearInterval(this.autoSlideInterval);
-    if (this.cars.length > 1 && !this.isDragging) {
+    if (this.filteredCars.length > 1 && !this.isDragging) {
       this.autoSlideInterval = setInterval(() => this.nextSlide(), 7000);
     }
   }
 
   nextSlide(): void {
-    if (!this.cars.length) return;
-    this.currentIndex = (this.currentIndex + 1) % this.cars.length;
+    if (!this.filteredCars.length) return;
+    this.currentIndex = (this.currentIndex + 1) % this.filteredCars.length;
   }
 
   prevSlide(): void {
-    if (!this.cars.length) return;
-    this.currentIndex = (this.currentIndex - 1 + this.cars.length) % this.cars.length;
+    if (!this.filteredCars.length) return;
+    this.currentIndex = (this.currentIndex - 1 + this.filteredCars.length) % this.filteredCars.length;
   }
 
   startDrag(clientX: number): void {
@@ -77,7 +90,7 @@ export class VehicleListingComponent implements OnInit, OnDestroy {
     if (!this.isDragging) return;
     const slideWidth = this.screenWidth <= 1280 ? this.screenWidth : 620;
     const movedSlides = Math.round(this.dragOffsetX / slideWidth);
-    const maxIndex = Math.max(this.cars.length - 1, 0);
+    const maxIndex = Math.max(this.filteredCars.length - 1, 0);
     this.currentIndex = Math.min(maxIndex, Math.max(0, this.currentIndex - movedSlides));
     this.dragOffsetX = 0;
     this.isDragging = false;
