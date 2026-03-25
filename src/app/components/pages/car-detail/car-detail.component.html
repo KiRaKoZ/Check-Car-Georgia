@@ -44,7 +44,7 @@
           <span
             *ngIf="!car.available"
             class="absolute left-4 top-4 rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-lg"
-            >ხელმიუწვდომელია</span
+            >{{ translations()?.detail?.unavailable }}</span
           >
         </div>
         <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -143,8 +143,8 @@
             ><strong>{{ car.engine }}</strong>
           </div>
           <div class="rounded-2xl bg-white p-4 dark:bg-slate-900">
-            <span class="block opacity-60">წვა / 100კმ</span
-            ><strong>{{ car.consumption || "არ არის მითითებული" }}</strong>
+            <span class="block opacity-60">{{ translations()?.detail?.consumption }}</span
+            ><strong>{{ car.consumption || translations()?.detail?.notSpecified }}</strong>
           </div>
           <div class="rounded-2xl bg-white p-4 dark:bg-slate-900">
             <span class="block opacity-60">{{
@@ -190,7 +190,7 @@
               [class.pointer-events-none]="!car.available"
               [class.opacity-50]="!car.available"
               >{{
-                car.available ? translations()?.detail?.book : "ხელმიუწვდომელია"
+                car.available ? translations()?.detail?.book : translations()?.detail?.unavailable
               }}</a
             >
           </div>

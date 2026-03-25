@@ -533,3 +533,5 @@ button.secondary:hover { background: #f8fafc; }
   .tabs { gap: 8px; }
   .tabs span { font-size: 13px; }
 }
+
+.tabs{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}.tab-btn{padding:12px 18px;border-radius:14px;border:1px solid var(--border);background:#fff;transition:.25s ease}.tab-btn:hover,.tab-btn.active{background:rgba(64,95,242,.08);border-color:rgba(64,95,242,.4);color:var(--primary)}.tab-panel{display:none}.tab-panel.active{display:block}.feature-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}.feature-option{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--border);border-radius:14px;background:#fff}.feature-option input{width:18px;height:18px}.feature-title{display:block;font-weight:700;margin-bottom:8px}.preview-item button,.delete-btn{background:var(--danger)!important;color:#fff!important;border:none!important}.preview-item button:hover,.delete-btn:hover{opacity:.9;transform:scale(1.04)}

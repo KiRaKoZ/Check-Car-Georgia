@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import emailjs from 'emailjs-com';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-contact',
@@ -15,6 +16,8 @@ export class ContactComponent {
   showErrorModal = false;
   showSuccessModal = false;
 
+  private translationService = inject(TranslationService);
+  translations: Signal<any> = this.translationService.translations;
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -75,7 +78,6 @@ export class ContactComponent {
   closeSuccessModal(): void {
     this.showSuccessModal = false;
   }
-
 
   images = [
     {

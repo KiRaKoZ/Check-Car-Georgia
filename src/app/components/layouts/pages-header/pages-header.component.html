@@ -5,7 +5,7 @@ bg-primary text-white " >
 <div class="flex w-full justify-between pl-4 pr-8 items-center max-md:pr-4">
   <div class="flex gap-12 items-center relative mt-[3px]">
     <a href="#" class="flex items-center h-full ">
-      <span class="font-BebasNeue text-[30px] font-bold tracking-[1px] max-md:text-[25px] max-[370px]:text-[20px] max-xl:dark:text-white"  >
+      <span class="logo font-BebasNeue text-[30px] font-bold tracking-[1px] max-md:text-[25px] max-[370px]:text-[20px] max-xl:dark:text-white"  >
         checkcargeorgia
       </span>
     </a>
@@ -66,13 +66,13 @@ bg-primary text-white " >
           <img src="icons/dark.svg" alt="" *ngIf="isDarkMode">
       </div>
   </div>
-  <span class="w-[1px] h-8 bg-white "  ></span>
+  <span class="w-[1px] h-5 bg-white "  ></span>
 
 
   <div appDropdown class="flex gap-2 relative group cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out">
     <button class="flex items-center gap-1 text-gray-700 dark:text-white p-1 transition rounded-lg  duration-300 hover:bg-gray-300 dark:hover:bg-gray-700 ">
     <img [src]="selectedFlag" alt="Selected Language" class="w-6 h-6 ">
-    <img src="icons/arrow-down.svg" alt="" >
+    <span class="material-symbols-outlined text-lg text-white" >expand_more</span>
   </button>
 
     <div
@@ -121,12 +121,12 @@ bg-primary text-white " >
       class="z-50 flex flex-col fixed top-0 left-0 h-full max-w-[400px] min-w-[340px] w-full px-5 p-10  backdrop-blur-lg  dark:bg-primary/70 text-white  bg-primary/30 transition-transform duration-300 ease-in-out shadow-xl gap-10">
       <div class="flex justify-between items-center ">
         <a href="#" class="flex items-center h-full mt-[2px]">
-          <h1 class=" font-BebasNeue text-[35px] font-bold leading-none tracking-[1px] max-md:text-[25px] ">
+          <h1 class="logo font-BebasNeue text-[35px] font-bold leading-none tracking-[1px] max-md:text-[25px] ">
             checkcargeorgia
           </h1>
         </a>
         <button class="flex gap-2 items-center cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out group" (click)="toggleMenu()">
-          <img src="icons/close.svg" alt=""  class="flex text-white  group-hover:rotate-90 transition-all duration-300 ease-in-out ">
+          <span class="material-symbols-outlined text-lg text-white flex group-hover:rotate-90 transition-all duration-300 ease-in-out" >close</span>
           <span class="text-base font-case">{{translations()?.menu}}</span>
         </button>
       </div>

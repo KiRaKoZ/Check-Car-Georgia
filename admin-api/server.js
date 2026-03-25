@@ -4,6 +4,7 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const basicAuth = require('basic-auth');
+const nodemailer = require('nodemailer');
 
 const app = express();
 const DATA_DIR = process.env.DATA_DIR || __dirname;
@@ -16,6 +17,15 @@ const ADMIN_USER = process.env.ADMIN_USER || 'admin';
 const ADMIN_PASS = process.env.ADMIN_PASS || 'change-me';
 const PORT = process.env.PORT || 4100;
 const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
+
+const SMTP_HOST = process.env.SMTP_HOST || '';
+const SMTP_PORT = Number(process.env.SMTP_PORT || 465);
+const SMTP_SECURE = String(process.env.SMTP_SECURE || 'true') === 'true';
+const SMTP_USER = process.env.SMTP_USER || '';
+const SMTP_PASS = process.env.SMTP_PASS || '';
+const MAIL_TO = process.env.MAIL_TO || 'checkcargeorgia@gmail.com';
+const MAIL_FROM = process.env.MAIL_FROM || SMTP_USER || 'no-reply@checkcargeorgia.ge';
+const transporter = SMTP_HOST && SMTP_USER && SMTP_PASS ? nodemailer.createTransport({ host: SMTP_HOST, port: SMTP_PORT, secure: SMTP_SECURE, auth: { user: SMTP_USER, pass: SMTP_PASS } }) : null;
 
 fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 fs.mkdirSync(PUBLIC_DIR, { recursive: true });
@@ -149,15 +159,20 @@ function parseLocalizedField(body, field, existing = {}) {
 }
 
 function parseFeatures(body, existing = {}) {
-  const raw = Array.isArray(body.features)
-    ? body.features.join(',')
-    : (body.features || '').trim();
-  if (!raw && Array.isArray(existing.features)) return existing.features;
-  return raw
-    .split(',')
-    .map((item) => item.trim())
-    .filter(Boolean)
-    .map((item) => makeLocalized(item));
+  const values = Array.isArray(body.featureKeys) ? body.featureKeys : typeof body.featureKeys === 'string' && body.featureKeys ? [body.featureKeys] : [];
+  if (!values.length && Array.isArray(existing.features)) return existing.features;
+  return values.map((item) => makeLocalized(String(item).replace(/-/g, ' ')));
+}
+
+function parseFeatureKeys(body, existing = {}) {
+  const values = Array.isArray(body.featureKeys) ? body.featureKeys : typeof body.featureKeys === 'string' && body.featureKeys ? [body.featureKeys] : [];
+  if (!values.length && Array.isArray(existing.featureKeys)) return existing.featureKeys;
+  return values;
+}
+
+async function sendMail({ subject, text, html }) {
+  if (!transporter) throw new Error('SMTP is not configured');
+  return transporter.sendMail({ to: MAIL_TO, from: MAIL_FROM, subject, text, html });
 }
 
 function buildCar(body, req, existing = {}) {
@@ -185,6 +200,7 @@ function buildCar(body, req, existing = {}) {
     images,
     image: images[0] || '',
     features: parseFeatures(body, existing),
+    featureKeys: parseFeatureKeys(body, existing),
     video: videoFile ? `/uploads/${videoFile.filename}` : (body.existingVideo || existing.video || ''),
   };
 }
@@ -235,6 +251,61 @@ app.delete('/api/admin/cars/:id', auth, (req, res) => {
   const [removed] = cars.splice(index, 1);
   writeDb(cars);
   res.json({ success: true, removed });
+});
+
+
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { firstName = '', lastName = '', email = '', phone = '', comment = '' } = req.body || {};
+    await sendMail({
+      subject: `Contact request - ${firstName} ${lastName}`.trim(),
+      text: `First name: ${firstName}
+Last name: ${lastName}
+Email: ${email}
+Phone: ${phone}
+Comment: ${comment}`,
+      html: `<h2>Contact request</h2><p><strong>First name:</strong> ${firstName}</p><p><strong>Last name:</strong> ${lastName}</p><p><strong>Email:</strong> ${email}</p><p><strong>Phone:</strong> ${phone}</p><p><strong>Comment:</strong><br>${comment}</p>`
+    });
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ message: error.message || 'Mail failed' });
+  }
+});
+
+app.post('/api/booking', async (req, res) => {
+  try {
+    const { firstName = '', lastName = '', email = '', phone = '', carName = '', pickupDate = '', returnDate = '', rentalDays = '', totalPrice = '', currency = '' } = req.body || {};
+    await sendMail({
+      subject: `Booking request - ${carName}`,
+      text: `First name: ${firstName}
+Last name: ${lastName}
+Email: ${email}
+Phone: ${phone}
+Car: ${carName}
+Pickup: ${pickupDate}
+Return: ${returnDate}
+Days: ${rentalDays}
+Total: ${currency} ${totalPrice}`,
+      html: `<h2>Booking request</h2><p><strong>First name:</strong> ${firstName}</p><p><strong>Last name:</strong> ${lastName}</p><p><strong>Email:</strong> ${email}</p><p><strong>Phone:</strong> ${phone}</p><p><strong>Car:</strong> ${carName}</p><p><strong>Pickup:</strong> ${pickupDate}</p><p><strong>Return:</strong> ${returnDate}</p><p><strong>Days:</strong> ${rentalDays}</p><p><strong>Total:</strong> ${currency} ${totalPrice}</p>`
+    });
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ message: error.message || 'Mail failed' });
+  }
+});
+
+app.post('/api/subscribe', async (req, res) => {
+  try {
+    const { email = '' } = req.body || {};
+    await sendMail({
+      subject: `New subscriber - ${email}`,
+      text: `Subscriber email: ${email}`,
+      html: `<h2>New subscriber</h2><p><strong>Email:</strong> ${email}</p>`
+    });
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ message: error.message || 'Mail failed' });
+  }
 });
 
 app.listen(PORT, () => {

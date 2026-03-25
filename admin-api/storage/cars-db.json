@@ -555,10 +555,147 @@
       "/uploads/5c19599a9bbeda8ab064e6a9479174b7",
       "/uploads/113b7e93025df6940f3a03ade99ea698",
       "/uploads/4ac7c7a1d7e015eb1e5f5524eea3164a",
-      "/uploads/8e53303ad6ef9cd827801290f0871e77"
+      "/uploads/8e53303ad6ef9cd827801290f0871e77",
+      "/uploads/a4c25855620dd9bbe163e339425a8e78"
     ],
     "image": "/uploads/5c19599a9bbeda8ab064e6a9479174b7",
     "features": [],
+    "featureKeys": [],
     "video": "/uploads/09f2689035aeb69e2ec3ff44565fb4f8"
+  },
+  {
+    "id": 1774448567862,
+    "slug": "toyota-lc-200 fsdsdf",
+    "brand": "Toyota",
+    "name": "LC 200",
+    "description": {
+      "geo": "სდფგსდგფ",
+      "eng": "დფგდფგდფ",
+      "rus": "დფგდფგ"
+    },
+    "typeKey": "hatchback",
+    "priceValue": 3245,
+    "currency": "GEL",
+    "year": 1902,
+    "transmissionKey": "automatic",
+    "fuelKey": "petrol",
+    "engine": "4.0",
+    "consumption": "8",
+    "seats": 5,
+    "doors": 4,
+    "location": "",
+    "available": true,
+    "featured": false,
+    "images": [
+      "/uploads/6b72147e8315790d9127543cb778a1a1"
+    ],
+    "image": "/uploads/6b72147e8315790d9127543cb778a1a1",
+    "features": [
+      {
+        "geo": "heated seats",
+        "eng": "heated seats",
+        "rus": "heated seats"
+      },
+      {
+        "geo": "heated steering wheel",
+        "eng": "heated steering wheel",
+        "rus": "heated steering wheel"
+      },
+      {
+        "geo": "navigation system",
+        "eng": "navigation system",
+        "rus": "navigation system"
+      },
+      {
+        "geo": "apple carplay android auto",
+        "eng": "apple carplay android auto",
+        "rus": "apple carplay android auto"
+      },
+      {
+        "geo": "bluetooth",
+        "eng": "bluetooth",
+        "rus": "bluetooth"
+      },
+      {
+        "geo": "homelink",
+        "eng": "homelink",
+        "rus": "homelink"
+      },
+      {
+        "geo": "airbag driver",
+        "eng": "airbag driver",
+        "rus": "airbag driver"
+      },
+      {
+        "geo": "airbag passenger",
+        "eng": "airbag passenger",
+        "rus": "airbag passenger"
+      },
+      {
+        "geo": "anti lock braking system",
+        "eng": "anti lock braking system",
+        "rus": "anti lock braking system"
+      },
+      {
+        "geo": "backup camera",
+        "eng": "backup camera",
+        "rus": "backup camera"
+      },
+      {
+        "geo": "blind spot monitor",
+        "eng": "blind spot monitor",
+        "rus": "blind spot monitor"
+      },
+      {
+        "geo": "center console",
+        "eng": "center console",
+        "rus": "center console"
+      },
+      {
+        "geo": "panoramic moonroof",
+        "eng": "panoramic moonroof",
+        "rus": "panoramic moonroof"
+      },
+      {
+        "geo": "qi wireless charging",
+        "eng": "qi wireless charging",
+        "rus": "qi wireless charging"
+      },
+      {
+        "geo": "touchscreen display",
+        "eng": "touchscreen display",
+        "rus": "touchscreen display"
+      },
+      {
+        "geo": "alloy wheels",
+        "eng": "alloy wheels",
+        "rus": "alloy wheels"
+      },
+      {
+        "geo": "windows electric front",
+        "eng": "windows electric front",
+        "rus": "windows electric front"
+      }
+    ],
+    "featureKeys": [
+      "heated-seats",
+      "heated-steering-wheel",
+      "navigation-system",
+      "apple-carplay-android-auto",
+      "bluetooth",
+      "homelink",
+      "airbag-driver",
+      "airbag-passenger",
+      "anti-lock-braking-system",
+      "backup-camera",
+      "blind-spot-monitor",
+      "center-console",
+      "panoramic-moonroof",
+      "qi-wireless-charging",
+      "touchscreen-display",
+      "alloy-wheels",
+      "windows-electric-front"
+    ],
+    "video": ""
   }
 ]

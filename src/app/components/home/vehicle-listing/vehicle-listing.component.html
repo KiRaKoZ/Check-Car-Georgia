@@ -1,6 +1,6 @@
 <section class="w-full overflow-hidden px-4 pt-[70px] pb-8 md:pt-20 md:pb-9 xl:pr-0 2xl:pl-[calc((100vw-1430px)/2)] 2xl:pr-0 dark:text-white">
   <div class="mb-5 flex flex-col items-start gap-4 pr-0 md:mb-[26px] md:flex-row md:items-end md:justify-between md:gap-6 md:pr-4">
-    <div class="flex flex-col gap-[18px] w-full">
+    <div class="flex flex-col gap-[18px] w-full max-w-[1400px]">
       <div class="flex  items-center justify-between gap-4">
         <h2 class="m-0 text-3xl font-bold leading-[1.1]  md:text-[30px] lg:text-[34px]">
           {{ translations()?.sectionTitles?.vehicleListTitle || 'All Vehicles' }}
@@ -16,7 +16,7 @@
           (click)="setFilter('all')"
           class="relative m-0 border-0 bg-transparent pb-[10px] text-sm transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-[#405ff2] after:transition-all after:duration-300 hover:after:w-full"
           [ngClass]="{ 'after:w-full': activeFilter === 'all' }">
-          {{ translations()?.all || 'All' }}
+          {{ translations().all }}
         </button>
 
         <button
@@ -24,7 +24,7 @@
           (click)="setFilter('available')"
           class="relative m-0 border-0 bg-transparent pb-[10px] text-sm transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-[#405ff2] after:transition-all after:duration-300 hover:after:w-full"
           [ngClass]="{ 'after:w-full': activeFilter === 'available' }">
-          {{ translations()?.available|| 'Available' }}
+          {{ translations().available }}
         </button>
 
         <button
@@ -32,7 +32,7 @@
           (click)="setFilter('unavailable')"
           class="relative m-0 border-0 bg-transparent pb-[10px] text-sm transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-[#405ff2] after:transition-all after:duration-300 hover:after:w-full"
           [ngClass]="{ 'after:w-full': activeFilter === 'unavailable' }">
-          {{ translations()?.unavailable || 'Unavailable' }}
+          {{ translations().unavailable  }}
         </button>
 
       </div>

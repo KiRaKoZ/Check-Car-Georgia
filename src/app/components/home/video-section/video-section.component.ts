@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, Signal, inject } from '@angular/core';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-video-section',
@@ -10,7 +11,8 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 })
 export class VideoSectionComponent implements AfterViewInit {
   @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
-
+  private translationService = inject(TranslationService);
+  translations: Signal<any> = this.translationService.translations;
   ngAfterViewInit(): void {
     this.startVideo();
   }

@@ -1,196 +1,236 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ka">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Check Car Georgia Admin</title>
-  <link rel="stylesheet" href="/admin/styles.css" />
-</head>
-<body>
-  <div class="admin-shell">
-    <aside class="sidebar">
-      <div>
-        <a href="#dashboard" class="sidebar-logo-wrap">
-          <div class="sidebar-logo">CHECKCAR</div>
-          <div class="sidebar-logo-sub">Dealer dashboard</div>
-        </a>
-
-        <nav class="side-links">
-          <a href="#dashboard" class="side-link">Dashboard</a>
-          <a href="#carsList" class="side-link">My Listings</a>
-          <a href="#carForm" class="side-link active">Add Listings</a>
-        </nav>
-      </div>
-
-      <div class="sidebar-foot">
-        <div class="brand">Check Car Georgia</div>
-        <div class="sub">Admin panel</div>
-        <a class="api-link" href="/api/admin/cars">API / Cars JSON</a>
-      </div>
-    </aside>
-
-    <main class="content">
-      <header class="page-header" id="dashboard">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check Car Georgia Admin</title>
+    <link rel="stylesheet" href="/admin/styles.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar">
         <div>
-          <div class="eyebrow">Dashboard</div>
-          <h1>Add Listings</h1>
+          <a href="#dashboard" class="sidebar-logo-wrap"
+            ><div class="sidebar-logo">CHECKCAR</div>
+            <div class="sidebar-logo-sub">Dealer dashboard</div></a
+          >
+          <nav class="side-links">
+            <a href="#dashboard" class="side-link">Dashboard</a
+            ><a href="#carsList" class="side-link">My Listings</a
+            ><a href="#carForm" class="side-link active">Add Listings</a>
+          </nav>
         </div>
-        <div class="top-actions">
-          <button id="resetBtn" class="secondary">ახალი მანქანა</button>
+        <div class="sidebar-foot">
+          <div class="brand">Check Car Georgia</div>
+          <div class="sub">Admin panel</div>
+          <a class="api-link" href="/api/admin/cars">API / Cars JSON</a>
         </div>
-      </header>
-
-
-
-      <section class="panel form-panel">
-        <form id="carForm">
-          <input type="hidden" id="carId" />
-          <input type="hidden" id="existingImages" />
-          <input type="hidden" id="existingVideo" />
-
-
-
-          <div class="section-card">
-            <div class="section-heading">
-              <h2>Car Details</h2>
-              <p>ძირითადი ინფორმაცია, კატეგორია და ხელმისაწვდომობა</p>
-            </div>
-
-            <div class="grid three">
-              <label><span>Listing Title</span><input id="name" required placeholder="BMW X5" /></label>
-              <label><span>Category</span>
-                <select id="typeKey">
-                  <option value="sedan">Cars / Sedan</option>
-                  <option value="cabriolet">Cars / Cabriolet</option>
-                  <option value="hatchback">Cars / Hatchback</option>
-                  <option value="coupe">Cars / Coupe</option>
-                  <option value="suv">Cars / SUV</option>
-                </select>
-              </label>
-              <label><span>Slug</span><input id="slug" required placeholder="bmw-x5-2020" /></label>
-
-              <label><span>Condition</span>
-                <select>
-                  <option>New</option>
-                  <option>Used</option>
-                </select>
-              </label>
-              <label><span>Transmission</span>
-                <select id="transmissionKey">
-                  <option value="automatic">Automatic</option>
-                  <option value="manual">Manual</option>
-                </select>
-              </label>
-              <label><span>Fuel Type</span>
-                <select id="fuelKey">
-                  <option value="petrol">Petrol</option>
-                  <option value="diesel">Diesel</option>
-                  <option value="hybrid">Hybrid</option>
-                  <option value="electric">Electric</option>
-                </select>
-              </label>
-
-              <label><span>Make</span><input id="brand" required placeholder="BMW" /></label>
-              <label><span>Year</span><input id="year" type="number" min="1900" max="2100" placeholder="2023" /></label>
-              <label><span>Availability</span>
-                <select id="availabilitySelect">
-                  <option value="true">ხელმისაწვდომია</option>
-                  <option value="false">ხელმიუწვდომელია</option>
-                </select>
-              </label>
-            </div>
-          </div>
-
-          <div class="section-card">
-            <div class="section-heading">
-              <h2>Price & Specifications</h2>
-              <p>ფასი, ძრავი, კარები, ადგილები და სხვა მონაცემები</p>
-            </div>
-
-            <div class="grid three">
-              <label><span>Price / day</span><input id="priceValue" type="number" min="0" required placeholder="150" /></label>
-              <label><span>Currency</span>
-                <select id="currency">
-                  <option value="GEL">GEL</option>
-                  <option value="USD">USD</option>
-                </select>
-              </label>
-              <label><span>Engine Size</span><input id="engine" placeholder="2.0 Turbo / 75 kWh" /></label>
-
-              <label><span>Seats</span><input id="seats" type="number" min="1" value="5" /></label>
-              <label><span>Doors</span><input id="doors" type="number" min="1" value="4" /></label>
-              <label><span>Consumption</span><input id="consumption" placeholder="8L / 100km" /></label>
-            </div>
-          </div>
-
-          <div class="section-card">
-            <div class="section-heading">
-              <h2>Description & Features</h2>
-              <p>მრავალენოვანი აღწერები და მანქანის დამატებითი ფუნქციები</p>
-            </div>
-
-            <div class="grid two">
-              <label><span>აღწერა (ქართული)</span><textarea id="description_geo" rows="5"></textarea></label>
-              <label><span>აღწერა (English)</span><textarea id="description_eng" rows="5"></textarea></label>
-              <label><span>აღწერა (Русский)</span><textarea id="description_rus" rows="5"></textarea></label>
-              <label><span>Features</span><input id="features" placeholder="კომფორტი, კამერა, Bluetooth" /></label>
-            </div>
-
-            <div class="check-row">
-              <label class="checkbox-row"><input id="featured" type="checkbox" /> <span>გამოვაჩინო მთავარი გვერდის სექციაში</span></label>
-              <label class="checkbox-row hidden-check"><input id="available" type="checkbox" checked /> <span>ხელმისაწვდომია</span></label>
-            </div>
-          </div>
-
-          <div class="section-card media-card">
-            <div class="section-heading">
-              <h2>Media</h2>
-              <p>ატვირთე გალერეა და ვიდეო მასალა</p>
-            </div>
-
-            <div class="media-grid">
-              <div class="upload-block">
-                <div class="section-label">Gallery</div>
-                <div id="existingPreview" class="preview-grid"></div>
-                <label class="upload-tile">
-                  <input id="images" type="file" multiple accept="image/*" />
-                  <span>Upload Images</span>
-                  <small>.jpg, .png</small>
-                </label>
-              </div>
-
-              <div class="upload-block">
-                <div class="section-label">Video</div>
-                <div id="videoPreview" class="video-preview empty">ვიდეო ჯერ არ არის ატვირთული.</div>
-                <label class="upload-tile small">
-                  <input id="video" type="file" accept="video/*" />
-                  <span>Upload Video</span>
-                  <small>.mp4, .mov</small>
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="actions sticky-actions">
-            <button type="submit" class="primary">შენახვა</button>
-            <button type="button" id="cancelEditBtn" class="secondary">გაუქმება</button>
-          </div>
-        </form>
-      </section>
-
-      <section class="panel listings-panel">
-        <div class="panel-title with-status">
+      </aside>
+      <main class="content">
+        <header class="page-header" id="dashboard">
           <div>
-            <strong>დამატებული მანქანები</strong>
-            <p>რედაქტირება და წაშლა რეალურ დროში</p>
+            <div class="eyebrow">Dashboard</div>
+            <h1>Add Listings</h1>
           </div>
-          <span id="status" class="status">მზად არის</span>
-        </div>
-        <div id="carsList" class="cards"></div>
-      </section>
-    </main>
-  </div>
-
-  <script src="/admin/app.js"></script>
-</body>
+          <div class="top-actions">
+            <button id="resetBtn" class="secondary">ახალი მანქანა</button>
+          </div>
+        </header>
+        <section class="panel form-panel">
+          <form id="carForm">
+            <input type="hidden" id="carId" /><input
+              type="hidden"
+              id="existingImages"
+            /><input type="hidden" id="existingVideo" />
+            <div class="tabs">
+              <button
+                type="button"
+                class="tab-btn active"
+                data-tab="detailsTab"
+              >
+                Car Details</button
+              ><button type="button" class="tab-btn" data-tab="descriptionTab">
+                Description & Features</button
+              ><button type="button" class="tab-btn" data-tab="mediaTab">
+                Media
+              </button>
+            </div>
+            <div id="detailsTab" class="tab-panel active">
+              <div class="section-card">
+                <div class="section-heading">
+                  <h2>Car Details</h2>
+                  <p>ძირითადი ინფორმაცია, კატეგორია და ხელმისაწვდომობა</p>
+                </div>
+                <div class="grid three">
+                  <label
+                    ><span>Listing Title</span
+                    ><input id="name" required placeholder="BMW X5" /></label
+                  ><label
+                    ><span>Category</span
+                    ><select id="typeKey">
+                      <option value="sedan">Cars / Sedan</option>
+                      <option value="cabriolet">Cars / Cabriolet</option>
+                      <option value="hatchback">Cars / Hatchback</option>
+                      <option value="coupe">Cars / Coupe</option>
+                      <option value="suv">Cars / SUV</option>
+                    </select></label
+                  ><label
+                    ><span>Slug</span
+                    ><input
+                      id="slug"
+                      required
+                      placeholder="bmw-x5-2020" /></label
+                  ><label
+                    ><span>Transmission</span
+                    ><select id="transmissionKey">
+                      <option value="automatic">Automatic</option>
+                      <option value="manual">Manual</option>
+                    </select></label
+                  ><label
+                    ><span>Fuel Type</span
+                    ><select id="fuelKey">
+                      <option value="petrol">Petrol</option>
+                      <option value="diesel">Diesel</option>
+                      <option value="hybrid">Hybrid</option>
+                      <option value="electric">Electric</option>
+                    </select></label
+                  ><label
+                    ><span>Availability</span
+                    ><select id="availabilitySelect">
+                      <option value="true">ხელმისაწვდომია</option>
+                      <option value="false">ხელმიუწვდომელია</option>
+                    </select></label
+                  ><label
+                    ><span>Make</span
+                    ><input id="brand" required placeholder="BMW" /></label
+                  ><label
+                    ><span>Year</span
+                    ><input
+                      id="year"
+                      type="number"
+                      min="1900"
+                      max="2100"
+                      placeholder="2023" /></label
+                  ><label
+                    ><span>Price / day</span
+                    ><input
+                      id="priceValue"
+                      type="number"
+                      min="0"
+                      required
+                      placeholder="150" /></label
+                  ><label
+                    ><span>Currency</span
+                    ><select id="currency">
+                      <option value="GEL">GEL</option>
+                      <option value="USD">USD</option>
+                    </select></label
+                  ><label
+                    ><span>Engine Size</span
+                    ><input
+                      id="engine"
+                      placeholder="2.0 Turbo / 75 kWh" /></label
+                  ><label
+                    ><span>Consumption</span
+                    ><input id="consumption" placeholder="8L / 100km" /></label
+                  ><label
+                    ><span>Seats</span
+                    ><input id="seats" type="number" min="1" value="5" /></label
+                  ><label
+                    ><span>Doors</span
+                    ><input id="doors" type="number" min="1" value="4"
+                  /></label>
+                </div>
+              </div>
+            </div>
+            <div id="descriptionTab" class="tab-panel">
+              <div class="section-card">
+                <div class="section-heading">
+                  <h2>Description & Features</h2>
+                  <p>მრავალენოვანი აღწერები და მანქანის დამატებითი ფუნქციები</p>
+                </div>
+                <div class="grid two">
+                  <label
+                    ><span>აღწერა (ქართული)</span
+                    ><textarea id="description_geo" rows="5"></textarea></label
+                  ><label
+                    ><span>აღწერა (English)</span
+                    ><textarea id="description_eng" rows="5"></textarea></label
+                  ><label
+                    ><span>აღწერა (Русский)</span
+                    ><textarea id="description_rus" rows="5"></textarea>
+                  </label>
+                  <div>
+                    <span class="feature-title">Features</span>
+                    <div id="featureOptions" class="feature-options"></div>
+                  </div>
+                </div>
+                <div class="check-row">
+                  <label class="checkbox-row"
+                    ><input id="featured" type="checkbox" />
+                    <span>გამოვაჩინო მთავარი გვერდის სექციაში</span></label
+                  ><label class="checkbox-row hidden-check"
+                    ><input id="available" type="checkbox" checked />
+                    <span>ხელმისაწვდომია</span></label
+                  >
+                </div>
+              </div>
+            </div>
+            <div id="mediaTab" class="tab-panel">
+              <div class="section-card media-card">
+                <div class="section-heading">
+                  <h2>Media</h2>
+                  <p>ატვირთე გალერეა და ვიდეო მასალა</p>
+                </div>
+                <div class="media-grid">
+                  <div class="upload-block">
+                    <div class="section-label">Gallery</div>
+                    <div id="existingPreview" class="preview-grid"></div>
+                    <div id="newPreview" class="preview-grid"></div>
+                    <label class="upload-tile"
+                      ><input
+                        id="images"
+                        type="file"
+                        multiple
+                        accept="image/*"
+                      /><span>Upload Images</span
+                      ><small>.jpg, .png</small></label
+                    >
+                  </div>
+                  <div class="upload-block">
+                    <div class="section-label">Video</div>
+                    <div id="videoPreview" class="video-preview empty">
+                      ვიდეო ჯერ არ არის ატვირთული.
+                    </div>
+                    <label class="upload-tile small"
+                      ><input id="video" type="file" accept="video/*" /><span
+                        >Upload Video</span
+                      ><small>.mp4, .mov</small></label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="actions sticky-actions">
+              <button type="submit" class="primary">შენახვა</button
+              ><button type="button" id="cancelEditBtn" class="secondary">
+                გაუქმება
+              </button>
+            </div>
+          </form>
+        </section>
+        <section class="panel listings-panel">
+          <div class="panel-title with-status">
+            <div>
+              <strong>დამატებული მანქანები</strong>
+              <p>რედაქტირება და წაშლა რეალურ დროში</p>
+            </div>
+            <span id="status" class="status">მზად არის</span>
+          </div>
+          <div id="carsList" class="cards"></div>
+        </section>
+      </main>
+    </div>
+    <script src="/admin/app.js"></script>
+  </body>
 </html>

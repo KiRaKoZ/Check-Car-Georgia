@@ -6,7 +6,7 @@ max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
 <div class="flex w-full justify-between pl-4 pr-8 items-center max-md:pr-4">
   <div class="flex gap-12 items-center relative mt-[3px]">
     <a href="#" class="flex items-center h-full ">
-      <span class="font-BebasNeue text-[30px] font-bold tracking-[1px] max-md:text-[25px] max-xl:dark:text-primary max-[370px]:text-[20px]" [class]="isScrolled ? 'dark:text-primary' : 'dark:text-white '" >
+      <span class="logo font-BebasNeue text-[30px] font-bold tracking-[1px] max-md:text-[25px] max-xl:dark:text-primary max-[370px]:text-[20px]" [class]="isScrolled ? 'dark:text-primary' : 'dark:text-white '" >
         checkcargeorgia
       </span>
     </a>
@@ -62,6 +62,8 @@ max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
 
 
   </div>
+  <span class="w-[1px] h-5 bg-white mx-1.5" [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '" ></span>
+
   <div class="relative w-6 h-6 bg-white dark:bg-primary rounded-full cursor-pointer transition-all duration-300 ease-in-out hover:scale-125 mr-2"
       (click)="toggleTheme()">
       <div class="absolute  bg-white dark:bg-primary rounded-full shadow-md transform transition-all duration-700 " >
@@ -69,13 +71,13 @@ max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
           <img src="icons/dark.svg" alt="" *ngIf="isDarkMode">
       </div>
   </div>
-  <span class="w-[1px] h-8 bg-white " [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '" ></span>
+  <span class="w-[1px] h-5 bg-white " [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '" ></span>
 
 
   <div appDropdown class="flex gap-2 relative group cursor-pointer hover:scale-105 transition-all duration-300 rounded-lg  hover:bg-gray-300 ease-in-out">
     <button class="flex items-center gap-1 text-gray-700 dark:text-white p-1 transition  duration-300  dark:hover:bg-gray-700 ">
     <img [src]="selectedFlag" alt="Selected Language" class="w-6 h-6 ">
-    <img src="icons/arrow-down.svg" alt="" [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '" >
+    <span class="material-symbols-outlined text-white " [class]="isScrolled ? 'dark:invert' : 'dark:invert-0 '" >expand_more</span>
   </button>
 
     <div
@@ -124,7 +126,7 @@ max-xl:bg-primary max-xl:dark:bg-white max-xl:dark:text-primary"
       class="flex flex-col fixed top-0 left-0 h-full max-w-[400px] min-w-[340px] w-full px-5 p-10  backdrop-blur-lg  dark:bg-primary/70 text-white  bg-primary/30 transition-transform duration-300 ease-in-out shadow-xl gap-10">
       <div class="flex justify-between items-center ">
         <a href="#" class="flex items-center h-full mt-[2px]">
-          <h1 class=" font-BebasNeue text-[35px] font-bold leading-none tracking-[1px] max-md:text-[25px] ">
+          <h1 class="logo font-BebasNeue text-[35px] font-bold leading-none tracking-[1px] max-md:text-[25px] ">
             checkcargeorgia
           </h1>
         </a>

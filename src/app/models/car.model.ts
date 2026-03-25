@@ -33,6 +33,7 @@ export interface Car {
   image: string;
   images: string[];
   features: string[];
+  featureKeys?: string[];
   video?: string;
   raw?: any;
 }

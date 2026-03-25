@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslationService } from '../../services/translation.service';
 
 interface BodyStyle {
   image: string;
@@ -17,6 +18,8 @@ interface BodyStyle {
   styleUrl: './vehicle-types.component.scss',
 })
 export class VehicleTypesComponent {
+  private translationService = inject(TranslationService);
+  translations: Signal<any> = this.translationService.translations;
   bodyStyles: BodyStyle[] = [
     {
       image: 'images/tr-sedan.png',

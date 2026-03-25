@@ -99,6 +99,7 @@ export class CarDataService {
       image: primaryImage,
       images: displayImages,
       features: this.normalizeFeatures(raw.features, lang),
+      featureKeys: this.normalizeFeatureKeys(raw.featureKeys || raw.features),
       video: this.resolveVideoUrl(raw.video || raw.videoUrl || ''),
       raw,
     };
@@ -111,6 +112,29 @@ export class CarDataService {
       return value[lang] || value.geo || value.eng || value.rus || '';
     }
     return String(value);
+  }
+
+
+  private normalizeFeatureKeys(value: any): string[] {
+    if (!value) return [];
+    if (Array.isArray(value)) {
+      return value
+        .map((item) => typeof item === 'string' ? this.slugifyFeature(item) : this.slugifyFeature(item?.geo || item?.eng || item?.rus || ''))
+        .filter(Boolean);
+    }
+    if (typeof value === 'string') {
+      return value.split(',').map((item) => this.slugifyFeature(item)).filter(Boolean);
+    }
+    return [];
+  }
+
+  private slugifyFeature(value: string): string {
+    return String(value || '')
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-');
   }
 
   private normalizeFeatures(value: any, lang: string): string[] {

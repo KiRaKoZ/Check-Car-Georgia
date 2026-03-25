@@ -9,6 +9,10 @@
   "moreInfo": "More info",
   "allCars": "All Cars",
   "viewAll": "View all",
+  "vehicleDetails": "Vehicle Details",
+  "all": "All",
+  "available": "Available",
+  "unavailable": "Unavailable",
   "header": {
     "home": "Home",
     "pages": "Pages",
@@ -62,7 +66,46 @@
     "submit": "Send booking request",
     "disclaimer": "The request opens your email with all booking details ready to send.",
     "bookNow": "Book now",
-    "emailBooking": "Email booking"
+    "emailBooking": "Email booking",
+    "sectionEyebrow": "Booking System",
+    "chooseCar": "Choose Car",
+    "unavailable": "Unavailable",
+    "minRental": "Minimum rental period: 3 days",
+    "automaticFleet": "Automatic transmission fleet",
+    "airportDelivery": "Airport delivery available",
+    "validation": {
+      "firstName": "First name is required.",
+      "lastName": "Last name is required.",
+      "email": "Enter a valid email.",
+      "phone": "Phone number is required.",
+      "car": "Please choose a car.",
+      "pickup": "Please choose a pickup date.",
+      "return": "Please choose a return date."
+    },
+    "submitSuccess": "Booking request sent successfully.",
+    "submitError": "Booking request could not be sent.",
+    "steps": [
+      {
+        "icon": "directions_car",
+        "title": "Choose Car",
+        "text": "Select your preferred vehicle easily."
+      },
+      {
+        "icon": "calendar_month",
+        "title": "Pick Dates",
+        "text": "Choose pickup and return dates."
+      },
+      {
+        "icon": "bolt",
+        "title": "Fast Process",
+        "text": "Book in seconds with simple steps."
+      },
+      {
+        "icon": "verified",
+        "title": "Secure Booking",
+        "text": "Safe and reliable experience."
+      }
+    ]
   },
   "calculator": {
     "title": "Rental price calculator",
@@ -73,17 +116,38 @@
     "cta": "Open booking page"
   },
   "faq": {
-    "title": "Frequently Asked Questions"
+    "title": "Frequently Asked Questions",
+    "subtitle": "Key information before booking, renting and receiving a vehicle."
   },
   "social": {
     "title": "Our Social Networks",
     "text": "Follow Check Car Georgia on social media and contact us quickly through your preferred channel.",
     "cta": "Contact us"
   },
+  "vehicleType": {
+    "title": "Select a Body Style",
+    "text": "Explore our collection by vehicle category and quickly find the style that fits your comfort, needs and budget."
+  },
   "cars": {
     "eyebrow": "Cars",
-    "title": "All available cars",
-    "text": "Browse the fleet, filter quickly, and open any vehicle for full details and booking."
+    "title": "Our Vehicles",
+    "text": "Choose the car that fits your trip, comfort and budget.",
+    "searchButton": "Open search",
+    "filterButton": "Open filters",
+    "searchLabel": "Search vehicle",
+    "searchPlaceholder": "Search by car name, year or model",
+    "typeLabel": "Body type",
+    "availabilityLabel": "Availability",
+    "availabilityAll": "All",
+    "viewAvailable": "View available {name} cars",
+    "availabilityAvailable": "Available",
+    "availabilityUnavailable": "Unavailable",
+    "priceLabel": "Price filter",
+    "priceRangeLabel": "Daily price range",
+    "currencyAll": "All",
+    "moreInfo": "More info",
+    "emptyTitle": "No vehicles found",
+    "emptyText": "Try changing the search or filter settings."
   },
   "detail": {
     "eyebrow": "Car details",
@@ -103,7 +167,10 @@
     "book": "Book now",
     "notFound": "Car not found",
     "notFoundText": "This detail page could not find the requested vehicle.",
-    "allCars": "Go to all cars"
+    "allCars": "Go to all cars",
+    "consumption": "Consumption / 100km",
+    "notSpecified": "Not specified",
+    "unavailable": "Unavailable"
   },
   "terms": {
     "badge": "Terms",
@@ -140,26 +207,84 @@
     "help": "Help Center",
     "how": "How It Works",
     "copyright": "All rights reserved.",
-    "privacy": "Privacy Notice"
+    "privacy": "Privacy Notice",
+    "joinTitle": "Join Us",
+    "joinSubtitle": "Receive updates, special offers and useful information.",
+    "emailPlaceholder": "Your e-mail address",
+    "signUp": "Sign Up",
+    "subscribeSuccess": "You have subscribed successfully.",
+    "subscribeError": "Subscription failed. Please try again.",
+    "brandItems": ["Toyota", "BMW", "Porsche", "Lexus", "Mercedes"],
+    "vehicleTypeItems": [
+      "SUV",
+      "Sedan",
+      "Coupe",
+      "Convertible",
+      "Premium",
+      "Automatic"
+    ]
   },
-  "cars": {
-    "eyebrow": "Cars",
-    "title": "Our Vehicles",
-    "text": "Choose the car that fits your trip, comfort and budget.",
-    "searchButton": "Open search",
-    "filterButton": "Open filters",
-    "searchLabel": "Search vehicle",
-    "searchPlaceholder": "Search by car name, year or model",
-    "typeLabel": "Body type",
-    "availabilityLabel": "Availability",
-    "availabilityAll": "All",
-    "availabilityAvailable": "Available",
-    "availabilityUnavailable": "Unavailable",
-    "priceLabel": "Price filter",
-    "priceRangeLabel": "Daily price range",
-    "currencyAll": "All",
-    "moreInfo": "More info",
-    "emptyTitle": "No vehicles found",
-    "emptyText": "Try changing the search or filter settings."
+  "contact": {
+    "title": "Contact Us",
+    "touchTitle": "Get In Touch",
+    "touchText": "Send us a message and our team will get back to you shortly.",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "E-mail",
+    "phone": "Phone",
+    "comment": "Comment",
+    "submit": "Send Message",
+    "success": "Your message has been sent successfully.",
+    "errorTitle": "Error",
+    "error": "Please check the form and try again.",
+    "validation": {
+      "firstName": "First name is required.",
+      "lastName": "Last name is required.",
+      "email": "Enter a valid email address.",
+      "phone": "Phone number is required.",
+      "comment": "Message is required."
+    },
+    "follow": "Follow us",
+    "phoneLabel": "Phone",
+    "emailLabel": "E-mail",
+    "addressLabel": "Address"
+  },
+  "aboutSell": {
+    "imageAlt": "Car image",
+    "titleLine1": "Get A Fair Price For Your Car",
+    "titleLine2": "Sell To Us Today",
+    "description": "We make the process simple, transparent and stress-free. Our team focuses on honest evaluation, quick communication and a service experience you can rely on.",
+    "points": {
+      "point1": "We offer a smooth and professional process with clear communication at every step.",
+      "point2": "You get reliable support and fast assistance whenever you need it."
+    },
+    "button": "About Us"
+  },
+  "aboutSection": {
+    "badge": "About Us",
+    "title": "We Value Our Clients And Want Them To Have A Smooth And Pleasant Experience",
+    "paragraphs": {
+      "paragraph1": "At Check Car Georgia, we focus on trust, transparency and high-quality service. Our goal is to make every interaction simple, comfortable and dependable for every customer.",
+      "paragraph2": "From the first contact to the final handover, we pay attention to details that matter. We believe a great experience comes from honest communication, well-prepared vehicles and consistent support.",
+      "paragraph3": "Whether you are booking a car, asking for advice or exploring your options, our team is here to help you with a professional and customer-focused approach."
+    },
+    "yearsLabel": "Years in Business",
+    "galleryAlt1": "Team and service photo 1",
+    "galleryAlt3": "Team and service photo 3",
+    "galleryAlt4": "Gallery image 1",
+    "galleryAlt5": "Gallery image 2"
+  },
+  "notFound": {
+    "imageAlt": "404 background image",
+    "title": "Oops! It looks like you're lost.",
+    "description": "The page you're looking for isn't available. Try searching again or go back to the home page.",
+    "button": "Go back to home"
+  },
+  "carTypes": {
+    "suv": "SUV",
+    "sedan": "Sedan",
+    "hatchback": "Hatchback",
+    "cabriolet": "Convertible",
+    "coupe": "Coupe"
   }
 }

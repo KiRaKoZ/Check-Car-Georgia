@@ -11,11 +11,13 @@ body{
 }
 
 body.lang-geo,
-body.lang-eng,
-body.lang-rus {
+body.lang-eng{
   font-family: 'DM Sans', sans-serif;
 }
-
+body.lang-rus,
+body.lang-rus *:not(.logo):not(.material-icons):not(.material-symbols-outlined):not(.material-symbols-rounded):not(.material-symbols-sharp):not(.mat-icon) {
+  font-family: 'RusFont', sans-serif;
+}
 
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';

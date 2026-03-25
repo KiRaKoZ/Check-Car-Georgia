@@ -63,7 +63,7 @@ export class CarsComponent {
 
         return {
           image: matched?.image || 'images/rentCar.jpeg',
-          label: type.label,
+          label: type.key,
           typeKey: type.key,
           available: matched?.available !== false,
           icon: type.icon,
