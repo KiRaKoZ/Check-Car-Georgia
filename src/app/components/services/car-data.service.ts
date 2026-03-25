@@ -40,7 +40,7 @@ export class CarDataService {
       return 'http://localhost:4100';
     }
 
-    if (hostname === 'admin.checkcargeorgia.ge') {
+    if (hostname === 'dashboard.checkcargeorgia.ge') {
       return origin;
     }
 
@@ -48,7 +48,7 @@ export class CarDataService {
       || hostname.endsWith('.checkcargeorgia.ge');
 
     if (isLiveCheckCarHost) {
-      return `${protocol}//admin.checkcargeorgia.ge`;
+      return `${protocol}//dashboard.checkcargeorgia.ge`;
     }
 
     return origin;

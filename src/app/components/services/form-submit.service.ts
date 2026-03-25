@@ -9,8 +9,8 @@ export class FormSubmitService {
     if (typeof window === 'undefined') return '';
     const { hostname, port, origin, protocol } = window.location;
     if ((hostname === 'localhost' || hostname === '127.0.0.1') && port === '4200') return 'http://localhost:4100';
-    if (hostname === 'admin.checkcargeorgia.ge') return origin;
-    if (hostname === 'checkcargeorgia.ge' || hostname.endsWith('.checkcargeorgia.ge')) return `${protocol}//admin.checkcargeorgia.ge`;
+    if (hostname === 'dashboard.checkcargeorgia.ge') return origin;
+    if (hostname === 'checkcargeorgia.ge' || hostname.endsWith('.checkcargeorgia.ge')) return `${protocol}//dashboard.checkcargeorgia.ge`;
     return origin;
   }
 
