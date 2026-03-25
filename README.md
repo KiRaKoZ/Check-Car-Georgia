@@ -1,59 +1,41 @@
-# CheckCarGeorgia
+# Check Car Georgia Admin API
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
-
-## Development server
-
-To start a local development server, run:
+## გაშვება
 
 ```bash
-ng serve
+cd admin-api
+npm install
+DATA_DIR=./storage ADMIN_USER=admin ADMIN_PASS=1234 npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+შემდეგ გახსენი:
 
-## Code scaffolding
+- Admin panel: `http://localhost:4100/admin`
+- Public cars API: `http://localhost:4100/api/cars`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## როგორ მუშაობს დინამიკური დამატება
+
+- მანქანას ამატებ `/admin`-დან.
+- მონაცემები ინახება `cars-db.json`-ში.
+- ფოტოები ინახება `uploads/` საქაღალდეში.
+- Angular frontend კითხულობს `/api/cars` endpoint-ს, ამიტომ ახალი მანქანა ავტომატურად გამოჩნდება საიტზე.
+
+## Production / Public deployment
+
+საჯაროდ რომ იმუშაოს და მომავალშიც დინამიურად ემატებოდეს მონაცემები:
+
+1. frontend და admin-api განათავსე ერთ სერვერზე ან reverse proxy-ით ერთ domain-ზე.
+2. აუცილებლად გამოიყენე **persistent volume / disk**.
+3. `DATA_DIR` მიუთითე ისეთ საქაღალდეზე, რომელიც deploy-ისას არ იშლება.
+
+მაგალითი:
 
 ```bash
-ng generate component component-name
+DATA_DIR=/var/www/checkcar-data ADMIN_USER=admin ADMIN_PASS=strong-password npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+ამ შემთხვევაში:
+- `/var/www/checkcar-data/cars-db.json` — მანქანების მონაცემები
+- `/var/www/checkcar-data/uploads/` — ატვირთული ფოტოები
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+თუ ეს persistent folder არ იქნება, სერვერის ხელახლა გაშვების ან redeploy-ის შემდეგ დამატებული მანქანები შეიძლება დაიკარგოს.
