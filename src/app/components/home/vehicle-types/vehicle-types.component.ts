@@ -18,16 +18,42 @@ interface BodyStyle {
 })
 export class VehicleTypesComponent {
   bodyStyles: BodyStyle[] = [
-    { image: 'images/tr-sedan.png', altText: 'Sedan', name: 'Sedan', value: 'sedan' },
-    { image: 'images/tr-coupe.png', altText: 'Coupe', name: 'Coupe', value: 'coupe' },
+    {
+      image: 'images/tr-sedan.png',
+      altText: 'Sedan',
+      name: 'Sedan',
+      value: 'sedan',
+    },
+    {
+      image: 'images/tr-coupe.png',
+      altText: 'Coupe',
+      name: 'Coupe',
+      value: 'coupe',
+    },
     { image: 'images/tr-suv.png', altText: 'SUV', name: 'SUV', value: 'suv' },
-    { image: 'images/tr-hatchback.png', altText: 'Hatchback', name: 'Hatchback', value: 'hatchback' },
-    { image: 'images/tr-coupe.png', altText: 'Cabriolet', name: 'Cabriolet', value: 'cabriolet' },
+    {
+      image: 'images/tr-hatchback.png',
+      altText: 'Hatchback',
+      name: 'Hatchback',
+      value: 'hatchback',
+    },
+    {
+      image: 'images/tr-coupe.png',
+      altText: 'convertible',
+      name: 'convertible',
+      value: 'cabriolet',
+    },
   ];
 
   duplicatedStyles: BodyStyle[] = [];
 
   constructor() {
-    this.duplicatedStyles = [...this.bodyStyles, ...this.bodyStyles, ...this.bodyStyles, ...this.bodyStyles, ...this.bodyStyles];
+    this.duplicatedStyles = [
+      ...this.bodyStyles,
+      ...this.bodyStyles,
+      ...this.bodyStyles,
+      ...this.bodyStyles,
+      ...this.bodyStyles,
+    ];
   }
 }

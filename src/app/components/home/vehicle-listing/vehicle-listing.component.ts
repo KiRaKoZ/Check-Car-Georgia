@@ -130,7 +130,7 @@ export class VehicleListingComponent implements OnInit, OnDestroy {
     ) {
       this.autoSlideInterval = setInterval(() => {
         this.nextSlide();
-      }, 5000);
+      }, 100000);
     }
   }
 

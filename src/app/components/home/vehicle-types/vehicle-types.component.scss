@@ -12,15 +12,28 @@
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: scrollLoop 22s linear infinite;
+  animation: scrollLoop 70s linear infinite;
 }
 
 .slider-track a {
   flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-  .slider-track {
-    animation-duration: 14s;
+
+.animate-scroll {
+  animation: bodyStyleScroll 70s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+@keyframes bodyStyleScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
   }
 }

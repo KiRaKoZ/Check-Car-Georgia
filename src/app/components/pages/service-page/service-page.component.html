@@ -7,69 +7,184 @@
   <div class="mt-10 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
     <div class="rounded-[2rem] bg-slate-50 p-6 dark:bg-[#1B2236]">
       <div class="grid gap-4 md:grid-cols-2">
-        <input [(ngModel)]="formData.firstName" [placeholder]="translations()?.booking?.name" class="rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900">
-        <input [(ngModel)]="formData.lastName" [placeholder]="translations()?.booking?.lastName" class="rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900">
-        <input [(ngModel)]="formData.email" [placeholder]="translations()?.booking?.email" class="rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900">
-        <input [(ngModel)]="formData.phone" [placeholder]="translations()?.booking?.phone" class="rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900">
+        <input
+          [(ngModel)]="formData.firstName"
+          [placeholder]="translations()?.booking?.name"
+          class="rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900"
+        />
+        <input
+          [(ngModel)]="formData.lastName"
+          [placeholder]="translations()?.booking?.lastName"
+          class="rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900"
+        />
+        <input
+          [(ngModel)]="formData.email"
+          [placeholder]="translations()?.booking?.email"
+          class="rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900"
+        />
+        <input
+          [(ngModel)]="formData.phone"
+          [placeholder]="translations()?.booking?.phone"
+          class="rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900"
+        />
       </div>
 
       <div class="mt-6 flex items-center justify-between gap-3">
         <h2 class="text-lg font-semibold">აირჩიე ავტომობილი</h2>
-        <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-primary transition hover:border-secondary hover:text-secondary dark:border-slate-700 dark:bg-slate-900" (click)="toggleSearch()" aria-label="toggle search">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
+        <button
+          type="button"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-primary transition hover:border-secondary hover:text-secondary dark:border-slate-700 dark:bg-slate-900"
+          (click)="toggleSearch()"
+          aria-label="toggle search"
+        >
+          <span class="material-symbols-outlined text-[20px] dark:text-white">search</span>
         </button>
       </div>
 
-      <div class="overflow-hidden transition-all duration-300" [style.maxHeight]="searchOpen ? '90px' : '0px'">
-        <input [(ngModel)]="search" (input)="filterCars()" [placeholder]="translations()?.booking?.search" class="mt-4 w-full rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900">
+      <div
+        class="overflow-hidden transition-all duration-300"
+        [style.maxHeight]="searchOpen ? '90px' : '0px'"
+      >
+        <input
+          [(ngModel)]="search"
+          (input)="filterCars()"
+          [placeholder]="translations()?.booking?.search"
+          class="mt-4 w-full rounded-xl border border-slate-200 bg-white px-4 py-4 outline-none dark:border-slate-700 dark:bg-slate-900"
+        />
       </div>
 
       <div class="mt-4 max-h-[460px] space-y-3 overflow-y-auto pr-1">
-        <button type="button" *ngFor="let car of filteredCars" (click)="selectCar(car.slug)" class="car-option w-full" [class.car-option-active]="formData.carSlug === car.slug" [class.car-option-unavailable]="!car.available">
-          <div class="relative overflow-hidden rounded-xl min-w-[120px] w-[120px]">
-            <img [src]="car.image" [alt]="car.name" loading="lazy" class="h-24 w-full rounded-xl object-cover" [class.opacity-40]="!car.available">
-            <span *ngIf="!car.available" class="status-badge status-badge-danger">ხელმიუწვდომელია</span>
+        <button
+          type="button"
+          *ngFor="let car of filteredCars"
+          (click)="selectCar(car.slug)"
+          class="car-option w-full"
+          [class.car-option-active]="formData.carSlug === car.slug"
+          [class.car-option-unavailable]="!car.available"
+        >
+          <div
+            class="relative overflow-hidden rounded-xl min-w-[120px] w-[120px]"
+          >
+            <img
+              [src]="car.image"
+              [alt]="car.name"
+              loading="lazy"
+              class="h-24 w-full rounded-xl object-cover"
+              [class.opacity-40]="!car.available"
+            />
+            <span
+              *ngIf="!car.available"
+              class="status-badge status-badge-danger"
+              >ხელმიუწვდომელია</span
+            >
           </div>
           <div class="flex-1 text-left">
             <div class="font-semibold">{{ car.fullName || car.name }}</div>
-            <div class="text-sm opacity-70">{{ car.year }} • {{ car.shortInfo }}</div>
-            <div class="mt-2 text-sm font-medium text-secondary">{{ car.price }} / {{ car.per }}</div>
+            <div class="text-sm opacity-70">
+              {{ car.year }} • {{ car.shortInfo }}
+            </div>
+            <div class="mt-2 text-sm font-medium text-secondary">
+              {{ car.price }} / {{ car.per }}
+            </div>
           </div>
         </button>
       </div>
 
       <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <label class="flex flex-col rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-900">
-          <span class="mb-2 text-sm opacity-60">{{ translations()?.booking?.pickup }}</span>
-          <input type="date" [min]="minDate" [(ngModel)]="formData.pickupDate" class="bg-transparent outline-none">
+        <label
+          class="flex flex-col rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-900"
+        >
+          <span class="mb-2 text-sm opacity-60">{{
+            translations()?.booking?.pickup
+          }}</span>
+          <input
+            type="date"
+            [min]="minDate"
+            [(ngModel)]="formData.pickupDate"
+            class="bg-transparent outline-none"
+          />
         </label>
-        <label class="flex flex-col rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-900">
-          <span class="mb-2 text-sm opacity-60">{{ translations()?.booking?.return }}</span>
-          <input type="date" [min]="formData.pickupDate || minDate" [(ngModel)]="formData.returnDate" class="bg-transparent outline-none">
+        <label
+          class="flex flex-col rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-900"
+        >
+          <span class="mb-2 text-sm opacity-60">{{
+            translations()?.booking?.return
+          }}</span>
+          <input
+            type="date"
+            [min]="formData.pickupDate || minDate"
+            [(ngModel)]="formData.returnDate"
+            class="bg-transparent outline-none"
+          />
         </label>
       </div>
 
-      <a [href]="buildMailto()" class="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-secondary px-5 py-4 font-medium text-white" [class.pointer-events-none]="selectedCar && !selectedCar.available" [class.opacity-50]="selectedCar && !selectedCar.available">{{ selectedCar?.available === false ? 'ხელმიუწვდომელია' : translations()?.booking?.submit }}</a>
-      <p class="mt-4 text-sm opacity-70">{{ translations()?.booking?.disclaimer }}</p>
+      <a
+        [href]="buildMailto()"
+        class="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-secondary px-5 py-4 font-medium text-white"
+        [class.pointer-events-none]="selectedCar && !selectedCar.available"
+        [class.opacity-50]="selectedCar && !selectedCar.available"
+        >{{
+          selectedCar?.available === false
+            ? "ხელმიუწვდომელია"
+            : translations()?.booking?.submit
+        }}</a
+      >
+      <p class="mt-4 text-sm opacity-70">
+        {{ translations()?.booking?.disclaimer }}
+      </p>
     </div>
 
     <aside class="rounded-[2rem] bg-primary p-6 text-white">
       <div class="relative overflow-hidden rounded-[1.5rem] bg-white/10">
-        <img [src]="selectedCar?.image || 'images/rentCar.jpeg'" [alt]="selectedCar?.name || 'car'" loading="lazy" class="h-64 w-full object-cover" [class.opacity-50]="selectedCar && !selectedCar.available">
-        <span *ngIf="selectedCar && !selectedCar.available" class="status-badge status-badge-danger absolute left-4 top-4">ხელმიუწვდომელია</span>
+        <img
+          [src]="selectedCar?.image || 'images/rentCar.jpeg'"
+          [alt]="selectedCar?.name || 'car'"
+          loading="lazy"
+          class="h-64 w-full object-cover"
+          [class.opacity-50]="selectedCar && !selectedCar.available"
+        />
+        <span
+          *ngIf="selectedCar && !selectedCar.available"
+          class="status-badge status-badge-danger absolute left-4 top-4"
+          >ხელმიუწვდომელია</span
+        >
       </div>
       <div class="mt-6">
-        <h2 class="text-2xl font-bold">{{ selectedCar?.fullName || selectedCar?.name || '-' }}</h2>
-        <p class="mt-2 opacity-80">{{ selectedCar?.shortInfo || '' }}</p>
+        <h2 class="text-2xl font-bold">
+          {{ selectedCar?.fullName || selectedCar?.name || "-" }}
+        </h2>
+        <p class="mt-2 opacity-80">{{ selectedCar?.shortInfo || "" }}</p>
       </div>
       <div class="mt-6 grid grid-cols-2 gap-4">
-        <div class="rounded-2xl bg-white/10 p-4"><span class="block text-sm opacity-70">{{ translations()?.calculator?.pricePerDay }}</span><strong>{{ selectedCar?.price || '—' }}</strong></div>
-        <div class="rounded-2xl bg-white/10 p-4"><span class="block text-sm opacity-70">{{ translations()?.booking?.days }}</span><strong>{{ rentalDays || 0 }}</strong></div>
-        <div class="col-span-2 mt-0 rounded-2xl border-2 border-secondary bg-white/10 p-4"><span class="block text-sm opacity-70">{{ translations()?.booking?.total }}</span><strong class="text-2xl text-secondary">{{ currencySymbol }}{{ totalPrice || 0 }}</strong></div>
+        <div class="rounded-2xl bg-white/10 p-4">
+          <span class="block text-sm opacity-70">{{
+            translations()?.calculator?.pricePerDay
+          }}</span
+          ><strong>{{ selectedCar?.price || "—" }}</strong>
+        </div>
+        <div class="rounded-2xl bg-white/10 p-4">
+          <span class="block text-sm opacity-70">{{
+            translations()?.booking?.days
+          }}</span
+          ><strong>{{ rentalDays || 0 }}</strong>
+        </div>
+        <div
+          class="col-span-2 mt-0 rounded-2xl border-2 border-secondary bg-white/10 p-4"
+        >
+          <span class="block text-sm opacity-70">{{
+            translations()?.booking?.total
+          }}</span
+          ><strong class="text-2xl text-secondary"
+            >{{ currencySymbol }}{{ totalPrice || 0 }}</strong
+          >
+        </div>
       </div>
-      <div class="mt-6 space-y-3 text-sm opacity-80"><p>• Minimum rental period: 3 days</p><p>• Automatic transmission fleet</p><p>• Airport delivery available</p></div>
+      <div class="mt-6 space-y-3 text-sm opacity-80">
+        <p>• Minimum rental period: 3 days</p>
+        <p>• Automatic transmission fleet</p>
+        <p>• Airport delivery available</p>
+      </div>
     </aside>
   </div>
 </section>

@@ -1,4 +1,4 @@
-<section class="w-full overflow-hidden px-4 pt-[70px] pb-8 md:pt-20 md:pb-9 xl:pl-10 xl:pr-0 2xl:pl-[calc((100vw-1360px)/2)] 2xl:pr-0 dark:text-white">
+<section class="w-full overflow-hidden px-4 pt-[70px] pb-8 md:pt-20 md:pb-9 xl:pr-0 2xl:pl-[calc((100vw-1430px)/2)] 2xl:pr-0 dark:text-white">
   <div class="mb-5 flex flex-col items-start gap-4 pr-0 md:mb-[26px] md:flex-row md:items-end md:justify-between md:gap-6 md:pr-4">
     <div class="flex flex-col gap-[18px] w-full">
       <div class="flex  items-center justify-between gap-4">
@@ -68,8 +68,8 @@
         *ngFor="let car of filteredCars; let i = index"
       >
 
-        <div class="grid min-h-full grid-cols-1 overflow-hidden rounded-[18px] bg-[#f2f3f5] md:min-h-[360px] md:grid-cols-[50%_50%]">
-          <div class="relative min-h-[220px] bg-[#ececec] xs:min-h-[250px] md:min-h-[360px]">
+        <div class="grid min-h-full grid-cols-1 overflow-hidden rounded-[18px] bg-[#f2f3f5] md:min-h-[360px] md:max-h-[360px]  md:grid-cols-[50%_50%]">
+          <div class="relative min-h-[360px] max-h-[360px] ">
             <img
               class="block h-full w-full object-cover"
               [ngClass]="{ 'grayscale blur-[1px] opacity-55': isUnavailable(car) }"
@@ -87,7 +87,7 @@
           </div>
 
           <div
-            class="flex min-h-[280px] flex-col justify-between px-4 pt-[18px] pb-4 text-white xs:px-5 xs:pt-[22px] xs:pb-[18px] md:min-h-[360px] md:px-[18px] md:pt-[18px] md:pb-4"
+            class="flex min-h-[280px] flex max-h-[280px] flex-col justify-between px-4 pt-[18px] pb-4 text-white xs:px-5 xs:pt-[22px] xs:pb-[18px] md:min-h-[360px] md:px-[18px] md:pt-[18px] md:pb-4"
             [style.background]="getCardBackground(i)"
             [ngClass]="{ 'shadow-[inset_0_0_0_1px_rgba(239,68,68,0.35)]': isUnavailable(car) }"
           >

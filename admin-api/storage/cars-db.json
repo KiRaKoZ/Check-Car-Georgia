@@ -501,8 +501,7 @@
     "available": false,
     "featured": true,
     "images": [
-      "/uploads/488c9f2b1685e42f4a41524dfea5e62d",
-      "/uploads/7740b5d4e5864f4d96553ff76d787d3d"
+      "/uploads/488c9f2b1685e42f4a41524dfea5e62d"
     ],
     "image": "/uploads/488c9f2b1685e42f4a41524dfea5e62d",
     "features": [
@@ -528,5 +527,38 @@
       }
     ],
     "video": ""
+  },
+  {
+    "id": 1774438286188,
+    "slug": "toyota-lc-200",
+    "brand": "Toyota",
+    "name": "LC 200",
+    "description": {
+      "geo": "fsdfsdfsdf",
+      "eng": "სდსდსდფსდფსდ",
+      "rus": "ыаываываыва"
+    },
+    "typeKey": "cabriolet",
+    "priceValue": 13,
+    "currency": "GEL",
+    "year": 1905,
+    "transmissionKey": "automatic",
+    "fuelKey": "hybrid",
+    "engine": "",
+    "consumption": "",
+    "seats": 5,
+    "doors": 4,
+    "location": "",
+    "available": true,
+    "featured": false,
+    "images": [
+      "/uploads/5c19599a9bbeda8ab064e6a9479174b7",
+      "/uploads/113b7e93025df6940f3a03ade99ea698",
+      "/uploads/4ac7c7a1d7e015eb1e5f5524eea3164a",
+      "/uploads/8e53303ad6ef9cd827801290f0871e77"
+    ],
+    "image": "/uploads/5c19599a9bbeda8ab064e6a9479174b7",
+    "features": [],
+    "video": "/uploads/09f2689035aeb69e2ec3ff44565fb4f8"
   }
 ]

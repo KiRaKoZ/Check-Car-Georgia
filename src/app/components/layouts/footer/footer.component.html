@@ -1,120 +1,196 @@
-<footer
-  class="flex flex-col items-center py-12 bg-primary w-full text-white border-white border-opacity-10"
->
-  <div
-    class="flex flex-wrap gap-10 w-full text-base max-w-[1400px] m-auto px-4 justify-between max-lg:flex-col"
-  >
-    <div class="flex flex-col flex-1 items-start self-start max-md:max-w-none">
-      <a routerLink="/" class="h-[28px]"
-        ><h4
-          class="font-BebasNeue text-[35px] font-bold leading-none tracking-[1.75px]"
-        >
-          checkcargeorgia
-        </h4></a
-      >
-      <p class="mt-8 leading-7 max-w-[450px]">
-        {{ translations()?.footer?.description }}
-      </p>
-      <div class="flex gap-5 mt-8 font-medium max-md:flex-wrap">
-        <a
-          href="tel:+995571525055"
-          class="flex gap-2.5 items-center border p-4 border-solid border-white rounded-[60px]"
-          ><img
-            src="icons/smartphone.svg"
-            class="object-contain shrink-0 my-auto aspect-square w-[26px]"
-          /><span class="my-auto whitespace-nowrap">+995 571 52 50 55</span></a
-        >
-        <a
-          href="mailto:checkcargeorgia@gmail.com"
-          class="flex gap-2.5 items-center border p-4 border-solid border-white rounded-[60px]"
-          ><img
-            src="icons/email.svg"
-            class="object-contain shrink-0 my-auto aspect-square w-[26px]"
-          /><span class="my-auto whitespace-nowrap"
-            >checkcargeorgia&#64;gmail.com</span
-          ></a
-        >
+<footer class="w-full bg-[#020B2C] text-white pt-16 md:pt-20">
+  <div class="mx-auto max-w-[1400px] px-4">
+    <!-- top -->
+    <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <!-- left -->
+      <div>
+        <a routerLink="/" class="inline-block">
+          <h4 class="text-[34px] md:text-[40px] font-bold leading-none tracking-[0.5px]">
+            CheckCarGeorgia
+          </h4>
+        </a>
+
+        <p class="mt-6 max-w-[460px] text-[16px] leading-8 text-white/75">
+          {{ translations()?.footer?.description }}
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href="tel:+995571525055"
+            class="inline-flex items-center gap-3 rounded-full border border-white/15 px-5 py-3 text-[16px] text-white transition duration-300 hover:bg-white/5"
+          >
+          <span class="material-symbols-outlined">phone</span>
+            <span>+995 571 52 50 55</span>
+          </a>
+
+          <a
+            href="mailto:checkcargeorgia@gmail.com"
+            class="inline-flex items-center gap-3 rounded-full border border-white/15 px-5 py-3 text-[16px] text-white transition duration-300 hover:bg-white/5"
+          >
+            <span class="material-symbols-outlined">email</span>
+            <span>checkcargeorgia&#64;gmail.com</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- right -->
+      <div class="max-w-[520px] lg:ml-auto w-full max-lg:max-w-none">
+        <h3 class="text-[28px] font-semibold leading-tight">
+          {{ translations()?.footer?.joinTitle || 'Join CheckCar' }}
+        </h3>
+
+        <p class="mt-3 text-[16px] text-white/75 leading-7">
+          {{ translations()?.footer?.joinSubtitle || 'Receive updates, special offers and useful information.' }}
+        </p>
+
+        <div class="mt-7 space-y-4 ">
+          <input
+            type="email"
+            [placeholder]="translations()?.footer?.emailPlaceholder || 'Your e-mail address'"
+            class="h-[68px] w-full rounded-[18px] border border-white/10 bg-white/10 px-6 text-[16px] text-white placeholder:text-white/45 outline-none transition duration-300 focus:border-white/30 focus:bg-white/12"
+          />
+
+          <button
+            type="button"
+            class="h-[62px] w-full rounded-[18px] bg-secondary text-[18px] font-medium text-white transition duration-300 hover:opacity-90"
+          >
+            {{ translations()?.footer?.signUp || 'Sign Up' }}
+          </button>
+        </div>
       </div>
     </div>
-    <div class="flex flex-col self-stretch gap-4 max-md:w-[25%]">
-      <h3 class="text-xl font-medium">{{ translations()?.footer?.company }}</h3>
-      <nav class="flex flex-col self-start text-base leading-9">
-        <a routerLink="/about-us">{{ translations()?.footer?.about }}</a
-        ><a routerLink="/contact">{{ translations()?.footer?.contact }}</a
-        ><a routerLink="/cars">{{ translations()?.footer?.cars }}</a
-        ><a routerLink="/terms-and-conditions">{{
-          translations()?.footer?.terms
-        }}</a
-        ><a routerLink="/faq">{{ translations()?.footer?.faqs }}</a>
-      </nav>
-    </div>
-    <div class="flex flex-col self-stretch gap-4 max-md:w-[50%] max-sm:w-[40%]">
-      <h3 class="text-xl font-medium">
-        {{ translations()?.footer?.quickLinks }}
-      </h3>
-      <nav class="flex flex-col self-start text-base leading-9">
-        <a routerLink="/contact">{{ translations()?.footer?.help }}</a
-        ><a routerLink="/service-page">{{ translations()?.footer?.booking }}</a
-        ><a routerLink="/calculator">{{ translations()?.footer?.calculator }}</a
-        ><a routerLink="/service-page">{{ translations()?.footer?.service }}</a>
-      </nav>
-    </div>
-    <div class="flex flex-col self-stretch gap-4 max-md:w-[25%]">
-      <h3 class="text-xl font-medium">
-        {{ translations()?.footer?.vehicleTypes }}
-      </h3>
-      <nav class="flex flex-col self-start text-base leading-9">
-        <a routerLink="/cars">SUV</a><a routerLink="/cars">Sedan</a
-        ><a routerLink="/cars">Premium</a><a routerLink="/cars">Automatic</a>
-      </nav>
-    </div>
-    <div class="flex flex-col self-stretch gap-4 max-md:w-[50%] max-sm:w-[40%]">
-      <h3 class="text-xl font-medium">{{ translations()?.footer?.brands }}</h3>
-      <nav class="flex flex-col self-start text-base leading-9">
-        <a routerLink="/cars">Toyota</a><a routerLink="/cars">BMW</a
-        ><a routerLink="/cars">Porsche</a><a routerLink="/cars">Lexus</a>
-      </nav>
-    </div>
-    <div
-      class="flex flex-col items-start gap-4 max-w-[170px] max-lg:max-w-none max-md:w-full"
-    >
-      <h3 class="text-xl font-medium">{{ translations()?.footer?.connect }}</h3>
-      <div class="flex gap-2 flex-wrap items-center">
-        <a
-          *ngFor="let image of images"
-          [href]="image.link"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex rounded-full w-[2rem] h-[2rem] justify-center items-center p-1"
-          ><img
-            [src]="image.src"
-            [alt]="image.alt"
-            class="w-[20px] h-[20px] icon cursor-pointer hover:scale-150 transition-all duration-300"
-        /></a>
+
+    <!-- divider -->
+    <div class="mt-14 h-px w-full bg-white/10"></div>
+
+    <!-- middle -->
+    <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr_1.1fr]">
+      <!-- useful links -->
+      <div>
+        <h3 class="text-[18px] font-semibold">
+          {{ translations()?.footer?.company || 'Useful Links' }}
+        </h3>
+
+        <nav class="mt-5 flex flex-col gap-3 text-[16px] leading-8 text-white/75">
+          <a routerLink="/about-us" class="transition hover:text-white">
+            {{ translations()?.footer?.about }}
+          </a>
+          <a routerLink="/contact" class="transition hover:text-white">
+            {{ translations()?.footer?.contact }}
+          </a>
+          <a routerLink="/cars" class="transition hover:text-white">
+            {{ translations()?.footer?.cars }}
+          </a>
+          <a routerLink="/faq" class="transition hover:text-white">
+            {{ translations()?.footer?.faqs }}
+          </a>
+          <a routerLink="/terms-and-conditions" class="transition hover:text-white">
+            {{ translations()?.footer?.terms }}
+          </a>
+        </nav>
+      </div>
+
+      <!-- quick links -->
+      <div>
+        <h3 class="text-[18px] font-semibold">
+          {{ translations()?.footer?.quickLinks }}
+        </h3>
+
+        <nav class="mt-5 flex flex-col gap-3 text-[16px] leading-8 text-white/75">
+          <a routerLink="/contact" class="transition hover:text-white">
+            {{ translations()?.footer?.help }}
+          </a>
+          <a routerLink="/service-page" class="transition hover:text-white">
+            {{ translations()?.footer?.booking }}
+          </a>
+          <a routerLink="/calculator" class="transition hover:text-white">
+            {{ translations()?.footer?.calculator }}
+          </a>
+          <a routerLink="/service-page" class="transition hover:text-white">
+            {{ translations()?.footer?.service }}
+          </a>
+        </nav>
+      </div>
+
+      <!-- brands -->
+      <div>
+        <h3 class="text-[18px] font-semibold">
+          {{ translations()?.footer?.brands }}
+        </h3>
+
+        <nav class="mt-5 flex flex-col gap-3 text-[16px] leading-8 text-white/75">
+          <a routerLink="/cars" class="transition hover:text-white">Toyota</a>
+          <a routerLink="/cars" class="transition hover:text-white">BMW</a>
+          <a routerLink="/cars" class="transition hover:text-white">Porsche</a>
+          <a routerLink="/cars" class="transition hover:text-white">Lexus</a>
+          <a routerLink="/cars" class="transition hover:text-white">Mercedes</a>
+        </nav>
+      </div>
+
+      <!-- vehicle types -->
+      <div>
+        <h3 class="text-[18px] font-semibold">
+          {{ translations()?.footer?.vehicleTypes }}
+        </h3>
+
+        <nav class="mt-5 flex flex-col gap-3 text-[16px] leading-8 text-white/75">
+          <a routerLink="/cars" class="transition hover:text-white">SUV</a>
+          <a routerLink="/cars" class="transition hover:text-white">Sedan</a>
+          <a routerLink="/cars" class="transition hover:text-white">Coupe</a>
+          <a routerLink="/cars" class="transition hover:text-white">Convertible</a>
+          <a routerLink="/cars" class="transition hover:text-white">Premium</a>
+          <a routerLink="/cars" class="transition hover:text-white">Automatic</a>
+        </nav>
+      </div>
+
+      <!-- social -->
+      <div>
+        <h3 class="text-[18px] font-semibold">
+          {{ translations()?.footer?.connect }}
+        </h3>
+
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a
+            *ngFor="let image of images"
+            [href]="image.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-[46px] w-[46px] items-center justify-center rounded-full bg-white/10 transition duration-300 hover:bg-white/20 hover:-translate-y-[2px]"
+          >
+            <img
+              [src]="image.src"
+              [alt]="image.alt"
+              class="h-[20px] w-[20px] object-contain"
+            />
+          </a>
+        </div>
       </div>
     </div>
   </div>
-  <span
-    class="flex self-stretch mt-16 w-full bg-white bg-opacity-10 min-h-px max-md:mt-10 max-md:max-w-full"
-  ></span>
-  <div
-    class="flex flex-wrap gap-5 mt-10 w-full justify-between text-base leading-loose max-w-[1430px] max-md:max-w-full m-auto px-4"
-  >
-    <div class="flex gap-3 flex-wrap">
-      <p>&copy; {{ currentYear }} checkcargeorgia.ge</p>
-      <p>{{ translations()?.footer?.copyright }}</p>
+
+  <!-- bottom -->
+  <div class="border-t border-white/10">
+    <div class="mx-auto flex max-w-[1400px] flex-col gap-4 px-4 py-6 text-[15px] text-white/70 md:flex-row md:items-center md:justify-between">
+      <div class="flex flex-wrap gap-2">
+        <span>&copy; {{ currentYear }} checkcargeorgia.ge</span>
+        <span>{{ translations()?.footer?.copyright }}</span>
+      </div>
+
+      <nav class="flex flex-wrap items-center gap-4 md:justify-end">
+        <a
+          routerLink="/terms-and-conditions"
+          class="transition hover:text-white"
+        >
+          {{ translations()?.footer?.terms }}
+        </a>
+        <span class="hidden h-1 w-1 rounded-full bg-white md:block"></span>
+        <a
+          routerLink="/terms-and-conditions"
+          class="transition hover:text-white"
+        >
+          {{ translations()?.footer?.privacy }}
+        </a>
+      </nav>
     </div>
-    <nav class="flex gap-2.5 justify-center items-center text-right">
-      <a
-        routerLink="/terms-and-conditions"
-        class="self-stretch my-auto whitespace-nowrap"
-        >{{ translations()?.footer?.terms }}</a
-      ><span class="w-1 h-1 border border-white rounded-full bg-white"></span
-      ><a
-        routerLink="/terms-and-conditions"
-        class="self-stretch my-auto "
-        >{{ translations()?.footer?.privacy }}</a
-      >
-    </nav>
   </div>
 </footer>

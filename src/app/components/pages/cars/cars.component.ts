@@ -40,9 +40,16 @@ export class CarsPageComponent implements OnInit {
     { value: 'suv', label: 'SUV' },
   ];
 
-  constructor(private title: Title, private meta: Meta) {
+  constructor(
+    private title: Title,
+    private meta: Meta,
+  ) {
     this.title.setTitle('Cars for rent | Check Car Georgia');
-    this.meta.updateTag({ name: 'description', content: 'Browse available rental cars in Tbilisi, filter by type, and book directly with Check Car Georgia.' });
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'Browse available rental cars in Tbilisi, filter by type, and book directly with Check Car Georgia.',
+    });
   }
 
   ngOnInit(): void {
@@ -57,10 +64,24 @@ export class CarsPageComponent implements OnInit {
     this.carDataService.getCars().subscribe((cars) => {
       this.cars = cars;
       this.maxPrice = Math.max(...cars.map((car) => car.priceValue), 0);
-      if (!this.selectedMaxPrice || this.selectedMaxPrice > this.maxPrice) this.selectedMaxPrice = this.maxPrice;
+      if (!this.selectedMaxPrice || this.selectedMaxPrice > this.maxPrice)
+        this.selectedMaxPrice = this.maxPrice;
       this.typeOptions = [
-        { value: 'all', label: this.translationService.language() === 'geo' ? 'ყველა' : this.translationService.language() === 'rus' ? 'Все' : 'All' },
-        ...Array.from(new Set(cars.map((car) => car.typeKey))).map((typeKey) => ({ value: typeKey, label: cars.find((car) => car.typeKey === typeKey)?.type || typeKey }))
+        {
+          value: 'all',
+          label:
+            this.translationService.language() === 'geo'
+              ? 'ყველა'
+              : this.translationService.language() === 'rus'
+                ? 'Все'
+                : 'All',
+        },
+        ...Array.from(new Set(cars.map((car) => car.typeKey))).map(
+          (typeKey) => ({
+            value: typeKey,
+            label: cars.find((car) => car.typeKey === typeKey)?.type || typeKey,
+          }),
+        ),
       ];
       this.applyFilters(false);
     });
@@ -69,25 +90,56 @@ export class CarsPageComponent implements OnInit {
   applyFilters(updateUrl: boolean = true): void {
     const q = this.search.trim().toLowerCase();
     this.filteredCars = this.cars.filter((car) => {
-      const matchesType = this.selectedType === 'all' || car.typeKey === this.selectedType;
-      const matchesSearch = !q || `${car.fullName} ${car.shortInfo} ${car.year}`.toLowerCase().includes(q);
-      const matchesPrice = car.priceValue >= this.minPrice && car.priceValue <= (this.selectedMaxPrice || this.maxPrice || Infinity);
-      const matchesCurrency = this.selectedCurrency === 'all' || car.currency === this.selectedCurrency;
-      const matchesAvailability = this.selectedAvailability === 'all'
-        || (this.selectedAvailability === 'available' && car.available)
-        || (this.selectedAvailability === 'unavailable' && !car.available);
-      return matchesType && matchesSearch && matchesPrice && matchesAvailability && matchesCurrency;
+      const matchesType =
+        this.selectedType === 'all' || car.typeKey === this.selectedType;
+      const matchesSearch =
+        !q ||
+        `${car.fullName} ${car.shortInfo} ${car.year}`
+          .toLowerCase()
+          .includes(q);
+      const matchesPrice =
+        car.priceValue >= this.minPrice &&
+        car.priceValue <= (this.selectedMaxPrice || this.maxPrice || Infinity);
+      const matchesCurrency =
+        this.selectedCurrency === 'all' ||
+        car.currency === this.selectedCurrency;
+      const matchesAvailability =
+        this.selectedAvailability === 'all' ||
+        (this.selectedAvailability === 'available' && car.available) ||
+        (this.selectedAvailability === 'unavailable' && !car.available);
+      return (
+        matchesType &&
+        matchesSearch &&
+        matchesPrice &&
+        matchesAvailability &&
+        matchesCurrency
+      );
     });
     this.currentPage = Math.min(this.currentPage, this.totalPages || 1);
     if (this.currentPage < 1) this.currentPage = 1;
     if (updateUrl && typeof window !== 'undefined') {
       const url = new URL(window.location.href);
-      const setOrDelete = (key: string, value: string | null) => value ? url.searchParams.set(key, value) : url.searchParams.delete(key);
-      setOrDelete('type', this.selectedType !== 'all' ? this.selectedType : null);
-      setOrDelete('status', this.selectedAvailability !== 'all' ? this.selectedAvailability : null);
+      const setOrDelete = (key: string, value: string | null) =>
+        value ? url.searchParams.set(key, value) : url.searchParams.delete(key);
+      setOrDelete(
+        'type',
+        this.selectedType !== 'all' ? this.selectedType : null,
+      );
+      setOrDelete(
+        'status',
+        this.selectedAvailability !== 'all' ? this.selectedAvailability : null,
+      );
       setOrDelete('search', this.search || null);
-      setOrDelete('maxPrice', this.selectedMaxPrice && this.selectedMaxPrice !== this.maxPrice ? String(this.selectedMaxPrice) : null);
-      setOrDelete('currency', this.selectedCurrency !== 'all' ? this.selectedCurrency : null);
+      setOrDelete(
+        'maxPrice',
+        this.selectedMaxPrice && this.selectedMaxPrice !== this.maxPrice
+          ? String(this.selectedMaxPrice)
+          : null,
+      );
+      setOrDelete(
+        'currency',
+        this.selectedCurrency !== 'all' ? this.selectedCurrency : null,
+      );
       this.location.replaceState(url.pathname, url.searchParams.toString());
     }
   }
@@ -100,8 +152,30 @@ export class CarsPageComponent implements OnInit {
   get totalPages(): number {
     return Math.ceil(this.filteredCars.length / this.carsPerPage);
   }
+  searchOpen = false;
+  filtersOpen = false;
 
-  goToPage(page: number): void { this.currentPage = page; }
-  nextPage(): void { if (this.currentPage < this.totalPages) this.currentPage++; }
-  prevPage(): void { if (this.currentPage > 1) this.currentPage--; }
+  toggleSearch(): void {
+    this.searchOpen = !this.searchOpen;
+    if (this.searchOpen) {
+      this.filtersOpen = false;
+    }
+  }
+
+  toggleFilters(): void {
+    this.filtersOpen = !this.filtersOpen;
+    if (this.filtersOpen) {
+      this.searchOpen = false;
+    }
+  }
+
+  goToPage(page: number): void {
+    this.currentPage = page;
+  }
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) this.currentPage++;
+  }
+  prevPage(): void {
+    if (this.currentPage > 1) this.currentPage--;
+  }
 }

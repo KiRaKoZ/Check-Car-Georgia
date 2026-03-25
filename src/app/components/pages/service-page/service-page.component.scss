@@ -13,8 +13,8 @@
 .cars-scroll::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.45); border-radius: 999px; }
 
 .car-option {
-  display: grid;
-  grid-template-rows: auto 1fr;
+  display: flex;
+  align-items: center;
   gap: .85rem;
   min-height: 100%;
   border-radius: 1.2rem;

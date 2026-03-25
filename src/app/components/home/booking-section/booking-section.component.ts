@@ -13,4 +13,6 @@ import { TranslationService } from '../../services/translation.service';
 export class BookingSectionComponent {
   private translationService = inject(TranslationService);
   translations: Signal<any> = this.translationService.translations;
+
+
 }

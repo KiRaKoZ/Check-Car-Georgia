@@ -105,6 +105,23 @@
     "notFoundText": "This detail page could not find the requested vehicle.",
     "allCars": "Go to all cars"
   },
+  "terms": {
+    "badge": "Terms",
+    "title": "Terms & Conditions",
+    "subtitle": "Please review the main conditions before booking, renting and receiving a vehicle.",
+    "privacyTitle": "Privacy Policy",
+    "privacyDescription": "We collect only the information necessary for booking, communication and providing our service. Your data is not shared with third parties except where required for essential services.",
+    "rentalTitle": "Rental Conditions",
+    "rentalDescription": "Vehicles are rented for the agreed period. The customer must follow proper vehicle usage rules and return the car in the same condition, except for normal wear and tear.",
+    "ageTitle": "Age Requirement",
+    "ageDescription": "The driver must be of legal age and hold a valid driving licence. If necessary, the company may request additional verification information.",
+    "insuranceTitle": "Insurance Terms",
+    "insuranceDescription": "Insurance coverage and responsibility are defined by the specific booking terms. In case of accident or damage, the customer must contact us immediately.",
+    "penaltiesTitle": "Penalty Rules",
+    "penaltiesDescription": "Any speeding, parking, camera or other fines are the responsibility of the person renting the vehicle during the relevant rental period.",
+    "cancellationTitle": "Cancellation Policy",
+    "cancellationDescription": "A booking may be cancelled with prior notice. Refund or change conditions depend on the booking stage and the agreed dates."
+  },
   "footer": {
     "description": "Premium and comfortable car rental service in Tbilisi. Fast booking, direct contact, and flexible pick-up options.",
     "company": "Company",
@@ -124,5 +141,25 @@
     "how": "How It Works",
     "copyright": "All rights reserved.",
     "privacy": "Privacy Notice"
+  },
+  "cars": {
+    "eyebrow": "Cars",
+    "title": "Our Vehicles",
+    "text": "Choose the car that fits your trip, comfort and budget.",
+    "searchButton": "Open search",
+    "filterButton": "Open filters",
+    "searchLabel": "Search vehicle",
+    "searchPlaceholder": "Search by car name, year or model",
+    "typeLabel": "Body type",
+    "availabilityLabel": "Availability",
+    "availabilityAll": "All",
+    "availabilityAvailable": "Available",
+    "availabilityUnavailable": "Unavailable",
+    "priceLabel": "Price filter",
+    "priceRangeLabel": "Daily price range",
+    "currencyAll": "All",
+    "moreInfo": "More info",
+    "emptyTitle": "No vehicles found",
+    "emptyText": "Try changing the search or filter settings."
   }
 }

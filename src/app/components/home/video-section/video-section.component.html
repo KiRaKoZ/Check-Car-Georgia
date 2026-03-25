@@ -8,10 +8,17 @@
                <img src="images/rentCar.jpeg" alt="" class="object-contain w-full rounded-3xl  dark:border-2 dark:border-white ">
               </div>
               <div class="flex flex-col rounded-3xl w-[50%] dark:border-2 dark:border-white max-lg:w-[80%] " (click)="toggleVideo()">
-                <video #videoPlayer class="w-full h-auto rounded-3xl max-xl:h-full max-xl:object-fill " autoplay muted loop playsinline>
-                  <source src="videos/ccgVideo.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
+            <video
+                #videoPlayer
+                class="w-full h-auto rounded-3xl cursor-pointer"
+                muted
+                loop
+                playsinline
+                preload="auto"
+                (click)="toggleVideo()"
+              >
+                <source src="videos/ccgVideo.mp4" type="video/mp4" />
+              </video>
               </div>
             </div>
           </div>

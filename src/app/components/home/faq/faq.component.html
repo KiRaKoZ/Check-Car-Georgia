@@ -1,20 +1,122 @@
-<section class="mx-auto max-w-[1400px] px-4 py-14 text-primary dark:text-white">
-  <div class="mx-auto max-w-4xl text-center">
-    <p class="text-sm uppercase tracking-[0.2em] text-secondary">FAQ</p>
-    <h2 class="mt-3 text-4xl font-bold">ხშირად დასმული კითხვები</h2>
-    <p class="mt-4 opacity-75">მთავარი ინფორმაცია დაჯავშნამდე, ქირაობამდე და ავტომობილის მიღებამდე.</p>
+<section class="mx-auto max-w-[1320px] px-4 py-[70px] md:py-[90px]">
+  <div class="mx-auto max-w-[760px] text-center">
+    <p class="text-[14px] font-medium uppercase tracking-[2.8px] text-[#405FF2]">
+      FAQ
+    </p>
+
+    <h2
+      class="mt-4 text-[32px] font-semibold leading-[1.2] text-[#050B20] dark:text-white md:text-[45px]"
+    >
+      ხშირად დასმული კითხვები
+    </h2>
+
+    <p
+      class="mx-auto mt-4 max-w-[680px] text-[15px] leading-[30px] text-[#6F7282] dark:text-slate-300 md:text-[16px]"
+    >
+      მთავარი ინფორმაცია დაჯავშნამდე, ქირაობამდე და ავტომობილის მიღებამდე.
+    </p>
   </div>
 
-  <div class="faq-shell mx-auto mt-10 max-w-5xl">
-    <article *ngFor="let item of faqItems; let i = index" class="faq-item" [class.faq-item-open]="item.isOpen">
-      <button type="button" class="faq-button" (click)="toggleFaq(i)">
-        <span class="faq-number">{{ (i + 1) < 10 ? '0' + (i + 1) : i + 1 }}</span>
-        <span class="faq-question">{{ item.question }}</span>
-        <span class="faq-icon" [class.faq-icon-open]="item.isOpen">+</span>
-      </button>
-      <div *ngIf="item.isOpen" @slideInOut class="faq-answer-wrap">
-        <div class="faq-answer">{{ item.answer }}</div>
+  <div class="mx-auto mt-[52px] max-w-[980px]">
+    <div class="space-y-[52px]">
+      <div>
+        <div class="space-y-4">
+          <article
+            *ngFor="let item of generalFaq; let i = index"
+            class="overflow-hidden rounded-[16px] border border-[#E9EAF0] bg-white shadow-[0px_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 dark:border-white/10 dark:bg-[#111827]"
+          >
+            <button
+              type="button"
+              (click)="toggleFaqByGroup('general', i)"
+              class="flex w-full items-center justify-between gap-4 px-[22px] py-[22px] text-left md:px-[30px] md:py-[24px]"
+            >
+              <span
+                class="pr-4 text-[16px] font-medium leading-[30px] text-[#050B20] dark:text-white md:text-[18px]"
+              >
+                {{ item.question }}
+              </span>
+
+              <span
+                class="relative flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-full border border-[#E9EAF0] bg-white transition-all duration-300 dark:border-white/10 dark:bg-white/5"
+              >
+                <span
+                  class="absolute h-[2px] w-[14px] rounded-full bg-[#050B20] dark:bg-white"
+                ></span>
+                <span
+                  class="absolute h-[14px] w-[2px] rounded-full bg-[#050B20] transition-all duration-300 dark:bg-white"
+                  [class.opacity-0]="item.isOpen"
+                ></span>
+              </span>
+            </button>
+
+            <div
+              class="grid overflow-hidden transition-all duration-300 ease-in-out"
+              [class.grid-rows-[1fr]]="item.isOpen"
+              [class.grid-rows-[0fr]]="!item.isOpen"
+            >
+              <div class="overflow-hidden">
+                <div
+                  class="px-[22px] pb-[22px] text-[15px] leading-[30px] text-[#6F7282] transition-all duration-300 dark:text-slate-300 md:px-[30px] md:pb-[26px]"
+                  [class.opacity-100]="item.isOpen"
+                  [class.opacity-0]="!item.isOpen"
+                >
+                  {{ item.answer }}
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-    </article>
+
+      <div>
+
+        <div class="space-y-4">
+          <article
+            *ngFor="let item of paymentsFaq; let i = index"
+            class="overflow-hidden rounded-[16px] border border-[#E9EAF0] bg-white shadow-[0px_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 dark:border-white/10 dark:bg-[#111827]"
+          >
+            <button
+              type="button"
+              (click)="toggleFaqByGroup('payments', i)"
+              class="flex w-full items-center justify-between gap-4 px-[22px] py-[22px] text-left md:px-[30px] md:py-[24px]"
+            >
+              <span
+                class="pr-4 text-[16px] font-medium leading-[30px] text-[#050B20] dark:text-white md:text-[18px]"
+              >
+                {{ item.question }}
+              </span>
+
+              <span
+                class="relative flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-full border border-[#E9EAF0] bg-white transition-all duration-300 dark:border-white/10 dark:bg-white/5"
+              >
+                <span
+                  class="absolute h-[2px] w-[14px] rounded-full bg-[#050B20] dark:bg-white"
+                ></span>
+                <span
+                  class="absolute h-[14px] w-[2px] rounded-full bg-[#050B20] transition-all duration-300 dark:bg-white"
+                  [class.opacity-0]="item.isOpen"
+                ></span>
+              </span>
+            </button>
+
+            <div
+              class="grid overflow-hidden transition-all duration-300 ease-in-out"
+              [class.grid-rows-[1fr]]="item.isOpen"
+              [class.grid-rows-[0fr]]="!item.isOpen"
+            >
+              <div class="overflow-hidden">
+                <div
+                  class="px-[22px] pb-[22px] text-[15px] leading-[30px] text-[#6F7282] transition-all duration-300 dark:text-slate-300 md:px-[30px] md:pb-[26px]"
+                  [class.opacity-100]="item.isOpen"
+                  [class.opacity-0]="!item.isOpen"
+                >
+                  {{ item.answer }}
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
